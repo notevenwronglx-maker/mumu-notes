@@ -1,0 +1,225 @@
+part of '../selection.dart';
+
+class ElementSelection<T extends PadElement> extends Selection<Renderer<T>> {
+  ElementSelection(super.selected);
+
+  factory ElementSelection.from(Renderer<T> selected) {
+    if (selected is Renderer<ImageElement>) {
+      return ImageElementSelection([selected as Renderer<ImageElement>])
+          as ElementSelection<T>;
+    }
+    if (selected is Renderer<ImageElement>) {
+      return ImageElementSelection([selected as Renderer<ImageElement>])
+          as ElementSelection<T>;
+    }
+    if (selected is Renderer<LabelElement>) {
+      return LabelElementSelection([selected]) as ElementSelection<T>;
+    }
+    if (selected is Renderer<PenElement>) {
+      return PenElementSelection([selected as Renderer<PenElement>])
+          as ElementSelection<T>;
+    }
+    if (selected is Renderer<ShapeElement>) {
+      return ShapeElementSelection([selected as Renderer<ShapeElement>])
+          as ElementSelection<T>;
+    }
+    if (selected is Renderer<TableElement>) {
+      return TableElementSelection([selected as Renderer<TableElement>])
+          as ElementSelection<T>;
+    }
+    if (selected is Renderer<SvgElement>) {
+      return SvgElementSelection([selected as Renderer<SvgElement>])
+          as ElementSelection<T>;
+    }
+    if (selected is Renderer<PolygonElement>) {
+      return PolygonElementSelection([selected as Renderer<PolygonElement>])
+          as ElementSelection<T>;
+    }
+    if (selected is Renderer<PdfElement>) {
+      return PdfElementSelection([selected as Renderer<PdfElement>])
+          as ElementSelection<T>;
+    }
+    return ElementSelection([selected]);
+  }
+
+  @override
+  List<Widget> buildProperties(BuildContext context) {
+    final position =
+        selected.fold(
+          Offset.zero,
+          (p, e) => p + (e.rect?.topLeft ?? Offset.zero),
+        ) /
+        selected.length.toDouble();
+    return [
+      ...super.buildProperties(context),
+      OffsetListTile(
+        value: position,
+        title: Text(AppLocalizations.of(context).position),
+        onChanged: (value) {
+          final delta = value - position;
+          updateElements(
+            context,
+            selected
+                .map(
+                  (e) =>
+                      e.transform(position: delta, relative: true)?.element ??
+                      e.element,
+                )
+                .whereType<T>()
+                .toList(),
+          );
+        },
+      ),
+      ExactSlider(
+        value: elements.first.rotation,
+        defaultValue: 0,
+        min: 0,
+        max: 360,
+        sliderStep: 1,
+        header: Text(AppLocalizations.of(context).rotation),
+        onChangeEnd: (value) {
+          final rect = selected
+              .map((e) => e.expandedRect ?? e.rect)
+              .nonNulls
+              .fold<Rect?>(
+                null,
+                (previous, current) =>
+                    previous?.expandToInclude(current) ?? current,
+              );
+          final pivot = rect?.center ?? Offset.zero;
+          final rotation = value - elements.first.rotation;
+          final rotationRad = rotation * pi / 180;
+          updateElements(
+            context,
+            selected
+                .map((e) {
+                  final center = e.rect?.center;
+                  final position = center == null
+                      ? null
+                      : center.rotate(pivot, rotationRad) - center;
+                  return e
+                          .transform(position: position, rotation: rotation)
+                          ?.element ??
+                      e.element;
+                })
+                .whereType<T>()
+                .toList(),
+          );
+        },
+      ),
+      ExactSlider(
+        value: atan(elements.first.shear) * 180 / pi,
+        defaultValue: 0,
+        min: -90,
+        max: 90,
+        sliderStep: 1,
+        header: Text(AppLocalizations.of(context).shear),
+        onChangeEnd: (value) => updateElements(
+          context,
+          selected
+              .map(
+                (renderer) =>
+                    renderer.element.copyWith(shear: tan(value * pi / 180)),
+              )
+              .whereType<T>()
+              .toList(),
+        ),
+      ),
+    ];
+  }
+
+  @override
+  void update(BuildContext context, List<Renderer<T>> selected) {
+    final bloc = context.read<DocumentBloc>();
+    final state = bloc.state;
+    if (state is! DocumentLoaded) return;
+    final updatedElements = <String, List<PadElement>>{};
+    for (var i = 0; i < selected.length; i++) {
+      final element = selected[i];
+      final oldElement = this.selected[i];
+      final id = oldElement.element.id;
+      if (element.element != oldElement.element && id != null) {
+        updatedElements[id] = [element.element];
+      }
+    }
+    bloc.add(ElementsChanged(updatedElements));
+    super.update(context, selected);
+  }
+
+  List<T> get elements => selected.map((e) => e.element).toList();
+
+  @override
+  bool get showDeleteButton => true;
+
+  Future<void> updateElements(BuildContext context, List<T> elements) async {
+    final bloc = context.read<DocumentBloc>();
+    final state = bloc.state;
+    if (state is! DocumentLoadSuccess) return;
+    final page = state.page;
+    final document = state.data;
+    final assetService = state.assetService;
+    final transformCubit = bloc.transformCubit;
+    final renderers = await Future.wait(
+      elements.map((e) async {
+        final renderer = Renderer.fromInstance(e);
+        await renderer.setup(transformCubit, document, assetService, page);
+        return renderer;
+      }).toList(),
+    );
+    update(context, renderers);
+  }
+
+  Rect? get rect => _expandRects(selected.map((e) => e.rect).nonNulls.toList());
+
+  Rect? get expandedRect =>
+      _expandRects(selected.map((e) => e.expandedRect).nonNulls.toList());
+
+  Rect? _expandRects(List<Rect> rects) =>
+      rects.fold<Rect?>(null, (rect, current) {
+        return rect?.expandToInclude(current) ?? current;
+      });
+
+  @override
+  void onDelete(BuildContext context) {
+    final bloc = context.read<DocumentBloc>();
+    final state = bloc.state;
+    if (state is! DocumentLoadSuccess) return;
+    final ids = selected.map((r) => r.element.id).nonNulls.toList();
+    context.read<DocumentBloc>().add(ElementsRemoved(ids));
+    bloc.delayedBake();
+  }
+
+  @override
+  Selection insert(dynamic element) {
+    if (element is Renderer<PadElement>) {
+      return ElementSelection([...selected, element]);
+    }
+    return Selection.from(element);
+  }
+
+  @override
+  Selection? remove(dynamic selected) {
+    final selections = List.from(this.selected);
+    selections.removeWhere(
+      (element) =>
+          element == selected ||
+          (element is Renderer && element.element == selected),
+    );
+    final success = selections.length != this.selected.length;
+    if (!success) return this;
+    if (selections.isEmpty) return null;
+    var selection = Selection.from(selections.first);
+    for (int i = 1; i < selections.length; i++) {
+      selection = selection.insert(selections[i]);
+    }
+    return selection;
+  }
+
+  @override
+  String getLocalizedName(BuildContext context) =>
+      AppLocalizations.of(context).element;
+
+  @override
+  PhosphorIconData icon({bool filled = false}) =>
+      filled ? PhosphorIconsFill.cube : PhosphorIconsLight.cube;
+}

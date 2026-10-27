@@ -1,0 +1,574 @@
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:butterfly/cubits/editor_controller.dart';
+import 'package:butterfly/dialogs/import/add.dart';
+import 'package:butterfly/theme.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:butterfly/services/import.dart';
+import 'package:butterfly/visualizer/tool.dart';
+import 'package:butterfly/widgets/option_button.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+import 'package:material_leap/material_leap.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:reorderable_grid/reorderable_grid.dart';
+
+import '../cubits/settings.dart';
+import 'app_bar.dart';
+
+class EditToolbar extends StatefulWidget {
+  final bool isMobile;
+  final bool? centered;
+  final Axis direction;
+
+  const EditToolbar({
+    super.key,
+    required this.isMobile,
+    this.centered,
+    this.direction = .horizontal,
+  });
+
+  @override
+  State<EditToolbar> createState() => _EditToolbarState();
+}
+
+enum _MouseState { normal, multi }
+
+class _EditToolbarState extends State<EditToolbar> {
+  final ScrollController _scrollController = .new();
+
+  _MouseState _mouseState = _MouseState.normal;
+
+  @override
+  void initState() {
+    super.initState();
+
+    HardwareKeyboard.instance.addHandler(_handleKey);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    HardwareKeyboard.instance.removeHandler(_handleKey);
+    super.dispose();
+  }
+
+  bool _handleKey(KeyEvent event) {
+    if (HardwareKeyboard.instance.isControlPressed) {
+      _mouseState = _MouseState.multi;
+    } else {
+      _mouseState = _MouseState.normal;
+    }
+    return false;
+  }
+
+  Axis get direction => widget.isMobile ? Axis.horizontal : widget.direction;
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Directionality(
+      textDirection: .ltr,
+      child: BlocBuilder<SettingsCubit, ButterflySettings>(
+        buildWhen: (previous, current) =>
+            previous.inputConfiguration != current.inputConfiguration ||
+            previous.toolbarSize != current.toolbarSize ||
+            previous.toolbarRows != current.toolbarRows ||
+            previous.toolbarPosition != current.toolbarPosition,
+        builder: (context, settings) {
+          final shortcuts = settings.inputConfiguration.getShortcuts();
+          final size = settings.toolbarSize.size;
+          return BlocBuilder<DocumentBloc, DocumentState>(
+            builder: (context, state) {
+              if (state is! DocumentLoadSuccess) return Container();
+              final tools = state.info.tools;
+
+              return BlocBuilder<ToolCubit, ToolRuntimeState>(
+                buildWhen: (previous, current) =>
+                    previous.index != current.index ||
+                    previous.handler != current.handler ||
+                    previous.toggleableHandlers != current.toggleableHandlers ||
+                    previous.temporaryHandler != current.temporaryHandler ||
+                    previous.selection != current.selection,
+                builder: (context, toolState) =>
+                    BlocBuilder<DocumentSaveCubit, DocumentSaveState>(
+                      buildWhen: (previous, current) =>
+                          previous.embedding != current.embedding ||
+                          previous.fullScreen != current.fullScreen,
+                      builder: (context, saveState) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: 4,
+                            vertical: 2,
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 2,
+                          ),
+                          decoration: BoxDecoration(
+                            color: isDark
+                                ? MumuPalette.darkSlateSurface.withValues(
+                                    alpha: 0.94,
+                                  )
+                                : MumuPalette.warmPaperSurface.withValues(
+                                    alpha: 0.96,
+                                  ),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(22),
+                            ),
+                            border: Border.all(
+                              color: isDark
+                                  ? MumuPalette.darkSlateBorder
+                                  : MumuPalette.warmCardBorder,
+                              width: 1,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withValues(
+                                  alpha: isDark ? 0.42 : 0.10,
+                                ),
+                                blurRadius: 18,
+                                offset: const Offset(0, 6),
+                              ),
+                            ],
+                          ),
+                          child: _buildBody(
+                            state,
+                            toolState,
+                            saveState,
+                            settings,
+                            tools,
+                            shortcuts,
+                            size,
+                          ),
+                        );
+                      },
+                    ),
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildIcon(PhosphorIconData data, double size, [Color? color]) =>
+      PhosphorIcon(data, size: size * (6 / 16), color: color);
+  Widget _buildBody(
+    DocumentLoadSuccess state,
+    ToolRuntimeState currentIndex,
+    DocumentSaveState saveState,
+    ButterflySettings settings,
+    List<Tool> tools,
+    Set<InputMapping> shortcuts,
+    double size,
+  ) {
+    final fullSize = (size + 4) * settings.toolbarRows;
+    final bloc = context.read<DocumentBloc>();
+    final cubit = context.read<EditorController>();
+    final isMobile = widget.isMobile;
+    final temp = currentIndex.temporaryHandler;
+    final tempData = temp?.data;
+    PhosphorIconData icon = PhosphorIconsLight.cube;
+    PhosphorIconData iconFilled = PhosphorIconsFill.cube;
+    var tooltip = tempData?.name.trim();
+    if (tooltip?.isEmpty ?? false) {
+      if (tempData is Tool) {
+        tooltip = tempData.getLocalizedName(context);
+        icon = tempData.icon();
+        iconFilled = tempData.icon(filled: true);
+      }
+    }
+    tooltip ??= '';
+    return SizedBox(
+      height: direction == .horizontal ? fullSize : null,
+      width: direction == .horizontal ? null : fullSize,
+      child: Scrollbar(
+        controller: _scrollController,
+        child: CustomScrollView(
+          controller: _scrollController,
+          scrollDirection: direction,
+          shrinkWrap: true,
+          slivers: [
+            if (saveState.embedding?.editable ?? true) ...[
+              if (temp != null && tempData != null) ...[
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: Center(
+                      child: SizedBox.square(
+                        dimension: size,
+                        child: OptionButton(
+                          tooltip: tooltip,
+                          selected: true,
+                          highlighted:
+                              currentIndex.selection?.selected.contains(
+                                tempData,
+                              ) ??
+                              false,
+                          icon: _buildIcon(icon, size),
+                          selectedIcon: _buildIcon(iconFilled, size),
+                          onLongPressed: () =>
+                              cubit.toolCubit.changeSelection(tempData),
+                          onPressed: () {
+                            if (_mouseState == _MouseState.multi) {
+                              cubit.toolCubit.insertSelection(tempData, true);
+                            } else {
+                              cubit.toolCubit.changeSelection(tempData, true);
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SliverToBoxAdapter(child: VerticalDivider()),
+              ],
+              SliverReorderableGrid(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: settings.toolbarRows,
+                  childAspectRatio: 1,
+                ),
+                itemCount: tools.length + 1,
+                proxyDecorator: (child, index, animation) {
+                  return Material(color: Colors.transparent, child: child);
+                },
+                itemBuilder: (context, i) {
+                  if (tools.length <= i) {
+                    final add = Padding(
+                      key: const ObjectKey('add-button'),
+                      padding: direction == .horizontal
+                          ? const EdgeInsets.only(
+                              right: 4,
+                              left: 8,
+                              top: 8,
+                              bottom: 8,
+                            )
+                          : const EdgeInsets.only(
+                              right: 8,
+                              left: 8,
+                              top: 8,
+                              bottom: 4,
+                            ),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          AspectRatio(
+                            aspectRatio: 1,
+                            child: FloatingActionButton.small(
+                              tooltip: AppLocalizations.of(context).add,
+                              heroTag: null,
+                              onPressed: () {
+                                final importService = context
+                                    .read<ImportService>();
+                                showGeneralDialog(
+                                  context: context,
+                                  pageBuilder: (ctx, _, _) => MultiBlocProvider(
+                                    providers: [
+                                      BlocProvider.value(value: bloc),
+                                    ],
+                                    child: MultiRepositoryProvider(
+                                      providers: [
+                                        RepositoryProvider.value(value: cubit),
+                                        RepositoryProvider.value(
+                                          value: importService,
+                                        ),
+                                      ],
+                                      child: const AddDialog(),
+                                    ),
+                                  ),
+                                  barrierDismissible: true,
+                                  barrierLabel: MaterialLocalizations.of(
+                                    context,
+                                  ).modalBarrierDismissLabel,
+                                  transitionDuration: const Duration(
+                                    milliseconds: 200,
+                                  ),
+                                  transitionBuilder:
+                                      (
+                                        context,
+                                        animation,
+                                        secondaryAnimation,
+                                        child,
+                                      ) {
+                                        return SlideTransition(
+                                          position:
+                                              Tween<Offset>(
+                                                    begin: const Offset(0, 1),
+                                                    end: .zero,
+                                                  )
+                                                  .chain(
+                                                    CurveTween(
+                                                      curve:
+                                                          Curves.easeOutQuart,
+                                                    ),
+                                                  )
+                                                  .animate(animation),
+                                          child: child,
+                                        );
+                                      },
+                                );
+                              },
+                              child: PhosphorIcon(
+                                PhosphorIconsLight.plus,
+                                size: size * 3 / 7,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                    return add;
+                  }
+                  final selected = i == currentIndex.index;
+                  final tool = tools[i];
+                  final highlighted =
+                      currentIndex.selection?.selected.any(
+                        (element) => (element is Tool && element.id == tool.id),
+                      ) ??
+                      false;
+                  return ReorderableGridDelayedDragStartListener(
+                    index: i,
+                    key: ObjectKey(tool.id),
+                    enabled: selected || highlighted,
+                    child: Builder(
+                      builder: (context) {
+                        return cubit.toolCubit.useHandler(
+                          bloc,
+                          i,
+                          (handler) {
+                            String tooltip = tool.name.trim();
+                            if (tooltip.isEmpty) {
+                              tooltip = tool.getLocalizedName(context);
+                            }
+                            final status = handler.getStatus(bloc);
+                            final theme = Theme.of(context);
+                            final color = switch (status) {
+                              .normal => null,
+                              .disabled => theme.disabledColor,
+                              .selected => theme.colorScheme.secondary,
+                            };
+                            var handlerIcon = handler.getIcon(bloc);
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 3.0,
+                              ),
+                              child: OptionButton(
+                                tooltip: tooltip,
+                                onLongPressed: selected || highlighted
+                                    ? null
+                                    : () => context
+                                          .read<ToolCubit>()
+                                          .insertSelection(tool, true),
+                                onDoubleTap: highlighted || selected
+                                    ? () => context
+                                          .read<ToolCubit>()
+                                          .insertSelection(tool, true)
+                                    : null,
+                                onSecondaryPressed: () => context
+                                    .read<ToolCubit>()
+                                    .changeSelection(tool),
+                                focussed: shortcuts.contains(InputMapping(i)),
+                                selected:
+                                    selected ||
+                                    currentIndex.toggleableHandlers.containsKey(
+                                      i,
+                                    ),
+                                showBottom: selected || tool.isAction(),
+                                highlighted: highlighted,
+                                bottomIcon: selected || tool.isAction()
+                                    ? PhosphorIcon(
+                                        tool.isAction()
+                                            ? PhosphorIconsLight.playCircle
+                                            : isMobile
+                                            ? PhosphorIconsLight.caretUp
+                                            : switch (settings
+                                                  .toolbarPosition) {
+                                                .top || .inline =>
+                                                  PhosphorIconsLight.caretDown,
+                                                .bottom =>
+                                                  PhosphorIconsLight.caretUp,
+                                                .left =>
+                                                  PhosphorIconsLight.caretRight,
+                                                .right =>
+                                                  PhosphorIconsLight.caretLeft,
+                                              },
+                                        textDirection: tool.isAction()
+                                            ? .ltr
+                                            : null,
+                                      )
+                                    : null,
+                                selectedIcon: _buildIcon(
+                                  handlerIcon ?? tool.icon(filled: true),
+                                  size,
+                                  color,
+                                ),
+                                icon: _buildIcon(
+                                  handlerIcon ?? tool.icon(),
+                                  size,
+                                  color,
+                                ),
+                                onPressed: () {
+                                  if (_mouseState == _MouseState.multi) {
+                                    cubit.toolCubit.insertSelection(tool, true);
+                                  } else if (!selected || temp != null) {
+                                    cubit.toolCubit.resetSelection();
+                                    cubit.toolCubit.changeTool(
+                                      cubit,
+                                      bloc,
+                                      index: i,
+                                      context: context,
+                                    );
+                                  } else {
+                                    cubit.toolCubit.changeSelection(tool, true);
+                                  }
+                                },
+                              ),
+                            );
+                          },
+                          editable:
+                              cubit.saveCubit.state.embedding?.editable !=
+                              false,
+                        );
+                      },
+                    ),
+                  );
+                },
+                onReorder: (oldIndex, newIndex) {
+                  if (oldIndex == newIndex) {
+                    context.read<ToolCubit>().insertSelection(
+                      tools[newIndex],
+                      true,
+                    );
+                    return;
+                  }
+                  final id = tools[oldIndex].id;
+                  if (id == null) return;
+                  final delete = newIndex >= tools.length;
+                  if (delete) {
+                    bloc.add(ToolsRemoved([id]));
+                    return;
+                  }
+                  if (oldIndex < newIndex) {
+                    newIndex++;
+                  }
+                  bloc.add(ToolReordered(id, newIndex));
+                },
+              ),
+              SliverToBoxAdapter(
+                child: BlocBuilder<WindowCubit, WindowState>(
+                  builder: (context, windowState) {
+                    final children = [
+                      IconButton(
+                        icon: const PhosphorIcon(PhosphorIconsLight.wrench),
+                        tooltip: AppLocalizations.of(context).document,
+                        selectedIcon: const PhosphorIcon(
+                          PhosphorIconsFill.wrench,
+                        ),
+                        isSelected:
+                            currentIndex.selection?.selected.any(
+                              (element) => element is EditorController,
+                            ) ??
+                            false,
+                        onPressed: () {
+                          cubit.toolCubit.changeSelection(cubit);
+                        },
+                      ),
+                      BlocBuilder<EditorViewCubit, EditorViewState>(
+                        builder: (context, viewState) {
+                          final locks = viewState.locks;
+                          Widget buildButton(
+                            bool selected,
+                            PersistentLockState Function() update,
+                            PhosphorIconData icon,
+                            String title,
+                          ) => CheckboxMenuButton(
+                            value: selected,
+                            trailingIcon: PhosphorIcon(icon),
+                            onChanged: (value) => context
+                                .read<EditorViewCubit>()
+                                .updateLocks(locks: update()),
+                            child: Text(title),
+                          );
+
+                          return MenuAnchor(
+                            menuChildren: [
+                              buildButton(
+                                locks.lockCollection,
+                                () => locks.copyWith(
+                                  lockCollection: !locks.lockCollection,
+                                ),
+                                PhosphorIconsLight.folder,
+                                AppLocalizations.of(context).collection,
+                              ),
+                              buildButton(
+                                locks.lockLayer,
+                                () =>
+                                    locks.copyWith(lockLayer: !locks.lockLayer),
+                                PhosphorIconsLight.folder,
+                                AppLocalizations.of(context).layer,
+                              ),
+                              buildButton(
+                                locks.lockZoom,
+                                () => locks.copyWith(lockZoom: !locks.lockZoom),
+                                PhosphorIconsLight.magnifyingGlassPlus,
+                                AppLocalizations.of(context).zoom,
+                              ),
+                              buildButton(
+                                locks.lockRotation,
+                                () => locks.copyWith(
+                                  lockRotation: !locks.lockRotation,
+                                ),
+                                PhosphorIconsLight.arrowClockwise,
+                                AppLocalizations.of(context).rotation,
+                              ),
+                              buildButton(
+                                locks.lockHorizontal,
+                                () => locks.copyWith(
+                                  lockHorizontal: !locks.lockHorizontal,
+                                ),
+                                PhosphorIconsLight.arrowsHorizontal,
+                                AppLocalizations.of(context).horizontal,
+                              ),
+                              buildButton(
+                                locks.lockVertical,
+                                () => locks.copyWith(
+                                  lockVertical: !locks.lockVertical,
+                                ),
+                                PhosphorIconsLight.arrowsVertical,
+                                AppLocalizations.of(context).vertical,
+                              ),
+                            ],
+                            style: const MenuStyle(
+                              alignment: Alignment.bottomLeft,
+                            ),
+                            builder: defaultMenuButton(
+                              icon: const PhosphorIcon(
+                                PhosphorIconsLight.lockKey,
+                              ),
+                              tooltip: AppLocalizations.of(context).lock,
+                            ),
+                          );
+                        },
+                      ),
+                      if (windowState.fullScreen || saveState.fullScreen)
+                        MainPopupMenu(
+                          viewportKey: GlobalKey(),
+                          isLarge: !isMobile,
+                        ),
+                    ];
+                    if (direction == .horizontal) {
+                      return Row(textDirection: .ltr, children: children);
+                    }
+                    return Column(children: children);
+                  },
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}

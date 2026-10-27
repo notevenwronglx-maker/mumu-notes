@@ -1,0 +1,59 @@
+part of '../selection.dart';
+
+class TextureToolSelection extends ToolSelection<TextureTool> {
+  TextureToolSelection(super.selected);
+
+  @override
+  List<Widget> buildProperties(BuildContext context) {
+    final tool = selected.first;
+    void changeTexture(SurfaceTexture texture) => update(
+      context,
+      selected.map((e) => e.copyWith(texture: texture)).toList(),
+    );
+    return [
+      ...super.buildProperties(context),
+      const SizedBox(height: 8),
+      ...[
+        PatternTemplate.values.where((element) => element.background != .dark),
+        PatternTemplate.values.where((element) => element.background == .dark),
+      ].map(
+        (e) => Wrap(
+          alignment: .center,
+          children: e.map((template) {
+            var created = template.create();
+            return BoxTile(
+              title: Text(
+                template.getLocalizedName(context),
+                textAlign: .center,
+              ),
+              icon: Image.asset(template.asset, width: 64),
+              onTap: () {
+                changeTexture(created);
+              },
+              selected: selected.first.texture == created,
+              size: 120,
+            );
+          }).toList(),
+        ),
+      ),
+      const SizedBox(height: 16),
+      TextureView(
+        value: tool.texture,
+        onChanged: changeTexture,
+        scrollable: false,
+      ),
+    ];
+  }
+
+  @override
+  Selection insert(dynamic element) {
+    if (element is TextureTool) {
+      return TextureToolSelection([...selected, element]);
+    }
+    return super.insert(element);
+  }
+
+  @override
+  PhosphorIconData icon({bool filled = false}) =>
+      selected.first.icon(filled: filled);
+}

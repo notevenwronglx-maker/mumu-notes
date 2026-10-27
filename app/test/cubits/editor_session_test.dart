@@ -1,0 +1,548 @@
+import 'dart:io';
+
+import 'package:archive/archive.dart';
+import 'package:butterfly/api/file_system.dart';
+import 'package:butterfly/cubits/editor_session.dart';
+import 'package:butterfly/cubits/settings.dart';
+import 'package:butterfly/cubits/transform.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:butterfly/services/document_state.dart';
+import 'package:butterfly/views/navigator/view.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:lw_file_system/lw_file_system.dart';
+import 'package:mocktail/mocktail.dart';
+
+import '../helpers/mocks.dart';
+
+class _MockDocumentStateFileSystem extends Mock
+    implements DocumentStateFileSystem {}
+
+void main() {
+  group('PersistedDocumentState', () {
+    test('remote state keys do not depend on local connection names', () {
+      const first = AssetLocation(
+        remote: 'Laptop Nextcloud',
+        path: '/notes/example.bfly',
+      );
+      const second = AssetLocation(
+        remote: 'Tablet Nextcloud',
+        path: '/notes/example.bfly',
+      );
+
+      expect(documentStatePathKey(first), isNot(documentStatePathKey(second)));
+      expect(
+        documentStatePathKey(first, remoteStorage: true),
+        documentStatePathKey(second, remoteStorage: true),
+      );
+    });
+
+    test('uses schema defaults for sparse json', () {
+      final state = PersistedDocumentState.fromJson(const {});
+
+      expect(state.version, kPersistedDocumentStateVersion);
+      expect(state.camera.zoom, 1);
+      expect(state.camera.rotation, 0);
+      expect(state.locks, const PersistentLockState());
+      expect(state.navigator.page, NavigatorPage.waypoints.name);
+      expect(state.autoThumbnail, isFalse);
+      expect(
+        PersistedDocumentState.fromJson(
+          const PersistedDocumentState(autoThumbnail: true).toJson(),
+        ).autoThumbnail,
+        isTrue,
+      );
+    });
+
+    test('initial camera belongs to the selected page', () {
+      final (document, pageName) = NoteData(Archive())
+          .setPage(const DocumentPage(), 'First');
+      const savedCamera = PersistedCameraState(positionX: 42, zoom: 2);
+      PersistedDocumentState initial(PersistedDocumentState restored) =>
+          EditorSessionCubit.buildInitial(
+            restored: restored,
+            document: document,
+            page: const DocumentPage(),
+            fallbackPageName: pageName,
+            fallbackLocks: const PersistentLockState(),
+          );
+      expect(
+        initial(PersistedDocumentState(pageName: pageName, camera: savedCamera))
+            .camera,
+        savedCamera,
+      );
+      expect(
+        initial(
+          const PersistedDocumentState(
+            pageName: 'Missing',
+            camera: savedCamera,
+          ),
+        ).camera,
+        const PersistedCameraState(),
+      );
+      expect(
+        initial(PersistedDocumentState(pageCameras: {pageName: savedCamera}))
+            .camera,
+        savedCamera,
+      );
+    });
+
+    test('new sessions use configured default locks', () {
+      var document = NoteData(Archive());
+      final result = document.setPage(const DocumentPage(), 'Page 1');
+      document = result.$1;
+      const defaultLocks = PersistentLockState(
+        lockZoom: true,
+        lockHorizontal: true,
+        lockVertical: true,
+      );
+
+      final state = EditorSessionCubit.buildInitial(
+        document: document,
+        page: const DocumentPage(),
+        fallbackPageName: result.$2,
+        fallbackLocks: defaultLocks,
+      );
+
+      expect(state.locks, defaultLocks);
+    });
+  });
+
+  group('EditorSessionCubit storage', () {
+    late DocumentStateFileSystem fileSystem;
+
+    setUp(() {
+      fileSystem = buildMockDocumentStateFileSystem();
+    });
+
+    test('path match wins over content hash match', () async {
+      const byContent = PersistedDocumentState(pageName: 'Content Page');
+      const byPath = PersistedDocumentState(pageName: 'Path Page');
+      await fileSystem.initialize();
+      await fileSystem.createFile(documentStateContentKey('hash-a'), byContent);
+      await fileSystem.createFile('path/a', byPath);
+
+      final loaded = await DocumentStateService(fileSystem)
+          .load(contentHash: 'hash-a', pathKey: 'path/a');
+
+      expect(loaded?.pageName, 'Path Page');
+    });
+
+    test('falls back to path when content hash is missing', () async {
+      const byPath = PersistedDocumentState(pageName: 'Path Page');
+      await fileSystem.initialize();
+      await fileSystem.createFile('path/a', byPath);
+
+      final loaded = await DocumentStateService(fileSystem)
+          .load(contentHash: 'missing', pathKey: 'path/a');
+
+      expect(loaded?.pageName, 'Path Page');
+    });
+
+    test('returns null when no fingerprints match', () async {
+      final loaded = await DocumentStateService(fileSystem)
+          .load(contentHash: 'missing', pathKey: 'path/missing');
+
+      expect(loaded, isNull);
+    });
+
+    test('ignores unavailable remote state when opening offline', () async {
+      final offlineFileSystem = _MockDocumentStateFileSystem();
+      when(() => offlineFileSystem.initialize()).thenAnswer((_) async {});
+      when(() => offlineFileSystem.getFile(any())).thenThrow(
+        const NetworkException('Offline', type: NetworkErrorType.connection),
+      );
+
+      final loaded = await DocumentStateService(offlineFileSystem)
+          .load(contentHash: 'hash-a', pathKey: 'path/a');
+
+      expect(loaded, isNull);
+      verify(() => offlineFileSystem.getFile('path/a')).called(1);
+      verifyNever(
+        () => offlineFileSystem.getFile(documentStateContentKey('hash-a')),
+      );
+    });
+
+    test(
+      'ignores invalid optional WebDAV state while opening a note',
+      () async {
+        final remoteFileSystem = _MockDocumentStateFileSystem();
+        when(() => remoteFileSystem.initialize()).thenAnswer((_) async {});
+        when(() => remoteFileSystem.getFile(any())).thenThrow(
+          const FileSystemException(
+            'WebDAV response did not contain the requested asset',
+            'path/a',
+          ),
+        );
+
+        final loaded = await DocumentStateService(remoteFileSystem)
+            .load(contentHash: 'hash-a', pathKey: 'path/a');
+
+        expect(loaded, isNull);
+        verify(() => remoteFileSystem.getFile('path/a')).called(1);
+      },
+    );
+
+    test('does not load or save when persistence is disabled', () async {
+      const state = PersistedDocumentState(pageName: 'Page 1');
+      await fileSystem.initialize();
+      await fileSystem.createFile('path/a', state);
+
+      final repository = DocumentStateService(
+        fileSystem,
+        settingsProvider: () =>
+            const DocumentStatePersistenceSettings(enabled: false),
+      );
+
+      expect(await repository.load(pathKey: 'path/a'), isNull);
+      await repository.save(
+        const PersistedDocumentState(pageName: 'Changed'),
+        pathKey: 'path/b',
+        persistentChanged: true,
+      );
+      expect(await fileSystem.getFile('path/b'), isNull);
+    });
+
+    test('filters disabled categories on load', () async {
+      final state = PersistedDocumentState(
+        pageName: 'Page 1',
+        autoThumbnail: true,
+        locks: const PersistentLockState(lockZoom: true),
+        areaNavigator: const PersistedAreaNavigatorState(create: false),
+      );
+      await fileSystem.initialize();
+      await fileSystem.createFile('path/a', state);
+
+      final loaded = await DocumentStateService(
+        fileSystem,
+        settingsProvider: () => const DocumentStatePersistenceSettings(
+          locks: false,
+          areas: false,
+          autoThumbnail: false,
+          defaultLocks: PersistentLockState(lockZoom: true),
+        ),
+      ).load(pathKey: 'path/a');
+
+      expect(loaded?.pageName, 'Page 1');
+      expect(loaded?.locks, const PersistentLockState(lockZoom: true));
+      expect(loaded?.areaNavigator, const PersistedAreaNavigatorState());
+      expect(loaded?.autoThumbnail, isFalse);
+    });
+
+    test('preserves disabled categories on save', () async {
+      final existing = PersistedDocumentState(
+        pageName: 'Page 1',
+        locks: const PersistentLockState(lockZoom: true),
+        autoThumbnail: true,
+      );
+      await fileSystem.initialize();
+      await fileSystem.createFile('path/a', existing);
+
+      await DocumentStateService(
+        fileSystem,
+        settingsProvider: () => const DocumentStatePersistenceSettings(
+          locks: false,
+          autoThumbnail: false,
+        ),
+      ).save(
+        const PersistedDocumentState(
+          pageName: 'Page 2',
+          locks: PersistentLockState(lockLayer: true),
+        ),
+        pathKey: 'path/a',
+        persistentChanged: true,
+      );
+
+      final saved = await fileSystem.getFile('path/a');
+      expect(saved?.pageName, 'Page 2');
+      expect(saved?.locks, existing.locks);
+      expect(saved?.autoThumbnail, isTrue);
+    });
+
+    test('cleanup removes old and overflowing records', () async {
+      final repository = DocumentStateService(
+        fileSystem,
+        settingsProvider: () => const DocumentStatePersistenceSettings(
+          maxEntries: 2,
+          maxAgeDays: 30,
+        ),
+      );
+      await fileSystem.initialize();
+      await fileSystem.createFile(
+        'path/old',
+        PersistedDocumentState(updatedAt: DateTime.utc(2026, 1)),
+      );
+      await fileSystem.createFile(
+        'path/a',
+        PersistedDocumentState(updatedAt: DateTime.utc(2026, 5, 1)),
+      );
+      await fileSystem.createFile(
+        'path/b',
+        PersistedDocumentState(updatedAt: DateTime.utc(2026, 5, 2)),
+      );
+      await fileSystem.createFile(
+        'path/c',
+        PersistedDocumentState(updatedAt: DateTime.utc(2026, 5, 3)),
+      );
+
+      await repository.cleanup(now: DateTime.utc(2026, 6, 1));
+
+      expect(await fileSystem.getFile('path/old'), isNull);
+      expect(await fileSystem.getFile('path/a'), isNull);
+      expect(await fileSystem.getFile('path/b'), isNotNull);
+      expect(await fileSystem.getFile('path/c'), isNotNull);
+    });
+
+    test('restores each page camera after switching and reopening', () async {
+      final transform = TransformCubit(1);
+      final service = DocumentStateService(fileSystem);
+      final session = EditorSessionCubit(
+        service: service,
+        transformCubit: transform,
+        initialState: const PersistedDocumentState(pageName: 'First'),
+        pathKey: 'path/pages',
+      );
+      transform.teleport(const Offset(120, 240), 2, 0.5);
+      session.updatePage('Second');
+      expect(transform.state.position, Offset.zero);
+      expect(transform.state.size, 1);
+      transform.teleport(const Offset(30, 40), 3, 0.25);
+      session.updatePage('First');
+      await Future<void>.delayed(Duration.zero);
+      expect(transform.state.position, const Offset(120, 240));
+      expect(transform.state.size, 2);
+      expect(transform.state.rotation, 0.5);
+      await session.saveNow();
+      final saved = (await service.load(pathKey: 'path/pages'))!;
+      final decoded = decodePersistedDocumentState(
+        encodePersistedDocumentState(saved),
+      );
+      await session.close();
+      await transform.close();
+
+      final reopenedTransform = TransformCubit(1)
+        ..teleport(const Offset(120, 240), 2, 0.5);
+      final reopened = EditorSessionCubit(
+        service: service,
+        transformCubit: reopenedTransform,
+        initialState: decoded,
+      );
+      reopened.updatePage('Second');
+      expect(reopenedTransform.state.position, const Offset(30, 40));
+      expect(reopenedTransform.state.size, 3);
+      expect(reopenedTransform.state.rotation, 0.25);
+      reopened.renamePages({'First': 'Renamed'});
+      reopened.updatePage('Renamed');
+      expect(reopenedTransform.state.position, const Offset(120, 240));
+      reopened.removePage('Second');
+      reopened.updatePage('Second');
+      expect(reopenedTransform.state.position, Offset.zero);
+      await reopened.close();
+      await reopenedTransform.close();
+    });
+
+    test('disabled viewport persistence switches to origin', () async {
+      final transform = TransformCubit(1);
+      final session = EditorSessionCubit(
+        service: DocumentStateService(
+          fileSystem,
+          settingsProvider: () =>
+              const DocumentStatePersistenceSettings(camera: false),
+        ),
+        transformCubit: transform,
+        initialState: const PersistedDocumentState(pageName: 'First'),
+      );
+      transform.teleport(const Offset(120, 240));
+      session.updatePage('Second');
+      session.updatePage('First');
+      expect(transform.state.position, Offset.zero);
+      await session.close();
+      await transform.close();
+    });
+
+    test('writes session state to content and path keys', () async {
+      final transformCubit = TransformCubit(1);
+      final cubit = EditorSessionCubit(
+        service: DocumentStateService(fileSystem),
+        transformCubit: transformCubit,
+        initialState: const PersistedDocumentState(pageName: 'Page 1'),
+        pathKey: 'path/a',
+        contentHash: 'hash-a',
+      );
+
+      cubit.updateNavigator(enabled: true, page: NavigatorPage.layers);
+      await cubit.saveNow();
+
+      final contentRecord = await fileSystem.getFile(
+        documentStateContentKey('hash-a'),
+      );
+      final pathRecord = await fileSystem.getFile('path/a');
+      expect(contentRecord?.pathKey, isNull);
+      expect(contentRecord?.contentHash, isNull);
+      expect(pathRecord?.pathKey, isNull);
+      expect(pathRecord?.contentHash, isNull);
+      expect(pathRecord?.navigator.enabled, isTrue);
+
+      await cubit.close();
+      await transformCubit.close();
+    });
+
+    test('writes session state to updated document identity', () async {
+      final transformCubit = TransformCubit(1);
+      final cubit = EditorSessionCubit(
+        service: DocumentStateService(fileSystem),
+        transformCubit: transformCubit,
+        initialState: const PersistedDocumentState(pageName: 'Page 1'),
+        pathKey: 'path/old',
+        contentHash: 'hash-old',
+      );
+
+      cubit.updateNavigator(enabled: true);
+      await cubit.saveNow();
+      await cubit.saveNow(pathKey: 'path/new');
+
+      expect(await fileSystem.getFile('path/old'), isNull);
+      final pathRecord = await fileSystem.getFile('path/new');
+      final contentRecord = await fileSystem.getFile(
+        documentStateContentKey('hash-old'),
+      );
+      expect(pathRecord?.pathKey, isNull);
+      expect(pathRecord?.contentHash, isNull);
+      expect(contentRecord?.pathKey, isNull);
+      expect(contentRecord?.contentHash, isNull);
+      expect(pathRecord?.navigator.enabled, isTrue);
+
+      await cubit.close();
+      await transformCubit.close();
+    });
+
+    test('rewrites state when document identity and state changed', () async {
+      final transformCubit = TransformCubit(1);
+      final cubit = EditorSessionCubit(
+        service: DocumentStateService(fileSystem),
+        transformCubit: transformCubit,
+        initialState: const PersistedDocumentState(pageName: 'Page 1'),
+        pathKey: 'path/old',
+        contentHash: 'hash-old',
+      );
+
+      cubit.updateNavigator(enabled: true);
+      await cubit.saveNow(pathKey: 'path/new');
+
+      expect(await fileSystem.getFile('path/old'), isNull);
+      final pathRecord = await fileSystem.getFile('path/new');
+      expect(pathRecord?.pathKey, isNull);
+      expect(pathRecord?.navigator.enabled, isTrue);
+
+      await cubit.close();
+      await transformCubit.close();
+    });
+
+    test('renames content identity without leaving old content key', () async {
+      final transformCubit = TransformCubit(1);
+      final cubit = EditorSessionCubit(
+        service: DocumentStateService(fileSystem),
+        transformCubit: transformCubit,
+        initialState: const PersistedDocumentState(pageName: 'Page 1'),
+        pathKey: 'path/a',
+        contentHash: 'hash-old',
+      );
+
+      cubit.updateNavigator(enabled: true);
+      await cubit.saveNow();
+      await cubit.saveNow(contentHash: 'hash-new');
+
+      expect(
+        await fileSystem.getFile(documentStateContentKey('hash-old')),
+        isNull,
+      );
+      final contentRecord = await fileSystem.getFile(
+        documentStateContentKey('hash-new'),
+      );
+      final pathRecord = await fileSystem.getFile('path/a');
+      expect(contentRecord?.contentHash, isNull);
+      expect(pathRecord?.contentHash, isNull);
+      expect(contentRecord?.navigator.enabled, isTrue);
+
+      await cubit.close();
+      await transformCubit.close();
+    });
+
+    test('camera changes stay in memory until session is flushed', () async {
+      final transformCubit = TransformCubit(1);
+      final cubit = EditorSessionCubit(
+        service: DocumentStateService(fileSystem),
+        transformCubit: transformCubit,
+        initialState: const PersistedDocumentState(pageName: 'Page 1'),
+        pathKey: 'path/a',
+        contentHash: 'hash-a',
+      );
+
+      transformCubit.teleport(const Offset(10, 20), 2, 0.5);
+      await Future<void>.delayed(const Duration(milliseconds: 300));
+
+      expect(await fileSystem.getFile('path/a'), isNull);
+      await cubit.saveNow();
+
+      final saved = await fileSystem.getFile('path/a');
+      expect(saved?.camera.positionX, 10);
+      expect(saved?.camera.positionY, 20);
+      expect(saved?.camera.zoom, 2);
+      expect(saved?.camera.rotation, 0.5);
+
+      await cubit.close();
+      await transformCubit.close();
+    });
+
+    test('does not modify document files when session state changes', () async {
+      final documentSystem = buildMockDocumentFileSystem();
+      final original = NoteFile(Uint8List.fromList([1, 2, 3]));
+      await documentSystem.initialize();
+      await documentSystem.createFile('/test.bfly', original);
+
+      final transformCubit = TransformCubit(1);
+      final cubit = EditorSessionCubit(
+        service: DocumentStateService(fileSystem),
+        transformCubit: transformCubit,
+        initialState: const PersistedDocumentState(pageName: 'Page 1'),
+        pathKey: 'path/test',
+        contentHash: 'hash-test',
+      );
+
+      cubit.updateAreaNavigator(create: false);
+      await cubit.saveNow();
+
+      final asset = await documentSystem.getAsset('/test.bfly');
+      expect(asset, isA<FileSystemFile<NoteFile>>());
+      expect(
+        (asset as FileSystemFile<NoteFile>).data?.data,
+        orderedEquals(original.data),
+      );
+
+      await cubit.close();
+      await transformCubit.close();
+    });
+
+    test('close flushes unsaved session state', () async {
+      final transformCubit = TransformCubit(1);
+      final cubit = EditorSessionCubit(
+        service: DocumentStateService(fileSystem),
+        transformCubit: transformCubit,
+        initialState: const PersistedDocumentState(pageName: 'Page 1'),
+        pathKey: 'path/a',
+        contentHash: 'hash-a',
+      );
+
+      cubit.updateNavigator(enabled: true);
+      expect(cubit.isDirty, isTrue);
+
+      await cubit.close();
+
+      final saved = await fileSystem.getFile('path/a');
+      expect(saved?.navigator.enabled, isTrue);
+      expect(saved?.contentHash, isNull);
+
+      await transformCubit.close();
+    });
+  });
+}

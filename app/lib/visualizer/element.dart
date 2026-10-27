@@ -1,0 +1,105 @@
+import 'package:butterfly/visualizer/property.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+
+extension ElementVisualizer on PadElement {
+  String getLocalizedName(BuildContext context) {
+    final loc = AppLocalizations.of(context);
+    return switch (this) {
+      PenElement _ => loc.pen,
+      PdfElement _ => loc.pdf,
+      TextElement _ => loc.text,
+      ImageElement _ => loc.image,
+      ShapeElement _ => loc.shape,
+      TableElement _ => loc.table,
+      SvgElement _ => loc.svg,
+      MarkdownElement _ => loc.markdown,
+      TextureElement _ => loc.texture,
+      PolygonElement _ => loc.polygon,
+    };
+  }
+
+  PhosphorIconData icon({bool filled = false}) => switch (this) {
+    PenElement _ => filled ? PhosphorIconsFill.pen : PhosphorIconsLight.pen,
+    PdfElement _ =>
+      filled ? PhosphorIconsFill.filePdf : PhosphorIconsLight.filePdf,
+    TextElement _ =>
+      filled ? PhosphorIconsFill.textT : PhosphorIconsLight.textT,
+    ImageElement _ =>
+      filled ? PhosphorIconsFill.image : PhosphorIconsLight.image,
+    ShapeElement element => element.property.shape.icon(filled: filled),
+    TableElement _ =>
+      filled ? PhosphorIconsFill.table : PhosphorIconsLight.table,
+    SvgElement _ =>
+      filled ? PhosphorIconsFill.fileSvg : PhosphorIconsLight.fileSvg,
+    MarkdownElement _ =>
+      filled ? PhosphorIconsFill.textbox : PhosphorIconsLight.textbox,
+    TextureElement e => e.texture.icon(filled: filled),
+    PolygonElement _ =>
+      filled ? PhosphorIconsFill.polygon : PhosphorIconsLight.polygon,
+  };
+}
+
+extension ElementConstraintsVisualizer on ElementConstraints? {
+  String getLocalizedName(BuildContext context) => switch (this) {
+    FixedElementConstraints _ => AppLocalizations.of(context).fixed,
+    ScaledElementConstraints _ => AppLocalizations.of(context).scaled,
+    DynamicElementConstraints _ => AppLocalizations.of(context).dynamicContent,
+    null => AppLocalizations.of(context).none,
+  };
+
+  ElementConstraints scale(double scaleX, double scaleY) {
+    final constraints = this;
+    if (constraints is ScaledElementConstraints) {
+      return constraints.copyWith(
+        scaleX: constraints.scaleX * scaleX,
+        scaleY: constraints.scaleY * scaleY,
+      );
+    } else if (constraints is FixedElementConstraints) {
+      return constraints.copyWith(
+        width: constraints.width * scaleX,
+        height: constraints.height * scaleY,
+      );
+    } else if (constraints is DynamicElementConstraints) {
+      if (constraints.aspectRatio != 0) {
+        return constraints.copyWith(
+          aspectRatio: constraints.aspectRatio * (scaleX / scaleY),
+          width: constraints.width * scaleX,
+          height: constraints.height * scaleY,
+        );
+      } else {
+        return constraints.copyWith(
+          width: constraints.width * scaleX,
+          height: constraints.height * scaleY,
+        );
+      }
+    }
+    return ScaledElementConstraints(scaleX: scaleX, scaleY: scaleY);
+  }
+}
+
+extension LabelModeVisualizer on LabelMode {
+  String getLocalizedName(BuildContext context) => switch (this) {
+    .markdown => AppLocalizations.of(context).markdown,
+    .text => AppLocalizations.of(context).text,
+  };
+
+  PhosphorIconData icon({bool filled = false}) => switch (this) {
+    .markdown =>
+      filled ? PhosphorIconsFill.textbox : PhosphorIconsLight.textbox,
+    .text => filled ? PhosphorIconsFill.textT : PhosphorIconsLight.textT,
+  };
+}
+
+extension SurfaceTextureVisualizer on SurfaceTexture {
+  String getLocalizedName(BuildContext context) => switch (this) {
+    PatternTexture() => AppLocalizations.of(context).pattern,
+  };
+
+  PhosphorIconData icon({bool filled = false}) => switch (this) {
+    PatternTexture() =>
+      filled ? PhosphorIconsFill.blueprint : PhosphorIconsLight.blueprint,
+  };
+}

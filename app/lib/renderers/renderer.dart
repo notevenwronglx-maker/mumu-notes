@@ -1,0 +1,816 @@
+import 'dart:async';
+import 'dart:math';
+import 'dart:ui' as ui;
+
+import 'package:butterfly/api/image.dart';
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:butterfly/cubits/editor_controller.dart';
+import 'package:butterfly/handlers/handler.dart';
+import 'package:butterfly/helpers/element.dart';
+import 'package:butterfly/helpers/markdown/latex.dart';
+import 'package:butterfly/helpers/page.dart';
+import 'package:butterfly/helpers/rect.dart';
+import 'package:butterfly/helpers/point.dart';
+import 'package:butterfly/helpers/svg.dart';
+import 'package:butterfly/visualizer/element.dart';
+import 'package:butterfly/visualizer/text.dart';
+import 'package:butterfly/widgets/context_menu.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:butterfly_api/butterfly_text.dart' as text;
+import 'package:collection/collection.dart';
+import 'package:material_ui/material_ui.dart' hide Image;
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_math_fork/flutter_math.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:image/image.dart' as img;
+import 'package:markdown/markdown.dart' as md;
+import 'package:material_leap/material_leap.dart';
+import 'package:pdfrx/pdfrx.dart';
+import 'package:perfect_freehand/perfect_freehand.dart' as freehand;
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:xml/xml.dart';
+
+import '../cubits/transform.dart';
+import '../helpers/xml.dart';
+import '../models/label.dart';
+import '../services/asset.dart';
+import '../services/font.dart';
+import '../services/logger.dart';
+import 'textures/texture.dart';
+
+part 'renderer.freezed.dart';
+
+part 'backgrounds/texture.dart';
+part 'backgrounds/svg.dart';
+part 'backgrounds/image.dart';
+part 'elements/image.dart';
+part 'elements/markdown.dart';
+part 'elements/text.dart';
+part 'elements/texture.dart';
+part 'elements/pdf.dart';
+part 'elements/pen.dart';
+part 'elements/polygon.dart';
+part 'elements/shape.dart';
+part 'elements/table.dart';
+part 'elements/svg.dart';
+
+class ElementPaintRenderer {
+  ui.Image? _image;
+  String? _source;
+
+  Future<void> setup(
+    ElementPaint paint,
+    NoteData document,
+    AssetService assets,
+  ) async {
+    final source = switch (paint) {
+      ImageElementPaint(:final source) => source,
+      SvgElementPaint(:final source) => source,
+      _ => null,
+    };
+    if (_source == source && _image != null) return;
+    _image?.dispose();
+    _image = null;
+    _source = source;
+    if (source != null) {
+      _image = await assets.getImage(source, document);
+    }
+  }
+
+  bool uses(String path) => _source == path;
+
+  void dispose() {
+    _image?.dispose();
+    _image = null;
+  }
+
+  Paint build(ElementPaint paint, Rect bounds, {PaintingStyle? style}) {
+    final preview = paint.previewColor;
+    final result = Paint()
+      ..color = preview.toColor()
+      ..style = style ?? PaintingStyle.fill;
+    if (paint.blur > 0) {
+      result.maskFilter = ui.MaskFilter.blur(ui.BlurStyle.normal, paint.blur);
+    }
+    switch (paint) {
+      case ImageElementPaint(:final scale, :final tint):
+        if (!_applyImageShader(result, scale, tint)) return result;
+      case SvgElementPaint(:final scale, :final tint):
+        if (!_applyImageShader(result, scale, tint)) return result;
+      case GradientElementPaint(:final gradient):
+        final tileMode = TileMode.clamp;
+        late final ui.Shader shader;
+        switch (gradient) {
+          case LinearElementGradient(:final start, :final end, :final stops):
+            final startOffset = Offset(
+              bounds.left + start.x * bounds.width,
+              bounds.top + start.y * bounds.height,
+            );
+            final endOffset = Offset(
+              bounds.left + end.x * bounds.width,
+              bounds.top + end.y * bounds.height,
+            );
+            final centerOffset = Offset(
+              bounds.left + bounds.width / 2,
+              bounds.top + bounds.height / 2,
+            );
+            final scaledStart = centerOffset + (startOffset - centerOffset);
+            final scaledEnd = centerOffset + (endOffset - centerOffset);
+            shader = ui.Gradient.linear(
+              scaledStart,
+              scaledEnd,
+              stops.map((s) => s.color.toColor()).toList(),
+              stops.map((s) => s.offset).toList(),
+              tileMode,
+            );
+          case RadialElementGradient(
+            :final center,
+            :final radius,
+            :final focal,
+            :final focalRadius,
+            :final stops,
+          ):
+            final radiusScale =
+                sqrt(pow(bounds.width, 2) + pow(bounds.height, 2)) / 2;
+            shader = ui.Gradient.radial(
+              Offset(
+                bounds.left + center.x * bounds.width,
+                bounds.top + center.y * bounds.height,
+              ),
+              radius * radiusScale,
+              stops.map((s) => s.color.toColor()).toList(),
+              stops.map((s) => s.offset).toList(),
+              tileMode,
+              null,
+              focal == null
+                  ? null
+                  : Offset(
+                      bounds.left + focal.x * bounds.width,
+                      bounds.top + focal.y * bounds.height,
+                    ),
+              (focalRadius ?? 0) * radiusScale,
+            );
+        }
+        result.shader = shader;
+      case SolidElementPaint():
+    }
+    return result;
+  }
+
+  bool _applyImageShader(Paint paint, double scale, SRGBColor tint) {
+    final image = _image;
+    if (image == null) return false;
+    final matrix = Matrix4.diagonal3Values(scale, scale, 1);
+    paint
+      ..shader = ui.ImageShader(
+        image,
+        TileMode.repeated,
+        TileMode.repeated,
+        matrix.storage,
+      )
+      ..colorFilter = ui.ColorFilter.mode(tint.toColor(), BlendMode.modulate);
+    return true;
+  }
+}
+
+class DefaultHitCalculator extends HitCalculator {
+  final Rect? rect;
+  final double rotation;
+
+  DefaultHitCalculator(this.rect, this.rotation);
+
+  @override
+  bool hitPolygon(
+    List<ui.Offset> polygon, {
+    HitElementMode hitElementMode = .touchAnywhere,
+  }) {
+    if (rect == null || hitElementMode == .none) return false;
+    return hitShape(
+      polygon,
+      rect!.toPolygon(rotation: rotation),
+      hitElementMode,
+    );
+  }
+}
+
+class TransformedHitCalculator extends HitCalculator {
+  final HitCalculator delegate;
+  final Offset center;
+  final double rotation;
+  final double shear;
+
+  TransformedHitCalculator(
+    this.delegate,
+    this.center,
+    this.rotation,
+    this.shear,
+  );
+
+  Offset _inverse(Offset point) {
+    final rotated = (point - center).rotate(Offset.zero, -rotation);
+    return center + Offset(rotated.dx - rotated.dy * shear, rotated.dy);
+  }
+
+  @override
+  bool hitPolygon(
+    List<Offset> polygon, {
+    HitElementMode hitElementMode = .touchAnywhere,
+  }) => delegate.hitPolygon(
+    polygon.map(_inverse).toList(),
+    hitElementMode: hitElementMode,
+  );
+}
+
+abstract class HitCalculator {
+  bool hitPolygon(
+    List<Offset> polygon, {
+    HitElementMode hitElementMode = .touchAnywhere,
+  });
+
+  bool hitShape(
+    List<Offset> selection,
+    List<Offset> outline,
+    HitElementMode mode,
+  ) => switch (mode) {
+    .full =>
+      outline.isNotEmpty &&
+          outline.every((point) => isPointInPolygon(selection, point)),
+    .touchEdges => _edgesOf(
+      outline,
+    ).any((edge) => isPolygonInPolygon(selection, [edge.$1, edge.$2])),
+    .touchAnywhere => isPolygonInPolygon(selection, outline),
+    .none => false,
+  };
+
+  bool isPointInPolygon(List<Offset> polygon, Offset testPoint) {
+    if (!_isFiniteOffset(testPoint) || !isFinitePolygon(polygon)) return false;
+    if (polygon.isEmpty) return false;
+    if (polygon.length == 1) {
+      return _isPointOnSegment(testPoint, polygon.first, polygon.first);
+    }
+    bool result = false;
+    int j = polygon.length - 1;
+    for (int i = 0; i < polygon.length; i++) {
+      if (_isPointOnSegment(testPoint, polygon[j], polygon[i])) return true;
+      if ((polygon[i].dy < testPoint.dy && polygon[j].dy >= testPoint.dy) ||
+          (polygon[j].dy < testPoint.dy && polygon[i].dy >= testPoint.dy)) {
+        if (polygon[i].dx +
+                (testPoint.dy - polygon[i].dy) /
+                    (polygon[j].dy - polygon[i].dy) *
+                    (polygon[j].dx - polygon[i].dx) <
+            testPoint.dx) {
+          result = !result;
+        }
+      }
+      j = i;
+    }
+    return result;
+  }
+
+  bool _isFiniteOffset(Offset point) => point.dx.isFinite && point.dy.isFinite;
+
+  bool isFinitePolygon(List<Offset> polygon) => polygon.every(_isFiniteOffset);
+
+  bool _isPointOnSegment(Offset point, Offset a, Offset b) {
+    const epsilon = 1e-10;
+    if (a == b) {
+      return (point - a).distanceSquared <= epsilon * epsilon;
+    }
+    final cross =
+        (point.dy - a.dy) * (b.dx - a.dx) - (point.dx - a.dx) * (b.dy - a.dy);
+    if (cross.abs() > epsilon) return false;
+
+    final dot =
+        (point.dx - a.dx) * (b.dx - a.dx) + (point.dy - a.dy) * (b.dy - a.dy);
+    if (dot < -epsilon) return false;
+
+    final lengthSquared =
+        (b.dx - a.dx) * (b.dx - a.dx) + (b.dy - a.dy) * (b.dy - a.dy);
+    return dot <= lengthSquared + epsilon;
+  }
+
+  int _orientation(Offset a, Offset b, Offset c) {
+    const epsilon = 1e-10;
+    final value = (b.dy - a.dy) * (c.dx - b.dx) - (b.dx - a.dx) * (c.dy - b.dy);
+    if (value.abs() <= epsilon) return 0;
+    return value > 0 ? 1 : 2;
+  }
+
+  bool _segmentsIntersect(Offset a, Offset b, Offset c, Offset d) {
+    final o1 = _orientation(a, b, c);
+    final o2 = _orientation(a, b, d);
+    final o3 = _orientation(c, d, a);
+    final o4 = _orientation(c, d, b);
+
+    if (o1 != o2 && o3 != o4) return true;
+    if (o1 == 0 && _isPointOnSegment(c, a, b)) return true;
+    if (o2 == 0 && _isPointOnSegment(d, a, b)) return true;
+    if (o3 == 0 && _isPointOnSegment(a, c, d)) return true;
+    if (o4 == 0 && _isPointOnSegment(b, c, d)) return true;
+    return false;
+  }
+
+  Iterable<(Offset, Offset)> _edgesOf(List<Offset> polygon) sync* {
+    if (polygon.length < 2) return;
+    for (var i = 0; i < polygon.length - 1; i++) {
+      yield (polygon[i], polygon[i + 1]);
+    }
+    if (polygon.length > 2) {
+      yield (polygon.last, polygon.first);
+    }
+  }
+
+  bool isPolygonInPolygon(List<Offset> poly1, List<Offset> poly2) {
+    if (poly1.isEmpty || poly2.isEmpty) return false;
+    if (!isFinitePolygon(poly1) || !isFinitePolygon(poly2)) return false;
+
+    final bounds1 = _polygonBounds(poly1);
+    final bounds2 = _polygonBounds(poly2);
+    // Keep touching boundaries and zero-width/height polygons eligible for
+    // intersection, unlike Rect.overlaps. Allow for the segment tolerance.
+    const epsilon = 1e-10;
+    if (bounds1.right < bounds2.left - epsilon ||
+        bounds2.right < bounds1.left - epsilon ||
+        bounds1.bottom < bounds2.top - epsilon ||
+        bounds2.bottom < bounds1.top - epsilon) {
+      return false;
+    }
+
+    for (final (a, b) in _edgesOf(poly1)) {
+      for (final (c, d) in _edgesOf(poly2)) {
+        if (_segmentsIntersect(a, b, c, d)) return true;
+      }
+    }
+
+    // Without intersecting edges, each connected polygon is either entirely
+    // inside or entirely outside the other. One point per polygon suffices.
+    if (poly2.length > 2 && isPointInPolygon(poly2, poly1.first)) {
+      return true;
+    }
+    if (poly1.length > 2 && isPointInPolygon(poly1, poly2.first)) {
+      return true;
+    }
+    return false;
+  }
+
+  Rect _polygonBounds(List<Offset> polygon) {
+    var left = polygon.first.dx;
+    var right = left;
+    var top = polygon.first.dy;
+    var bottom = top;
+    for (var i = 1; i < polygon.length; i++) {
+      final point = polygon[i];
+      left = min(left, point.dx);
+      right = max(right, point.dx);
+      top = min(top, point.dy);
+      bottom = max(bottom, point.dy);
+    }
+    return Rect.fromLTRB(left, top, right, bottom);
+  }
+}
+
+enum RendererOperation {
+  invert,
+  background,
+  grayscale,
+  flipHorizontal,
+  flipVertical;
+
+  String getLocalizedName(BuildContext context) {
+    final loc = AppLocalizations.of(context);
+    return switch (this) {
+      .invert => loc.invert,
+      .background => loc.background,
+      .grayscale => loc.grayscale,
+      .flipHorizontal => loc.flipHorizontal,
+      .flipVertical => loc.flipVertical,
+    };
+  }
+
+  PhosphorIconData icon({bool filled = false}) => switch (this) {
+    .invert =>
+      filled ? PhosphorIconsFill.circleHalf : PhosphorIconsLight.circleHalf,
+    .background =>
+      filled ? PhosphorIconsFill.paintBucket : PhosphorIconsLight.paintBucket,
+    .grayscale =>
+      filled ? PhosphorIconsFill.palette : PhosphorIconsLight.palette,
+    .flipHorizontal =>
+      filled
+          ? PhosphorIconsFill.flipHorizontal
+          : PhosphorIconsLight.flipHorizontal,
+    .flipVertical =>
+      filled ? PhosphorIconsFill.flipVertical : PhosphorIconsLight.flipVertical,
+  };
+
+  Axis? get flipAxis => switch (this) {
+    .flipHorizontal => Axis.horizontal,
+    .flipVertical => Axis.vertical,
+    _ => null,
+  };
+}
+
+typedef RendererOperationCallback = void Function(
+  DocumentBloc bloc,
+  BuildContext context,
+);
+
+abstract class Renderer<T> {
+  final T element;
+  final String? layer;
+  Area? area;
+
+  Renderer(this.element, [this.layer]);
+
+  factory Renderer.fromInstance(T element, [String? layer]) {
+    // Elements
+    if (element is PadElement) {
+      return switch (element) {
+        PenElement() => PenRenderer(element, layer),
+        PdfElement() => PdfRenderer(element, layer),
+        TextElement() => TextRenderer(element, layer),
+        ImageElement() => ImageRenderer(element, layer),
+        SvgElement() => SvgRenderer(element, layer),
+        ShapeElement() => ShapeRenderer(element, layer),
+        TableElement() => TableRenderer(element, layer),
+        MarkdownElement() => MarkdownRenderer(element, layer),
+        TextureElement() => TextureRenderer(element, layer),
+        PolygonElement() => PolygonRenderer(element, layer),
+      } as Renderer<T>;
+    }
+
+    // Backgrounds
+    if (element is Background) {
+      return switch (element) {
+        TextureBackground() => TextureBackgroundRenderer(element),
+        ImageBackground() => ImageBackgroundRenderer(element),
+        SvgBackground() => SvgBackgroundRenderer(element),
+      } as Renderer<T>;
+    }
+
+    throw Exception('Invalid instance type');
+  }
+
+  double get rotation =>
+      element is PadElement ? (element as PadElement).rotation : 0.0;
+
+  double get shear => element is PadElement ? (element as PadElement).shear : 0;
+
+  String get id =>
+      (element is PadElement ? (element as PadElement).id : null) ??
+      createUniqueId();
+
+  @mustCallSuper
+  FutureOr<void> setup(
+    TransformCubit transformCubit,
+    NoteData document,
+    AssetService assetService,
+    DocumentPage page,
+  ) async => _updateArea(page);
+
+  void dispose() {}
+
+  void _updateArea(DocumentPage page) => area = rect == null
+      ? null
+      : page.areas.firstWhereOrNull((area) => area.rect.overlaps(rect!));
+  bool onAreaUpdate(NoteData document, DocumentPage page, Area? area) {
+    if (area?.rect.overlaps(rect!) ?? false) {
+      this.area = area;
+    }
+    return false;
+  }
+
+  bool onAssetUpdate(
+    NoteData document,
+    AssetService assetService,
+    DocumentPage page,
+    String path,
+  ) => false;
+
+  Rect? get rect => null;
+
+  bool isVisible(Rect rect) => expandedRect?.overlaps(rect) ?? true;
+
+  Rect? get expandedRect {
+    final current = rect;
+    if (current == null) return null;
+    final rotation = this.rotation * (pi / 180);
+    return _expandedAabbFor(current, rotation, shear);
+  }
+
+  static Offset _transformPoint(
+    Offset point,
+    Offset center,
+    double radians,
+    double shear,
+  ) {
+    final local = point - center;
+    final sheared = Offset(local.dx + local.dy * shear, local.dy);
+    return center + sheared.rotate(Offset.zero, radians);
+  }
+
+  Offset transformPoint(Offset point, [Rect? bounds]) => _transformPoint(
+    point,
+    (bounds ?? rect ?? Rect.zero).center,
+    rotation * pi / 180,
+    shear,
+  );
+
+  // Computes the axis-aligned bounding box of an affine-transformed rect.
+  static Rect _expandedAabbFor(Rect r, double radians, [double shear = 0]) {
+    if (radians == 0 && shear == 0) {
+      return r;
+    }
+    final center = r.center;
+    final topLeft = _transformPoint(r.topLeft, center, radians, shear);
+    final topRight = _transformPoint(r.topRight, center, radians, shear);
+    final bottomLeft = _transformPoint(r.bottomLeft, center, radians, shear);
+    final bottomRight = _transformPoint(r.bottomRight, center, radians, shear);
+    return Rect.fromLTRB(
+      min(min(topLeft.dx, topRight.dx), min(bottomLeft.dx, bottomRight.dx)),
+      min(min(topLeft.dy, topRight.dy), min(bottomLeft.dy, bottomRight.dy)),
+      max(max(topLeft.dx, topRight.dx), max(bottomLeft.dx, bottomRight.dx)),
+      max(max(topLeft.dy, topRight.dy), max(bottomLeft.dy, bottomRight.dy)),
+    );
+  }
+
+  static Rect _inverseAabbFor(
+    Rect r,
+    Offset center,
+    double radians,
+    double shear,
+  ) {
+    Offset inverse(Offset point) {
+      final rotated = (point - center).rotate(Offset.zero, -radians);
+      return center + Offset(rotated.dx - rotated.dy * shear, rotated.dy);
+    }
+
+    final topLeft = inverse(r.topLeft);
+    final topRight = inverse(r.topRight);
+    final bottomRight = inverse(r.bottomRight);
+    final bottomLeft = inverse(r.bottomLeft);
+    return Rect.fromLTRB(
+      min(min(topLeft.dx, topRight.dx), min(bottomLeft.dx, bottomRight.dx)),
+      min(min(topLeft.dy, topRight.dy), min(bottomLeft.dy, bottomRight.dy)),
+      max(max(topLeft.dx, topRight.dx), max(bottomLeft.dx, bottomRight.dx)),
+      max(max(topLeft.dy, topRight.dy), max(bottomLeft.dy, bottomRight.dy)),
+    );
+  }
+
+  bool transformCanvas(Canvas canvas) {
+    final radians = rotation * pi / 180;
+    if (radians == 0 && shear == 0) {
+      return false;
+    }
+    final center = rect?.center;
+    canvas.save();
+    if (center != null) canvas.translate(center.dx, center.dy);
+    canvas.rotate(radians);
+    canvas.transform((Matrix4.identity()..setEntry(0, 1, shear)).storage);
+    if (center != null) canvas.translate(-center.dx, -center.dy);
+    return true;
+  }
+
+  void build(
+    Canvas canvas,
+    Size size,
+    NoteData document,
+    DocumentPage page,
+    DocumentInfo info,
+    CameraTransform transform, [
+    ColorScheme? colorScheme,
+    bool foreground = false,
+  ]);
+
+  HitCalculator getHitCalculator() {
+    final calculator = createHitCalculator();
+    if (rotation == 0 && shear == 0) return calculator;
+    return TransformedHitCalculator(
+      calculator,
+      rect?.center ?? Offset.zero,
+      rotation * pi / 180,
+      shear,
+    );
+  }
+
+  @protected
+  HitCalculator createHitCalculator() => DefaultHitCalculator(rect, 0);
+
+  void buildSvg(
+    XmlDocument xml,
+    NoteData document,
+    DocumentPage page,
+    Rect viewportRect,
+  ) {}
+
+  Renderer<T>? transform({
+    Offset? position,
+    double scaleX = 1,
+    double scaleY = 1,
+    double scaleRotation = 0,
+    Offset? center,
+    double? rotation,
+    bool relative = true,
+    bool rotatePosition = false,
+    bool positionIsBounds = false,
+  }) {
+    final rect = this.rect ?? Rect.zero;
+    rotation ??= relative ? 0 : this.rotation;
+    final rotationDelta = relative ? rotation : rotation - this.rotation;
+
+    // Determine position (absolute for _transform)
+    position ??= relative ? Offset.zero : rect.topLeft;
+    var nextPosition = relative ? position + rect.topLeft : position;
+
+    final radians = (this.rotation % 360) * (pi / 180);
+    // Keep original rotatePosition behavior (rotate relative movement by current rotation)
+    if (rotatePosition && (this.rotation % 360) != 0) {
+      var relativePosition = nextPosition - rect.topLeft;
+      relativePosition = relativePosition.rotate(Offset.zero, radians);
+      nextPosition = relativePosition + rect.topLeft;
+    }
+
+    // Compose the requested world transform with the current local transform.
+    // QR decomposition then gives a rotation, an X shear and signed local
+    // scales. Keeping those scales signed lets _transform preserve reflections.
+    final currentShear = shear;
+    final c = cos(radians), s = sin(radians);
+    final a = c;
+    final b = c * currentShear - s;
+    final d = s;
+    final e = s * currentShear + c;
+    final deltaRadians = rotationDelta * pi / 180;
+    final dc = cos(deltaRadians), ds = sin(deltaRadians);
+    // Keep the transform decomposable at the exact instant a resize handle
+    // crosses an axis. Visually this is indistinguishable from zero size, but
+    // avoids briefly restoring the original element because of a singular
+    // matrix.
+    const minimumScale = 1e-9;
+    final effectiveScaleX = scaleX.abs() < minimumScale
+        ? (scaleX.isNegative ? -minimumScale : minimumScale)
+        : scaleX;
+    final effectiveScaleY = scaleY.abs() < minimumScale
+        ? (scaleY.isNegative ? -minimumScale : minimumScale)
+        : scaleY;
+    // Apply scaling along the requested axes before the rotation delta.
+    final sc = cos(scaleRotation), ss = sin(scaleRotation);
+    final sx = sc * sc * effectiveScaleX + ss * ss * effectiveScaleY;
+    final sy = ss * ss * effectiveScaleX + sc * sc * effectiveScaleY;
+    final cross = sc * ss * (effectiveScaleX - effectiveScaleY);
+    final m00 = dc * (sx * a + cross * d) - ds * (cross * a + sy * d);
+    final m01 = dc * (sx * b + cross * e) - ds * (cross * b + sy * e);
+    final m10 = ds * (sx * a + cross * d) + dc * (cross * a + sy * d);
+    final m11 = ds * (sx * b + cross * e) + dc * (cross * b + sy * e);
+
+    final r00Magnitude = sqrt(m00 * m00 + m10 * m10);
+    if (r00Magnitude <= 1e-12) return null;
+    // Resolve the QR sign ambiguity from the requested X scale. Comparing the
+    // transformed axis with the current axis would turn rotations beyond 90°
+    // into a reflection plus a half turn, making elements jump while rotating.
+    final r00 = effectiveScaleX.isNegative ? -r00Magnitude : r00Magnitude;
+    final q00 = m00 / r00, q10 = m10 / r00;
+    final r01 = q00 * m01 + q10 * m11;
+    final determinant = m00 * m11 - m01 * m10;
+    final r11 = determinant / r00;
+    if (r11.abs() <= 1e-12) return null;
+
+    final nextRotation = atan2(q10, q00) * 180 / pi % 360;
+    final geometryScaleX = r00;
+    final geometryScaleY = r11;
+    final nextShear = r01 / r11;
+
+    final oldExpanded = _expandedAabbFor(rect, radians, currentShear);
+    final scaledRect = Rect.fromPoints(
+      rect.topLeft,
+      rect.topLeft +
+          Offset(rect.width * geometryScaleX, rect.height * geometryScaleY),
+    );
+    final newExpanded = _expandedAabbFor(
+      scaledRect,
+      nextRotation * pi / 180,
+      nextShear,
+    );
+    if (rotationDelta == 0) {
+      final scaledOrigin = positionIsBounds ? rect.topLeft : scaledRect.topLeft;
+      nextPosition +=
+          (oldExpanded.topLeft - rect.topLeft) -
+          (newExpanded.topLeft - scaledOrigin);
+    }
+
+    if (center != null) {
+      nextPosition =
+          center -
+          Offset(rect.width * geometryScaleX, rect.height * geometryScaleY) / 2;
+    }
+    return _transform(
+      position: nextPosition,
+      rotation: nextRotation,
+      shear: nextShear,
+      scaleX: geometryScaleX,
+      scaleY: geometryScaleY,
+    );
+  }
+
+  Renderer<T>? flip({required Axis axis, required Rect selectionRect}) {
+    final bounds = expandedRect ?? rect;
+    if (bounds == null) return null;
+    final offset = switch (axis) {
+      .horizontal => Offset(
+        2 * (selectionRect.center.dx - bounds.center.dx),
+        0,
+      ),
+      .vertical => Offset(0, 2 * (selectionRect.center.dy - bounds.center.dy)),
+    };
+    return transform(
+      position: offset,
+      scaleX: axis == .horizontal ? -1 : 1,
+      scaleY: axis == .vertical ? -1 : 1,
+      positionIsBounds: true,
+    );
+  }
+
+  Renderer<T>? _transform({
+    required Offset position,
+    required double rotation,
+    required double shear,
+    // ignore: unused_element_parameter
+    double scaleX = 1,
+    // ignore: unused_element_parameter
+    double scaleY = 1,
+  }) => null;
+
+  Map<RendererOperation, RendererOperationCallback> getOperations() => {};
+
+  ContextMenuItem? getContextMenuItem(
+    DocumentBloc bloc,
+    BuildContext context,
+  ) => null;
+
+  FutureOr<void> onVisible(
+    EditorController editorController,
+    DocumentLoaded blocState,
+    CameraTransform renderTransform,
+    ui.Size size,
+  ) {}
+
+  FutureOr<void> onHidden(
+    EditorController editorController,
+    DocumentLoaded blocState,
+    CameraTransform renderTransform,
+    ui.Size size,
+  ) {}
+
+  FutureOr<void> updateView(
+    EditorController editorController,
+    DocumentLoaded blocState,
+    CameraTransform renderTransform,
+    ui.Size size,
+  ) {}
+}
+
+Future<ui.Image> renderWidget(Widget widget, {double pixelRatio = 1.0}) async {
+  final repaintBoundary = RenderRepaintBoundary();
+  final pipelineOwner = PipelineOwner();
+  final BuildOwner buildOwner = .new(focusManager: FocusManager());
+  RenderView? renderView;
+
+  try {
+    renderView = RenderView(
+      view: ui.PlatformDispatcher.instance.implicitView!,
+      child: RenderPositionedBox(
+        alignment: Alignment.center,
+        child: repaintBoundary,
+      ),
+      configuration: ViewConfiguration(
+        logicalConstraints: .tightFor(),
+        devicePixelRatio: pixelRatio,
+      ),
+    );
+
+    pipelineOwner.rootNode = renderView;
+
+    renderView.prepareInitialFrame();
+    final rootElement = RenderObjectToWidgetAdapter<RenderBox>(
+      container: repaintBoundary,
+      child: MediaQuery(
+        data: MediaQueryData(),
+        child: Directionality(textDirection: .ltr, child: widget),
+      ),
+    ).attachToRenderTree(buildOwner);
+    buildOwner.buildScope(rootElement);
+    buildOwner.finalizeTree();
+    pipelineOwner.flushLayout();
+    pipelineOwner.flushCompositingBits();
+    pipelineOwner.flushPaint();
+    final image = await repaintBoundary.toImage(pixelRatio: pixelRatio);
+    return image;
+  } catch (e) {
+    throw Exception('Failed to render widget: $e');
+  } finally {
+    pipelineOwner.rootNode = null;
+    repaintBoundary.dispose();
+    pipelineOwner.dispose();
+    renderView?.dispose();
+  }
+}

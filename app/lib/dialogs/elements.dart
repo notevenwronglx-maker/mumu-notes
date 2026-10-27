@@ -1,0 +1,228 @@
+import 'package:butterfly/dialogs/area/context.dart';
+import 'package:butterfly/handlers/handler.dart';
+import 'package:butterfly/services/export.dart';
+import 'package:butterfly/visualizer/event.dart';
+import 'package:butterfly/widgets/context_menu.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+import 'package:lw_sysapi/lw_sysapi.dart';
+import 'package:material_leap/material_leap.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+
+import '../../renderers/renderer.dart';
+import '../bloc/document_bloc.dart';
+import '../services/import.dart';
+
+ContextMenuBuilder buildElementsContextMenu(
+  DocumentBloc bloc,
+  DocumentLoadSuccess state,
+  ImportService importService,
+  ExportService exportService,
+  ClipboardManager clipboardManager,
+  Offset position,
+  List<Renderer<PadElement>> renderers,
+  Rect? rect,
+) {
+  final cubit = bloc.editorController;
+  final settingsCubit = state.settingsCubit;
+  final operations = {
+    for (final renderer in renderers) renderer: renderer.getOperations(),
+  };
+  final operationKeys = {
+    ...operations.values.expand((e) => e.keys),
+    RendererOperation.flipHorizontal,
+    RendererOperation.flipVertical,
+  };
+  return (context) {
+    final rendererContextMenuItem = renderers.length == 1
+        ? renderers.first.getContextMenuItem(bloc, context)
+        : null;
+    return [
+      if (rect == null) ...[
+        ContextMenuItem(
+          onPressed: () {
+            Navigator.of(context).pop(true);
+            try {
+              importService
+                  .importClipboard(
+                    state.data,
+                    position: bloc.transformCubit.state.localToGlobal(position),
+                  )
+                  .then((e) => e?.submit());
+            } catch (_) {}
+          },
+          icon: const PhosphorIcon(PhosphorIconsLight.clipboard),
+          label: AppLocalizations.of(context).paste,
+        ),
+      ] else ...[
+        ContextMenuItem(
+          onPressed: () {
+            Navigator.of(context).pop(true);
+            cubit.toolCubit
+                .fetchHandler<SelectHandler>(
+                  editable: cubit.saveCubit.state.embedding?.editable != false,
+                )
+                ?.copySelection(bloc, clipboardManager, true);
+          },
+          icon: const PhosphorIcon(PhosphorIconsLight.scissors),
+          label: AppLocalizations.of(context).cut,
+        ),
+        ContextMenuItem(
+          onPressed: () {
+            Navigator.of(context).pop(true);
+            cubit.toolCubit
+                .fetchHandler<SelectHandler>(
+                  editable: cubit.saveCubit.state.embedding?.editable != false,
+                )
+                ?.copySelection(bloc, clipboardManager, false);
+          },
+          icon: const PhosphorIcon(PhosphorIconsLight.copy),
+          label: AppLocalizations.of(context).copy,
+        ),
+        ContextMenuItem(
+          icon: const PhosphorIcon(PhosphorIconsLight.copySimple),
+          onPressed: () async {
+            Navigator.of(context).pop(true);
+            final document = state.data;
+            final assetService = state.assetService;
+            final page = state.page;
+            final transforms = renderers
+                .map((e) => Renderer.fromInstance(e.element))
+                .toList();
+            for (final renderer in transforms) {
+              await renderer.setup(
+                bloc.transformCubit,
+                document,
+                assetService,
+                page,
+              );
+            }
+            cubit.toolCubit
+                .fetchHandler<SelectHandler>(
+                  editable: cubit.saveCubit.state.embedding?.editable != false,
+                )
+                ?.transform(bloc, null, next: transforms, duplicate: true);
+          },
+          label: AppLocalizations.of(context).duplicate,
+        ),
+        ContextMenuItem(
+          onPressed: () {
+            Navigator.of(context).pop(true);
+            final state = bloc.state;
+            if (state is! DocumentLoadSuccess) return;
+            bloc.add(
+              ElementsRemoved(
+                renderers.map((r) => r.element.id).nonNulls.toList(),
+              ),
+            );
+            bloc.delayedBake();
+          },
+          icon: const PhosphorIcon(PhosphorIconsLight.trash),
+          label: AppLocalizations.of(context).delete,
+        ),
+        ContextMenuGroup(
+          icon: const Icon(PhosphorIconsLight.layout),
+          children: Arrangement.values
+              .map(
+                (e) => MenuItemButton(
+                  leadingIcon: Icon(e.icon()),
+                  child: Text(e.getLocalizedName(context)),
+                  onPressed: () {
+                    Navigator.of(context).pop(true);
+                    final state = bloc.state;
+                    if (state is! DocumentLoadSuccess) return;
+                    bloc.add(
+                      ElementsArranged(
+                        e,
+                        renderers.map((r) => r.element.id).nonNulls.toList(),
+                      ),
+                    );
+                  },
+                ),
+              )
+              .toList(),
+          label: AppLocalizations.of(context).arrange,
+        ),
+        ContextMenuGroup(
+          label: AppLocalizations.of(context).operations,
+          icon: const PhosphorIcon(PhosphorIconsLight.wrench),
+          children: operationKeys
+              .map(
+                (e) => MenuItemButton(
+                  leadingIcon: PhosphorIcon(e.icon()),
+                  child: Text(e.getLocalizedName(context)),
+                  onPressed: () {
+                    final flipAxis = e.flipAxis;
+                    if (flipAxis == null) {
+                      operations.values
+                          .map((v) => v[e])
+                          .nonNulls
+                          .forEach((e) => e(bloc, context));
+                    } else {
+                      _flipElements(bloc, renderers, rect, flipAxis);
+                    }
+                    if (context.mounted) Navigator.of(context).pop(true);
+                  },
+                ),
+              )
+              .toList(),
+        ),
+        ?rendererContextMenuItem,
+        if (renderers.length == 1 &&
+            exportService.isExportable(renderers.first.element))
+          ContextMenuItem(
+            onPressed: () {
+              Navigator.of(context).pop(true);
+              exportService.export(renderers.first.element);
+            },
+            icon: const PhosphorIcon(PhosphorIconsLight.export),
+            label: AppLocalizations.of(context).export,
+          ),
+        ContextMenuItem(
+          onPressed: () {
+            Navigator.of(context).pop(true);
+            if (renderers.isEmpty) return;
+            cubit.toolCubit.changeSelection(renderers.first);
+            renderers
+                .sublist(1)
+                .forEach((r) => cubit.toolCubit.insertSelection(r));
+          },
+          icon: const PhosphorIcon(PhosphorIconsLight.faders),
+          label: AppLocalizations.of(context).properties,
+        ),
+        ...buildGeneralAreaContextMenu(
+          bloc,
+          Area(
+            width: rect.width,
+            height: rect.height,
+            position: rect.topLeft.toPoint(),
+          ),
+          settingsCubit,
+          renderers.map((e) => e.element).toList(),
+        )(context),
+      ],
+    ];
+  };
+}
+
+void _flipElements(
+  DocumentBloc bloc,
+  List<Renderer<PadElement>> renderers,
+  Rect selectionRect,
+  Axis axis,
+) {
+  final changes = Map.fromEntries(
+    renderers.map((renderer) {
+      final id = renderer.element.id;
+      if (id == null) return null;
+      final transformed = renderer.flip(
+        axis: axis,
+        selectionRect: selectionRect,
+      );
+      if (transformed == null) return null;
+      return MapEntry(id, [transformed.element]);
+    }).nonNulls,
+  );
+  if (changes.isNotEmpty) bloc.add(ElementsChanged(changes));
+}

@@ -1,0 +1,806 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'persisted_document_state.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format off
+T _$identity<T>(T value) => value;
+/// @nodoc
+mixin _$PersistedToolSelection {
+
+
+/// Create a copy of PersistedToolSelection
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PersistedToolSelectionCopyWith<PersistedToolSelection> get copyWith => _$PersistedToolSelectionCopyWithImpl<PersistedToolSelection>(this as PersistedToolSelection, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as PersistedToolSelection;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PersistedToolSelection&&(identical(other.toolId, _this.toolId) || other.toolId == _this.toolId)&&(identical(other.toolIndex, _this.toolIndex) || other.toolIndex == _this.toolIndex));
+}
+
+
+@override
+int get hashCode {
+  final _this = this as PersistedToolSelection;
+  return Object.hash(runtimeType,_this.toolId,_this.toolIndex);
+}
+
+@override
+String toString() {
+  final _this = this as PersistedToolSelection;
+  return 'PersistedToolSelection(toolId: ${_this.toolId}, toolIndex: ${_this.toolIndex})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PersistedToolSelectionCopyWith<$Res>  {
+  factory $PersistedToolSelectionCopyWith(PersistedToolSelection value, $Res Function(PersistedToolSelection) _then) = _$PersistedToolSelectionCopyWithImpl;
+@useResult
+$Res call({
+ String? toolId, int? toolIndex
+});
+
+
+
+
+}
+/// @nodoc
+class _$PersistedToolSelectionCopyWithImpl<$Res>
+    implements $PersistedToolSelectionCopyWith<$Res> {
+  _$PersistedToolSelectionCopyWithImpl(this._self, this._then);
+
+  final PersistedToolSelection _self;
+  final $Res Function(PersistedToolSelection) _then;
+
+/// Create a copy of PersistedToolSelection
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? toolId = freezed,Object? toolIndex = freezed,}) {
+  return _then(PersistedToolSelection(
+toolId: freezed == toolId ? _self.toolId : toolId // ignore: cast_nullable_to_non_nullable
+as String?,toolIndex: freezed == toolIndex ? _self.toolIndex : toolIndex // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+}
+
+
+
+/// @nodoc
+mixin _$PersistedCameraState {
+
+
+/// Create a copy of PersistedCameraState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PersistedCameraStateCopyWith<PersistedCameraState> get copyWith => _$PersistedCameraStateCopyWithImpl<PersistedCameraState>(this as PersistedCameraState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as PersistedCameraState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PersistedCameraState&&(identical(other.positionX, _this.positionX) || other.positionX == _this.positionX)&&(identical(other.positionY, _this.positionY) || other.positionY == _this.positionY)&&(identical(other.zoom, _this.zoom) || other.zoom == _this.zoom)&&(identical(other.rotation, _this.rotation) || other.rotation == _this.rotation));
+}
+
+
+@override
+int get hashCode {
+  final _this = this as PersistedCameraState;
+  return Object.hash(runtimeType,_this.positionX,_this.positionY,_this.zoom,_this.rotation);
+}
+
+@override
+String toString() {
+  final _this = this as PersistedCameraState;
+  return 'PersistedCameraState(positionX: ${_this.positionX}, positionY: ${_this.positionY}, zoom: ${_this.zoom}, rotation: ${_this.rotation})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PersistedCameraStateCopyWith<$Res>  {
+  factory $PersistedCameraStateCopyWith(PersistedCameraState value, $Res Function(PersistedCameraState) _then) = _$PersistedCameraStateCopyWithImpl;
+@useResult
+$Res call({
+ double positionX, double positionY, double zoom, double rotation
+});
+
+
+
+
+}
+/// @nodoc
+class _$PersistedCameraStateCopyWithImpl<$Res>
+    implements $PersistedCameraStateCopyWith<$Res> {
+  _$PersistedCameraStateCopyWithImpl(this._self, this._then);
+
+  final PersistedCameraState _self;
+  final $Res Function(PersistedCameraState) _then;
+
+/// Create a copy of PersistedCameraState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? positionX = null,Object? positionY = null,Object? zoom = null,Object? rotation = null,}) {
+  return _then(PersistedCameraState(
+positionX: null == positionX ? _self.positionX : positionX // ignore: cast_nullable_to_non_nullable
+as double,positionY: null == positionY ? _self.positionY : positionY // ignore: cast_nullable_to_non_nullable
+as double,zoom: null == zoom ? _self.zoom : zoom // ignore: cast_nullable_to_non_nullable
+as double,rotation: null == rotation ? _self.rotation : rotation // ignore: cast_nullable_to_non_nullable
+as double,
+  ));
+}
+
+}
+
+
+
+/// @nodoc
+mixin _$PersistentLockState {
+
+
+/// Create a copy of PersistentLockState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PersistentLockStateCopyWith<PersistentLockState> get copyWith => _$PersistentLockStateCopyWithImpl<PersistentLockState>(this as PersistentLockState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as PersistentLockState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PersistentLockState&&(identical(other.lockCollection, _this.lockCollection) || other.lockCollection == _this.lockCollection)&&(identical(other.lockLayer, _this.lockLayer) || other.lockLayer == _this.lockLayer)&&(identical(other.lockZoom, _this.lockZoom) || other.lockZoom == _this.lockZoom)&&(identical(other.lockHorizontal, _this.lockHorizontal) || other.lockHorizontal == _this.lockHorizontal)&&(identical(other.lockVertical, _this.lockVertical) || other.lockVertical == _this.lockVertical)&&(identical(other.lockRotation, _this.lockRotation) || other.lockRotation == _this.lockRotation));
+}
+
+
+@override
+int get hashCode {
+  final _this = this as PersistentLockState;
+  return Object.hash(runtimeType,_this.lockCollection,_this.lockLayer,_this.lockZoom,_this.lockHorizontal,_this.lockVertical,_this.lockRotation);
+}
+
+@override
+String toString() {
+  final _this = this as PersistentLockState;
+  return 'PersistentLockState(lockCollection: ${_this.lockCollection}, lockLayer: ${_this.lockLayer}, lockZoom: ${_this.lockZoom}, lockHorizontal: ${_this.lockHorizontal}, lockVertical: ${_this.lockVertical}, lockRotation: ${_this.lockRotation})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PersistentLockStateCopyWith<$Res>  {
+  factory $PersistentLockStateCopyWith(PersistentLockState value, $Res Function(PersistentLockState) _then) = _$PersistentLockStateCopyWithImpl;
+@useResult
+$Res call({
+ bool lockCollection, bool lockLayer, bool lockZoom, bool lockHorizontal, bool lockVertical, bool lockRotation
+});
+
+
+
+
+}
+/// @nodoc
+class _$PersistentLockStateCopyWithImpl<$Res>
+    implements $PersistentLockStateCopyWith<$Res> {
+  _$PersistentLockStateCopyWithImpl(this._self, this._then);
+
+  final PersistentLockState _self;
+  final $Res Function(PersistentLockState) _then;
+
+/// Create a copy of PersistentLockState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? lockCollection = null,Object? lockLayer = null,Object? lockZoom = null,Object? lockHorizontal = null,Object? lockVertical = null,Object? lockRotation = null,}) {
+  return _then(PersistentLockState(
+lockCollection: null == lockCollection ? _self.lockCollection : lockCollection // ignore: cast_nullable_to_non_nullable
+as bool,lockLayer: null == lockLayer ? _self.lockLayer : lockLayer // ignore: cast_nullable_to_non_nullable
+as bool,lockZoom: null == lockZoom ? _self.lockZoom : lockZoom // ignore: cast_nullable_to_non_nullable
+as bool,lockHorizontal: null == lockHorizontal ? _self.lockHorizontal : lockHorizontal // ignore: cast_nullable_to_non_nullable
+as bool,lockVertical: null == lockVertical ? _self.lockVertical : lockVertical // ignore: cast_nullable_to_non_nullable
+as bool,lockRotation: null == lockRotation ? _self.lockRotation : lockRotation // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+}
+
+
+
+/// @nodoc
+mixin _$PersistedNavigatorState {
+
+
+/// Create a copy of PersistedNavigatorState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PersistedNavigatorStateCopyWith<PersistedNavigatorState> get copyWith => _$PersistedNavigatorStateCopyWithImpl<PersistedNavigatorState>(this as PersistedNavigatorState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as PersistedNavigatorState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PersistedNavigatorState&&(identical(other.enabled, _this.enabled) || other.enabled == _this.enabled)&&(identical(other.page, _this.page) || other.page == _this.page));
+}
+
+
+@override
+int get hashCode {
+  final _this = this as PersistedNavigatorState;
+  return Object.hash(runtimeType,_this.enabled,_this.page);
+}
+
+@override
+String toString() {
+  final _this = this as PersistedNavigatorState;
+  return 'PersistedNavigatorState(enabled: ${_this.enabled}, page: ${_this.page})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PersistedNavigatorStateCopyWith<$Res>  {
+  factory $PersistedNavigatorStateCopyWith(PersistedNavigatorState value, $Res Function(PersistedNavigatorState) _then) = _$PersistedNavigatorStateCopyWithImpl;
+@useResult
+$Res call({
+ bool enabled, String page
+});
+
+
+
+
+}
+/// @nodoc
+class _$PersistedNavigatorStateCopyWithImpl<$Res>
+    implements $PersistedNavigatorStateCopyWith<$Res> {
+  _$PersistedNavigatorStateCopyWithImpl(this._self, this._then);
+
+  final PersistedNavigatorState _self;
+  final $Res Function(PersistedNavigatorState) _then;
+
+/// Create a copy of PersistedNavigatorState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? enabled = null,Object? page = null,}) {
+  return _then(PersistedNavigatorState(
+enabled: null == enabled ? _self.enabled : enabled // ignore: cast_nullable_to_non_nullable
+as bool,page: null == page ? _self.page : page // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+}
+
+
+
+
+/// @nodoc
+mixin _$PersistedLayerState {
+
+ String get currentLayer; String get currentCollection; Set<String> get invisibleLayers;
+/// Create a copy of PersistedLayerState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PersistedLayerStateCopyWith<PersistedLayerState> get copyWith => _$PersistedLayerStateCopyWithImpl<PersistedLayerState>(this as PersistedLayerState, _$identity);
+
+  /// Serializes this PersistedLayerState to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as PersistedLayerState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PersistedLayerState&&(identical(other.currentLayer, _this.currentLayer) || other.currentLayer == _this.currentLayer)&&(identical(other.currentCollection, _this.currentCollection) || other.currentCollection == _this.currentCollection)&&const DeepCollectionEquality().equals(other.invisibleLayers, _this.invisibleLayers));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as PersistedLayerState;
+  return Object.hash(runtimeType,_this.currentLayer,_this.currentCollection,const DeepCollectionEquality().hash(_this.invisibleLayers));
+}
+
+@override
+String toString() {
+  final _this = this as PersistedLayerState;
+  return 'PersistedLayerState(currentLayer: ${_this.currentLayer}, currentCollection: ${_this.currentCollection}, invisibleLayers: ${_this.invisibleLayers})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PersistedLayerStateCopyWith<$Res>  {
+  factory $PersistedLayerStateCopyWith(PersistedLayerState value, $Res Function(PersistedLayerState) _then) = _$PersistedLayerStateCopyWithImpl;
+@useResult
+$Res call({
+ String currentLayer, String currentCollection, Set<String> invisibleLayers
+});
+
+
+
+
+}
+/// @nodoc
+class _$PersistedLayerStateCopyWithImpl<$Res>
+    implements $PersistedLayerStateCopyWith<$Res> {
+  _$PersistedLayerStateCopyWithImpl(this._self, this._then);
+
+  final PersistedLayerState _self;
+  final $Res Function(PersistedLayerState) _then;
+
+/// Create a copy of PersistedLayerState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? currentLayer = null,Object? currentCollection = null,Object? invisibleLayers = null,}) {
+  return _then(PersistedLayerState(
+currentLayer: null == currentLayer ? _self.currentLayer : currentLayer // ignore: cast_nullable_to_non_nullable
+as String,currentCollection: null == currentCollection ? _self.currentCollection : currentCollection // ignore: cast_nullable_to_non_nullable
+as String,invisibleLayers: null == invisibleLayers ? _self.invisibleLayers : invisibleLayers // ignore: cast_nullable_to_non_nullable
+as Set<String>,
+  ));
+}
+
+}
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class _PersistedLayerState implements PersistedLayerState {
+  const _PersistedLayerState({this.currentLayer = '', this.currentCollection = '',  Set<String> invisibleLayers = const {}}): _invisibleLayers = invisibleLayers;
+  factory _PersistedLayerState.fromJson(Map<String, dynamic> json) => _$PersistedLayerStateFromJson(json);
+
+@override@JsonKey() final  String currentLayer;
+@override@JsonKey() final  String currentCollection;
+ final  Set<String> _invisibleLayers;
+@override@JsonKey() Set<String> get invisibleLayers {
+  if (_invisibleLayers is EqualUnmodifiableSetView) return _invisibleLayers;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableSetView(_invisibleLayers);
+}
+
+
+/// Create a copy of PersistedLayerState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PersistedLayerStateCopyWith<_PersistedLayerState> get copyWith => __$PersistedLayerStateCopyWithImpl<_PersistedLayerState>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$PersistedLayerStateToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PersistedLayerState&&(identical(other.currentLayer, currentLayer) || other.currentLayer == currentLayer)&&(identical(other.currentCollection, currentCollection) || other.currentCollection == currentCollection)&&const DeepCollectionEquality().equals(other.invisibleLayers, _invisibleLayers));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,currentLayer,currentCollection,const DeepCollectionEquality().hash(_invisibleLayers));
+}
+
+@override
+String toString() {
+    return 'PersistedLayerState(currentLayer: $currentLayer, currentCollection: $currentCollection, invisibleLayers: $invisibleLayers)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PersistedLayerStateCopyWith<$Res> implements $PersistedLayerStateCopyWith<$Res> {
+  factory _$PersistedLayerStateCopyWith(_PersistedLayerState value, $Res Function(_PersistedLayerState) _then) = __$PersistedLayerStateCopyWithImpl;
+@override @useResult
+$Res call({
+ String currentLayer, String currentCollection, Set<String> invisibleLayers
+});
+
+
+
+
+}
+/// @nodoc
+class __$PersistedLayerStateCopyWithImpl<$Res>
+    implements _$PersistedLayerStateCopyWith<$Res> {
+  __$PersistedLayerStateCopyWithImpl(this._self, this._then);
+
+  final _PersistedLayerState _self;
+  final $Res Function(_PersistedLayerState) _then;
+
+/// Create a copy of PersistedLayerState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? currentLayer = null,Object? currentCollection = null,Object? invisibleLayers = null,}) {
+  return _then(_PersistedLayerState(
+currentLayer: null == currentLayer ? _self.currentLayer : currentLayer // ignore: cast_nullable_to_non_nullable
+as String,currentCollection: null == currentCollection ? _self.currentCollection : currentCollection // ignore: cast_nullable_to_non_nullable
+as String,invisibleLayers: null == invisibleLayers ? _self._invisibleLayers : invisibleLayers // ignore: cast_nullable_to_non_nullable
+as Set<String>,
+  ));
+}
+
+
+}
+
+/// @nodoc
+mixin _$PersistedAreaNavigatorState {
+
+
+/// Create a copy of PersistedAreaNavigatorState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PersistedAreaNavigatorStateCopyWith<PersistedAreaNavigatorState> get copyWith => _$PersistedAreaNavigatorStateCopyWithImpl<PersistedAreaNavigatorState>(this as PersistedAreaNavigatorState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as PersistedAreaNavigatorState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PersistedAreaNavigatorState&&(identical(other.create, _this.create) || other.create == _this.create)&&(identical(other.exact, _this.exact) || other.exact == _this.exact)&&(identical(other.ask, _this.ask) || other.ask == _this.ask));
+}
+
+
+@override
+int get hashCode {
+  final _this = this as PersistedAreaNavigatorState;
+  return Object.hash(runtimeType,_this.create,_this.exact,_this.ask);
+}
+
+@override
+String toString() {
+  final _this = this as PersistedAreaNavigatorState;
+  return 'PersistedAreaNavigatorState(create: ${_this.create}, exact: ${_this.exact}, ask: ${_this.ask})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PersistedAreaNavigatorStateCopyWith<$Res>  {
+  factory $PersistedAreaNavigatorStateCopyWith(PersistedAreaNavigatorState value, $Res Function(PersistedAreaNavigatorState) _then) = _$PersistedAreaNavigatorStateCopyWithImpl;
+@useResult
+$Res call({
+ bool create, bool exact, bool ask
+});
+
+
+
+
+}
+/// @nodoc
+class _$PersistedAreaNavigatorStateCopyWithImpl<$Res>
+    implements $PersistedAreaNavigatorStateCopyWith<$Res> {
+  _$PersistedAreaNavigatorStateCopyWithImpl(this._self, this._then);
+
+  final PersistedAreaNavigatorState _self;
+  final $Res Function(PersistedAreaNavigatorState) _then;
+
+/// Create a copy of PersistedAreaNavigatorState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? create = null,Object? exact = null,Object? ask = null,}) {
+  return _then(PersistedAreaNavigatorState(
+create: null == create ? _self.create : create // ignore: cast_nullable_to_non_nullable
+as bool,exact: null == exact ? _self.exact : exact // ignore: cast_nullable_to_non_nullable
+as bool,ask: null == ask ? _self.ask : ask // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+}
+
+
+
+
+/// @nodoc
+mixin _$PersistedDocumentState {
+
+ int get version;@JsonKey(includeFromJson: false, includeToJson: false) String? get pathKey;@JsonKey(includeFromJson: false, includeToJson: false) String? get contentHash; String? get pageName; PersistedCameraState get camera; Map<String, PersistedCameraState> get pageCameras; PersistentLockState get locks; PersistedToolSelection get selectedTool; PersistedNavigatorState get navigator; PersistedLayerState get layers; PersistedAreaNavigatorState get areaNavigator; bool get autoThumbnail; DateTime? get updatedAt;
+/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PersistedDocumentStateCopyWith<PersistedDocumentState> get copyWith => _$PersistedDocumentStateCopyWithImpl<PersistedDocumentState>(this as PersistedDocumentState, _$identity);
+
+  /// Serializes this PersistedDocumentState to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as PersistedDocumentState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PersistedDocumentState&&(identical(other.version, _this.version) || other.version == _this.version)&&(identical(other.pathKey, _this.pathKey) || other.pathKey == _this.pathKey)&&(identical(other.contentHash, _this.contentHash) || other.contentHash == _this.contentHash)&&(identical(other.pageName, _this.pageName) || other.pageName == _this.pageName)&&(identical(other.camera, _this.camera) || other.camera == _this.camera)&&const DeepCollectionEquality().equals(other.pageCameras, _this.pageCameras)&&(identical(other.locks, _this.locks) || other.locks == _this.locks)&&(identical(other.selectedTool, _this.selectedTool) || other.selectedTool == _this.selectedTool)&&(identical(other.navigator, _this.navigator) || other.navigator == _this.navigator)&&(identical(other.layers, _this.layers) || other.layers == _this.layers)&&(identical(other.areaNavigator, _this.areaNavigator) || other.areaNavigator == _this.areaNavigator)&&(identical(other.autoThumbnail, _this.autoThumbnail) || other.autoThumbnail == _this.autoThumbnail)&&(identical(other.updatedAt, _this.updatedAt) || other.updatedAt == _this.updatedAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as PersistedDocumentState;
+  return Object.hash(runtimeType,_this.version,_this.pathKey,_this.contentHash,_this.pageName,_this.camera,const DeepCollectionEquality().hash(_this.pageCameras),_this.locks,_this.selectedTool,_this.navigator,_this.layers,_this.areaNavigator,_this.autoThumbnail,_this.updatedAt);
+}
+
+@override
+String toString() {
+  final _this = this as PersistedDocumentState;
+  return 'PersistedDocumentState(version: ${_this.version}, pathKey: ${_this.pathKey}, contentHash: ${_this.contentHash}, pageName: ${_this.pageName}, camera: ${_this.camera}, pageCameras: ${_this.pageCameras}, locks: ${_this.locks}, selectedTool: ${_this.selectedTool}, navigator: ${_this.navigator}, layers: ${_this.layers}, areaNavigator: ${_this.areaNavigator}, autoThumbnail: ${_this.autoThumbnail}, updatedAt: ${_this.updatedAt})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PersistedDocumentStateCopyWith<$Res>  {
+  factory $PersistedDocumentStateCopyWith(PersistedDocumentState value, $Res Function(PersistedDocumentState) _then) = _$PersistedDocumentStateCopyWithImpl;
+@useResult
+$Res call({
+ int version,@JsonKey(includeFromJson: false, includeToJson: false) String? pathKey,@JsonKey(includeFromJson: false, includeToJson: false) String? contentHash, String? pageName, PersistedCameraState camera, Map<String, PersistedCameraState> pageCameras, PersistentLockState locks, PersistedToolSelection selectedTool, PersistedNavigatorState navigator, PersistedLayerState layers, PersistedAreaNavigatorState areaNavigator, bool autoThumbnail, DateTime? updatedAt
+});
+
+
+$PersistedCameraStateCopyWith<$Res> get camera;$PersistentLockStateCopyWith<$Res> get locks;$PersistedToolSelectionCopyWith<$Res> get selectedTool;$PersistedNavigatorStateCopyWith<$Res> get navigator;$PersistedLayerStateCopyWith<$Res> get layers;$PersistedAreaNavigatorStateCopyWith<$Res> get areaNavigator;
+
+}
+/// @nodoc
+class _$PersistedDocumentStateCopyWithImpl<$Res>
+    implements $PersistedDocumentStateCopyWith<$Res> {
+  _$PersistedDocumentStateCopyWithImpl(this._self, this._then);
+
+  final PersistedDocumentState _self;
+  final $Res Function(PersistedDocumentState) _then;
+
+/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? version = null,Object? pathKey = freezed,Object? contentHash = freezed,Object? pageName = freezed,Object? camera = null,Object? pageCameras = null,Object? locks = null,Object? selectedTool = null,Object? navigator = null,Object? layers = null,Object? areaNavigator = null,Object? autoThumbnail = null,Object? updatedAt = freezed,}) {
+  return _then(PersistedDocumentState(
+version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as int,pathKey: freezed == pathKey ? _self.pathKey : pathKey // ignore: cast_nullable_to_non_nullable
+as String?,contentHash: freezed == contentHash ? _self.contentHash : contentHash // ignore: cast_nullable_to_non_nullable
+as String?,pageName: freezed == pageName ? _self.pageName : pageName // ignore: cast_nullable_to_non_nullable
+as String?,camera: null == camera ? _self.camera : camera // ignore: cast_nullable_to_non_nullable
+as PersistedCameraState,pageCameras: null == pageCameras ? _self.pageCameras : pageCameras // ignore: cast_nullable_to_non_nullable
+as Map<String, PersistedCameraState>,locks: null == locks ? _self.locks : locks // ignore: cast_nullable_to_non_nullable
+as PersistentLockState,selectedTool: null == selectedTool ? _self.selectedTool : selectedTool // ignore: cast_nullable_to_non_nullable
+as PersistedToolSelection,navigator: null == navigator ? _self.navigator : navigator // ignore: cast_nullable_to_non_nullable
+as PersistedNavigatorState,layers: null == layers ? _self.layers : layers // ignore: cast_nullable_to_non_nullable
+as PersistedLayerState,areaNavigator: null == areaNavigator ? _self.areaNavigator : areaNavigator // ignore: cast_nullable_to_non_nullable
+as PersistedAreaNavigatorState,autoThumbnail: null == autoThumbnail ? _self.autoThumbnail : autoThumbnail // ignore: cast_nullable_to_non_nullable
+as bool,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
+  ));
+}
+/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistedCameraStateCopyWith<$Res> get camera {
+  
+  return $PersistedCameraStateCopyWith<$Res>(_self.camera, (value) {
+    return _then(_self.copyWith(camera: value));
+  });
+}/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistentLockStateCopyWith<$Res> get locks {
+  
+  return $PersistentLockStateCopyWith<$Res>(_self.locks, (value) {
+    return _then(_self.copyWith(locks: value));
+  });
+}/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistedToolSelectionCopyWith<$Res> get selectedTool {
+  
+  return $PersistedToolSelectionCopyWith<$Res>(_self.selectedTool, (value) {
+    return _then(_self.copyWith(selectedTool: value));
+  });
+}/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistedNavigatorStateCopyWith<$Res> get navigator {
+  
+  return $PersistedNavigatorStateCopyWith<$Res>(_self.navigator, (value) {
+    return _then(_self.copyWith(navigator: value));
+  });
+}/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistedLayerStateCopyWith<$Res> get layers {
+  
+  return $PersistedLayerStateCopyWith<$Res>(_self.layers, (value) {
+    return _then(_self.copyWith(layers: value));
+  });
+}/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistedAreaNavigatorStateCopyWith<$Res> get areaNavigator {
+  
+  return $PersistedAreaNavigatorStateCopyWith<$Res>(_self.areaNavigator, (value) {
+    return _then(_self.copyWith(areaNavigator: value));
+  });
+}
+}
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class _PersistedDocumentState extends PersistedDocumentState {
+  const _PersistedDocumentState({this.version = kPersistedDocumentStateVersion, @JsonKey(includeFromJson: false, includeToJson: false) this.pathKey, @JsonKey(includeFromJson: false, includeToJson: false) this.contentHash, this.pageName, this.camera = const PersistedCameraState(),  Map<String, PersistedCameraState> pageCameras = const {}, this.locks = const PersistentLockState(), this.selectedTool = const PersistedToolSelection(), this.navigator = const PersistedNavigatorState(), this.layers = const PersistedLayerState(), this.areaNavigator = const PersistedAreaNavigatorState(), this.autoThumbnail = false, this.updatedAt}): _pageCameras = pageCameras,super._();
+  factory _PersistedDocumentState.fromJson(Map<String, dynamic> json) => _$PersistedDocumentStateFromJson(json);
+
+@override@JsonKey() final  int version;
+@override@JsonKey(includeFromJson: false, includeToJson: false) final  String? pathKey;
+@override@JsonKey(includeFromJson: false, includeToJson: false) final  String? contentHash;
+@override final  String? pageName;
+@override@JsonKey() final  PersistedCameraState camera;
+ final  Map<String, PersistedCameraState> _pageCameras;
+@override@JsonKey() Map<String, PersistedCameraState> get pageCameras {
+  if (_pageCameras is EqualUnmodifiableMapView) return _pageCameras;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_pageCameras);
+}
+
+@override@JsonKey() final  PersistentLockState locks;
+@override@JsonKey() final  PersistedToolSelection selectedTool;
+@override@JsonKey() final  PersistedNavigatorState navigator;
+@override@JsonKey() final  PersistedLayerState layers;
+@override@JsonKey() final  PersistedAreaNavigatorState areaNavigator;
+@override@JsonKey() final  bool autoThumbnail;
+@override final  DateTime? updatedAt;
+
+/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PersistedDocumentStateCopyWith<_PersistedDocumentState> get copyWith => __$PersistedDocumentStateCopyWithImpl<_PersistedDocumentState>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$PersistedDocumentStateToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PersistedDocumentState&&(identical(other.version, version) || other.version == version)&&(identical(other.pathKey, pathKey) || other.pathKey == pathKey)&&(identical(other.contentHash, contentHash) || other.contentHash == contentHash)&&(identical(other.pageName, pageName) || other.pageName == pageName)&&(identical(other.camera, camera) || other.camera == camera)&&const DeepCollectionEquality().equals(other.pageCameras, _pageCameras)&&(identical(other.locks, locks) || other.locks == locks)&&(identical(other.selectedTool, selectedTool) || other.selectedTool == selectedTool)&&(identical(other.navigator, navigator) || other.navigator == navigator)&&(identical(other.layers, layers) || other.layers == layers)&&(identical(other.areaNavigator, areaNavigator) || other.areaNavigator == areaNavigator)&&(identical(other.autoThumbnail, autoThumbnail) || other.autoThumbnail == autoThumbnail)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,version,pathKey,contentHash,pageName,camera,const DeepCollectionEquality().hash(_pageCameras),locks,selectedTool,navigator,layers,areaNavigator,autoThumbnail,updatedAt);
+}
+
+@override
+String toString() {
+    return 'PersistedDocumentState(version: $version, pathKey: $pathKey, contentHash: $contentHash, pageName: $pageName, camera: $camera, pageCameras: $pageCameras, locks: $locks, selectedTool: $selectedTool, navigator: $navigator, layers: $layers, areaNavigator: $areaNavigator, autoThumbnail: $autoThumbnail, updatedAt: $updatedAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PersistedDocumentStateCopyWith<$Res> implements $PersistedDocumentStateCopyWith<$Res> {
+  factory _$PersistedDocumentStateCopyWith(_PersistedDocumentState value, $Res Function(_PersistedDocumentState) _then) = __$PersistedDocumentStateCopyWithImpl;
+@override @useResult
+$Res call({
+ int version,@JsonKey(includeFromJson: false, includeToJson: false) String? pathKey,@JsonKey(includeFromJson: false, includeToJson: false) String? contentHash, String? pageName, PersistedCameraState camera, Map<String, PersistedCameraState> pageCameras, PersistentLockState locks, PersistedToolSelection selectedTool, PersistedNavigatorState navigator, PersistedLayerState layers, PersistedAreaNavigatorState areaNavigator, bool autoThumbnail, DateTime? updatedAt
+});
+
+
+@override $PersistedCameraStateCopyWith<$Res> get camera;@override $PersistentLockStateCopyWith<$Res> get locks;@override $PersistedToolSelectionCopyWith<$Res> get selectedTool;@override $PersistedNavigatorStateCopyWith<$Res> get navigator;@override $PersistedLayerStateCopyWith<$Res> get layers;@override $PersistedAreaNavigatorStateCopyWith<$Res> get areaNavigator;
+
+}
+/// @nodoc
+class __$PersistedDocumentStateCopyWithImpl<$Res>
+    implements _$PersistedDocumentStateCopyWith<$Res> {
+  __$PersistedDocumentStateCopyWithImpl(this._self, this._then);
+
+  final _PersistedDocumentState _self;
+  final $Res Function(_PersistedDocumentState) _then;
+
+/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? version = null,Object? pathKey = freezed,Object? contentHash = freezed,Object? pageName = freezed,Object? camera = null,Object? pageCameras = null,Object? locks = null,Object? selectedTool = null,Object? navigator = null,Object? layers = null,Object? areaNavigator = null,Object? autoThumbnail = null,Object? updatedAt = freezed,}) {
+  return _then(_PersistedDocumentState(
+version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as int,pathKey: freezed == pathKey ? _self.pathKey : pathKey // ignore: cast_nullable_to_non_nullable
+as String?,contentHash: freezed == contentHash ? _self.contentHash : contentHash // ignore: cast_nullable_to_non_nullable
+as String?,pageName: freezed == pageName ? _self.pageName : pageName // ignore: cast_nullable_to_non_nullable
+as String?,camera: null == camera ? _self.camera : camera // ignore: cast_nullable_to_non_nullable
+as PersistedCameraState,pageCameras: null == pageCameras ? _self._pageCameras : pageCameras // ignore: cast_nullable_to_non_nullable
+as Map<String, PersistedCameraState>,locks: null == locks ? _self.locks : locks // ignore: cast_nullable_to_non_nullable
+as PersistentLockState,selectedTool: null == selectedTool ? _self.selectedTool : selectedTool // ignore: cast_nullable_to_non_nullable
+as PersistedToolSelection,navigator: null == navigator ? _self.navigator : navigator // ignore: cast_nullable_to_non_nullable
+as PersistedNavigatorState,layers: null == layers ? _self.layers : layers // ignore: cast_nullable_to_non_nullable
+as PersistedLayerState,areaNavigator: null == areaNavigator ? _self.areaNavigator : areaNavigator // ignore: cast_nullable_to_non_nullable
+as PersistedAreaNavigatorState,autoThumbnail: null == autoThumbnail ? _self.autoThumbnail : autoThumbnail // ignore: cast_nullable_to_non_nullable
+as bool,updatedAt: freezed == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
+  ));
+}
+
+/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistedCameraStateCopyWith<$Res> get camera {
+  
+  return $PersistedCameraStateCopyWith<$Res>(_self.camera, (value) {
+    return _then(_self.copyWith(camera: value));
+  });
+}/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistentLockStateCopyWith<$Res> get locks {
+  
+  return $PersistentLockStateCopyWith<$Res>(_self.locks, (value) {
+    return _then(_self.copyWith(locks: value));
+  });
+}/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistedToolSelectionCopyWith<$Res> get selectedTool {
+  
+  return $PersistedToolSelectionCopyWith<$Res>(_self.selectedTool, (value) {
+    return _then(_self.copyWith(selectedTool: value));
+  });
+}/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistedNavigatorStateCopyWith<$Res> get navigator {
+  
+  return $PersistedNavigatorStateCopyWith<$Res>(_self.navigator, (value) {
+    return _then(_self.copyWith(navigator: value));
+  });
+}/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistedLayerStateCopyWith<$Res> get layers {
+  
+  return $PersistedLayerStateCopyWith<$Res>(_self.layers, (value) {
+    return _then(_self.copyWith(layers: value));
+  });
+}/// Create a copy of PersistedDocumentState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistedAreaNavigatorStateCopyWith<$Res> get areaNavigator {
+  
+  return $PersistedAreaNavigatorStateCopyWith<$Res>(_self.areaNavigator, (value) {
+    return _then(_self.copyWith(areaNavigator: value));
+  });
+}
+}
+
+// dart format on

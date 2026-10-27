@@ -1,0 +1,29 @@
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:keybinder/keybinder.dart';
+
+class PreviousIntent extends Intent {
+  const PreviousIntent();
+}
+
+const previousShortcut = ShortcutDefinition(
+  id: 'previous',
+  intent: PreviousIntent(),
+  defaultActivator: SingleActivator(LogicalKeyboardKey.arrowLeft),
+);
+
+class PreviousAction extends Action<PreviousIntent> {
+  final BuildContext context;
+
+  PreviousAction(this.context);
+
+  @override
+  void invoke(PreviousIntent intent) {
+    final bloc = context.read<DocumentBloc>();
+    final state = bloc.state;
+    if (state is! DocumentPresentationState) return;
+    state.handler.previous(bloc, context);
+  }
+}

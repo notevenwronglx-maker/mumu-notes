@@ -1,0 +1,351 @@
+import 'dart:math';
+
+import 'package:butterfly/helpers/rect.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:butterfly_api/butterfly_text.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:butterfly_api/butterfly_text.dart' as txt;
+
+part 'label.freezed.dart';
+
+@freezed
+sealed class LabelContext with _$LabelContext {
+  const LabelContext._();
+  const factory LabelContext.text({
+    required LabelTool tool,
+    required TextPainter textPainter,
+    TextElement? element,
+    @Default(1.0) double zoom,
+    @Default(TextSelection.collapsed(offset: 0)) TextSelection selection,
+    ParagraphProperty? forcedProperty,
+    SpanProperty? forcedSpanProperty,
+    bool? forceParagraph,
+  }) = TextContext;
+
+  const factory LabelContext.markdown({
+    required LabelTool tool,
+    required TextPainter textPainter,
+    MarkdownElement? element,
+    @Default(1.0) double zoom,
+    @Default(TextSelection.collapsed(offset: 0)) TextSelection selection,
+  }) = MarkdownContext;
+
+  LabelContext toMode(LabelMode mode) {
+    if (tool.mode == mode) return this;
+    final newTool = tool.copyWith(mode: mode);
+    switch (mode) {
+      case .text:
+        return TextContext(
+          tool: newTool,
+          textPainter: textPainter,
+          zoom: zoom,
+          selection: selection,
+          element: switch (this) {
+            TextContext e => e.element,
+            MarkdownContext e =>
+              e.element == null
+                  ? null
+                  : TextElement(
+                      id: e.element!.id,
+                      position: e.element!.position,
+                      scale: e.element!.scale,
+                      foreground: e.element!.foreground,
+                      styleSheet: e.element!.styleSheet,
+                      constraint: e.element!.constraint,
+                      extra: e.element!.extra,
+                      area: txt.TextArea(
+                        paragraph: txt.TextParagraph(
+                          textSpans: [
+                            txt.InlineSpan.text(text: e.element!.text),
+                          ],
+                        ),
+                        areaProperty: e.element!.areaProperty,
+                      ),
+                    ),
+          },
+        );
+      case .markdown:
+        return MarkdownContext(
+          tool: newTool,
+          textPainter: textPainter,
+          zoom: zoom,
+          selection: selection,
+          element: switch (this) {
+            MarkdownContext e => e.element,
+            TextContext e =>
+              e.element == null
+                  ? null
+                  : MarkdownElement(
+                      id: e.element!.id,
+                      position: e.element!.position,
+                      scale: e.element!.scale,
+                      foreground: e.element!.foreground,
+                      styleSheet: e.element!.styleSheet,
+                      constraint: e.element!.constraint,
+                      extra: e.element!.extra,
+                      text: e.element!.area.paragraph.text,
+                      areaProperty: e.element!.area.areaProperty,
+                    ),
+          },
+        );
+    }
+  }
+
+  bool get isCreating => true;
+
+  String? get text => labelElement?.text;
+
+  LabelElement? get labelElement => element as LabelElement?;
+
+  NamedItem<TextStyleSheet>? getNamedStyleSheet(NoteData document) =>
+      labelElement?.styleSheet ?? tool.styleSheet;
+
+  TextStyleSheet? getStyleSheet(NoteData document) =>
+      getNamedStyleSheet(document)?.item;
+
+  int get length =>
+      switch (this) {
+        TextContext e => e.area?.length,
+        MarkdownContext e => e.element?.text.length,
+      } ??
+      0;
+
+  bool isParagraph() {
+    if (element == null) return true;
+    final force = switch (this) {
+      TextContext e => e.forceParagraph,
+      _ => false,
+    };
+    if (force != null) return force;
+    return selection.start <= 0 && selection.end >= length;
+  }
+
+  bool get isEmpty => length == 0;
+
+  Rect? getRect() {
+    final current = labelElement;
+    if (current == null) return null;
+    return Rect.fromLTWH(
+      current.position.x,
+      current.position.y,
+      textPainter.width,
+      labelElement!.getHeight(textPainter.height),
+    );
+  }
+
+  double get rotation => (labelElement as PadElement?)?.rotation ?? 0;
+  double get shear => (labelElement as PadElement?)?.shear ?? 0;
+
+  Offset toGlobalPosition(Offset position) {
+    final bounds = getRect();
+    if (bounds == null) return position;
+    final delta = position - bounds.center;
+    final x = delta.dx + delta.dy * shear;
+    final angle = rotation * pi / 180;
+    return bounds.center +
+        Offset(
+          x * cos(angle) - delta.dy * sin(angle),
+          x * sin(angle) + delta.dy * cos(angle),
+        );
+  }
+
+  /// Preserve the rendered text origin when layout changes its rotation pivot.
+  LabelContext withTextAnchor(Offset anchor) {
+    final bounds = getRect();
+    if (bounds == null) return this;
+    final delta = anchor - toGlobalPosition(bounds.topLeft);
+    return switch (this) {
+      TextContext context => context.copyWith(
+        element: context.element?.copyWith(
+          position: Point(bounds.left + delta.dx, bounds.top + delta.dy),
+        ),
+      ),
+      MarkdownContext context => context.copyWith(
+        element: context.element?.copyWith(
+          position: Point(bounds.left + delta.dx, bounds.top + delta.dy),
+        ),
+      ),
+    };
+  }
+
+  /// Undo the element transform before text hit testing and caret selection.
+  Offset toLocalPosition(Offset position) {
+    final bounds = getRect();
+    final element = labelElement;
+    if (bounds == null || element == null) return position;
+    final delta = position - bounds.center;
+    final angle = rotation * pi / 180;
+    final x = delta.dx * cos(angle) + delta.dy * sin(angle);
+    final y = -delta.dx * sin(angle) + delta.dy * cos(angle);
+    return bounds.center + Offset(x - y * shear, y);
+  }
+
+  int nextWordIndex(int index) {
+    if (text == null) return 0;
+    return text!.substring(index).indexOf(RegExp(r'\w')) + index;
+  }
+
+  int previousWordIndex(int index) {
+    if (text == null) return 0;
+    return text!.substring(0, index).lastIndexOf(RegExp(r'\w'));
+  }
+
+  int nextLineIndex(int index) {
+    if (text == null) return 0;
+    if (index >= length) {
+      return length;
+    }
+    final current = text!.substring(index);
+    if (current.isEmpty) {
+      return index;
+    }
+    final next = current.indexOf(RegExp(r'\n'));
+    if (next == -1) {
+      return length;
+    }
+    return next + index;
+  }
+
+  int previousLineIndex(int index) {
+    if (text == null) return 0;
+    if (index <= 0) {
+      return 0;
+    }
+    return text!.substring(0, index).lastIndexOf(RegExp(r'\n'));
+  }
+}
+
+extension TextContextHelper on TextContext {
+  TextArea? get area => element?.area;
+  TextParagraph? get paragraph => area?.paragraph;
+
+  ParagraphProperty getProperty() {
+    return forcedProperty ??
+        paragraph?.property ??
+        const ParagraphProperty.undefined();
+  }
+
+  DefinedParagraphProperty getDefinedProperty(NoteData document) {
+    final property = getProperty();
+    if (property is DefinedParagraphProperty) {
+      return property;
+    }
+    return getStyleSheet(document)?.resolveParagraphProperty(property) ??
+        DefinedParagraphProperty();
+  }
+
+  SpanProperty? getSpanProperty(NoteData document) {
+    final index = selection.start;
+    return switch (paragraph?.getSpan(index)?.property) {
+      DefinedSpanProperty e => e,
+      NamedSpanProperty e => e,
+      _ => getDefinedProperty(document).span,
+    };
+  }
+
+  DefinedSpanProperty getDefinedSpanProperty(NoteData document) {
+    return switch (getSpanProperty(document)) {
+          DefinedSpanProperty e => e,
+          NamedSpanProperty e => getStyleSheet(
+            document,
+          )?.resolveSpanProperty(e),
+          _ => null,
+        } ??
+        const DefinedSpanProperty();
+  }
+
+  DefinedParagraphProperty getDefinedForcedProperty(NoteData document) {
+    return switch (forcedProperty) {
+          DefinedParagraphProperty e => e,
+          NamedParagraphProperty e => getStyleSheet(
+            document,
+          )?.resolveParagraphProperty(e),
+          _ => null,
+        } ??
+        const DefinedParagraphProperty();
+  }
+
+  DefinedSpanProperty getDefinedForcedSpanProperty(
+    NoteData document, [
+    bool fallback = true,
+  ]) {
+    return switch (forcedSpanProperty) {
+          DefinedSpanProperty e => e,
+          NamedSpanProperty e => getStyleSheet(
+            document,
+          )?.resolveSpanProperty(e),
+          _ => null,
+        } ??
+        (fallback
+            ? getDefinedSpanProperty(document)
+            : const DefinedSpanProperty());
+  }
+
+  bool shouldNewSpan(NoteData document) =>
+      getDefinedSpanProperty(document) !=
+      getDefinedForcedSpanProperty(document);
+
+  bool paragraphModified() => switch (getProperty()) {
+    NamedParagraphProperty _ => false,
+    _ => true,
+  };
+
+  bool spanModified(NoteData document) => switch (getSpanProperty(document)) {
+    NamedParagraphProperty _ => false,
+    _ => true,
+  };
+
+  bool modified(NoteData document) =>
+      isParagraph() ? paragraphModified() : spanModified(document);
+
+  List<txt.InlineSpan> getSpans() {
+    if (text == null) return [];
+    if (isParagraph()) {
+      return paragraph?.getSpans() ?? [];
+    } else {
+      return paragraph?.getSpans(
+            selection.start,
+            selection.end - selection.start,
+          ) ??
+          [];
+    }
+  }
+
+  bool isMathSelection() {
+    final spans = getSpans();
+    if (spans.isEmpty) return false;
+    return spans.every((e) => e is txt.MathTextSpan);
+  }
+}
+
+extension LabelElementLayouter on LabelElement {
+  double getMaxWidth([Area? area]) {
+    var maxWidth = double.infinity;
+    if (constraint.size > 0) maxWidth = constraint.size;
+    if (constraint.includeArea && area != null) {
+      maxWidth = min(maxWidth + position.x, area.rect.right) - position.x;
+    }
+    return maxWidth;
+  }
+
+  double getHeight(double textHeight, [Area? area]) {
+    var height = textHeight;
+    if (height < constraint.length) {
+      height = constraint.length;
+    } else if (constraint.includeArea && area != null) {
+      height = max(height, area.rect.bottom - position.y);
+    }
+    return height;
+  }
+
+  Point<double> getOffset(double height) {
+    final align = areaProperty.alignment;
+    final current = position;
+    return switch (align) {
+      txt.VerticalAlignment.top => current,
+      txt.VerticalAlignment.bottom => current + Point(0, height),
+      txt.VerticalAlignment.center => current + Point(0, height / 2),
+    };
+  }
+}

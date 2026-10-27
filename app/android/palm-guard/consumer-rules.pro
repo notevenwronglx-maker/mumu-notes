@@ -1,0 +1,11 @@
+# 保持 PalmGuard 宿主桥接与模型类不被 R8 混淆或移除
+-keep class com.mumunotes.core.touch.PalmGuardFlutterHostHelper { *; }
+-keep class com.mumunotes.core.touch.PalmGuardTouchBridge { *; }
+-keep class com.mumunotes.core.touch.PalmAndGestureArbiter { *; }
+-keep class com.mumunotes.core.touch.RawTouchCollector { *; }
+-keep class com.mumunotes.core.touch.SampleRingBuffer { *; }
+-keep class com.mumunotes.core.touch.AdaptiveThresholdProfile { *; }
+-keep class com.mumunotes.core.touch.CalibrationPreferences { *; }
+-keep class com.mumunotes.core.touch.DisplayProfile { *; }
+-keep class com.mumunotes.core.touch.VirtualPalmShield { *; }
+-keep class com.mumunotes.core.touch.model.** { *; }

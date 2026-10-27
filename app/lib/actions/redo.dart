@@ -1,0 +1,28 @@
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:keybinder/keybinder.dart';
+
+import '../bloc/document_bloc.dart';
+
+class RedoIntent extends Intent {
+  const RedoIntent();
+}
+
+const redoShortcut = ShortcutDefinition(
+  id: 'redo',
+  intent: RedoIntent(),
+  defaultActivator: SingleActivator(LogicalKeyboardKey.keyY, control: true),
+);
+
+class RedoAction extends Action<RedoIntent> {
+  final BuildContext context;
+
+  RedoAction(this.context);
+
+  @override
+  Future<void> invoke(RedoIntent intent) async {
+    final bloc = context.read<DocumentBloc>();
+    bloc.sendRedo();
+  }
+}

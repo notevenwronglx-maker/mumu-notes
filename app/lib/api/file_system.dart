@@ -1,0 +1,634 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:archive/archive.dart';
+import 'package:butterfly/api/save.dart';
+import 'package:butterfly/cubits/settings.dart';
+import 'package:butterfly/models/defaults.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:butterfly_api/butterfly_text.dart' as text;
+import 'package:flutter/foundation.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:idb_shim/idb.dart';
+import 'package:lw_file_system/lw_file_system.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'connection_encryption.dart';
+
+export 'connection_encryption.dart';
+
+Uint8List encodeNoteData(NoteData data) =>
+    Uint8List.fromList(data.exportAsBytes());
+NoteData decodeNoteData(Uint8List data) => .fromData(data);
+
+Uint8List encodeNoteFile(NoteFile file) => file.data;
+NoteFile decodeNoteFile(Uint8List data) => NoteFile(data);
+
+const butterflySubDirectory = '/Linwood/Butterfly';
+
+String? overrideButterflyDirectory;
+
+Future<String> getButterflyDirectory({bool usePrefs = true}) async {
+  var directory = overrideButterflyDirectory;
+  if (directory != null) return directory;
+  String? path;
+  if (usePrefs) {
+    final prefs = await SharedPreferences.getInstance();
+    if (prefs.containsKey('document_path')) {
+      path = prefs.getString('document_path');
+    }
+  }
+  if (path == '') {
+    path = null;
+  }
+  if (path != null) {
+    return path;
+  }
+  if (Platform.isAndroid) {
+    if (path != null) {
+      path = Uri.tryParse(path)?.toFilePath();
+    }
+    path ??= (await getExternalStorageDirectory())?.path;
+  }
+  path ??= (await getApplicationDocumentsDirectory()).path;
+  path = path.replaceAll('\\', '/');
+  path += butterflySubDirectory;
+  return path;
+}
+
+Future<String> Function(ExternalStorage? storage) _getRemoteDirectory(
+  String subDirectory,
+) => (storage) async {
+  var path = await getButterflyDirectory(
+    usePrefs:
+        kIsWeb ||
+        (!Platform.isAndroid && !Platform.isIOS) ||
+        storage is! RemoteStorage,
+  );
+  if (storage != null) {
+    final bytes = utf8.encode(storage.identifier);
+    final directory = base64.encode(bytes);
+    path += '/Remotes/$directory';
+  }
+  path += '/$subDirectory';
+  return path;
+};
+
+Future<String> getButterflyDocumentsDirectory([ExternalStorage? storage]) =>
+    _getRemoteDirectory('Documents')(storage);
+typedef DocumentFileSystem = TypedDirectoryFileSystem<NoteFile>;
+typedef TemplateFileSystem = TypedKeyFileSystem<NoteData>;
+typedef PackFileSystem = TypedKeyFileSystem<NoteData>;
+typedef DocumentStateFileSystem = TypedKeyFileSystem<PersistedDocumentState>;
+
+Never _disabledStorage([Object? data]) =>
+    throw StateError('This storage directory is disabled');
+
+class _DisabledDocumentFileSystem extends DocumentFileSystem {
+  _DisabledDocumentFileSystem(FileSystemConfig config)
+    : super.raw(
+        MockFileSystem(config: config),
+        config: config,
+        onEncode: _disabledStorage,
+        onDecode: decodeNoteFile,
+      );
+
+  @override
+  Future<FileSystemDirectory<NoteFile>> createDirectory(String path) async =>
+      _disabledStorage();
+
+  @override
+  Future<void> deleteAsset(String path) async => _disabledStorage();
+
+  @override
+  Future<FileSystemEntity<NoteFile>?> moveAsset(
+    String path,
+    String newPath, {
+    bool forceSync = false,
+  }) async => _disabledStorage();
+
+  @override
+  Future<void> saveAbsolute(String path, Uint8List bytes) async =>
+      _disabledStorage();
+}
+
+class _DisabledKeyFileSystem extends TypedKeyFileSystem<NoteData> {
+  _DisabledKeyFileSystem(FileSystemConfig config)
+    : super.raw(
+        MockKeyFileSystem(config: config),
+        config: config,
+        onEncode: _disabledStorage,
+        onDecode: decodeNoteData,
+      );
+
+  @override
+  Future<void> deleteFile(String key) async => _disabledStorage();
+
+  @override
+  Future<void> saveAbsolute(String path, Uint8List bytes) async =>
+      _disabledStorage();
+}
+
+Future<FileSystemEntity<NoteFile>?> renameDocumentAsset(
+  DocumentFileSystem fileSystem,
+  SettingsCubit settingsCubit,
+  FileSystemEntity<NoteFile> asset,
+  String name,
+) async {
+  var path = fileSystem.convertNameToFileSystem(
+    name: name,
+    suffix: asset is FileSystemFile<NoteFile> && asset.fileExtension.isNotEmpty
+        ? '.${asset.fileExtension}'
+        : null,
+    directory: asset.location.parent,
+  );
+  if (fileSystem.normalizePath(path) == fileSystem.normalizePath(asset.path)) {
+    return asset;
+  }
+  path = await fileSystem.findAvailableName(path);
+  final renamed = await fileSystem.moveAsset(asset.path, path);
+  if (renamed == null) return null;
+  await settingsCubit.moveAssetReferences(
+    asset.location,
+    renamed.location,
+    directory: asset is FileSystemDirectory<NoteFile>,
+  );
+  return renamed;
+}
+
+const kCorePackFileName = 'Core.bfly';
+
+String getPackDisplayName(NoteData pack, String fileName) {
+  final displayName = pack.name ?? pack.getMetadata()?.name;
+  if (displayName?.trim().isNotEmpty ?? false) return displayName!.trim();
+  final normalized = fileName.split('/').last;
+  return normalized.endsWith('.bfly')
+      ? normalized.substring(0, normalized.length - '.bfly'.length)
+      : normalized;
+}
+
+final PasswordStorage passwordStorage = SecureStoragePasswordStorage();
+
+Future<NoteData?> loadFileSystemNoteData(
+  DocumentFileSystem documentSystem,
+  FileSystemFile<NoteFile> file,
+) async {
+  try {
+    final asset = await documentSystem.getAsset(file.location.path);
+    if (asset is FileSystemFile<NoteFile>) {
+      final data = asset.data == null
+          ? null
+          : loadConnectionNoteFile(documentSystem.storage, asset.data!);
+      if (data?.isValid ?? false) return data;
+    }
+  } catch (_) {}
+  final data = file.data == null
+      ? null
+      : loadConnectionNoteFile(documentSystem.storage, file.data!);
+  return data?.isValid ?? false ? data : null;
+}
+
+class ButterflyFileSystem {
+  // ignore: unused_field
+  final BuildContext _context;
+  final SettingsCubit settingsCubit;
+  final FileSystemConfig _documentConfig,
+      _templateConfig,
+      _packConfig,
+      _documentStateConfig,
+      _backupConfig;
+
+  final _documentCache = <String, DocumentFileSystem>{};
+  final _templateCache = <String, TemplateFileSystem>{};
+  final _packCache = <String, PackFileSystem>{};
+  final _documentStateCache = <String, DocumentStateFileSystem>{};
+  final _backupCache = <String, DirectoryFileSystem>{};
+  StreamSubscription<ButterflySettings>? _settingsSubscription;
+
+  ButterflyFileSystem(this._context, this.settingsCubit)
+    : _documentConfig = FileSystemConfig(
+        passwordStorage: passwordStorage,
+        storeName: 'documents',
+        variant: 'documents',
+        getDirectory: getButterflyDocumentsDirectory,
+        database: _database,
+        databaseVersion: _databaseVersion,
+        onDatabaseUpgrade: _upgradeDatabase,
+        getUnnamed: () {
+          final pattern = settingsCubit.state.defaultFileName.trim();
+          try {
+            final resolved = resolveTemplateFileName(
+              pattern.isEmpty ? kDefaultFileName : pattern,
+              DateTime.now(),
+            );
+            return resolved.isEmpty ? FileSystemConfig.unnamedDate() : resolved;
+          } on FormatException {
+            return FileSystemConfig.unnamedDate();
+          }
+        },
+      ),
+      _templateConfig = FileSystemConfig(
+        passwordStorage: passwordStorage,
+        storeName: 'templates',
+        variant: 'templates',
+        getDirectory: _getRemoteDirectory('Templates'),
+        database: _database,
+        databaseVersion: _databaseVersion,
+        onDatabaseUpgrade: _upgradeDatabase,
+        defaultStorageKey: 'defaultTemplate',
+      ),
+      _packConfig = FileSystemConfig(
+        passwordStorage: passwordStorage,
+        storeName: 'packs',
+        variant: 'packs',
+        getDirectory: _getRemoteDirectory('Packs'),
+        database: _database,
+        databaseVersion: _databaseVersion,
+        onDatabaseUpgrade: _upgradeDatabase,
+        defaultStorageKey: 'defaultPack',
+      ),
+      _documentStateConfig = FileSystemConfig(
+        passwordStorage: passwordStorage,
+        storeName: 'documentstates',
+        variant: 'documentstates',
+        getDirectory: _getRemoteDirectory('DocumentStates'),
+        database: _database,
+        databaseVersion: _databaseVersion,
+        onDatabaseUpgrade: _upgradeDatabase,
+      ),
+      _backupConfig = FileSystemConfig(
+        passwordStorage: passwordStorage,
+        storeName: 'backups',
+        variant: 'backups',
+        getDirectory: _getRemoteDirectory('Backups'),
+        database: _database,
+        databaseVersion: _databaseVersion,
+        onDatabaseUpgrade: _upgradeDatabase,
+      ) {
+    _listenSettings();
+  }
+
+  void _listenSettings() {
+    var previousState = settingsCubit.state;
+    _settingsSubscription = settingsCubit.stream.listen((state) {
+      if (state == previousState) return;
+      final previousRemotes = previousState.connections.toSet();
+      final currentRemotes = state.connections.toSet();
+      final removedRemotes = previousRemotes.difference(currentRemotes);
+      for (final remote in removedRemotes) {
+        removeCachedFileSystem(remote);
+      }
+      if (previousState.documentPath != state.documentPath) {
+        removeCachedFileSystem(null);
+      }
+      previousState = state;
+    });
+  }
+
+  void dispose() {
+    _settingsSubscription?.cancel();
+    _settingsSubscription = null;
+    _documentCache.clear();
+    _templateCache.clear();
+    _packCache.clear();
+    _documentStateCache.clear();
+    _backupCache.clear();
+  }
+
+  factory ButterflyFileSystem.build(BuildContext context) =>
+      ButterflyFileSystem(context, context.read<SettingsCubit>());
+
+  static const _database = 'butterfly.db';
+  static const _databaseVersion = 5;
+  static Future<void> _upgradeDatabase(VersionChangeEvent event) async {
+    final db = event.database;
+    if (event.oldVersion < 1) {
+      db.createObjectStore('documents');
+    }
+    if (event.oldVersion < 3) {
+      db.createObjectStore('templates');
+    }
+    if (event.oldVersion < 4) {
+      db.createObjectStore('packs');
+      db.createObjectStore('documents-data');
+    }
+    if (event.oldVersion < 5) {
+      db.createObjectStore('documentstates');
+      db.createObjectStore('documentstates-data');
+    }
+    if (event.oldVersion < 2) {
+      final txn = event.transaction;
+      final store = txn.objectStore('documents');
+      final cursor = store.openCursor();
+
+      await Future.wait(
+        await cursor.map<Future<dynamic>>((cursor) async {
+          final doc = cursor.value as Map<dynamic, dynamic>;
+          doc['type'] = 'document';
+          await store.put(doc);
+        }).toList(),
+      );
+    }
+
+    if (event.oldVersion < 4) {
+      final txn = event.transaction;
+      var store = txn.objectStore('templates');
+      var cursor = store.openCursor();
+      await Future.wait(
+        await cursor.map<Future<dynamic>>((cursor) async {
+          final value = cursor.value;
+          if (value is! Map) return value;
+          var type = value['type'];
+          if (type != 'document') return value;
+          final data = utf8.encode(jsonEncode(value));
+          return {'type': 'document', 'data': data};
+        }).toList(),
+      );
+      var documentStore = txn.objectStore('documents');
+      await Future.wait(
+        await documentStore.openCursor().map<Future<dynamic>>((cursor) async {
+          var doc = cursor.value as Map<dynamic, dynamic>;
+          var data = doc['data'];
+          if (data is! String) return;
+          var path = cursor.key as String;
+          var dataStore = txn.objectStore('documents-data');
+          await dataStore.put(data, path);
+          doc['data'] = null;
+          await documentStore.put(doc, path);
+        }).toList(),
+      );
+      await txn.completed;
+    }
+  }
+
+  String _cacheKey(ExternalStorage? storage) => storage?.identifier ?? '';
+
+  TypedDirectoryFileSystem<NoteFile> buildDocumentSystem([
+    ExternalStorage? storage,
+    bool forceRecreate = false,
+  ]) {
+    if (storage?.paths[_documentConfig.currentPathVariant] == '') {
+      return _DisabledDocumentFileSystem(_documentConfig);
+    }
+    final key = _cacheKey(storage);
+    if (!forceRecreate) {
+      final cached = _documentCache[key];
+      if (cached != null) return cached;
+    }
+    final system = TypedDirectoryFileSystem.build(
+      _documentConfig,
+      onEncode: encodeNoteFile,
+      onDecode: decodeNoteFile,
+      onCreate: (data) => addConnectionPasswordToNoteFile(storage, data),
+      storage: storage,
+      useIsolates: true,
+      useAndroidSaf: true,
+    );
+    _documentCache[key] = system;
+    return system;
+  }
+
+  ExternalStorage? _cacheAllStorage(ExternalStorage? storage, String variant) {
+    if (storage is! RemoteStorage) {
+      return storage;
+    }
+    return storage.copyWith.pinnedPaths.put(variant, ['/']);
+  }
+
+  TypedKeyFileSystem<NoteData> buildTemplateSystem([
+    ExternalStorage? storage,
+    bool forceRecreate = false,
+  ]) {
+    if (storage?.paths[_templateConfig.currentPathVariant] == '') {
+      return _DisabledKeyFileSystem(_templateConfig);
+    }
+    final key = _cacheKey(storage);
+    if (!forceRecreate) {
+      final cached = _templateCache[key];
+      if (cached != null) return cached;
+    }
+    final system = TypedKeyFileSystem.build(
+      _templateConfig,
+      onEncode: encodeNoteData,
+      onDecode: (data) => decodeConnectionNoteData(storage, data),
+      onCreate: (data) => addConnectionPasswordToNoteData(storage, data),
+      storage: _cacheAllStorage(storage, _templateConfig.variant),
+      useAndroidSaf: true,
+    );
+    _templateCache[key] = system;
+    return system;
+  }
+
+  TypedKeyFileSystem<NoteData> buildPackSystem([
+    ExternalStorage? storage,
+    bool forceRecreate = false,
+  ]) {
+    if (storage?.paths[_packConfig.currentPathVariant] == '') {
+      return _DisabledKeyFileSystem(_packConfig);
+    }
+    final key = _cacheKey(storage);
+    if (!forceRecreate) {
+      final cached = _packCache[key];
+      if (cached != null) return cached;
+    }
+    final system = TypedKeyFileSystem.build(
+      _packConfig,
+      onEncode: encodeNoteData,
+      onDecode: (data) => decodeConnectionNoteData(storage, data),
+      onCreate: (data) => addConnectionPasswordToNoteData(storage, data),
+      storage: _cacheAllStorage(storage, _packConfig.variant),
+      useAndroidSaf: true,
+    );
+    _packCache[key] = system;
+    return system;
+  }
+
+  DocumentStateFileSystem buildDocumentStateSystem([
+    ExternalStorage? storage,
+    bool forceRecreate = false,
+  ]) {
+    final key = _cacheKey(storage);
+    if (!forceRecreate) {
+      final cached = _documentStateCache[key];
+      if (cached != null) return cached;
+    }
+    final system = TypedKeyFileSystem.build(
+      _documentStateConfig,
+      onEncode: encodePersistedDocumentState,
+      onDecode: decodePersistedDocumentState,
+      storage: _cacheAllStorage(storage, _documentStateConfig.variant),
+      useAndroidSaf: true,
+    );
+    _documentStateCache[key] = system;
+    return system;
+  }
+
+  DirectoryFileSystem buildBackupSystem(
+    RemoteStorage storage, {
+    bool forceRecreate = false,
+  }) {
+    final key = _cacheKey(storage);
+    if (!forceRecreate) {
+      final cached = _backupCache[key];
+      if (cached != null) return cached;
+    }
+    final backupStorage = storage.copyWith(
+      paths: {...storage.paths, _backupConfig.variant: 'Backups'},
+    );
+    final system = DirectoryFileSystem.fromPlatform(
+      _backupConfig,
+      storage: backupStorage,
+      useIsolates: true,
+      useAndroidSaf: true,
+    );
+    _backupCache[key] = system;
+    return system;
+  }
+
+  DocumentFileSystem buildDefaultDocumentSystem({bool forceRecreate = false}) =>
+      buildDocumentSystem(
+        settingsCubit.state.getDefaultRemote(),
+        forceRecreate,
+      );
+
+  Map<String, DocumentFileSystem> buildAllDocumentSystems({
+    bool includeLocal = true,
+    bool forceRecreate = false,
+  }) {
+    final map = <String, DocumentFileSystem>{};
+    if (includeLocal) {
+      map[''] = buildDocumentSystem(null, forceRecreate);
+    }
+    for (final remote in settingsCubit.state.connections) {
+      map[remote.identifier] = buildDocumentSystem(remote, forceRecreate);
+    }
+    return map;
+  }
+
+  TemplateFileSystem buildDefaultTemplateSystem({bool forceRecreate = false}) =>
+      buildTemplateSystem(
+        settingsCubit.state.getDefaultRemote(),
+        forceRecreate,
+      );
+
+  PackFileSystem buildDefaultPackSystem({bool forceRecreate = false}) =>
+      buildPackSystem(settingsCubit.state.getDefaultRemote(), forceRecreate);
+
+  Future<String> createPack(
+    NoteData pack, {
+    String? name,
+    ExternalStorage? storage,
+  }) async {
+    final fallback = pack.name?.trim().isNotEmpty == true ? pack.name! : 'pack';
+    var fileName = name?.trim().isNotEmpty == true ? name! : fallback;
+    if (!fileName.endsWith('.bfly')) fileName = '$fileName.bfly';
+    final fileSystem = buildPackSystem(storage);
+    await fileSystem.initialize();
+    await fileSystem.createFile(fileName, pack);
+    final files = await fileSystem.getFiles();
+    return files
+            .where((file) => file.pathWithoutLeadingSlash == fileName)
+            .firstOrNull
+            ?.path ??
+        fileName;
+  }
+
+  Future<PackItem<T>?> findPack<T extends PackAsset>(
+    NamedItem<T>? Function(NoteData) test, [
+    ExternalStorage? storage,
+  ]) async {
+    for (final (name, pack) in await getCoreAndUserPacks(storage)) {
+      final palette = test(pack);
+      if (palette == null) continue;
+      return palette.toPack(pack, name);
+    }
+    return null;
+  }
+
+  Future<List<(String, NoteData)>> getCoreAndUserPacks([
+    ExternalStorage? storage,
+  ]) async {
+    final corePack = await DocumentDefaults.getCorePack();
+    NoteData createUserCorePack() {
+      var pack = NoteData(Archive(), parent: corePack);
+      final metadata = corePack.getMetadata();
+      if (metadata != null) {
+        pack = pack.setMetadata(metadata);
+      }
+      return pack;
+    }
+
+    final system = buildPackSystem(storage);
+    await system.initialize();
+    final files = await system.getFiles();
+    final packs = <(String, NoteData)>[];
+    (String, NoteData)? userCorePack;
+    for (final file in files) {
+      final pack = file.data!;
+      final item = (file.pathWithoutLeadingSlash, pack);
+      if (item.$1 == kCorePackFileName) {
+        userCorePack = (item.$1, NoteData(pack.archive, parent: corePack));
+      } else {
+        packs.add(item);
+      }
+    }
+    return [
+      userCorePack ?? (kCorePackFileName, createUserCorePack()),
+      ...packs,
+    ];
+  }
+
+  Future<PackItem<text.TextStyleSheet>?> findDefaultStyleSheet([
+    ExternalStorage? storage,
+  ]) => findPack((pack) => pack.getNamedStyles().firstOrNull, storage);
+  Future<PackItem<ColorPalette>?> findDefaultPalette([
+    ExternalStorage? storage,
+  ]) => findPack((pack) => pack.getNamedPalettes().firstOrNull, storage);
+
+  Future<void> updatePack(PackAssetLocation location, NoteData newPack) async {
+    final system = buildDefaultPackSystem();
+    await system.initialize();
+    final existing = await system.getFile(location.namespace);
+    if (existing == null) {
+      await system.createFile(location.namespace, newPack);
+      return;
+    }
+    await system.updateFile(location.namespace, newPack);
+  }
+
+  void removeCachedDocumentSystem(ExternalStorage? storage) {
+    final key = _cacheKey(storage);
+    _documentCache.remove(key);
+  }
+
+  void removeCachedTemplateSystem(ExternalStorage? storage) {
+    final key = _cacheKey(storage);
+    _templateCache.remove(key);
+  }
+
+  void removeCachedPackSystem(ExternalStorage? storage) {
+    final key = _cacheKey(storage);
+    _packCache.remove(key);
+  }
+
+  void removeCachedDocumentStateSystem(ExternalStorage? storage) {
+    final key = _cacheKey(storage);
+    _documentStateCache.remove(key);
+  }
+
+  void removeCachedBackupSystem(ExternalStorage? storage) {
+    final key = _cacheKey(storage);
+    _backupCache.remove(key);
+  }
+
+  void removeCachedFileSystem(ExternalStorage? storage) {
+    removeCachedDocumentSystem(storage);
+    removeCachedTemplateSystem(storage);
+    removeCachedPackSystem(storage);
+    removeCachedDocumentStateSystem(storage);
+    removeCachedBackupSystem(storage);
+  }
+}

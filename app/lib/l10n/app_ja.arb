@@ -1,0 +1,1693 @@
+{
+  "open": "開く",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "ファイルエクスプローラで表示",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "設定",
+  "personalization": "個人設定",
+  "theme": "テーマ",
+  "darkTheme": "ダークテーマ",
+  "lightTheme": "ライトテーマ",
+  "systemTheme": "デフォルトのシステムテーマを使用する",
+  "view": "表示",
+  "contentViewport": "コンテンツビュー",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "ビューポートを正座標に制限する",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "オフ",
+  "canvas": "Canvas",
+  "interface": "インターフェイス",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "編集",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "エクスポート",
+  "save": "保存",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "ズーム",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "拡大",
+  "zoomOut": "ズームアウト",
+  "resetZoom": "Reset zoom",
+  "strokeWidth": "ストロークの幅",
+  "strokeStyle": "ストロークのスタイル",
+  "dashLength": "ダッシュの長さ",
+  "gapLength": "ギャップの長さ",
+  "includeEraser": "消去を含めますか？",
+  "thinning": "薄肉化",
+  "pen": "ペン",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "反転したスタイル",
+  "eraser": "Eraser",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "ストロークformat@@0",
+  "label": "ラベル",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "削除",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "よろしいですか？",
+  "reallyDelete": "本当にこのアイテムを削除しますか？",
+  "no": "いいえ",
+  "yes": "はい",
+  "undo": "元に戻す",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Redo",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "全般",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "クリップボードにコピーしました",
+  "loading": "読み込み中...",
+  "enterText": "テキストを入力してください",
+  "size": "サイズ",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Width",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "高さ",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "カウント",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "スペース",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "背景",
+  "applyBackground": "背景を適用",
+  "applyAreas": "エリアを適用",
+  "currentPage": "現在のページ",
+  "allPages": "すべてのページ",
+  "box": "Box",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "ロケール",
+  "systemLocale": "システムロケール：",
+  "information": "情報",
+  "license": "ライセンス",
+  "imprint": "インプリント",
+  "privacypolicy": "プライバシーポリシー",
+  "sourceCode": "ソース コード",
+  "documentation": "ドキュメント",
+  "changelog": "更新履歴",
+  "source": "ソース",
+  "existOverride": "この要素は既に存在します。上書きしますか？",
+  "description": "説明",
+  "fill": "塗りつぶし",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "デフォルトのパレット",
+  "highlighter": "ハイライト",
+  "combinePaths": "パスを結合",
+  "add": "追加",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "削除",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "本当に削除しますか？",
+  "resetPalette": "Reset palette",
+  "custom": "カスタム",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "装飾",
+  "underline": "アンダーライン",
+  "overline": "オーバーライン",
+  "strikethrough": "取り消し線",
+  "thickness": "太さ",
+  "style": "スタイル",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Solid",
+  "solidColor": "単色",
+  "gradient": "Gradient",
+  "gradientType": "グラデーションの種類",
+  "linear": "Linear",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "倍精度",
+  "dotted": "点線",
+  "dottedDark": "Dotted dark",
+  "dashed": "破線",
+  "wavy": "Wavy",
+  "fontWeight": "フォントの重量",
+  "normal": "標準",
+  "bold": "Bold",
+  "italic": "Italic",
+  "clipboard": "Clipboard",
+  "file": "ファイル",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "データ",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "共有",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "間隔",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "画像",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "URL を入力してください",
+  "scale": "拡大縮小",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "ヘルプ",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "本当にリセットしますか？",
+  "whatToDo": "あなたは何をしたいですか?",
+  "ignore": "無視",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "バックアップ",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "バックアップ接続",
+  "automaticBackups": "自動バックアップ",
+  "automaticBackupsDescription": "Butterflyが実行中にバックアップを作成します。",
+  "backupInterval": "バックアップ間隔",
+  "backupNow": "今すぐバックアップ",
+  "lastBackup": "前回のバックアップ",
+  "backupCreated": "バックアップの作成",
+  "hour": "時",
+  "hours": "時間",
+  "day": "日",
+  "days": "日",
+  "week": "週",
+  "weeks": "週間",
+  "createdInNewerVersion": "ファイル {fileName} は、新しいバージョン ({fileVersion}) で作成されました。このファイルをどうすればよいですか？",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "ウェイポイント",
+  "origin": "原点：",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "インポート",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "新規作成",
+  "selectElement": "要素を選択",
+  "ctrlKey": "(Ctrl)",
+  "shiftKey": "Shift",
+  "altKey": "Alt",
+  "copyVersion": "バージョンをコピー",
+  "input": "Input",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "ビヘイビア",
+  "dataDirectory": "データディレクトリ",
+  "warning": "警告",
+  "platformExperimentalWarning": "警告：この設定は実験的であり、このプラットフォームで問題が発生する可能性があります。",
+  "changeDataDirectoryWarningContent": "データフォルダを変更してもよろしいですか？続行する前にデータのバックアップを作成してください。",
+  "defaultPath": "デフォルトのパス",
+  "dateFormat": "日付の形式",
+  "updatedAt": "更新日時: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "作成日時: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "名前の変更",
+  "duplicate": "Duplicate",
+  "hand": "手",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "フォルダ",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "移動",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "コピー",
+  "openContextMenu": "コンテキストメニューを開く",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "戻る",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "転送",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "ズームに依存する",
+  "shapeDetection": "シェイプ検出",
+  "delay": "遅延",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "既定のレイヤー",
+  "layer": "レイヤー",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "レイヤー",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "未設定",
+  "enterLayer": "レイヤー名を入力してください",
+  "eraseShapes": "図形を消去",
+  "eraseShapeModeNone": "シェイプを消去しない",
+  "eraseShapeModeTouchEdges": "エッジに触れたときに消去する",
+  "eraseShapeModeTouchAnywhere": "どこに触れても消去する",
+  "selectElementModeTouchEdges": "エッジに触れたときに選択する",
+  "selectElementModeTouchAnywhere": "任意の場所に触れたときに選択します",
+  "selectElements": "要素を選択",
+  "deleteElements": "要素を削除",
+  "eraseAllElements": "すべての要素を消去",
+  "deleteElementsConfirm": "選択した要素を本当に削除しますか？",
+  "selectCustomCollection": "カスタムコレクションを選択",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "感度",
+  "selectionTolerance": "選択許容差",
+  "selectionToleranceDescription": "ポインタを要素または領域に近づける必要があります。値が高いほど選択が容易になります。",
+  "selectionHandleSensitivity": "選択ハンドルのヒットエリア",
+  "selectionHandleSensitivityDescription": "選択範囲周辺のヒット領域のサイズと、すべてのポインタタイプのエリアハンドルのサイズ。",
+  "panGestureSensitivity": "パンジェスチャーの感度",
+  "panGestureSensitivityDescription": "タッチまたはトラックパッドジェスチャーからキャンバスを移動します。値が高いほどキャンバスは遠くに移動します。",
+  "zoomGestureSensitivity": "継続的なズーム感度",
+  "zoomGestureSensitivityDescription": "ピンチ、トラックパッドのジェスチャー、およびCtrlスクロールからズームします。値が高いほど、ズームが遠くになります。",
+  "rotationGestureSensitivity": "回転ジェスチャーの感度",
+  "rotationGestureSensitivityDescription": "ジェスチャーからキャンバスを回転させます。値が大きいほど遠くまで回転します。",
+  "scrollPanSensitivity": "パンの感度をスクロール",
+  "scrollPanSensitivityDescription": "マウスホイールとトラックパッドのスクロールからキャンバスを移動します。値が大きいほど、さらに大きくなります。",
+  "horizontal": "水平方向",
+  "vertical": "垂直方向",
+  "plain": "Plain",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "ライト",
+  "ruled": "支配された",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "クワッド",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "音楽",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "ダーク",
+  "plainDark": "真っ暗な",
+  "ruledDark": "規則のあるダーク",
+  "quadDark": "クワッドダーク",
+  "musicDark": "暗い音楽",
+  "templates": "テンプレート",
+  "untitled": "無題のタイトル",
+  "createTemplate": "テンプレートを作成",
+  "createTemplateContent": "このドキュメントからテンプレートを作成してもよろしいですか？元のドキュメントが削除されます。",
+  "fileName": "ファイル名",
+  "defaultFileName": "デフォルトのファイル名",
+  "templateFileNameDescription": "テンプレートピッカーから開かれたドキュメントは、この名前で自動的に保存されます。名前のないテンプレートは、format@@0で設定されたデフォルトを使用します。 独自のテキストを {dateExample} と {timeExample}と結合します。ファイル名に許可されていない文字は拒否されます。",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "プレビュー",
+  "replace": "置換",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "テンプレートを置き換えますか？この操作は元に戻せません！",
+  "defaultTemplate": "デフォルトのテンプレート",
+  "insert": "Insert",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "ドキュメント",
+  "documentStates": "ドキュメントの状態",
+  "camera": "カメラ",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "印刷",
+  "selectCamera": "カメラを選択",
+  "changeDocumentPath": "ドキュメントのパスを変更",
+  "deleteWholeStroke": "ストローク全体を削除",
+  "alpha": "アルファ",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "エリア",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "エリアを選択",
+  "aspectRatio": "アスペクト比",
+  "presets": "プリセット",
+  "pagePortrait": "縦向きページ",
+  "pageLandscape": "横向きページ",
+  "square": "正方形（正方形）",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "エリア",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "領域を入力してください",
+  "exitArea": "エリアを終了する",
+  "currentArea": "現在のエリア",
+  "design": "デザイン",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "テキスト",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "これはLinwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "フリーでオープンソースのドローイングスペース！",
+  "updated": "アプリをバージョン {version} に更新しました",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "リリースノート",
+  "constraints": "制約",
+  "scaled": "拡大縮小",
+  "fixed": "固定",
+  "dynamicContent": "ダイナミック",
+  "none": "なし",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "エリアを含める",
+  "verticalAlignment": "縦方向の配置",
+  "horizontalAlignment": "水平方向の配置",
+  "top": "上",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "中央揃え",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "下揃え",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "左",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "右",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "両端揃え",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "制約",
+  "length": "長さ",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "SVGをエクスポート",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "ページを選択",
+  "recentFiles": "最近使ったファイル",
+  "start": "開始",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "最近使ったファイルはありません",
+  "countPages": "{count,plural, =0{ページがありません} =1{1 ページ} other{{count} ページ}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "ページ {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "終了",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "要素がありません",
+  "invertSelection": "選択を反転",
+  "errorWhileImporting": "インポート中のエラー",
+  "errorWhileImportingContent": "ファイルのインポート中にエラーが発生しました",
+  "showDetails": "詳細を表示",
+  "hideDetails": "詳細を隠す",
+  "error": "エラー",
+  "stackTrace": "スタックトレース",
+  "laser": "レーザー",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "期間",
+  "quality": "品質",
+  "exportPdf": "PDFをエクスポート",
+  "local": "ローカル",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "コネクションを追加",
+  "connections": "コネクション",
+  "noConnections": "コネクションがありません",
+  "url": "URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "ストレージプロバイダーが提供する完全な WebDAV URL",
+  "connect": "接続する",
+  "username": "ユーザー名",
+  "password": "パスワード",
+  "authenticationPassword": "認証パスワード",
+  "documentEncryptionPassword": "ドキュメント暗号化パスワード",
+  "documentEncryptionPasswordDescription": "この接続に保存されているドキュメントを暗号化します。暗号化されていない場合は空白のままにしてください。",
+  "documentEncryptionEnabled": "ドキュメントの暗号化が有効になっています",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "ドキュメント暗号化パスワードを追加",
+  "changeDocumentEncryptionPassword": "ドキュメント暗号化パスワードの変更",
+  "webNotSupported": "Webはサポートされていません",
+  "advanced": "高度な設定",
+  "symmetric": "Symmetric",
+  "perSide": "1 辺あたり",
+  "directory": "ディレクトリ",
+  "connectionNameDescription": "バタフライでこの接続を識別するためにのみ使用されます",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "ドキュメントディレクトリ",
+  "templatesDirectory": "テンプレートディレクトリ",
+  "errorWhileCreatingConnection": "接続の作成中にエラー",
+  "cannotConnect": "接続できません",
+  "urlNotValid": "URL が無効です",
+  "icon": "アイコン",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "接続アイコンとして使用する画像のオプションURL",
+  "update": "更新",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "アップデートがあります",
+  "stable": "安定版",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "ナイトリー",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "アップデートを確認",
+  "checkForUpdatesWarning": "アップデートのチェックを実行すると、Butterflyのウェブサイトに接続して情報を取得できます。",
+  "usingLatestStable": "最新の安定版を使用しています",
+  "usingLatestNightly": "最新のナイトリーバージョンを使用しています",
+  "currentVersion": "現在のバージョン",
+  "updateNow": "今すぐ更新",
+  "shape": "形状",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "表",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "行",
+  "columns": "列",
+  "row": "行",
+  "column": "列",
+  "insertRowBefore": "行の前に挿入する",
+  "insertRowAfter": "行の後ろに挿入する",
+  "insertColumnBefore": "前に列を挿入",
+  "insertColumnAfter": "後ろに列を挿入",
+  "deleteRow": "行を削除",
+  "deleteColumn": "列を削除",
+  "cellColor": "セルの色",
+  "cellBorders": "セルの外枠",
+  "cellBorder": "セルの枠線",
+  "horizontalBorder": "横線",
+  "verticalBorder": "垂直枠線",
+  "rowHeight": "行の高さ",
+  "columnWidth": "列の幅",
+  "border": "Border",
+  "circle": "円",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "矩形",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Triangle",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "線",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Corner radius",
+  "topLeft": "左上",
+  "topRight": "右上へ",
+  "bottomLeft": "左下",
+  "bottomRight": "右下",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "キャッシュ",
+  "manage": "管理",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "キャッシュをクリア",
+  "createCache": "キャッシュを作成",
+  "thirdPartyLicenses": "サードパーティライセンス",
+  "syncing": "同期中...",
+  "synced": "同期済み",
+  "notSynced": "同期していません",
+  "conflict": "競合",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "ローカルを維持",
+  "keepConnection": "接続を維持",
+  "keepBoth": "両方を保持",
+  "forAll": "すべて",
+  "fileConflict": "{file} で {connection} が競合しています",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "オフライン",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "最新のローカル",
+  "connectionLatest": "最新の接続",
+  "path": "パス",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "フォルダを同期しました",
+  "syncRootDirectory": "ルートディレクトリを同期",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "スタイラス検出時に自動的にスタイラス専用モードを有効にします。この設定は現在のセッションでのみ有効です。",
+  "penOnlyInputOnDescription": "タッチとマウスの入力を常に拒否し、スタイラスの入力のみを受け付けます。",
+  "penOnlyInputOffDescription": "タッチ、マウス、スタイラスを含むすべての入力タイプを受け入れます。",
+  "automatic": "自動",
+  "alwaysOn": "常にオン",
+  "alwaysOff": "常にオフ",
+  "showPenOnlyToggle": "スタイラスのみを表示する",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Input gestures",
+  "inputGesturesDescription": "図形描画ツールが選択されている場合でも、タッチジェスチャーでキャンバスを移動およびズームできます。",
+  "nativeTitleBar": "ネイティブのタイトルバー",
+  "mode": "Mode",
+  "syncMode": "同期モード",
+  "connection": "接続",
+  "always": "常に表示",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "携帯電話がありません",
+  "syncModeAlwaysDescription": "変更されるたびに自動的にリモートファイルを同期します。",
+  "syncModeNoMobileDescription": "モバイルデータ使用量を減らすことができるモバイルデバイスを除き、自動的に同期します。",
+  "manual": "マニュアル",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "自分で起動したときにのみ同期します。",
+  "search": "検索",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "プロパティー",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "ピン留めする",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Unpin",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "要素",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Painter",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "位置",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "メモ",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "パック",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "パック",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "もっと見る",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "名前を求める",
+  "areaIndex": "エリア {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "全画面表示で開始",
+  "inputs": "Inputs",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "マウス",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "タッチ",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Keyboard",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "ショートカット",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "中央",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "最初の",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "秒",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "アクティブツール",
+  "activeToolDescription": "ツールバーで現在選択されているツールを使用",
+  "handTool": "ハンドツール",
+  "handToolDescription": "ドラッグしてキャンバスの周りを移動",
+  "toolOnToolbar": "ツールバー上の特定のツール",
+  "toolOnToolbarDescription": "ツールバーの指定した位置のツールを左から始めて使用する",
+  "toolOnToolbarShort": "ツールバーの位置: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "ツール",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "グリッドを表示",
+  "grid": "グリッド",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "ルーラー設定",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "角度",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "レポート",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "新しいフォルダ",
+  "createPack": "パックを作成",
+  "editPack": "パックを編集",
+  "packsDirectory": "Packsディレクトリ",
+  "stamp": "切手（スタンプ）",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "パックに追加",
+  "sureImportPack": "パックをインポートしてもよろしいですか？",
+  "byAuthor": "by {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "作成者",
+  "addAsset": "アセットを追加",
+  "editAsset": "アセットを編集",
+  "scope": "スコープ",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "現在利用可能なパックはありません",
+  "components": "コンポーネント",
+  "waypoint": "通過点",
+  "actions": "アクション",
+  "painters": "Painters",
+  "breakingChangesTitle": "破壊的な変更",
+  "breakingChangesMessage": "このバージョンには互換性のない変更があります。更新する前に更新履歴をお読みください。 現在のファイルバージョンは {version}で、新しいバージョンは {newVersion} です。",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Styles",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "段落",
+  "fontFamily": "フォントファミリー",
+  "smoothing": "スムージング",
+  "streamline": "Streamline",
+  "presentation": "プレゼンテーション",
+  "simple": "単純な",
+  "createPresentation": "Create presentation",
+  "addSlide": "新しいスライドを追加",
+  "updateSlide": "スライドを更新",
+  "deleteSlide": "スライドを削除",
+  "transitionDuration": "トランジション時間",
+  "transitionDurationDescription": "カメラが次のスライドに移動するまでにかかる時間。最後のスライドでは、新しいスライドを追加するときに使用します。",
+  "transitionDurationValue": "{seconds}秒のトランジション",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "ここにキーフレームを追加",
+  "updateKeyframe": "現在のカメラから更新",
+  "deleteKeyframe": "キーフレームを削除",
+  "markAsSlide": "スライドとしてマーク",
+  "removeSlideMarker": "スライドマーカーを削除",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "スライド {slide} · フレーム {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "スライド {current} / {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "アセットを選択",
+  "clearStyle": "スタイルをクリア",
+  "unknownImportType": "不明なインポートタイプ",
+  "sureImportTemplate": "テンプレートをインポートしてもよろしいですか？",
+  "frame": "Frame",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "再生",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "ビデオ",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "ブレークポイント",
+  "presentationControls": "プレゼンテーションコントロール",
+  "nextSlide": "次のスライド",
+  "nextSlideDescription": "右にスワイプするか、右矢印キーを押して次のスライドに移動します",
+  "previousSlide": "前のスライド",
+  "previousSlideDescription": "左にスワイプするか、左矢印キーを押して前のスライドに移動します",
+  "exitPresentation": "プレゼンテーションを終了",
+  "exitPresentationDescription": "エスケープキーまたは下にスワイプしてプレゼンテーションを終了します",
+  "pausePresentation": "プレゼンテーションを一時停止",
+  "pausePresentationDescription": "画面をタップするか、スペースバーを押してプレゼンテーションを一時停止または再開します",
+  "keyframe": "Keyframe",
+  "endOfPresentation": "プレゼンテーションの最後に達しました",
+  "startOfPresentation": "プレゼンテーションの開始に達しました",
+  "palettes": "Palettes",
+  "headline": "見出し {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "コード",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "引用",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "リンク",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Checkbox",
+  "deleted": "削除しました",
+  "emphasis": "強調表示",
+  "listBullet": "箇条書きリスト",
+  "strong": "強い",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "ホーム",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "ファイル",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "並び替え",
+  "location": "場所",
+  "whatsNew": "新着情報",
+  "unstar": "スターを外す",
+  "star": "スター",
+  "goUp": "上へ",
+  "created": "作成済み",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "修正されました",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "クイックスタート",
+  "noTemplates": "現在利用可能なテンプレートはありません",
+  "importCorePack": "コア パックをインポート",
+  "importCorePackDescription": "始めるためのすべての基本的なアセットを含むコア パックをインポートします。これは現在のコア パックを上書きします。",
+  "never": "一切なし",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "更新時のみ",
+  "visibility": "公開範囲",
+  "captureThumbnail": "サムネイルをキャプチャする",
+  "autoThumbnail": "終了時にサムネイルを更新",
+  "autoThumbnailDescription": "このドキュメントを閉じたときに現在のビューをキャプチャします。サムネイルをキャプチャするとオフになります。",
+  "capturedThumbnail": "サムネイルをキャプチャしました",
+  "chooseLabelMode": "ラベルモードを選択",
+  "foreground": "フォアグラウンド（前面）",
+  "version": "バージョン",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "リポジトリ",
+  "pages": "ページ",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Navigator",
+  "arrange": "整列",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "前面へ移動",
+  "sendToBack": "背面へ送る",
+  "bringForward": "前方へ移動",
+  "sendBackward": "後方に送る",
+  "rotation": "回転",
+  "rotationStep": "回転ステップ",
+  "zoomStep": "ズームステップ",
+  "zoomStepDescription": "ズームインとキーボードショートカットのズームアウトによって使用される金額。継続的なズームジェスチャーは、独自の感度設定を使用します。",
+  "direction": "方向",
+  "onlyAvailableLargerScreen": "より大きな画面でのみ利用可能",
+  "toolbarPosition": "ツールバーの位置",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "回転",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "左に回転",
+  "rotateRight": "右に回転",
+  "spacer": "スペーサー",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "ナビゲーション レール",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "切り取り",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "前に挿入",
+  "insertAfter": "後に挿入",
+  "insertFirst": "最初に挿入",
+  "insertLast": "Insert last",
+  "paste": "貼り付け",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "昇順",
+  "descending": "降順",
+  "imageScale": "画像の大きさ",
+  "svgScale": "SVGスケール",
+  "noImageSelected": "画像が選択されていません",
+  "noSvgSelected": "SVGが選択されていません",
+  "select": "選択",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "ツール",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "テクスチャ",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "プラットフォームのテーマ",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "デスクトップ",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "モバイル",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Surface",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "パターン",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "ドキュメントを閉じてもよろしいですか？",
+  "thereAreUnsavedChanges": "保存されていない変更があります",
+  "page": "ページ",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "ICE サーバー",
+  "collaboration": "コラボレーション",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Socket",
+  "iceServer": "ICE サーバー",
+  "port": "ポート",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "タイプ",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "サイド",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "クライアント",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "サーバー",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "ビューの切り替え",
+  "lasso": "Lasso",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "UI を隠す",
+  "density": "解像度:",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "コンパクト化",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "快適さ",
+  "standard": "標準",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "ロック",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "要素を追加",
+  "notDefaultConnection": "デフォルトの接続ではありません",
+  "defaultConnection": "既定の接続",
+  "hide": "非表示",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "表示",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "一時停止",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "停止",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "更新",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "印刷",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "スポイト",
+  "users": "ユーザー",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "実験",
+  "experimentsWarning": "これらの機能は実験的であり、いつでも変更、中断、または消えることがあります。 それらを有効にすると不安定性やデータが失われる可能性があります。注意してください。バグを報告してください。",
+  "address": "住所",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "ページにスプレッド",
+  "rootDirectorySpecifiedDescription": "ルートディレクトリが指定されています。すべての高度なディレクトリパスはこのディレクトリからの相対パスになります。このディレクトリタイプを無効にするには空のままにしてください。",
+  "rootDirectoryNotSpecifiedDescription": "ルートディレクトリが指定されていません。名前は必須です。すべての高度なディレクトリパスは絶対的です。このディレクトリタイプを無効にするには空にしてください。",
+  "unsecureConnectionTitle": "セキュアでない接続",
+  "unsecureConnectionMessage": "接続が安全ではありません。これはセキュリティ上のリスクがあります。接続を信頼している場合にのみ続けてください。sha1 指紋は {fingerprint} です。",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "それでも続ける",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "ナビゲーターのプレビューを表示",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "キャッシュされたプレビューサムネイルをエリアとページナビゲーターに表示します",
+  "highContrast": "高コントラストformat@@0",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "この値は有効な数字でなければなりません",
+  "createAreas": "エリアを作成",
+  "autosave": "Autosave",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Invert",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "操作",
+  "medium": "ミディアム",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "大",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "ツールバーのサイズ",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "すべて追加",
+  "onlyCurrentPage": "現在のページのみ",
+  "smoothNavigation": "スムーズなナビゲーション",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "エッジパンエリアの切り替え",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Android SAFを使用する",
+  "exact": "正確な",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "インライン",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "ツールバーの行",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "ポインタテスト",
+  "pressure": "<unk>",
+  "small": "小",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "<unk>",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "すべて選択",
+  "overrideTools": "ツールを上書きする",
+  "hideCursorWhileDrawing": "描画中にカーソルを隠す",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "インストール済み",
+  "install": "インストール",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "選択を解除",
+  "changeCollection": "コレクションを変更",
+  "collections": "コレクション",
+  "fullSelection": "完全な選択",
+  "collection": "コレクション",
+  "defaultCollection": "デフォルトのコレクション",
+  "scroll": "スクロール",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "起動時",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "ホーム画面",
+  "lastNote": "最後のメモ",
+  "newNote": "新規ノート",
+  "moveToLayer": "レイヤーに移動",
+  "createLayer": "レイヤーを作成",
+  "merge": "結合",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "上へ",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "下",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "その他",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{要素なし} =1{1 要素} other{{count} 要素}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "カラーツールバー",
+  "yesButShowButtons": "はい、しかしボタンを表示する",
+  "optionsPanelPosition": "オプションパネルの位置",
+  "hideDuration": "期間を隠す",
+  "animation": "アニメーション",
+  "performance": "パフォーマンス",
+  "performanceDescription": "速度とメモリ使用量に合わせて最適化されました。ノートの表示部分だけが画像に焼き付けられます。",
+  "normalDescription": "バランスの良さとパフォーマンス。可視領域の1.5倍の画像を焼き、スクロール時にスムーズなトランジションを提供します。",
+  "high": "高い",
+  "highDescription": "パフォーマンスを犠牲にして品質を最大限に高めます。可視領域の2倍の画像を作成し、急速なスクロールやズーム時でもシームレスなレンダリングを実現します。",
+  "renderResolution": "レンダリング解像度",
+  "translate": "翻訳する",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "暗号化なし",
+  "encrypted": "暗号化済み",
+  "encryptDocumentMessage": "クリックしてドキュメントを暗号化します",
+  "unencryptDocumentMessage": "クリックしてドキュメントの暗号化を解除",
+  "unencrypt": "暗号化解除",
+  "encrypt": "暗号化",
+  "encryptWarning": "これはドキュメントを暗号化します。復号するにはパスワードを忘れないようにしてください。",
+  "unencryptWarning": "これはドキュメントの暗号化を解除します。パスワードは削除され、アクセス権を持つ全員がそれを開くことができます。",
+  "confirmPassword": "パスワードの確認",
+  "passwordMismatch": "パスワードが一致しません",
+  "action": "アクション",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "SVGテキスト",
+  "offset": "オフセット",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "終了",
+  "radius": "Radius",
+  "focalPoint": "焦点点",
+  "useOffCenterStartPoint": "中心外の開始点を使用する",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "色の停止",
+  "addStop": "停止を追加",
+  "positionDependent": "依存する位置",
+  "flipHorizontal": "水平方向に反転",
+  "flipVertical": "垂直方向に反転",
+  "grayscale": "Grayscale",
+  "moveOnGesture": "ジェスチャー上に移動",
+  "exportAllFiles": "すべてのファイルをエクスポート",
+  "restoreSettingsFromFile": "設定をファイルから復元",
+  "resetAllSettings": "すべての設定をリセット",
+  "exportSettingsToFile": "設定をファイルにエクスポート",
+  "barcode": "Barcode",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "バーコードの種類",
+  "qrCode": "QR Code",
+  "dataMatrix": "データマトリクス",
+  "code128": "コード 128",
+  "defaultUserName": "ユーザー {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "左に移動",
+  "moveRight": "右に移動",
+  "bundledPacks": "バンドルパック",
+  "component": "コンポーネント",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "コンポーネントを選択",
+  "bundlePackInDocument": "ドキュメント内のバンドルパック",
+  "bundledPacksDescription": "バンドルされたパックは、ドキュメントに含まれており、ドキュメントと共有するためにのみ使用されます。 パックがインストールされている場合のみ、アセットをドキュメント内で使用できます。パックをクリックするとインストールできます。",
+  "fillAlpha": "アルファ値を入力",
+  "packagedFile": "パッケージされたファイル",
+  "rawFile": "Raw file",
+  "webSocketDescription": "デバイスはサーバーをホストしているため、コラボレーターは同じネットワーク上またはルーターのポートを転送する場合にのみ、どこからでも参加できます。",
+  "swampDescription": "メッセージは、エンドツーエンド暗号化されたセキュアなリレーサーバーを介してルーティングされます。セッションを作成するには、swampサーバーアドレスが必要です。",
+  "createRawNote": "未加工のノートを作成",
+  "polygon": "多角形（多角形）",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "形状を終了する",
+  "submit": "送信",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Math",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "プレッシャーを無視",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "いくつかのスタイルで不正確である可能性がある最初の圧力読み取りを無視します。",
+  "ignorePressureNeverDescription": "スタイラスからのすべてのプレッシャー読み取りを使用します。",
+  "ignorePressureAlwaysDescription": "スタイラスの圧力を無視し、完全に押された状態で処理します。",
+  "temporary": "一時的な",
+  "simpleToolbarVisibility": "シンプルなツールバーの表示",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "自動保存の遅延",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "保存しました",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "保存中...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "読み取り専用",
+  "saveDelayed": "遅延保存",
+  "unsaved": "未保存",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "エクスポートするエリアがありません。 右上隅のプラスボタンを使用して少なくとも1つの領域を選択するか、現在のページから、または以下のドキュメント全体からすべての領域を追加してください。",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "ショートカットのカスタマイズ",
+  "clickToSave": "クリックして保存",
+  "toolbars": "ツールバー",
+  "logs": "ログ",
+  "ruledSimple": "簡単なルール",
+  "ruledSimpleDark": "ルール化されたシンプルなダーク",
+  "quadSimple": "シンプルなクワッド",
+  "quadSimpleDark": "クワッド単純なダーク",
+  "redLinedRuled": "赤色の線が引かれた",
+  "redLinedRuledDark": "赤色の線が暗くなっています",
+  "redLinedQuad": "赤色のラインナップクワッド",
+  "redLinedQuadDark": "赤色のクワッドダーク",
+  "noItemSelected": "アイテムが選択されていません",
+  "areaAsInitial": "初期ビューとして領域を開く",
+  "swap": "入れ替え",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "ファイル拡張子を非表示",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "テンプレートから新規作成",
+  "exportAsTextShortcut": "テキストとしてエクスポート",
+  "exportAsImageShortcut": "画像としてエクスポート",
+  "exportAsPdfShortcut": "PDF としてエクスポート",
+  "exportAsSvgShortcut": "SVGとしてエクスポート",
+  "changePathShortcut": "パスの変更",
+  "fullScreenShortcut": "全画面",
+  "doublePressAction": "Double press action",
+  "triplePressAction": "トリプルプレスアクション",
+  "twoFingerTap": "2本指タップ",
+  "threeFingerTap": "3本指タップ",
+  "longPress": "長押しする",
+  "toolNumber": "ツール {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "ショートカットを長押しする",
+  "holdShortcutsDescription": "キーを押して別のツールに一時的に切り替えます。キースイッチを前のツールに戻します。",
+  "key": "キー",
+  "bringMovedElementsToFront": "移動した要素を前面に移動",
+  "addTool": "ツールを追加",
+  "nextPage": "次のページ",
+  "previousPage": "前のページ",
+  "persistenceDocumentStates": "文書状態の永続化",
+  "persistentStatesEnabled": "永続的なドキュメントの状態を有効にする",
+  "persistentStateCurrentPage": "現在のページ",
+  "persistentStateViewport": "ビューポートの位置とズーム",
+  "persistentStateSelectedTool": "選択されたツール",
+  "persistentStateMaxRecords": "最大保存されたレコード",
+  "persistentStateDeleteOlderThanDays": "日より古いレコードを削除",
+  "persistentStateCleanup": "保存されている状態を消去",
+  "persistentStateCleanupDescription": "上記の制限より古いレコードを削除",
+  "persistentStateCleanupInProgress": "クリーンアップ中...",
+  "persistentStateDefaultLocks": "デフォルトのロック",
+  "persistentStateDefaultLocksDescription": "ドキュメントに保存された状態がない場合にこれらのロックを適用する",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{1 つのストレージの場所} other{クリーンアップ {locations} ストレージ場所}}! {records, plural, =1{removed 1 レコード} other{removed {records} records}}",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "作業中に変更を自動的に保存します。",
+  "autosaveDelayedDescription": "選択した遅延後に変更を自動的に保存します。",
+  "autosaveShowButtonDescription": "自動的に保存され、保存ボタンも表示されます。",
+  "autosaveDisabledDescription": "saveコマンドを使用する場合にのみ保存します。",
+  "hideCursorWhileDrawingDescription": "描画中にマウスポインタを隠すので、ストロークをカバーしません。",
+  "onStartupHomeScreenDescription": "バタフライが開始されたときにホーム画面を開きます。",
+  "onStartupLastNoteDescription": "Butterflyを起動したときに、最近使用したノートを再び開きます。",
+  "onStartupNewNoteDescription": "Butterflyの起動時に新しいノートを作成します。",
+  "smoothNavigationDescription": "移動中のキャンバスを簡素化することで、パンニングとズームがスムーズになります。",
+  "edgePanAreaSwitchingDescription": "キャンバスの端に近い位置にパンすると、隣のエリアに切り替わります。",
+  "collaborationDescription": "複数の人が同じノートをリアルタイムで編集できます。",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "詳細な診断メッセージがログビューとコンソールに含まれています。これらのメッセージは問題のトラブルシューティングに役立ちます。",
+  "bringMovedElementsToFrontDescription": "要素を移動させた後に、要素をオーバーラップする上に配置します。",
+  "persistenceDocumentStatesDescription": "現在のページ、ズーム、選択したツールなど、各ノートのワークスペースのどの部分が記憶されるかを設定します。",
+  "persistentStatesEnabledDescription": "ドキュメントの状態情報をアプリセッション間で保存する",
+  "persistentStateCurrentPageDescription": "ファイルを再開したときに現在のページを記憶する",
+  "persistentStateViewportDescription": "各ページのビューポートの位置、ズーム、回転を記憶する",
+  "persistentStateSelectedToolDescription": "ファイルを再開するときに選択したツールを記憶する",
+  "persistentStateLocksDescription": "ファイルを再開したときにロック設定を記憶する",
+  "persistentStateNavigatorDescription": "ファイルを再開したときにナビゲータの状態を記憶する",
+  "persistentStateLayersDescription": "ファイルを再開したときのレイヤーパネルの状態を記憶する",
+  "persistentStateAreasDescription": "ファイルを再開したときの領域パネルの状態を記憶する",
+  "persistentStateAutoThumbnail": "サムネイルの自動設定",
+  "persistentStateAutoThumbnailDescription": "ドキュメントごとの切り替えを表示し、ドキュメントを閉じたときにサムネイルを更新できるようにします",
+  "persistentStateMaxRecordsDescription": "ファイルごとにこの多くの保存状態を保持します",
+  "persistentStateDeleteOlderThanDaysDescription": "この日よりも古い保存状態を削除",
+  "contentViewportDescription": "ノートの内容から離れてパンできる範囲を制限します。",
+  "limitViewportPositiveDescription": "範囲内のキャンバスを開始地点の下に保持します。",
+  "startInFullScreenDescription": "サポートされている場合は、バタフライをフルスクリーンモードで開きます。",
+  "designDescription": "Butterflyの全体的なビジュアルスタイルは、アプリが明るい色と暗い色を使用しているかどうかを変更せずに変更できます。",
+  "platformThemeDescription": "Butterflyが通常お使いのデバイスで選択したレイアウトの代わりに、デスクトップまたはモバイルレイアウトを使用できます。",
+  "densityDescription": "インターフェイス要素の間隔とサイズを変更します。ノートコンテンツのサイズは変更されません。",
+  "highContrastDescription": "より強い色の違いを使用して、コントロールとテキストを区別しやすくします。",
+  "nativeTitleBarDescription": "Butterflyのカスタムタイトルバーの代わりに、オペレーティングシステムの標準ウィンドウのタイトルバーを使用します。",
+  "propertiesDescription": "選択したツールまたは要素を編集するパネルが表示される場所を選択します。",
+  "navigationRailDescription": "アプリのセクションにすばやくアクセスするために、ワイドスクリーンに恒久的なナビゲーションバーを表示します。",
+  "optionsPanelPositionDescription": "キャンバスの上下にツールオプションが表示されるかどうかを選択します。",
+  "simpleToolbarVisibilityDescription": "ノートを編集しているときに、小さく簡略化されたツールバーが表示されるタイミングをコントロールします。",
+  "penOnlyInputDescription": "スタイラス入力のみが描けるときに選択することで、手やマウスからの偶発的なマークを防ぎます。",
+  "showPenOnlyToggleDescription": "Butterflyがスタイラスを検出した後、エディタにクイックスタイラスのみのスイッチを表示します。",
+  "ignorePressureDescription": "スタイラスの圧力がストロークを変化させ、いくつかのスタイラスからの不正確な圧力測定値を回避するかどうかを制御します。",
+  "moveOnGestureDescription": "マルチタッチジェスチャーでノートコンテンツを操作する代わりにキャンバスを移動できます。",
+  "spreadPagesDescription": "すべてを1ページに配置するのではなく、複数ページのインポートを別々のノートページに分割します。",
+  "shear": "せん断（せん）",
+  "resetRotation": "回転をリセット",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "ズームと回転のコントロールを選択します。リセットボタンは、すべてのレイアウトで使用できます。",
+  "zoomPanelFull": "フル (スライダー、テキストフィールド、ボタン)",
+  "zoomPanelSliderInput": "スライダーとテキストフィールド",
+  "zoomPanelSlider": "スライダー",
+  "zoomPanelInputButtons": "テキストフィールドとボタン",
+  "zoomPanelInput": "テキスト フィールド",
+  "rotationDisplay": "回転表示",
+  "rotationDisplayDescription": "回転行がズームの上に表示されるときに選択します。これは回転ジェスチャーやショートカットを変更しません。",
+  "whenRotated": "回転時",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "ドラッグしてキャンバスを回転させる"
+}

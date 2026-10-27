@@ -1,0 +1,1693 @@
+{
+  "open": "Maak oop",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Reveal in file explorer",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Instellings",
+  "personalization": "Personalisering",
+  "theme": "Tema",
+  "darkTheme": "Donker tema",
+  "lightTheme": "Ligte tema",
+  "systemTheme": "Gebruik verstek stelseltema",
+  "view": "Aansig",
+  "contentViewport": "Content Viewport",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Limit Viewport to positive coordinates",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Off",
+  "canvas": "Canvas",
+  "interface": "Interface",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Redigeer",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Voer uit",
+  "save": "Stoor",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Zoem",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Zoem in",
+  "zoomOut": "Zoem uit",
+  "resetZoom": "Stel zoem terug",
+  "strokeWidth": "Lynwydte",
+  "strokeStyle": "Stroke style",
+  "dashLength": "Dash length",
+  "gapLength": "Gap length",
+  "includeEraser": "Sluit uitveër in?",
+  "thinning": "Verdunning",
+  "pen": "Pen",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Inverted Stylus",
+  "eraser": "Uitveër",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Stroke",
+  "label": "Etiket",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Skrap",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Is jy seker?",
+  "reallyDelete": "Wil jy regtig hierdie item skrap?",
+  "no": "Nee",
+  "yes": "Ja",
+  "undo": "Ontdoen",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Herdoen",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "Algemeen",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Na knipbord gekopieer",
+  "loading": "Laai...",
+  "enterText": "Voer die teks in",
+  "size": "Grootte",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Wydte",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Hoogte",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Aantal",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Spasie",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Agtergrond",
+  "applyBackground": "Apply background",
+  "applyAreas": "Apply areas",
+  "currentPage": "Current page",
+  "allPages": "All pages",
+  "box": "Boks",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "Lokaal",
+  "systemLocale": "Stelsellokaal",
+  "information": "Inligting",
+  "license": "Lisensie",
+  "imprint": "Kolofon",
+  "privacypolicy": "Privaatheidsbeleid",
+  "sourceCode": "Bronkode",
+  "documentation": "Dokumentasie",
+  "changelog": "Veranderingslog",
+  "source": "Bron",
+  "existOverride": "Hierdie element bestaan reeds. Oorskryf?",
+  "description": "Beskrywing",
+  "fill": "Vul",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Verstek palet",
+  "highlighter": "Merkpen",
+  "combinePaths": "Combine paths",
+  "add": "Voeg by",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Verwyder",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Wil jy regtig hierdie verwyder?",
+  "resetPalette": "Stel palet terug",
+  "custom": "Pasgemaak",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Dekorasie",
+  "underline": "Onderstreep",
+  "overline": "Oorlyn",
+  "strikethrough": "Deurstreep",
+  "thickness": "Dikte",
+  "style": "Styl",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Solied",
+  "solidColor": "Solid color",
+  "gradient": "Gradient",
+  "gradientType": "Gradient type",
+  "linear": "Linear",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Dubbel",
+  "dotted": "Gestippel",
+  "dottedDark": "Dotted dark",
+  "dashed": "Gestreep",
+  "wavy": "Golwend",
+  "fontWeight": "Fontgewig",
+  "normal": "Normaal",
+  "bold": "Vetdruk",
+  "italic": "Kursief",
+  "clipboard": "Knipbord",
+  "file": "Lêer",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Data",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Deel",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Spasiëring",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Beeld",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Voer die URL in",
+  "scale": "Skaal",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Hulp",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Wil jy dit regtig terugstel?",
+  "whatToDo": "Wat wil jy doen?",
+  "ignore": "Ignoreer",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Rugsteun",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Backup connection",
+  "automaticBackups": "Automatic backups",
+  "automaticBackupsDescription": "Creates backups while Butterfly is running.",
+  "backupInterval": "Backup interval",
+  "backupNow": "Back up now",
+  "lastBackup": "Last backup",
+  "backupCreated": "Backup created",
+  "hour": "hour",
+  "hours": "hours",
+  "day": "day",
+  "days": "days",
+  "week": "week",
+  "weeks": "weeks",
+  "createdInNewerVersion": "Die lêer {fileName} is in 'n nuwer weergawe ({fileVersion}) geskep. Wat moet met hierdie lêer gedoen word?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Wegpunte",
+  "origin": "Oorsprong",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "Voer in",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "Nuut",
+  "selectElement": "Kies element",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Shift",
+  "altKey": "Alt",
+  "copyVersion": "Kopieer weergawe",
+  "input": "Invoer",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Gedrag",
+  "dataDirectory": "Data-gids",
+  "warning": "Warning",
+  "platformExperimentalWarning": "Warning: This setting is experimental and can have problems on this platform.",
+  "changeDataDirectoryWarningContent": "Are you sure you want to change the data folder? You should make a backup of your data before proceeding.",
+  "defaultPath": "Verstek pad",
+  "dateFormat": "Datumformaat",
+  "updatedAt": "Opgedateer op: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Geskep op: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Hernoem",
+  "duplicate": "Dupliseer",
+  "hand": "Hand",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Gids",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Skuif",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Kopieer",
+  "openContextMenu": "Open context menu",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Terug",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Forward",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Zoem-afhanklik",
+  "shapeDetection": "Vormherkenning",
+  "delay": "Vertraging",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Verstek laag",
+  "layer": "Laag",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Lae",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "Nie gestel nie",
+  "enterLayer": "Voer die laagnaam in",
+  "eraseShapes": "Erase shapes",
+  "eraseShapeModeNone": "Don't erase shapes",
+  "eraseShapeModeTouchEdges": "Erase when touching edges",
+  "eraseShapeModeTouchAnywhere": "Erase when touching anywhere",
+  "selectElementModeTouchEdges": "Select when touching edges",
+  "selectElementModeTouchAnywhere": "Select when touching anywhere",
+  "selectElements": "Kies elemente",
+  "deleteElements": "Skrap elemente",
+  "eraseAllElements": "Erase all elements",
+  "deleteElementsConfirm": "Wil jy regtig die geselekteerde elemente skrap?",
+  "selectCustomCollection": "Kies 'n pasgemaakte versameling",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Sensitiwiteit",
+  "selectionTolerance": "Selection tolerance",
+  "selectionToleranceDescription": "How close a pointer must be to an element or area to select it. Higher values make selection easier.",
+  "selectionHandleSensitivity": "Selection handle hit area",
+  "selectionHandleSensitivityDescription": "Size of the hit area around selection and area handles for all pointer types.",
+  "panGestureSensitivity": "Pan gesture sensitivity",
+  "panGestureSensitivityDescription": "Canvas movement from touch or trackpad gestures. Higher values move the canvas farther.",
+  "zoomGestureSensitivity": "Continuous zoom sensitivity",
+  "zoomGestureSensitivityDescription": "Zoom from pinching, trackpad gestures, and Ctrl+scroll. Higher values zoom farther.",
+  "rotationGestureSensitivity": "Rotation gesture sensitivity",
+  "rotationGestureSensitivityDescription": "Canvas rotation from gestures. Higher values rotate farther.",
+  "scrollPanSensitivity": "Scroll pan sensitivity",
+  "scrollPanSensitivityDescription": "Canvas movement from mouse wheel and trackpad scrolling. Higher values pan farther.",
+  "horizontal": "Horisontaal",
+  "vertical": "Vertikaal",
+  "plain": "Eenvoudig",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Lig",
+  "ruled": "Gelinieer",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Geruit",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Musiek",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Donker",
+  "plainDark": "Plain dark",
+  "ruledDark": "Gelinieer donker",
+  "quadDark": "Geruit donker",
+  "musicDark": "Musiek donker",
+  "templates": "Sjablone",
+  "untitled": "Naamloos",
+  "createTemplate": "Skep sjabloon",
+  "createTemplateContent": "Wil jy regtig 'n sjabloon van hierdie dokument skep? Die oorspronklike dokument sal geskrap word.",
+  "fileName": "File name",
+  "defaultFileName": "Default file name",
+  "templateFileNameDescription": "Documents opened from the template picker are saved automatically with this name. Templates without a name use the default configured in Data settings. Combine your own text with {dateExample} and {timeExample}. Characters that are not allowed in file names will be rejected.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Preview",
+  "replace": "Vervang",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Wil jy regtig die sjabloon vervang? Hierdie aksie kan nie ongedaan gemaak word nie!",
+  "defaultTemplate": "Verstek sjabloon",
+  "insert": "Voeg in",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Dokument",
+  "documentStates": "Document states",
+  "camera": "Kamera",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Afdruk",
+  "selectCamera": "Kies 'n kamera",
+  "changeDocumentPath": "Verander dokumentpad",
+  "deleteWholeStroke": "Skrap hele lyn",
+  "alpha": "Alfa",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Area",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Kies 'n area",
+  "aspectRatio": "Aspekverhouding",
+  "presets": "Voorafinstellings",
+  "pagePortrait": "Bladsy portret",
+  "pageLandscape": "Bladsy landskap",
+  "square": "Vierkant",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Areas",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Voer die area in",
+  "exitArea": "Verlaat die area",
+  "currentArea": "Huidige area",
+  "design": "Ontwerp",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Teks",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Hallo, hierdie is Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "'n Gratis en oopbron tekenruimte!",
+  "updated": "Toepassing opgedateer na weergawe {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Vrystellingnotas",
+  "constraints": "Beperkings",
+  "scaled": "Geskaal",
+  "fixed": "Vas",
+  "dynamicContent": "Dinamies",
+  "none": "Geen",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Sluit area in",
+  "verticalAlignment": "Vertikale belyning",
+  "horizontalAlignment": "Horisontale belyning",
+  "top": "Bo",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Middel",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Onder",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Links",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Regs",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Blokparagraaf",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Beperking",
+  "length": "Lengte",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "Voer SVG uit",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Kies bladsye",
+  "recentFiles": "Onlangse lêers",
+  "start": "Begin",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "Geen onlangse lêers",
+  "countPages": "{count,plural, =0{Geen bladsye} =1{1 bladsy} other{{count} bladsye}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Bladsy {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Verlaat",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "Geen elemente",
+  "invertSelection": "Keer seleksie om",
+  "errorWhileImporting": "Fout tydens invoer",
+  "errorWhileImportingContent": "'n Fout het voorgekom tydens die invoer van die lêer",
+  "showDetails": "Wys besonderhede",
+  "hideDetails": "Versteek besonderhede",
+  "error": "Fout",
+  "stackTrace": "Stapelnasporing",
+  "laser": "Laser",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Tydsduur",
+  "quality": "Kwaliteit",
+  "exportPdf": "Voer PDF uit",
+  "local": "Lokaal",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Voeg verbinding by",
+  "connections": "Verbindings",
+  "noConnections": "Geen verbindings",
+  "url": "URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "The full WebDAV URL provided by your storage provider",
+  "connect": "Verbind",
+  "username": "Gebruikersnaam",
+  "password": "Wagwoord",
+  "authenticationPassword": "Authentication password",
+  "documentEncryptionPassword": "Document encryption password",
+  "documentEncryptionPasswordDescription": "Encrypts documents stored in this connection. Leave empty to keep them unencrypted",
+  "documentEncryptionEnabled": "Document encryption enabled",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Add document encryption password",
+  "changeDocumentEncryptionPassword": "Change document encryption password",
+  "webNotSupported": "Web word nie ondersteun nie",
+  "advanced": "Gevorderd",
+  "symmetric": "Symmetric",
+  "perSide": "Per side",
+  "directory": "Gids",
+  "connectionNameDescription": "Only used to identify this connection in Butterfly",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Dokumente-gids",
+  "templatesDirectory": "Sjablone-gids",
+  "errorWhileCreatingConnection": "Fout tydens die skep van verbinding",
+  "cannotConnect": "Kan nie verbind nie",
+  "urlNotValid": "URL nie geldig nie",
+  "icon": "Ikoon",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Optional URL of an image to use as the connection icon",
+  "update": "Dateer op",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Opdatering beskikbaar",
+  "stable": "Stabiel",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Nagteliks",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Soek vir opdaterings",
+  "checkForUpdatesWarning": "Deur vir opdaterings te soek, sal 'n verbinding met die Butterfly-webwerf gemaak word om die inligting te kry.",
+  "usingLatestStable": "Jy gebruik die nuutste stabiele weergawe",
+  "usingLatestNightly": "Jy gebruik die nuutste nagtelikse weergawe",
+  "currentVersion": "Huidige weergawe",
+  "updateNow": "Dateer nou op",
+  "shape": "Vorm",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Table",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "row": "Row",
+  "column": "Column",
+  "insertRowBefore": "Insert row before",
+  "insertRowAfter": "Insert row after",
+  "insertColumnBefore": "Insert column before",
+  "insertColumnAfter": "Insert column after",
+  "deleteRow": "Delete row",
+  "deleteColumn": "Delete column",
+  "cellColor": "Cell color",
+  "cellBorders": "Cell borders",
+  "cellBorder": "Cell border",
+  "horizontalBorder": "Horizontal border",
+  "verticalBorder": "Vertical border",
+  "rowHeight": "Row height",
+  "columnWidth": "Column width",
+  "border": "Border",
+  "circle": "Sirkel",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Reghoek",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Driehoek",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Lyn",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Hoekradius",
+  "topLeft": "Bo links",
+  "topRight": "Bo regs",
+  "bottomLeft": "Onder links",
+  "bottomRight": "Onder regs",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Kasse",
+  "manage": "Bestuur",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Maak kasse skoon",
+  "createCache": "Skep kas",
+  "thirdPartyLicenses": "Derdeparty-lisensies",
+  "syncing": "Sinkroniseer...",
+  "synced": "Gesinkroniseer",
+  "notSynced": "Nie gesinkroniseer nie",
+  "conflict": "Konflik",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Behou plaaslike",
+  "keepConnection": "Behou verbinding",
+  "keepBoth": "Behou albei",
+  "forAll": "Vir almal",
+  "fileConflict": "{file} in {connection} het 'n konflik",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Aflyn",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "Plaaslike nuutste",
+  "connectionLatest": "Verbinding nuutste",
+  "path": "Pad",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Gids gesinkroniseer",
+  "syncRootDirectory": "Sinkroniseer wortelgids",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Automatically enables stylus-only mode when a stylus is detected. This setting only lasts for the current session.",
+  "penOnlyInputOnDescription": "Always reject touch and mouse input, only accept stylus input.",
+  "penOnlyInputOffDescription": "Accept all input types including touch, mouse, and stylus.",
+  "automatic": "Automatic",
+  "alwaysOn": "Always on",
+  "alwaysOff": "Always off",
+  "showPenOnlyToggle": "Show stylus only toggle",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Invoergebare",
+  "inputGesturesDescription": "Lets you move and zoom the canvas with touch gestures, even while a drawing tool is selected.",
+  "nativeTitleBar": "Inheemse titelbalk",
+  "mode": "Mode",
+  "syncMode": "Sinkroniseer-modus",
+  "connection": "Verbinding",
+  "always": "Altyd",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "Geen mobiel",
+  "syncModeAlwaysDescription": "Syncs remote files automatically whenever they change.",
+  "syncModeNoMobileDescription": "Syncs automatically except on mobile devices, which can reduce mobile data usage.",
+  "manual": "Handmatig",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Only syncs when you start it yourself.",
+  "search": "Soek",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Eienskappe",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Speld vas",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Maak los",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Element",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Skilder",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Posisie",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Nota",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Pakke",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Pak",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "Meer",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Vra vir naam",
+  "areaIndex": "Area {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Begin in volskerm",
+  "inputs": "Invoere",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Muis",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Raak",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Sleutelbord",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Kortpaaie",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Middel",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "Eerste",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "Tweede",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Aktiewe Gereedskap",
+  "activeToolDescription": "Gebruik die tans geselekteerde gereedskap op die nutsbalk",
+  "handTool": "Handgereedskap",
+  "handToolDescription": "Sleep om op die doek rond te beweeg",
+  "toolOnToolbar": "Spesifieke Gereedskap op Nutsbalk",
+  "toolOnToolbarDescription": "Gebruik die gereedskap by die gespesifiseerde posisie op die nutsbalk, beginnende van links",
+  "toolOnToolbarShort": "Nutsbalk Posisie: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Gereedskap",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Wys rooster",
+  "grid": "Rooster",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Liniaal",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Hoek",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Rapporteer",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "Nuwe gids",
+  "createPack": "Skep pak",
+  "editPack": "Redigeer pak",
+  "packsDirectory": "Pakke-gids",
+  "stamp": "Stempel",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Voeg by pak",
+  "sureImportPack": "Is jy seker jy wil die pak invoer?",
+  "byAuthor": "deur {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Outeur",
+  "addAsset": "Voeg bate by",
+  "editAsset": "Redigeer bate",
+  "scope": "Omvang",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "Daar is tans geen pakke beskikbaar nie",
+  "components": "Komponente",
+  "waypoint": "Wegpunt",
+  "actions": "Aksies",
+  "painters": "Skilders",
+  "breakingChangesTitle": "Breekveranderinge",
+  "breakingChangesMessage": "Daar is breekveranderinge in hierdie weergawe. Lees asseblief die veranderingslog voor jy opdateer. Die huidige lêerweergawe is {version}, die nuwe weergawe is {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Style",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Paragraaf",
+  "fontFamily": "Fontfamilie",
+  "smoothing": "Gladmaking",
+  "streamline": "Stroomlyn",
+  "presentation": "Aanbieding",
+  "simple": "Simple",
+  "createPresentation": "Create presentation",
+  "addSlide": "Add new slide",
+  "updateSlide": "Update slide",
+  "deleteSlide": "Delete slide",
+  "transitionDuration": "Transition duration",
+  "transitionDurationDescription": "How long the camera takes to move to the next slide. On the last slide, this is used when you add a new one.",
+  "transitionDurationValue": "{seconds}s transition",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Add keyframe here",
+  "updateKeyframe": "Update from current camera",
+  "deleteKeyframe": "Delete keyframe",
+  "markAsSlide": "Mark as slide",
+  "removeSlideMarker": "Remove slide marker",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "Kies bate",
+  "clearStyle": "Maak styl skoon",
+  "unknownImportType": "Onbekende invoertipe",
+  "sureImportTemplate": "Is jy seker jy wil die sjabloon invoer?",
+  "frame": "Raam",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Speel",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "RBPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Breekpunt",
+  "presentationControls": "Aanbiedingkontroles",
+  "nextSlide": "Volgende skyfie",
+  "nextSlideDescription": "Swiep na regs of druk die regspyltjie om na die volgende skyfie te gaan",
+  "previousSlide": "Vorige skyfie",
+  "previousSlideDescription": "Swiep na links of druk die linkspyltjie om na die vorige skyfie te gaan",
+  "exitPresentation": "Verlaat aanbieding",
+  "exitPresentationDescription": "Druk die escape-sleutel of swiep af om die aanbieding te verlaat",
+  "pausePresentation": "Laat aanbieding wag",
+  "pausePresentationDescription": "Tik op die skerm of druk die spasiebalk om die aanbieding te laat wag of te hervat",
+  "keyframe": "Sleutelraam",
+  "endOfPresentation": "Jy het die einde van die aanbieding bereik",
+  "startOfPresentation": "Jy het die begin van die aanbieding bereik",
+  "palettes": "Palette",
+  "headline": "Opskrif {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Kode",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Aanhaling",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Skakel",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Merkblokkie",
+  "deleted": "Geskrap",
+  "emphasis": "Klem",
+  "listBullet": "Lyskoeël",
+  "strong": "Sterk",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Tuis",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Lêers",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Sorteer volgens",
+  "location": "Ligging",
+  "whatsNew": "Wat is nuut?",
+  "unstar": "Ontster",
+  "star": "Ster",
+  "goUp": "Gaan op",
+  "created": "Geskep",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Gewysig",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Snelbegin",
+  "noTemplates": "Daar is tans geen sjablone beskikbaar nie",
+  "importCorePack": "Voer kernpak in",
+  "importCorePackDescription": "Voer die kernpak in wat alle basiese bates bevat om te begin. Dit sal die huidige kernpak oorskryf.",
+  "never": "Nooit",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Slegs met opdaterings",
+  "visibility": "Sigbaarheid",
+  "captureThumbnail": "Vang duimnael",
+  "autoThumbnail": "Update thumbnail on close",
+  "autoThumbnailDescription": "Capture the current view when you close this document. Manually capturing a thumbnail turns this off.",
+  "capturedThumbnail": "Duimnael suksesvol gevang",
+  "chooseLabelMode": "Kies etiketmodus",
+  "foreground": "Voorgrond",
+  "version": "Weergawe",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Repositorium",
+  "pages": "Bladsye",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Navigator",
+  "arrange": "Rangskik",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Bring na voor",
+  "sendToBack": "Stuur na agter",
+  "bringForward": "Bring vorentoe",
+  "sendBackward": "Stuur agtertoe",
+  "rotation": "Rotasie",
+  "rotationStep": "Rotation step",
+  "zoomStep": "Zoom step",
+  "zoomStepDescription": "Amount used by the zoom in and zoom out keyboard shortcuts. Continuous zoom gestures use their own sensitivity setting.",
+  "direction": "Direction",
+  "onlyAvailableLargerScreen": "Slegs beskikbaar op groter skerms",
+  "toolbarPosition": "Nutsbalkposisie",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Roteer",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Rotate left",
+  "rotateRight": "Rotate right",
+  "spacer": "Spasieerder",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Navigasiereling",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Knip",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Voeg voor in",
+  "insertAfter": "Voeg na in",
+  "insertFirst": "Voeg eerste in",
+  "insertLast": "Voeg laaste in",
+  "paste": "Plak",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Stygend",
+  "descending": "Dalend",
+  "imageScale": "Beeldskaal",
+  "svgScale": "SVG scale",
+  "noImageSelected": "No image selected",
+  "noSvgSelected": "No SVG selected",
+  "select": "Kies",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Gereedskap",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Tekstuur",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Platformtema",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Werkskerm",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Mobiel",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Oppervlak",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Patroon",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Is jy seker jy wil die dokument toemaak?",
+  "thereAreUnsavedChanges": "Daar is ongestoorde veranderinge",
+  "page": "Bladsy",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "ICE-bedieners",
+  "collaboration": "Samewerking",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Sok",
+  "iceServer": "ICE-bediener",
+  "port": "Poort",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Tipe",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Kant",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "Kliënt",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Bediener",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Wissel aansig",
+  "lasso": "Lasso",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Versteek UI",
+  "density": "Digtheid",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Kompak",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Gemaklik",
+  "standard": "Standaard",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Sluit",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Voeg element by",
+  "notDefaultConnection": "Nie verstekverbinding nie",
+  "defaultConnection": "Verstekverbinding",
+  "hide": "Versteek",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Wys",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "Laat wag",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Stop",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Verfris",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "Druk",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Oogdrupper",
+  "users": "Gebruikers",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Eksperimente",
+  "experimentsWarning": "Hierdie kenmerke is eksperimenteel en kan enige tyd verander, breek, of verdwyn. Die aktivering daarvan kan onstabiliteit of dataverlies veroorsaak. Gaan met omsigtigheid voort. Rapporteer asseblief enige foute.",
+  "address": "Adres",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Versprei na bladsye",
+  "rootDirectorySpecifiedDescription": "Die wortelgids is gespesifiseer. Alle gevorderde gidspaaie sal relatief tot hierdie gids wees. Hou dit leeg om hierdie gidstipe te deaktiveer.",
+  "rootDirectoryNotSpecifiedDescription": "Die wortelgids is nie gespesifiseer nie. 'n Naam word vereis. Alle gevorderde gidspaaie sal absoluut wees. Hou dit leeg om hierdie gidstipe te deaktiveer.",
+  "unsecureConnectionTitle": "Onveilige verbinding",
+  "unsecureConnectionMessage": "Die verbinding is nie veilig nie. Dit kan 'n sekuriteitsrisiko wees. Gaan asseblief slegs voort as jy die verbinding vertrou. Die sha1-vingerafdruk is {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Gaan in elk geval voort",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Show navigator previews",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Show cached preview thumbnails in the areas and pages navigators",
+  "highContrast": "Hoë kontras",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "Hierdie waarde moet 'n geldige nommer wees",
+  "createAreas": "Skep areas",
+  "autosave": "Outostoor",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Keer om",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "Operasies",
+  "medium": "Medium",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "Groot",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Nutsbalkgrootte",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Voeg alles by",
+  "onlyCurrentPage": "Slegs huidige bladsy",
+  "smoothNavigation": "Gladde navigasie",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Edge pan area switching",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Use Android SAF",
+  "exact": "Presies",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "Inlyn",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Nutsbalkrye",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "Wysertoets",
+  "pressure": "Druk",
+  "small": "Klein",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Baie klein",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Kies alles",
+  "overrideTools": "Oorskryf gereedskap",
+  "hideCursorWhileDrawing": "Versteek wyser tydens teken",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Geïnstalleer",
+  "install": "Installeer",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Ontkies",
+  "changeCollection": "Verander versameling",
+  "collections": "Versamelings",
+  "fullSelection": "Volledige seleksie",
+  "collection": "Versameling",
+  "defaultCollection": "Verstek versameling",
+  "scroll": "Rollees",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "By opstart",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Tuisskerm",
+  "lastNote": "Laaste nota",
+  "newNote": "Nuwe nota",
+  "moveToLayer": "Move to layer",
+  "createLayer": "Create layer",
+  "merge": "Voeg saam",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Op",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Af",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "Ander",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{Geen elemente} =1{1 element} other{{count} elemente}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Kleurnutsbalk",
+  "yesButShowButtons": "Ja, maar wys knoppies",
+  "optionsPanelPosition": "Opsiepaneelposisie",
+  "hideDuration": "Versteek tydsduur",
+  "animation": "Animasie",
+  "performance": "Prestasie",
+  "performanceDescription": "Geoptimaliseer vir spoed en geheuegebruik. Slegs die sigbare gedeelte van die nota word in die beeld gebak.",
+  "normalDescription": "Balanseer kwaliteit en prestasie. Bak 'n beeld wat 1.5 keer die sigbare area dek, wat gladder oorgange bied wanneer gerollees word.",
+  "high": "Hoog",
+  "highDescription": "Maximizes quality at the cost of performance. Bakes an image covering 2 times the visible area, ensuring seamless rendering even during rapid scrolling or zooming.",
+  "renderResolution": "Weergawe-resolusie",
+  "translate": "Vertaal",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Onversleutel",
+  "encrypted": "Versleutel",
+  "encryptDocumentMessage": "Klik om die dokument te versleutel",
+  "unencryptDocumentMessage": "Klik om die dokument te ontsleutel",
+  "unencrypt": "Ontsleutel",
+  "encrypt": "Versleutel",
+  "encryptWarning": "Dit sal die dokument versleutel. Jy sal die wagwoord moet onthou om dit te ontsleutel.",
+  "unencryptWarning": "Dit sal die dokument ontsleutel. Die wagwoord sal verwyder word en almal met toegang sal dit kan oopmaak.",
+  "confirmPassword": "Bevestig wagwoord",
+  "passwordMismatch": "Die wagwoorde stem nie ooreen nie",
+  "action": "Aksie",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "SVG-Teks",
+  "offset": "Verskuiwing",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "End",
+  "radius": "Radius",
+  "focalPoint": "Focal point",
+  "useOffCenterStartPoint": "Use an off-center start point",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Color stops",
+  "addStop": "Add stop",
+  "positionDependent": "Posisie-afhanklik",
+  "flipHorizontal": "Draai horisontaal om",
+  "flipVertical": "Draai vertikaal om",
+  "grayscale": "Grysskaal",
+  "moveOnGesture": "Beweeg op gebaar",
+  "exportAllFiles": "Voer alle lêers uit",
+  "restoreSettingsFromFile": "Herstel instellings vanaf lêer",
+  "resetAllSettings": "Reset all settings",
+  "exportSettingsToFile": "Voer instellings na lêer uit",
+  "barcode": "Strepieskode",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Strepieskode-tipe",
+  "qrCode": "QR-kode",
+  "dataMatrix": "Datamatriks",
+  "code128": "Kode 128",
+  "defaultUserName": "Gebruiker {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Skuif links",
+  "moveRight": "Skuif regs",
+  "bundledPacks": "Gebondelde pakke",
+  "component": "Component",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Kies komponent",
+  "bundlePackInDocument": "Bondel pak in dokument",
+  "bundledPacksDescription": "Gebondelde pakke is ingesluit in die dokument en kan slegs gebruik word om met die dokument te deel. Bates kan slegs in die dokument gebruik word as die pak geïnstalleer is. Pakke kan geïnstalleer word deur daarop te klik.",
+  "fillAlpha": "Vul-alfa",
+  "packagedFile": "Verpakte lêer",
+  "rawFile": "Rou lêer",
+  "webSocketDescription": "Jou toestel huisves die bediener, so medewerkers kan slegs oor dieselfde netwerk aansluit of van enige plek af as jy die poort op jou roeteerder aanstuur.",
+  "swampDescription": "Jou boodskappe word deur 'n veilige aflosbediener met end-tot-end-enkripsie gestuur. 'n Swamp-bedieneradres word vereis om 'n sessie te skep.",
+  "createRawNote": "Skep rou nota",
+  "polygon": "Poligoon",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Voltooi vorm",
+  "submit": "Dien in",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Math",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ignore pressure",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignores the first pressure reading, which can be inaccurate on some styluses.",
+  "ignorePressureNeverDescription": "Uses every pressure reading from the stylus.",
+  "ignorePressureAlwaysDescription": "Ignores pressure and treats the stylus as fully pressed.",
+  "temporary": "Temporary",
+  "simpleToolbarVisibility": "Simple toolbar visibility",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Autosave delay",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Saved",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Saving...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Read only",
+  "saveDelayed": "Save delayed",
+  "unsaved": "Unsaved",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "There are currently no areas to export. Please select at least one area using the plus button in the top right corner or add all areas from the current page or from the whole document below.",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Customize shortcuts",
+  "clickToSave": "Click to save",
+  "toolbars": "Toolbars",
+  "logs": "Logs",
+  "ruledSimple": "Ruled simple",
+  "ruledSimpleDark": "Ruled simple dark",
+  "quadSimple": "Quad simple",
+  "quadSimpleDark": "Quad simple dark",
+  "redLinedRuled": "Red lined ruled",
+  "redLinedRuledDark": "Red lined ruled dark",
+  "redLinedQuad": "Red lined quad",
+  "redLinedQuadDark": "Red lined quad dark",
+  "noItemSelected": "No item selected",
+  "areaAsInitial": "Open area as initial view",
+  "swap": "Swap",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Hide file extension",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "New from template",
+  "exportAsTextShortcut": "Export as text",
+  "exportAsImageShortcut": "Export as image",
+  "exportAsPdfShortcut": "Export as PDF",
+  "exportAsSvgShortcut": "Export as SVG",
+  "changePathShortcut": "Change path",
+  "fullScreenShortcut": "Full screen",
+  "doublePressAction": "Double press action",
+  "triplePressAction": "Triple press action",
+  "twoFingerTap": "Two-finger tap",
+  "threeFingerTap": "Three-finger tap",
+  "longPress": "Long press",
+  "toolNumber": "Tool {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Hold Shortcuts",
+  "holdShortcutsDescription": "Hold a key to temporarily switch to another tool. Releasing the key switches back to the previous tool.",
+  "key": "Key",
+  "bringMovedElementsToFront": "Bring moved elements to front",
+  "addTool": "Add tool",
+  "nextPage": "Next page",
+  "previousPage": "Previous page",
+  "persistenceDocumentStates": "Persistent document states",
+  "persistentStatesEnabled": "Enable persistent document states",
+  "persistentStateCurrentPage": "Current page",
+  "persistentStateViewport": "Viewport position and zoom",
+  "persistentStateSelectedTool": "Selected tool",
+  "persistentStateMaxRecords": "Maximum stored records",
+  "persistentStateDeleteOlderThanDays": "Delete records older than days",
+  "persistentStateCleanup": "Clean up stored states",
+  "persistentStateCleanupDescription": "Delete records older than the limits above",
+  "persistentStateCleanupInProgress": "Cleaning up...",
+  "persistentStateDefaultLocks": "Default locks",
+  "persistentStateDefaultLocksDescription": "Apply these locks when a document has no saved state",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Cleaned up 1 storage location} other{Cleaned up {locations} storage locations}}; {records, plural, =1{removed 1 record} other{removed {records} records}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Saves changes automatically as you work.",
+  "autosaveDelayedDescription": "Saves changes automatically after the selected delay.",
+  "autosaveShowButtonDescription": "Saves automatically and also keeps the save button visible.",
+  "autosaveDisabledDescription": "Only saves when you use the save command.",
+  "hideCursorWhileDrawingDescription": "Hides the mouse pointer while you draw, so it does not cover your stroke.",
+  "onStartupHomeScreenDescription": "Opens the home screen when Butterfly starts.",
+  "onStartupLastNoteDescription": "Reopens your most recently used note when Butterfly starts.",
+  "onStartupNewNoteDescription": "Creates a new note when Butterfly starts.",
+  "smoothNavigationDescription": "Makes panning and zooming feel smoother by simplifying the canvas while it is moving.",
+  "edgePanAreaSwitchingDescription": "Switches to a neighboring area when you pan near the edge of the canvas.",
+  "collaborationDescription": "Allows multiple people to edit the same note together in real time.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Includes detailed diagnostic messages in the log view and console. These messages can help when troubleshooting a problem.",
+  "bringMovedElementsToFrontDescription": "Places an element above overlapping elements after you move it.",
+  "persistenceDocumentStatesDescription": "Controls which parts of your workspace Butterfly remembers for each note, such as the current page, zoom, and selected tool.",
+  "persistentStatesEnabledDescription": "Store document state information between app sessions",
+  "persistentStateCurrentPageDescription": "Remember the current page when reopening a file",
+  "persistentStateViewportDescription": "Remember the viewport position, zoom and rotation for each page",
+  "persistentStateSelectedToolDescription": "Remember the selected tool when reopening a file",
+  "persistentStateLocksDescription": "Remember lock settings when reopening a file",
+  "persistentStateNavigatorDescription": "Remember the navigator state when reopening a file",
+  "persistentStateLayersDescription": "Remember the layer panel state when reopening a file",
+  "persistentStateAreasDescription": "Remember the area panel state when reopening a file",
+  "persistentStateAutoThumbnail": "Automatic thumbnails",
+  "persistentStateAutoThumbnailDescription": "Show the per-document switch and allow thumbnails to update when documents close",
+  "persistentStateMaxRecordsDescription": "Keep at most this many stored states per file",
+  "persistentStateDeleteOlderThanDaysDescription": "Delete stored states older than this many days",
+  "contentViewportDescription": "Limits how far you can pan away from the content of your note.",
+  "limitViewportPositiveDescription": "Keeps the canvas within the area to the right and below its starting point.",
+  "startInFullScreenDescription": "Opens Butterfly in full-screen mode when supported.",
+  "designDescription": "Changes the overall visual style of Butterfly without changing whether the app uses light or dark colors.",
+  "platformThemeDescription": "Lets you use the desktop or mobile layout instead of the layout Butterfly normally chooses for your device.",
+  "densityDescription": "Changes the spacing and size of interface elements. It does not change the size of your note content.",
+  "highContrastDescription": "Uses stronger color differences to make controls and text easier to distinguish.",
+  "nativeTitleBarDescription": "Uses your operating system's standard window title bar instead of Butterfly's custom title bar.",
+  "propertiesDescription": "Chooses where the panel for editing the selected tool or element appears.",
+  "navigationRailDescription": "Shows a permanent navigation bar on wide screens for quicker access to app sections.",
+  "optionsPanelPositionDescription": "Chooses whether tool options appear above or below the canvas.",
+  "simpleToolbarVisibilityDescription": "Controls when the smaller, simplified toolbar appears while editing a note.",
+  "penOnlyInputDescription": "Prevents accidental marks from your hand or mouse by choosing when only stylus input can draw.",
+  "showPenOnlyToggleDescription": "Shows a quick stylus-only switch in the editor after Butterfly detects a stylus.",
+  "ignorePressureDescription": "Controls whether stylus pressure changes the stroke and works around inaccurate pressure readings from some styluses.",
+  "moveOnGestureDescription": "Lets multi-touch gestures move the canvas instead of interacting with note content.",
+  "spreadPagesDescription": "Splits multi-page imports across separate note pages instead of placing everything on one page.",
+  "shear": "Shear",
+  "resetRotation": "Reset rotation",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Choose the controls for zoom and rotation. Reset buttons remain available in every layout.",
+  "zoomPanelFull": "Full (slider, text field and buttons)",
+  "zoomPanelSliderInput": "Slider and text field",
+  "zoomPanelSlider": "Slider",
+  "zoomPanelInputButtons": "Text field and buttons",
+  "zoomPanelInput": "Text field",
+  "rotationDisplay": "Rotation display",
+  "rotationDisplayDescription": "Choose when the rotation row appears above zoom. This does not change rotation gestures or shortcuts.",
+  "whenRotated": "When rotated",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Rotate canvas by dragging"
+}

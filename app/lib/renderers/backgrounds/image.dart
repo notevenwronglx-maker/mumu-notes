@@ -1,0 +1,117 @@
+part of '../renderer.dart';
+
+class ImageBackgroundRenderer extends Renderer<ImageBackground> {
+  ui.Image? image;
+
+  ImageBackgroundRenderer(super.element, [this.image]);
+
+  @override
+  void build(
+    Canvas canvas,
+    Size size,
+    NoteData document,
+    DocumentPage page,
+    DocumentInfo info,
+    CameraTransform transform, [
+    ColorScheme? colorScheme,
+    bool foreground = false,
+  ]) {
+    if (image == null) return;
+    final sizeX = element.width * element.scaleX;
+    final sizeY = element.height * element.scaleY;
+    if (sizeX <= 0 || sizeY <= 0) return;
+    final viewport = transform.localToGlobalRect(Offset.zero & size);
+    final offsetX = (viewport.left / sizeX).floor() * sizeX;
+    final offsetY = (viewport.top / sizeY).floor() * sizeY;
+
+    var paint = Paint();
+
+    for (var x = offsetX; x < viewport.right; x += sizeX) {
+      for (var y = offsetY; y < viewport.bottom; y += sizeY) {
+        canvas.drawImageRect(
+          image!,
+          Rect.fromLTWH(
+            0,
+            0,
+            element.width.toDouble(),
+            element.height.toDouble(),
+          ),
+          Rect.fromLTWH(x, y, sizeX, sizeY),
+          paint,
+        );
+      }
+    }
+  }
+
+  @override
+  void buildSvg(
+    XmlDocument xml,
+    NoteData document,
+    DocumentPage page,
+    Rect viewportRect,
+  ) {
+    final height = element.height;
+    final width = element.width;
+    final patternHeight = height * element.scaleY;
+    final patternWidth = width * element.scaleX;
+    if (patternWidth <= 0 || patternHeight <= 0) return;
+    final id = createUniqueId();
+    // Add pattern
+    final pattern = xml
+        .getOrCreateElement('svg')
+        .getOrCreateElement('defs')
+        .createElement(
+          'pattern',
+          attributes: {
+            'id': 'image-background-$id',
+            'viewBox': '0,0,$width,$height',
+            'width': '$patternWidth',
+            'height': '$patternHeight',
+            'patternUnits': 'userSpaceOnUse',
+          },
+        );
+    final data = getUriDataFromSource(
+      document,
+      element.source,
+      'image/png',
+    ).toString();
+    pattern.createElement(
+      'image',
+      attributes: {'xlink:href': data, 'width': '$width', 'height': '$height'},
+    );
+    // Add patern to svg
+    xml
+        .getOrCreateElement('svg')
+        .createElement(
+          'rect',
+          attributes: {
+            'x': viewportRect.left.toString(),
+            'y': viewportRect.top.toString(),
+            'width': viewportRect.width.toString(),
+            'height': viewportRect.height.toString(),
+            'fill': 'url(#image-background-$id)',
+          },
+        );
+  }
+
+  @override
+  Future<void> setup(
+    TransformCubit transformCubit,
+    NoteData document,
+    AssetService assetService,
+    DocumentPage page, {
+    bool isTemporary = false,
+  }) async {
+    super.setup(transformCubit, document, assetService, page);
+    if (image != null) return;
+    try {
+      image = await assetService.getImage(element.source, document);
+    } catch (_) {}
+  }
+
+  @override
+  void dispose() {
+    image?.dispose();
+    image = null;
+  }
+}

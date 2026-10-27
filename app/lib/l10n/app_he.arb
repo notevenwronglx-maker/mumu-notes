@@ -1,0 +1,1693 @@
+{
+  "open": "פתח",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Reveal in file explorer",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "הגדרות",
+  "personalization": "התאמה אישית",
+  "theme": "ערכת נושא",
+  "darkTheme": "ערכת נושא כהה",
+  "lightTheme": "ערכת נושא בהירה",
+  "systemTheme": "השתמש בערכת הנושא של המערכת",
+  "view": "תצוגה",
+  "contentViewport": "Content Viewport",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Limit Viewport to positive coordinates",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Off",
+  "canvas": "Canvas",
+  "interface": "Interface",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "עריכה",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "ייצוא",
+  "save": "שמירה",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "זום",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "הגדלה",
+  "zoomOut": "הקטנה",
+  "resetZoom": "איפוס זום",
+  "strokeWidth": "עובי קו",
+  "strokeStyle": "Stroke style",
+  "dashLength": "Dash length",
+  "gapLength": "Gap length",
+  "includeEraser": "לכלול מחק?",
+  "thinning": "הידקקות",
+  "pen": "עט",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Inverted Stylus",
+  "eraser": "מחק",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Stroke",
+  "label": "תווית",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "מחיקה",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "האם אתה בטוח?",
+  "reallyDelete": "האם אתה בטוח שברצונך למחוק פריט זה?",
+  "no": "לא",
+  "yes": "כן",
+  "undo": "ביטול",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "ביצוע חוזר",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "כללי",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "הועתק ללוח",
+  "loading": "טוען...",
+  "enterText": "הזן את הטקסט",
+  "size": "גודל",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "רוחב",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "גובה",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "כמות",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "רווח",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "רקע",
+  "applyBackground": "Apply background",
+  "applyAreas": "Apply areas",
+  "currentPage": "Current page",
+  "allPages": "All pages",
+  "box": "תיבה",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "שפה",
+  "systemLocale": "שפת המערכת",
+  "information": "מידע",
+  "license": "רישיון",
+  "imprint": "אודות",
+  "privacypolicy": "מדיניות פרטיות",
+  "sourceCode": "קוד מקור",
+  "documentation": "תיעוד",
+  "changelog": "יומן שינויים",
+  "source": "מקור",
+  "existOverride": "פריט זה כבר קיים. האם לדרוס?",
+  "description": "תיאור",
+  "fill": "מילוי",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "פלטת צבעים ברירת מחדל",
+  "highlighter": "מרקר",
+  "combinePaths": "Combine paths",
+  "add": "הוספה",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "הסרה",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "האם אתה בטוח שברצונך להסיר זאת?",
+  "resetPalette": "איפוס פלטת צבעים",
+  "custom": "מותאם אישית",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "עיטור",
+  "underline": "קו תחתון",
+  "overline": "קו עליון",
+  "strikethrough": "קו חוצה",
+  "thickness": "עובי",
+  "style": "סגנון",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "אחיד",
+  "solidColor": "Solid color",
+  "gradient": "Gradient",
+  "gradientType": "Gradient type",
+  "linear": "Linear",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "כפול",
+  "dotted": "מנוקד",
+  "dottedDark": "Dotted dark",
+  "dashed": "מקווקו",
+  "wavy": "גלי",
+  "fontWeight": "משקל גופן",
+  "normal": "רגיל",
+  "bold": "מודגש",
+  "italic": "נטוי",
+  "clipboard": "לוח",
+  "file": "קובץ",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "נתונים",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "שיתוף",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "ריווח",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "תמונה",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "הזן את הכתובת",
+  "scale": "קנה מידה",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "עזרה",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "האם אתה בטוח שברצונך לאפס זאת?",
+  "whatToDo": "מה ברצונך לעשות?",
+  "ignore": "התעלם",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "גיבוי",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Backup connection",
+  "automaticBackups": "Automatic backups",
+  "automaticBackupsDescription": "Creates backups while Butterfly is running.",
+  "backupInterval": "Backup interval",
+  "backupNow": "Back up now",
+  "lastBackup": "Last backup",
+  "backupCreated": "Backup created",
+  "hour": "hour",
+  "hours": "hours",
+  "day": "day",
+  "days": "days",
+  "week": "week",
+  "weeks": "weeks",
+  "createdInNewerVersion": "הקובץ {fileName} נוצר בגרסה חדשה יותר ({fileVersion}). מה לעשות עם קובץ זה?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "נקודות ציון",
+  "origin": "מקור",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "ייבוא",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "חדש",
+  "selectElement": "בחר פריט",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Shift",
+  "altKey": "Alt",
+  "copyVersion": "העתק גרסה",
+  "input": "קלט",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "התנהגויות",
+  "dataDirectory": "ספריית נתונים",
+  "warning": "Warning",
+  "platformExperimentalWarning": "Warning: This setting is experimental and can have problems on this platform.",
+  "changeDataDirectoryWarningContent": "Are you sure you want to change the data folder? You should make a backup of your data before proceeding.",
+  "defaultPath": "נתיב ברירת מחדל",
+  "dateFormat": "תבנית תאריך",
+  "updatedAt": "עודכן בתאריך: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "נוצר בתאריך: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "שנה שם",
+  "duplicate": "שכפל",
+  "hand": "יד",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "תיקייה",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "העבר",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "העתק",
+  "openContextMenu": "Open context menu",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "חזור",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Forward",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "תלוי זום",
+  "shapeDetection": "זיהוי צורות",
+  "delay": "השהיה",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "שכבת ברירת מחדל",
+  "layer": "שכבה",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "שכבות",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "לא הוגדר",
+  "enterLayer": "הזן את שם השכבה",
+  "eraseShapes": "Erase shapes",
+  "eraseShapeModeNone": "Don't erase shapes",
+  "eraseShapeModeTouchEdges": "Erase when touching edges",
+  "eraseShapeModeTouchAnywhere": "Erase when touching anywhere",
+  "selectElementModeTouchEdges": "Select when touching edges",
+  "selectElementModeTouchAnywhere": "Select when touching anywhere",
+  "selectElements": "בחר פריטים",
+  "deleteElements": "מחק פריטים",
+  "eraseAllElements": "Erase all elements",
+  "deleteElementsConfirm": "האם אתה בטוח שברצונך למחוק את הפריטים הנבחרים?",
+  "selectCustomCollection": "בחר אוסף מותאם אישית",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "רגישות",
+  "selectionTolerance": "Selection tolerance",
+  "selectionToleranceDescription": "How close a pointer must be to an element or area to select it. Higher values make selection easier.",
+  "selectionHandleSensitivity": "Selection handle hit area",
+  "selectionHandleSensitivityDescription": "Size of the hit area around selection and area handles for all pointer types.",
+  "panGestureSensitivity": "Pan gesture sensitivity",
+  "panGestureSensitivityDescription": "Canvas movement from touch or trackpad gestures. Higher values move the canvas farther.",
+  "zoomGestureSensitivity": "Continuous zoom sensitivity",
+  "zoomGestureSensitivityDescription": "Zoom from pinching, trackpad gestures, and Ctrl+scroll. Higher values zoom farther.",
+  "rotationGestureSensitivity": "Rotation gesture sensitivity",
+  "rotationGestureSensitivityDescription": "Canvas rotation from gestures. Higher values rotate farther.",
+  "scrollPanSensitivity": "Scroll pan sensitivity",
+  "scrollPanSensitivityDescription": "Canvas movement from mouse wheel and trackpad scrolling. Higher values pan farther.",
+  "horizontal": "אופקי",
+  "vertical": "אנכי",
+  "plain": "חלק",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "בהיר",
+  "ruled": "עם שורות",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "משובץ",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "מוזיקה",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "כהה",
+  "plainDark": "Plain dark",
+  "ruledDark": "עם שורות כהה",
+  "quadDark": "משובץ כהה",
+  "musicDark": "מוזיקה כהה",
+  "templates": "תבניות",
+  "untitled": "ללא כותרת",
+  "createTemplate": "צור תבנית",
+  "createTemplateContent": "האם ברצונך ליצור תבנית ממסמך זה? המסמך המקורי יימחק.",
+  "fileName": "File name",
+  "defaultFileName": "Default file name",
+  "templateFileNameDescription": "Documents opened from the template picker are saved automatically with this name. Templates without a name use the default configured in Data settings. Combine your own text with {dateExample} and {timeExample}. Characters that are not allowed in file names will be rejected.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Preview",
+  "replace": "החלף",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "האם אתה בטוח שברצונך להחליף את התבנית? לא ניתן לבטל פעולה זו!",
+  "defaultTemplate": "תבנית ברירת מחדל",
+  "insert": "הוסף",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "מסמך",
+  "documentStates": "Document states",
+  "camera": "מצלמה",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "תדפיס",
+  "selectCamera": "בחר מצלמה",
+  "changeDocumentPath": "שנה נתיב מסמך",
+  "deleteWholeStroke": "מחק קו שלם",
+  "alpha": "אלפא",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "אזור",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "בחר אזור",
+  "aspectRatio": "יחס גובה-רוחב",
+  "presets": "הגדרות קבועות מראש",
+  "pagePortrait": "עמוד לאורך",
+  "pageLandscape": "עמוד לרוחב",
+  "square": "ריבוע",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "אזורים",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "הזן את האזור",
+  "exitArea": "צא מהאזור",
+  "currentArea": "אזור נוכחי",
+  "design": "עיצוב",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "טקסט",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "היי, זה Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "מרחב ציור חינמי ובקוד פתוח!",
+  "updated": "האפליקציה עודכנה לגרסה {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "הערות גרסה",
+  "constraints": "אילוצים",
+  "scaled": "מותאם לגודל",
+  "fixed": "קבוע",
+  "dynamicContent": "דינמי",
+  "none": "ללא",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "כלול אזור",
+  "verticalAlignment": "יישור אנכי",
+  "horizontalAlignment": "יישור אופקי",
+  "top": "למעלה",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "מרכז",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "למטה",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "שמאל",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "ימין",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "יישור לשני הצדדים",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "אילוץ",
+  "length": "אורך",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "ייצא SVG",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "בחר עמודים",
+  "recentFiles": "קבצים אחרונים",
+  "start": "התחל",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "אין קבצים אחרונים",
+  "countPages": "{count,plural, =0{אין עמודים} =1{עמוד אחד} other{{count} עמודים}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "עמוד {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "יציאה",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "אין פריטים",
+  "invertSelection": "הפוך בחירה",
+  "errorWhileImporting": "שגיאה במהלך הייבוא",
+  "errorWhileImportingContent": "אירעה שגיאה במהלך ייבוא הקובץ",
+  "showDetails": "הצג פרטים",
+  "hideDetails": "הסתר פרטים",
+  "error": "שגיאה",
+  "stackTrace": "עקבות מחסנית",
+  "laser": "לייזר",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "משך",
+  "quality": "איכות",
+  "exportPdf": "ייצא PDF",
+  "local": "מקומי",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "הוסף חיבור",
+  "connections": "חיבורים",
+  "noConnections": "אין חיבורים",
+  "url": "כתובת אתר",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "The full WebDAV URL provided by your storage provider",
+  "connect": "התחבר",
+  "username": "שם משתמש",
+  "password": "סיסמה",
+  "authenticationPassword": "Authentication password",
+  "documentEncryptionPassword": "Document encryption password",
+  "documentEncryptionPasswordDescription": "Encrypts documents stored in this connection. Leave empty to keep them unencrypted",
+  "documentEncryptionEnabled": "Document encryption enabled",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Add document encryption password",
+  "changeDocumentEncryptionPassword": "Change document encryption password",
+  "webNotSupported": "אינטרנט אינו נתמך",
+  "advanced": "מתקדם",
+  "symmetric": "Symmetric",
+  "perSide": "Per side",
+  "directory": "ספרייה",
+  "connectionNameDescription": "Only used to identify this connection in Butterfly",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "ספריית מסמכים",
+  "templatesDirectory": "ספריית תבניות",
+  "errorWhileCreatingConnection": "שגיאה ביצירת החיבור",
+  "cannotConnect": "לא ניתן להתחבר",
+  "urlNotValid": "כתובת האתר אינה תקינה",
+  "icon": "סמל",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Optional URL of an image to use as the connection icon",
+  "update": "עדכון",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "עדכון זמין",
+  "stable": "יציב",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "לילי",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "בדוק עדכונים",
+  "checkForUpdatesWarning": "בדיקת עדכונים תתחבר לאתר Butterfly כדי לקבל את המידע.",
+  "usingLatestStable": "אתה משתמש בגרסה היציבה האחרונה",
+  "usingLatestNightly": "אתה משתמש בגרסה הלילית האחרונה",
+  "currentVersion": "גרסה נוכחית",
+  "updateNow": "עדכן כעת",
+  "shape": "צורה",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Table",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "row": "Row",
+  "column": "Column",
+  "insertRowBefore": "Insert row before",
+  "insertRowAfter": "Insert row after",
+  "insertColumnBefore": "Insert column before",
+  "insertColumnAfter": "Insert column after",
+  "deleteRow": "Delete row",
+  "deleteColumn": "Delete column",
+  "cellColor": "Cell color",
+  "cellBorders": "Cell borders",
+  "cellBorder": "Cell border",
+  "horizontalBorder": "Horizontal border",
+  "verticalBorder": "Vertical border",
+  "rowHeight": "Row height",
+  "columnWidth": "Column width",
+  "border": "Border",
+  "circle": "עיגול",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "מלבן",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "משולש",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "קו",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "רדיוס פינה",
+  "topLeft": "שמאל למעלה",
+  "topRight": "ימין למעלה",
+  "bottomLeft": "שמאל למטה",
+  "bottomRight": "ימין למטה",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "מטמונים",
+  "manage": "נהל",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "נקה מטמונים",
+  "createCache": "צור מטמון",
+  "thirdPartyLicenses": "רישיונות צד שלישי",
+  "syncing": "מסנכרן...",
+  "synced": "סונכרן",
+  "notSynced": "לא סונכרן",
+  "conflict": "התנגשות",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "שמור מקומי",
+  "keepConnection": "שמור חיבור",
+  "keepBoth": "שמור את שניהם",
+  "forAll": "עבור הכל",
+  "fileConflict": "לקובץ {file} בחיבור {connection} יש התנגשות",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "לא מקוון",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "מקומי אחרון",
+  "connectionLatest": "חיבור אחרון",
+  "path": "נתיב",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "התיקייה סונכרנה",
+  "syncRootDirectory": "סנכרן ספריית שורש",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Automatically enables stylus-only mode when a stylus is detected. This setting only lasts for the current session.",
+  "penOnlyInputOnDescription": "Always reject touch and mouse input, only accept stylus input.",
+  "penOnlyInputOffDescription": "Accept all input types including touch, mouse, and stylus.",
+  "automatic": "Automatic",
+  "alwaysOn": "Always on",
+  "alwaysOff": "Always off",
+  "showPenOnlyToggle": "Show stylus only toggle",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "מחוות קלט",
+  "inputGesturesDescription": "Lets you move and zoom the canvas with touch gestures, even while a drawing tool is selected.",
+  "nativeTitleBar": "סרגל כותרת מקורי",
+  "mode": "Mode",
+  "syncMode": "מצב סנכרון",
+  "connection": "חיבור",
+  "always": "תמיד",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "לא בנייד",
+  "syncModeAlwaysDescription": "Syncs remote files automatically whenever they change.",
+  "syncModeNoMobileDescription": "Syncs automatically except on mobile devices, which can reduce mobile data usage.",
+  "manual": "ידני",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Only syncs when you start it yourself.",
+  "search": "חיפוש",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "מאפיינים",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "נעץ",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "הסר נעץ",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "פריט",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "צייר",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "מיקום",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "פתק",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "חבילות",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "חבילה",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "עוד",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "בקש שם",
+  "areaIndex": "אזור {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "התחל במסך מלא",
+  "inputs": "קלטים",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "עכבר",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "מגע",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "מקלדת",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "קיצורי דרך",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "אמצעי",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "ראשון",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "שני",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "כלי פעיל",
+  "activeToolDescription": "השתמש בכלי הנבחר כעת בסרגל הכלים",
+  "handTool": "כלי היד",
+  "handToolDescription": "גרור כדי לנוע על פני משטח העבודה",
+  "toolOnToolbar": "כלי ספציפי בסרגל הכלים",
+  "toolOnToolbarDescription": "השתמש בכלי במיקום שצוין בסרגל הכלים, החל מצד שמאל",
+  "toolOnToolbarShort": "מיקום בסרגל הכלים: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "כלים",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "הצג רשת",
+  "grid": "רשת",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "סרגל",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "זווית",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "דיווח",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "תיקייה חדשה",
+  "createPack": "צור חבילה",
+  "editPack": "ערוך חבילה",
+  "packsDirectory": "ספריית חבילות",
+  "stamp": "חותמת",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "הוסף לחבילה",
+  "sureImportPack": "האם אתה בטוח שברצונך לייבא את החבילה?",
+  "byAuthor": "מאת {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "יוצר",
+  "addAsset": "הוסף נכס",
+  "editAsset": "ערוך נכס",
+  "scope": "היקף",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "אין כרגע חבילות זמינות",
+  "components": "רכיבים",
+  "waypoint": "נקודת ציון",
+  "actions": "פעולות",
+  "painters": "ציירים",
+  "breakingChangesTitle": "שינויים שוברים",
+  "breakingChangesMessage": "ישנם שינויים שוברים בגרסה זו. אנא קרא את יומן השינויים לפני העדכון. גרסת הקובץ הנוכחית היא {version}, הגרסה החדשה היא {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "סגנונות",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "פסקה",
+  "fontFamily": "משפחת גופנים",
+  "smoothing": "החלקה",
+  "streamline": "ייעול",
+  "presentation": "מצגת",
+  "simple": "Simple",
+  "createPresentation": "Create presentation",
+  "addSlide": "Add new slide",
+  "updateSlide": "Update slide",
+  "deleteSlide": "Delete slide",
+  "transitionDuration": "Transition duration",
+  "transitionDurationDescription": "How long the camera takes to move to the next slide. On the last slide, this is used when you add a new one.",
+  "transitionDurationValue": "{seconds}s transition",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Add keyframe here",
+  "updateKeyframe": "Update from current camera",
+  "deleteKeyframe": "Delete keyframe",
+  "markAsSlide": "Mark as slide",
+  "removeSlideMarker": "Remove slide marker",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "בחר נכס",
+  "clearStyle": "נקה סגנון",
+  "unknownImportType": "סוג ייבוא לא ידוע",
+  "sureImportTemplate": "האם אתה בטוח שברצונך לייבא את התבנית?",
+  "frame": "מסגרת",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "נגן",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "וידאו",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "נקודת עצירה",
+  "presentationControls": "פקדי מצגת",
+  "nextSlide": "שקופית הבאה",
+  "nextSlideDescription": "החלק ימינה או לחץ על מקש חץ ימין כדי לעבור לשקופית הבאה",
+  "previousSlide": "שקופית קודמת",
+  "previousSlideDescription": "החלק שמאלה או לחץ על מקש חץ שמאל כדי לעבור לשקופית הקודמת",
+  "exitPresentation": "יציאה מהמצגת",
+  "exitPresentationDescription": "לחץ על מקש Esc או החלק למטה כדי לצאת מהמצגת",
+  "pausePresentation": "השהה מצגת",
+  "pausePresentationDescription": "הקש על המסך או לחץ על מקש הרווח כדי להשהות או להמשיך את המצגת",
+  "keyframe": "פריים מפתח",
+  "endOfPresentation": "הגעת לסוף המצגת",
+  "startOfPresentation": "הגעת לתחילת המצגת",
+  "palettes": "פלטות צבעים",
+  "headline": "כותרת {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "קוד",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "ציטוט",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "קישור",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "תיבת סימון",
+  "deleted": "נמחק",
+  "emphasis": "הדגשה",
+  "listBullet": "תבליט רשימה",
+  "strong": "חזק",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "בית",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "קבצים",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "מיין לפי",
+  "location": "מיקום",
+  "whatsNew": "מה חדש?",
+  "unstar": "הסר כוכב",
+  "star": "כוכב",
+  "goUp": "עלה למעלה",
+  "created": "נוצר",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "שוּנה",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "התחלה מהירה",
+  "noTemplates": "אין כרגע תבניות זמינות",
+  "importCorePack": "ייבא חבילת ליבה",
+  "importCorePackDescription": "ייבא את חבילת הליבה המכילה את כל הנכסים הבסיסיים כדי להתחיל. פעולה זו תדרוס את חבילת הליבה הנוכחית.",
+  "never": "אף פעם",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "רק בעדכונים",
+  "visibility": "נראות",
+  "captureThumbnail": "צלם תמונה ממוזערת",
+  "autoThumbnail": "Update thumbnail on close",
+  "autoThumbnailDescription": "Capture the current view when you close this document. Manually capturing a thumbnail turns this off.",
+  "capturedThumbnail": "התמונה הממוזערת צולמה בהצלחה",
+  "chooseLabelMode": "בחר מצב תווית",
+  "foreground": "חזית",
+  "version": "גרסה",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "מאגר",
+  "pages": "עמודים",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "נווט",
+  "arrange": "סדר",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "הבא לקדמה",
+  "sendToBack": "העבר לרקע",
+  "bringForward": "הבא קדימה",
+  "sendBackward": "שלח אחורה",
+  "rotation": "סיבוב",
+  "rotationStep": "Rotation step",
+  "zoomStep": "Zoom step",
+  "zoomStepDescription": "Amount used by the zoom in and zoom out keyboard shortcuts. Continuous zoom gestures use their own sensitivity setting.",
+  "direction": "Direction",
+  "onlyAvailableLargerScreen": "זמין רק במסכים גדולים יותר",
+  "toolbarPosition": "מיקום סרגל כלים",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "סובב",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Rotate left",
+  "rotateRight": "Rotate right",
+  "spacer": "מרווח",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "פס ניווט",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "גזור",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "הוסף לפני",
+  "insertAfter": "הוסף אחרי",
+  "insertFirst": "הוסף ראשון",
+  "insertLast": "הוסף אחרון",
+  "paste": "הדבק",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "סדר עולה",
+  "descending": "סדר יורד",
+  "imageScale": "קנה מידה של תמונה",
+  "svgScale": "SVG scale",
+  "noImageSelected": "No image selected",
+  "noSvgSelected": "No SVG selected",
+  "select": "בחר",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "כלי",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "מרקם",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "ערכת נושא של הפלטפורמה",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "שולחן עבודה",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "נייד",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "משטח",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "תבנית",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "האם אתה בטוח שברצונך לסגור את המסמך?",
+  "thereAreUnsavedChanges": "ישנם שינויים שלא נשמרו",
+  "page": "עמוד",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "שרתי ICE",
+  "collaboration": "שיתוף פעולה",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Socket",
+  "iceServer": "שרת ICE",
+  "port": "פורט",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "סוג",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "צד",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "לקוח",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "שרת",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "החלף תצוגה",
+  "lasso": "לאסו",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "הסתר ממשק משתמש",
+  "density": "צפיפות",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "קומפקטי",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "נוח",
+  "standard": "סטנדרטי",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "נעל",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "הוסף פריט",
+  "notDefaultConnection": "לא חיבור ברירת מחדל",
+  "defaultConnection": "חיבור ברירת מחדל",
+  "hide": "הסתר",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "הצג",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "השהה",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "עצור",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "רענן",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "הדפס",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "דוגם צבע",
+  "users": "משתמשים",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "ניסויים",
+  "experimentsWarning": "תכונות אלו הן ניסיוניות ועשויות להשתנות, להישבר או להיעלם בכל עת. הפעלתן עלולה לגרום לחוסר יציבות או לאובדן נתונים. יש לפעול בזהירות. אנא דווח על כל באג.",
+  "address": "כתובת",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "פרוס על פני עמודים",
+  "rootDirectorySpecifiedDescription": "ספריית השורש צוינה. כל נתיבי הספריות המתקדמות יהיו יחסיים לספרייה זו. השאר ריק כדי להשבית סוג ספרייה זה.",
+  "rootDirectoryNotSpecifiedDescription": "ספריית השורש לא צוינה. נדרש שם. כל נתיבי הספריות המתקדמות יהיו מוחלטים. השאר ריק כדי להשבית סוג ספרייה זה.",
+  "unsecureConnectionTitle": "חיבור לא מאובטח",
+  "unsecureConnectionMessage": "החיבור אינו מאובטח. הדבר עלול להוות סיכון אבטחתי. אנא המשך רק אם אתה בוטח בחיבור. טביעת האצבע sha1 היא {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "המשך בכל זאת",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Show navigator previews",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Show cached preview thumbnails in the areas and pages navigators",
+  "highContrast": "ניגודיות גבוהה",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "ערך זה חייב להיות מספר תקין",
+  "createAreas": "צור אזורים",
+  "autosave": "שמירה אוטומטית",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "הפוך",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "פעולות",
+  "medium": "בינוני",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "גדול",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "גודל סרגל כלים",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "הוסף הכל",
+  "onlyCurrentPage": "רק העמוד הנוכחי",
+  "smoothNavigation": "ניווט חלק",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Edge pan area switching",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Use Android SAF",
+  "exact": "מדויק",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "בתוך השורה",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "שורות בסרגל הכלים",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "בדיקת מצביע",
+  "pressure": "לחץ",
+  "small": "קטן",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "זעיר",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "בחר הכל",
+  "overrideTools": "דרוס כלים",
+  "hideCursorWhileDrawing": "הסתר סמן בזמן ציור",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "מותקן",
+  "install": "התקן",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "בטל בחירה",
+  "changeCollection": "שנה אוסף",
+  "collections": "אוספים",
+  "fullSelection": "בחירה מלאה",
+  "collection": "אוסף",
+  "defaultCollection": "אוסף ברירת מחדל",
+  "scroll": "גלול",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "בעת הפעלה",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "מסך הבית",
+  "lastNote": "פתק אחרון",
+  "newNote": "פתק חדש",
+  "moveToLayer": "Move to layer",
+  "createLayer": "Create layer",
+  "merge": "מזג",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "למעלה",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "למטה",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "אחר",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{אין פריטים} =1{פריט אחד} other{{count} פריטים}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "סרגל כלים צבע",
+  "yesButShowButtons": "כן, אבל הצג כפתורים",
+  "optionsPanelPosition": "מיקום חלונית האפשרויות",
+  "hideDuration": "הסתר משך זמן",
+  "animation": "אנימציה",
+  "performance": "ביצועים",
+  "performanceDescription": "מותאם למהירות ושימוש בזיכרון. רק החלק הנראה של הפתק נאפה לתוך התמונה.",
+  "normalDescription": "מאזן בין איכות וביצועים. אופה תמונה המכסה פי 1.5 מהאזור הנראה, ומספק מעברים חלקים יותר בזמן גלילה.",
+  "high": "גבוה",
+  "highDescription": "Maximizes quality at the cost of performance. Bakes an image covering 2 times the visible area, ensuring seamless rendering even during rapid scrolling or zooming.",
+  "renderResolution": "רזולוציית רינדור",
+  "translate": "תרגם",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "לא מוצפן",
+  "encrypted": "מוצפן",
+  "encryptDocumentMessage": "לחץ כדי להצפין את המסמך",
+  "unencryptDocumentMessage": "לחץ כדי לבטל את הצפנת המסמך",
+  "unencrypt": "בטל הצפנה",
+  "encrypt": "הצפן",
+  "encryptWarning": "פעולה זו תצפין את המסמך. יהיה עליך לזכור את הסיסמה כדי לפענח אותו.",
+  "unencryptWarning": "פעולה זו תבטל את הצפנת המסמך. הסיסמה תוסר וכל מי שיש לו גישה יוכל לפתוח אותו.",
+  "confirmPassword": "אשר סיסמה",
+  "passwordMismatch": "הסיסמאות אינן תואמות",
+  "action": "פעולה",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "טקסט SVG",
+  "offset": "היסט",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "End",
+  "radius": "Radius",
+  "focalPoint": "Focal point",
+  "useOffCenterStartPoint": "Use an off-center start point",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Color stops",
+  "addStop": "Add stop",
+  "positionDependent": "תלוי מיקום",
+  "flipHorizontal": "הפוך אופקית",
+  "flipVertical": "הפוך אנכית",
+  "grayscale": "גווני אפור",
+  "moveOnGesture": "הזז במחווה",
+  "exportAllFiles": "ייצא את כל הקבצים",
+  "restoreSettingsFromFile": "שחזר הגדרות מקובץ",
+  "resetAllSettings": "Reset all settings",
+  "exportSettingsToFile": "ייצא הגדרות לקובץ",
+  "barcode": "ברקוד",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "סוג ברקוד",
+  "qrCode": "קוד QR",
+  "dataMatrix": "Data Matrix",
+  "code128": "Code 128",
+  "defaultUserName": "משתמש {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "הזז שמאלה",
+  "moveRight": "הזז ימינה",
+  "bundledPacks": "חבילות כלולות",
+  "component": "Component",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "בחר רכיב",
+  "bundlePackInDocument": "כלול חבילה במסמך",
+  "bundledPacksDescription": "חבילות כלולות נכללות במסמך וניתן להשתמש בהן רק לשיתוף עם המסמך. ניתן להשתמש בנכסים במסמך רק אם החבילה מותקנת. ניתן להתקין חבילות על ידי לחיצה עליהן.",
+  "fillAlpha": "שקיפות מילוי",
+  "packagedFile": "קובץ ארוז",
+  "rawFile": "קובץ גולמי",
+  "webSocketDescription": "המכשיר שלך מארח את השרת, כך שמשתפי פעולה יכולים להצטרף רק דרך אותה רשת או מכל מקום אם תעביר את הפורט בנתב שלך.",
+  "swampDescription": "ההודעות שלך מנותבות דרך שרת ממסר מאובטח עם הצפנה מקצה לקצה. נדרשת כתובת שרת Swamp ליצירת סשן.",
+  "createRawNote": "צור פתק גולמי",
+  "polygon": "מצולע",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "סיים צורה",
+  "submit": "שלח",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Math",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ignore pressure",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignores the first pressure reading, which can be inaccurate on some styluses.",
+  "ignorePressureNeverDescription": "Uses every pressure reading from the stylus.",
+  "ignorePressureAlwaysDescription": "Ignores pressure and treats the stylus as fully pressed.",
+  "temporary": "Temporary",
+  "simpleToolbarVisibility": "Simple toolbar visibility",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Autosave delay",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Saved",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Saving...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Read only",
+  "saveDelayed": "Save delayed",
+  "unsaved": "Unsaved",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "There are currently no areas to export. Please select at least one area using the plus button in the top right corner or add all areas from the current page or from the whole document below.",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Customize shortcuts",
+  "clickToSave": "Click to save",
+  "toolbars": "Toolbars",
+  "logs": "Logs",
+  "ruledSimple": "Ruled simple",
+  "ruledSimpleDark": "Ruled simple dark",
+  "quadSimple": "Quad simple",
+  "quadSimpleDark": "Quad simple dark",
+  "redLinedRuled": "Red lined ruled",
+  "redLinedRuledDark": "Red lined ruled dark",
+  "redLinedQuad": "Red lined quad",
+  "redLinedQuadDark": "Red lined quad dark",
+  "noItemSelected": "No item selected",
+  "areaAsInitial": "Open area as initial view",
+  "swap": "Swap",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Hide file extension",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "New from template",
+  "exportAsTextShortcut": "Export as text",
+  "exportAsImageShortcut": "Export as image",
+  "exportAsPdfShortcut": "Export as PDF",
+  "exportAsSvgShortcut": "Export as SVG",
+  "changePathShortcut": "Change path",
+  "fullScreenShortcut": "Full screen",
+  "doublePressAction": "Double press action",
+  "triplePressAction": "Triple press action",
+  "twoFingerTap": "Two-finger tap",
+  "threeFingerTap": "Three-finger tap",
+  "longPress": "Long press",
+  "toolNumber": "Tool {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Hold Shortcuts",
+  "holdShortcutsDescription": "Hold a key to temporarily switch to another tool. Releasing the key switches back to the previous tool.",
+  "key": "Key",
+  "bringMovedElementsToFront": "Bring moved elements to front",
+  "addTool": "Add tool",
+  "nextPage": "Next page",
+  "previousPage": "Previous page",
+  "persistenceDocumentStates": "Persistent document states",
+  "persistentStatesEnabled": "Enable persistent document states",
+  "persistentStateCurrentPage": "Current page",
+  "persistentStateViewport": "Viewport position and zoom",
+  "persistentStateSelectedTool": "Selected tool",
+  "persistentStateMaxRecords": "Maximum stored records",
+  "persistentStateDeleteOlderThanDays": "Delete records older than days",
+  "persistentStateCleanup": "Clean up stored states",
+  "persistentStateCleanupDescription": "Delete records older than the limits above",
+  "persistentStateCleanupInProgress": "Cleaning up...",
+  "persistentStateDefaultLocks": "Default locks",
+  "persistentStateDefaultLocksDescription": "Apply these locks when a document has no saved state",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Cleaned up 1 storage location} other{Cleaned up {locations} storage locations}}; {records, plural, =1{removed 1 record} other{removed {records} records}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Saves changes automatically as you work.",
+  "autosaveDelayedDescription": "Saves changes automatically after the selected delay.",
+  "autosaveShowButtonDescription": "Saves automatically and also keeps the save button visible.",
+  "autosaveDisabledDescription": "Only saves when you use the save command.",
+  "hideCursorWhileDrawingDescription": "Hides the mouse pointer while you draw, so it does not cover your stroke.",
+  "onStartupHomeScreenDescription": "Opens the home screen when Butterfly starts.",
+  "onStartupLastNoteDescription": "Reopens your most recently used note when Butterfly starts.",
+  "onStartupNewNoteDescription": "Creates a new note when Butterfly starts.",
+  "smoothNavigationDescription": "Makes panning and zooming feel smoother by simplifying the canvas while it is moving.",
+  "edgePanAreaSwitchingDescription": "Switches to a neighboring area when you pan near the edge of the canvas.",
+  "collaborationDescription": "Allows multiple people to edit the same note together in real time.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Includes detailed diagnostic messages in the log view and console. These messages can help when troubleshooting a problem.",
+  "bringMovedElementsToFrontDescription": "Places an element above overlapping elements after you move it.",
+  "persistenceDocumentStatesDescription": "Controls which parts of your workspace Butterfly remembers for each note, such as the current page, zoom, and selected tool.",
+  "persistentStatesEnabledDescription": "Store document state information between app sessions",
+  "persistentStateCurrentPageDescription": "Remember the current page when reopening a file",
+  "persistentStateViewportDescription": "Remember the viewport position, zoom and rotation for each page",
+  "persistentStateSelectedToolDescription": "Remember the selected tool when reopening a file",
+  "persistentStateLocksDescription": "Remember lock settings when reopening a file",
+  "persistentStateNavigatorDescription": "Remember the navigator state when reopening a file",
+  "persistentStateLayersDescription": "Remember the layer panel state when reopening a file",
+  "persistentStateAreasDescription": "Remember the area panel state when reopening a file",
+  "persistentStateAutoThumbnail": "Automatic thumbnails",
+  "persistentStateAutoThumbnailDescription": "Show the per-document switch and allow thumbnails to update when documents close",
+  "persistentStateMaxRecordsDescription": "Keep at most this many stored states per file",
+  "persistentStateDeleteOlderThanDaysDescription": "Delete stored states older than this many days",
+  "contentViewportDescription": "Limits how far you can pan away from the content of your note.",
+  "limitViewportPositiveDescription": "Keeps the canvas within the area to the right and below its starting point.",
+  "startInFullScreenDescription": "Opens Butterfly in full-screen mode when supported.",
+  "designDescription": "Changes the overall visual style of Butterfly without changing whether the app uses light or dark colors.",
+  "platformThemeDescription": "Lets you use the desktop or mobile layout instead of the layout Butterfly normally chooses for your device.",
+  "densityDescription": "Changes the spacing and size of interface elements. It does not change the size of your note content.",
+  "highContrastDescription": "Uses stronger color differences to make controls and text easier to distinguish.",
+  "nativeTitleBarDescription": "Uses your operating system's standard window title bar instead of Butterfly's custom title bar.",
+  "propertiesDescription": "Chooses where the panel for editing the selected tool or element appears.",
+  "navigationRailDescription": "Shows a permanent navigation bar on wide screens for quicker access to app sections.",
+  "optionsPanelPositionDescription": "Chooses whether tool options appear above or below the canvas.",
+  "simpleToolbarVisibilityDescription": "Controls when the smaller, simplified toolbar appears while editing a note.",
+  "penOnlyInputDescription": "Prevents accidental marks from your hand or mouse by choosing when only stylus input can draw.",
+  "showPenOnlyToggleDescription": "Shows a quick stylus-only switch in the editor after Butterfly detects a stylus.",
+  "ignorePressureDescription": "Controls whether stylus pressure changes the stroke and works around inaccurate pressure readings from some styluses.",
+  "moveOnGestureDescription": "Lets multi-touch gestures move the canvas instead of interacting with note content.",
+  "spreadPagesDescription": "Splits multi-page imports across separate note pages instead of placing everything on one page.",
+  "shear": "Shear",
+  "resetRotation": "Reset rotation",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Choose the controls for zoom and rotation. Reset buttons remain available in every layout.",
+  "zoomPanelFull": "Full (slider, text field and buttons)",
+  "zoomPanelSliderInput": "Slider and text field",
+  "zoomPanelSlider": "Slider",
+  "zoomPanelInputButtons": "Text field and buttons",
+  "zoomPanelInput": "Text field",
+  "rotationDisplay": "Rotation display",
+  "rotationDisplayDescription": "Choose when the rotation row appears above zoom. This does not change rotation gestures or shortcuts.",
+  "whenRotated": "When rotated",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Rotate canvas by dragging"
+}

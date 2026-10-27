@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+	<id>dev.linwood.butterfly</id>
+	<name>Linwood Butterfly</name>
+	<developer id="dev.linwood">
+		<name>Linwood</name>
+	</developer>
+	<summary>Infinite-canvas notes and sketches</summary>
+	<metadata_license>CC0-1.0</metadata_license>
+	<project_license>AGPL-3.0-only</project_license>
+	<supports>
+		<control>pointing</control>
+		<control>keyboard</control>
+		<control>touch</control>
+	</supports>
+	<requires>
+		<display_length compare="ge">360</display_length>
+	</requires>
+	<branding>
+		<color type="primary" scheme_preference="light">#f2ead4</color>
+		<color type="primary" scheme_preference="dark">#4b3807</color>
+	</branding>
+	<url type="homepage">https://butterfly.linwood.dev/</url>
+	<url type="bugtracker">https://github.com/LinwoodDev/Butterfly/issues</url>
+	<url type="help">https://butterfly.linwood.dev/docs/latest/intro</url>
+	<url type="translate">https://linwood.dev/butterfly/crowdin</url>
+	<url type="vcs-browser">https://github.com/LinwoodDev/Butterfly.git</url>
+	<url type="contribute">https://github.com/LinwoodDev/Butterfly/blob/develop/CONTRIBUTING.md</url>
+	<description>
+		<p>Butterfly is an open-source app for people who think better with space around their ideas. Instead of
+			writing everything from top to bottom on a fixed page, you get an endless workspace where you can place
+			notes, sketches, diagrams, images, and documents wherever they make sense.</p>
+		<p>Use it for class notes, meeting notes, research, math, worksheets, planning, whiteboarding, storyboards,
+			product sketches, or any project that starts messy and needs room to grow. Write by hand with a stylus,
+			touch, or mouse, type text and Markdown, add shapes and lines, place images and photos, import PDFs,
+			SVGs, and image files, then export your work as PDF, SVG, images, or portable Butterfly files.</p>
+		<p>Butterfly tries to stay out of your way while you work. Recent files, quick-start templates, search,
+			folders, imports, page navigation, and tool settings are close when you need them, but the document
+			stays at the center. You can begin with a plain page, ruled paper, a grid, dotted paper, music paper,
+			or your own template.</p>
+		<p>As your document grows, Butterfly gives you ways to keep it understandable. Split work into pages and
+			page folders, use layers, mark important places with areas and waypoints, save reusable parts in packs,
+			and keep palettes and text styles ready for the next document. Almost everything you add remains
+			editable, so you can move, resize, recolor, reorder, and refine your work later instead of starting
+			over.</p>
+		<p>Your files stay under your control. Work offline, store documents on your device, choose a different
+			data directory, or connect WebDAV and Nextcloud if you want your own sync setup. There is no required
+			account, no required subscription, and no required proprietary cloud.</p>
+		<p>Butterfly is free, community translated, available on phones, tablets, desktops, and the web, and
+			developed in public under the AGPL-3.0 license.</p>
+	</description>
+	<screenshots>
+		<screenshot type="default">
+			<image type="source">
+				https://raw.githubusercontent.com/LinwoodDev/Butterfly/36cf8d82907ef721f775544d0c83418bca3d229c/docs/src/assets/img/main.png</image>
+			<caption>Main draw view</caption>
+		</screenshot>
+		<screenshot>
+			<image type="source">
+				https://raw.githubusercontent.com/LinwoodDev/Butterfly/36cf8d82907ef721f775544d0c83418bca3d229c/docs/src/assets/img/home.png</image>
+			<caption>Home view</caption>
+		</screenshot>
+	</screenshots>
+	<launchable type="desktop-id">dev.linwood.butterfly.desktop</launchable>
+	<releases>
+		<release version="2.6.1" type="stable" date="2026-10-15">
+			<description>
+				<ul>
+					<li>Add camera control visibility settings with fading after five seconds of inactivity and temporary visibility by default on mobile</li>
+					<li>Migrate popover menus to Material UI</li>
+					<li>Fix missing default Markdown formatting when importing notes (#1300)</li>
+				</ul>
+			</description>
+			<url type="details">https://linwood.dev/butterfly/2.6.1</url>
+		</release>
+		<release version="2.6.0" type="stable" date="2026-09-28">
+			<description>
+				<ul>
+					<li>Fix fractional-pixel mismatch in the viewport cache (#1279)</li>
+					<li>Fix editor state loading and saving across WebDAV connections (#1281)</li>
+					<li>Automatically sync pinned files while the app is open and after reconnecting (#1281)</li>
+				</ul>
+			</description>
+			<url type="details">https://linwood.dev/butterfly/2.6.0</url>
+		</release>
+		<release version="2.5.5" date="2026-08-10" />
+		<release version="2.5.4" type="stable" date="2026-07-20" />
+		<release version="2.5.3" date="2026-06-08" />
+		<release version="2.5.2" date="2026-05-23" />
+		<release version="2.5.1" date="2026-04-26" />
+		<release version="2.5.0" date="2026-04-05" />
+		<release version="2.4.4" date="2026-02-18" />
+		<release version="2.4.3" date="2026-01-22" />
+		<release version="2.4.2" date="2025-12-24" />
+		<release version="2.4.1" date="2025-11-13" />
+		<release version="2.4.0" date="2025-09-22" />
+		<release version="2.3.4" date="2025-08-21" />
+		<release version="2.3.3" date="2025-08-01" />
+		<release version="2.3.2" date="2025-06-23" />
+		<release version="2.3.1" date="2025-06-23" />
+		<release version="2.3.0" date="2025-04-20" />
+		<release version="2.2.4" date="2025-01-13" />
+		<release version="2.2.3" date="2024-12-24" />
+		<release version="2.2.2" date="2024-11-11" />
+		<release version="2.2.1" date="2024-10-17" />
+		<release version="2.2.0" date="2024-09-28" />
+		<release version="2.1.1" date="2024-06-10" />
+		<release version="2.1.0" date="2024-05-10" />
+		<release version="2.0.3" date="2024-02-19" />
+		<release version="2.0.2" date="2024-01-29" />
+		<release version="2.0.1" date="2024-01-15" />
+		<release version="2.0.0" date="2023-12-24" />
+		<release version="1.6.1" date="2023-01-27" />
+		<release version="1.6.0" date="2022-12-24" />
+		<release version="1.5.1" date="2022-10-28" />
+		<release version="1.5.0" date="2022-10-21" />
+		<release version="1.4.4" date="2022-09-16" />
+		<release version="1.4.3" date="2022-08-20" />
+		<release version="1.4.2" date="2022-08-12" />
+		<release version="1.4.1" date="2022-08-05" />
+		<release version="1.4.0" date="2022-08-05" />
+		<release version="1.3.2" date="2022-06-10" />
+		<release version="1.3.1" date="2022-06-03" />
+		<release version="1.3.0" date="2022-05-26" />
+		<release version="1.2.1" date="2022-03-05" />
+		<release version="1.2.0" date="2022-02-22" />
+		<release version="1.1.2" date="2022-01-21" />
+		<release version="1.1.1" date="2022-01-14" />
+		<release version="1.1.0" date="2022-01-05" />
+		<release version="1.0.0" date="2021-12-24" />
+	</releases>
+	<content_rating type="oars-1.1" />
+	<update_contact>contact@linwood.dev</update_contact>
+</component>

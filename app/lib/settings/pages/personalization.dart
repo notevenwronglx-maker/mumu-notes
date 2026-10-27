@@ -1,0 +1,161 @@
+part of '../home.dart';
+
+final _personalizationSettingsPage = SettingsLeapPage<ButterflySettings>(
+  displayName: (context) => AppLocalizations.of(context).personalization,
+  icon: PhosphorIconsLight.monitor,
+  appBarBuilder: _butterflyAppBar,
+  onReset: (context, state) => _resetSettingsPage(
+    context,
+    (current, defaults) => current.copyWith(
+      theme: defaults.theme,
+      density: defaults.density,
+      design: defaults.design,
+      localeTag: defaults.localeTag,
+      platformTheme: defaults.platformTheme,
+      highContrast: defaults.highContrast,
+      nativeTitleBar: defaults.nativeTitleBar,
+    ),
+  ),
+  sections: {
+    'content': SettingsLeapSection(
+      settings: [
+        SettingsLeapEnumSetting(
+          displayName: (context) => AppLocalizations.of(context).theme,
+          icon: PhosphorIconsLight.eye,
+          values: ThemeMode.values,
+          read: (state) => state.theme,
+          write: (context, value) =>
+              context.read<SettingsCubit>().changeTheme(value, context),
+          valueLabel: (context, value) => switch (value) {
+            .system => AppLocalizations.of(context).systemTheme,
+            .light => AppLocalizations.of(context).lightTheme,
+            .dark => AppLocalizations.of(context).darkTheme,
+          },
+          valueLeadingBuilder: (context, value) => PhosphorIcon(switch (value) {
+            .system => PhosphorIconsLight.power,
+            .light => PhosphorIconsLight.sun,
+            .dark => PhosphorIconsLight.moon,
+          }),
+        ),
+        SettingsLeapListSetting<ButterflySettings, String>(
+          id: 'design',
+          displayName: (context) => AppLocalizations.of(context).design,
+          hintBuilder: (context) =>
+              AppLocalizations.of(context).designDescription,
+          icon: PhosphorIconsLight.palette,
+          options: [
+            SettingsLeapOption(
+              id: 'system',
+              value: '',
+              displayName: (context) =>
+                  AppLocalizations.of(context).systemTheme,
+              leadingBuilder: (context) =>
+                  ThemeBox(theme: getThemeData('', false)),
+            ),
+            for (final theme in getThemes())
+              SettingsLeapOption(
+                id: theme,
+                value: theme,
+                displayName: (context) => theme,
+                leadingBuilder: (context) =>
+                    ThemeBox(theme: getThemeData(theme, false)),
+              ),
+          ],
+          read: (state) => state.design,
+          write: (context, value) =>
+              context.read<SettingsCubit>().changeDesign(value),
+        ),
+        SettingsLeapListSetting<ButterflySettings, String>(
+          id: 'locale',
+          displayName: (context) => AppLocalizations.of(context).locale,
+          icon: PhosphorIconsLight.translate,
+          options: [
+            SettingsLeapOption(
+              id: 'system',
+              value: '',
+              displayName: (context) =>
+                  AppLocalizations.of(context).systemLocale,
+            ),
+            for (final locale in getLocales())
+              SettingsLeapOption(
+                id: locale.toLanguageTag(),
+                value: locale.toLanguageTag(),
+                displayName: (context) =>
+                    _localeName(context, locale.toLanguageTag()),
+              ),
+          ],
+          read: (state) => state.localeTag,
+          write: (context, value) {
+            final locale = value.isEmpty
+                ? null
+                : getLocales()
+                      .where((e) => e.toLanguageTag() == value)
+                      .firstOrNull;
+            context.read<SettingsCubit>().changeLocale(locale);
+          },
+        ),
+        SettingsLeapEnumSetting(
+          displayName: (context) => AppLocalizations.of(context).platformTheme,
+          hintBuilder: (context) =>
+              AppLocalizations.of(context).platformThemeDescription,
+          icon: PhosphorIconsLight.cursor,
+          values: PlatformTheme.values,
+          read: (state) => state.platformTheme,
+          write: (context, value) =>
+              context.read<SettingsCubit>().changePlatformTheme(value),
+          valueLabel: (context, value) => switch (value) {
+            .system => AppLocalizations.of(context).systemTheme,
+            .desktop => AppLocalizations.of(context).desktop,
+            .mobile => AppLocalizations.of(context).mobile,
+          },
+          valueLeadingBuilder: (context, value) => PhosphorIcon(switch (value) {
+            .system => PhosphorIconsLight.power,
+            .desktop => PhosphorIconsLight.desktop,
+            .mobile => PhosphorIconsLight.phone,
+          }),
+        ),
+        SettingsLeapEnumSetting(
+          displayName: (context) => AppLocalizations.of(context).density,
+          hintBuilder: (context) =>
+              AppLocalizations.of(context).densityDescription,
+          icon: PhosphorIconsLight.gridNine,
+          values: ThemeDensity.values,
+          read: (state) => state.density,
+          write: (context, value) =>
+              context.read<SettingsCubit>().changeDensity(value),
+          valueLabel: (context, value) => switch (value) {
+            .system => AppLocalizations.of(context).systemTheme,
+            .maximize => AppLocalizations.of(context).densityMaximize,
+            .desktop => AppLocalizations.of(context).desktop,
+            .compact => AppLocalizations.of(context).compact,
+            .standard => AppLocalizations.of(context).standard,
+            .comfortable => AppLocalizations.of(context).comfortable,
+          },
+        ),
+        SettingsLeapBoolSetting(
+          displayName: (context) => AppLocalizations.of(context).highContrast,
+          hintBuilder: (context) =>
+              AppLocalizations.of(context).highContrastDescription,
+          icon: PhosphorIconsLight.circleHalf,
+          read: (state) => state.highContrast,
+          write: (context, value) =>
+              context.read<SettingsCubit>().changeHighContrast(value),
+        ),
+        SettingsLeapBoolSetting(
+          displayName: (context) => AppLocalizations.of(context).nativeTitleBar,
+          hintBuilder: (context) =>
+              AppLocalizations.of(context).nativeTitleBarDescription,
+          icon: PhosphorIconsLight.appWindow,
+          enabled: (context, state) => !kIsWeb && isWindow,
+          read: (state) => state.nativeTitleBar,
+          write: (context, value) =>
+              context.read<SettingsCubit>().changeNativeTitleBar(value),
+        ),
+      ],
+    ),
+  },
+);
+
+String _localeName(BuildContext context, String locale) => locale.isNotEmpty
+    ? LocaleNames.of(context)?.nameOf(locale.replaceAll('-', '_')) ?? locale
+    : AppLocalizations.of(context).systemLocale;

@@ -1,0 +1,1693 @@
+{
+  "open": "Mở",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Reveal in file explorer",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Cài đặt",
+  "personalization": "Cá nhân hóa",
+  "theme": "Giao diện",
+  "darkTheme": "Giao diện tối",
+  "lightTheme": "Giao diện sáng",
+  "systemTheme": "Dùng giao diện mặc định của máy",
+  "view": "Hiển thị",
+  "contentViewport": "Content Viewport",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Limit Viewport to positive coordinates",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Off",
+  "canvas": "Canvas",
+  "interface": "Interface",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Chỉnh sửa",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Xuất dữ liệu",
+  "save": "Lưu",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Thu phóng",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Phóng to",
+  "zoomOut": "Thu nhỏ",
+  "resetZoom": "Đặt lại",
+  "strokeWidth": "Độ dày nét",
+  "strokeStyle": "Kiểu gạch",
+  "dashLength": "Độ dài dấu gạch ngang",
+  "gapLength": "Chiều dài khoảng trống",
+  "includeEraser": "Bao gồm công cụ tẩy?",
+  "thinning": "Làm mảnh",
+  "pen": "Bút vẽ",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Inverted Stylus",
+  "eraser": "Tẩy",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Stroke",
+  "label": "Nhãn",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Xóa",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Bạn chắc chứ?",
+  "reallyDelete": "Bạn có thực sự muốn xoá mục này?",
+  "no": "Không",
+  "yes": "Có",
+  "undo": "Hoàn tác",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Làm lại",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "Chung",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Đã sao chép vào bộ nhớ tạm",
+  "loading": "Đang tải...",
+  "enterText": "Nhập văn bản",
+  "size": "Kích thước",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Chiều rộng",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Chiều cao",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Số lượng",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Phím cách",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Nền",
+  "applyBackground": "Apply background",
+  "applyAreas": "Apply areas",
+  "currentPage": "Current page",
+  "allPages": "All pages",
+  "box": "Hộp",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "Ngôn ngữ",
+  "systemLocale": "Ngôn ngữ hệ thống",
+  "information": "Thông tin",
+  "license": "Giấy phép",
+  "imprint": "Thông tin pháp lý",
+  "privacypolicy": "Chính sách bảo mật",
+  "sourceCode": "Mã nguồn",
+  "documentation": "Tài liệu",
+  "changelog": "Nhật ký thay đổi",
+  "source": "Nguồn",
+  "existOverride": "Phần tử này đã tồn tại. Ghi đè?",
+  "description": "Mô tả",
+  "fill": "Tô",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Bảng màu mặc định",
+  "highlighter": "Bút đánh dấu",
+  "combinePaths": "Combine paths",
+  "add": "Thêm",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Loại bỏ",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Bạn có thực sự muốn loại bỏ không?",
+  "resetPalette": "Đặt lại bảng màu",
+  "custom": "Tùy chỉnh",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Trang trí",
+  "underline": "Gạch chân",
+  "overline": "Gạch đầu",
+  "strikethrough": "Gạch ngang",
+  "thickness": "Độ dày",
+  "style": "Kiểu",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Khối",
+  "solidColor": "Solid color",
+  "gradient": "Gradient",
+  "gradientType": "Gradient type",
+  "linear": "Linear",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Đường kẻ đôi",
+  "dotted": "Chấm chấm",
+  "dottedDark": "Chấm đen",
+  "dashed": "Cắt khúc",
+  "wavy": "Dợn sóng",
+  "fontWeight": "Kích cỡ phông chữ",
+  "normal": "Thường",
+  "bold": "In đậm",
+  "italic": "In nghiêng",
+  "clipboard": "Bảng nhớ tạm",
+  "file": "Tệp tin",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Dữ liệu",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Chia sẻ",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Khoảng cách",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Hình ảnh",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Nhập URL",
+  "scale": "Tỷ lệ",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Trợ giúp",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Bạn có thực sự muốn đặt lại không?",
+  "whatToDo": "Bạn muốn làm gì?",
+  "ignore": "Bỏ qua",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Sao lưu",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Backup connection",
+  "automaticBackups": "Automatic backups",
+  "automaticBackupsDescription": "Creates backups while Butterfly is running.",
+  "backupInterval": "Backup interval",
+  "backupNow": "Back up now",
+  "lastBackup": "Last backup",
+  "backupCreated": "Backup created",
+  "hour": "hour",
+  "hours": "hours",
+  "day": "day",
+  "days": "days",
+  "week": "week",
+  "weeks": "weeks",
+  "createdInNewerVersion": "Tệp tin {fileName} đã được tạo với phiên bản mới hơn ({fileVersion}). Nên làm gì với tệp tin này?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Điểm dừng",
+  "origin": "Gốc",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "Nhập",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "Mới",
+  "selectElement": "Chọn phần tử",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Shift",
+  "altKey": "Alt",
+  "copyVersion": "Sao chép phiên bản",
+  "input": "Đầu vào",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Hành vi",
+  "dataDirectory": "Thư mục dữ liệu",
+  "warning": "Warning",
+  "platformExperimentalWarning": "Warning: This setting is experimental and can have problems on this platform.",
+  "changeDataDirectoryWarningContent": "Are you sure you want to change the data folder? You should make a backup of your data before proceeding.",
+  "defaultPath": "Đường dẫn mặc định",
+  "dateFormat": "Định dạng ngày tháng",
+  "updatedAt": "Đã được cập nhật lúc: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Đã được tạo lúc: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Đổi tên",
+  "duplicate": "Tạo bản sao",
+  "hand": "Tay",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Thư mục",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Di chuyển",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Sao chép",
+  "openContextMenu": "Open context menu",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Quay lại",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Forward",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Phụ thuộc thu phóng",
+  "shapeDetection": "Phát hiện hình dạng",
+  "delay": "Độ trễ",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Lớp mặc định",
+  "layer": "Lớp",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Các lớp",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "Chưa đặt",
+  "enterLayer": "Nhập tên lớp",
+  "eraseShapes": "Erase shapes",
+  "eraseShapeModeNone": "Don't erase shapes",
+  "eraseShapeModeTouchEdges": "Erase when touching edges",
+  "eraseShapeModeTouchAnywhere": "Erase when touching anywhere",
+  "selectElementModeTouchEdges": "Select when touching edges",
+  "selectElementModeTouchAnywhere": "Select when touching anywhere",
+  "selectElements": "Chọn các phần tử",
+  "deleteElements": "Xóa các phần tử",
+  "eraseAllElements": "Erase all elements",
+  "deleteElementsConfirm": "Bạn có thực sự muốn xóa các phần tử đã chọn không?",
+  "selectCustomCollection": "Chọn bộ sưu tập tùy chỉnh",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Độ nhạy",
+  "selectionTolerance": "Selection tolerance",
+  "selectionToleranceDescription": "How close a pointer must be to an element or area to select it. Higher values make selection easier.",
+  "selectionHandleSensitivity": "Selection handle hit area",
+  "selectionHandleSensitivityDescription": "Size of the hit area around selection and area handles for all pointer types.",
+  "panGestureSensitivity": "Pan gesture sensitivity",
+  "panGestureSensitivityDescription": "Canvas movement from touch or trackpad gestures. Higher values move the canvas farther.",
+  "zoomGestureSensitivity": "Continuous zoom sensitivity",
+  "zoomGestureSensitivityDescription": "Zoom from pinching, trackpad gestures, and Ctrl+scroll. Higher values zoom farther.",
+  "rotationGestureSensitivity": "Rotation gesture sensitivity",
+  "rotationGestureSensitivityDescription": "Canvas rotation from gestures. Higher values rotate farther.",
+  "scrollPanSensitivity": "Scroll pan sensitivity",
+  "scrollPanSensitivityDescription": "Canvas movement from mouse wheel and trackpad scrolling. Higher values pan farther.",
+  "horizontal": "Ngang",
+  "vertical": "Dọc",
+  "plain": "Trơn",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Sáng",
+  "ruled": "Có dòng kẻ",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Lưới ô vuông",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Âm nhạc",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Tối",
+  "plainDark": "Máu tối trơn",
+  "ruledDark": "Dòng tối",
+  "quadDark": "Lưới tối",
+  "musicDark": "Âm nhạc tối",
+  "templates": "Mẫu",
+  "untitled": "Không tên",
+  "createTemplate": "Tạo mẫu",
+  "createTemplateContent": "Bạn có thực sự muốn tạo mẫu từ tài liệu này không? Tài liệu gốc sẽ bị xóa.",
+  "fileName": "File name",
+  "defaultFileName": "Default file name",
+  "templateFileNameDescription": "Documents opened from the template picker are saved automatically with this name. Templates without a name use the default configured in Data settings. Combine your own text with {dateExample} and {timeExample}. Characters that are not allowed in file names will be rejected.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Preview",
+  "replace": "Thay thế",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Bạn có thực sự muốn thay thế mẫu không? Hành động này không thể hoàn tác!",
+  "defaultTemplate": "Mẫu mặc định",
+  "insert": "Chèn",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Tài liệu",
+  "documentStates": "Document states",
+  "camera": "Máy ảnh",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Bản in",
+  "selectCamera": "Chọn camera",
+  "changeDocumentPath": "Thay đổi đường dẫn tài liệu",
+  "deleteWholeStroke": "Xóa toàn bộ nét vẽ",
+  "alpha": "Độ trong suốt",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Khu vực",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Chọn khu vực",
+  "aspectRatio": "Tỷ lệ khung hình",
+  "presets": "Cài đặt trước",
+  "pagePortrait": "Khổ dọc",
+  "pageLandscape": "Khổ ngang",
+  "square": "Vuông",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Các khu vực",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Nhập khu vực",
+  "exitArea": "Thoát khu vực",
+  "currentArea": "Khu vực hiện tại",
+  "design": "Thiết kế",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Văn bản",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Chào, đây là Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "Một không gian vẽ tự do và mã nguồn mở!",
+  "updated": "Ứng dụng đã được cập nhật lên phiên bản {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Ghi chú phát hành",
+  "constraints": "Ràng buộc",
+  "scaled": "Đã thu phóng",
+  "fixed": "Cố định",
+  "dynamicContent": "Nội dung động",
+  "none": "Không có",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Bao gồm khu vực",
+  "verticalAlignment": "Căn dọc",
+  "horizontalAlignment": "Căn ngang",
+  "top": "Trên cùng",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Giữa",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Dưới cùng",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Trái",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Phải",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Căn đều",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Ràng buộc",
+  "length": "Chiều dài",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "Xuất SVG",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Chọn trang",
+  "recentFiles": "Tệp tin gần đây",
+  "start": "Bắt đầu",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "Không có tệp tin gần đây",
+  "countPages": "{count,plural, =0{Không có trang} =1{1 trang} other{{count} trang}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Trang {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Thoát",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "Không có phần tử",
+  "invertSelection": "Đảo ngược lựa chọn",
+  "errorWhileImporting": "Lỗi khi nhập",
+  "errorWhileImportingContent": "Đã xảy ra lỗi khi nhập tệp tin",
+  "showDetails": "Hiện chi tiết",
+  "hideDetails": "Ẩn chi tiết",
+  "error": "Lỗi",
+  "stackTrace": "Dấu vết ngăn xếp",
+  "laser": "Laser",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Thời lượng",
+  "quality": "Chất lượng",
+  "exportPdf": "Xuất PDF",
+  "local": "Cục bộ",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Thêm kết nối",
+  "connections": "Kết nối",
+  "noConnections": "Không có kết nối",
+  "url": "URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "The full WebDAV URL provided by your storage provider",
+  "connect": "Kết nối",
+  "username": "Tên người dùng",
+  "password": "Mật khẩu",
+  "authenticationPassword": "Authentication password",
+  "documentEncryptionPassword": "Document encryption password",
+  "documentEncryptionPasswordDescription": "Encrypts documents stored in this connection. Leave empty to keep them unencrypted",
+  "documentEncryptionEnabled": "Document encryption enabled",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Add document encryption password",
+  "changeDocumentEncryptionPassword": "Change document encryption password",
+  "webNotSupported": "Trình duyệt không hỗ trợ",
+  "advanced": "Nâng cao",
+  "symmetric": "Symmetric",
+  "perSide": "Per side",
+  "directory": "Thư mục",
+  "connectionNameDescription": "Only used to identify this connection in Butterfly",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Thư mục tài liệu",
+  "templatesDirectory": "Thư mục mẫu",
+  "errorWhileCreatingConnection": "Lỗi khi tạo kết nối",
+  "cannotConnect": "Không thể kết nối",
+  "urlNotValid": "URL không hợp lệ",
+  "icon": "Biểu tượng",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Optional URL of an image to use as the connection icon",
+  "update": "Cập nhật",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Có bản cập nhật",
+  "stable": "Ổn định",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Phiên bản thử nghiệm",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Kiểm tra cập nhật",
+  "checkForUpdatesWarning": "Việc kiểm tra cập nhật sẽ kết nối với trang web Butterfly để lấy thông tin.",
+  "usingLatestStable": "Bạn đang dùng phiên bản ổn định mới nhất",
+  "usingLatestNightly": "Bạn đang dùng phiên bản nightly mới nhất",
+  "currentVersion": "Phiên bản hiện tại",
+  "updateNow": "Cập nhật ngay",
+  "shape": "Hình dạng",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Table",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "row": "Row",
+  "column": "Column",
+  "insertRowBefore": "Insert row before",
+  "insertRowAfter": "Insert row after",
+  "insertColumnBefore": "Insert column before",
+  "insertColumnAfter": "Insert column after",
+  "deleteRow": "Delete row",
+  "deleteColumn": "Delete column",
+  "cellColor": "Cell color",
+  "cellBorders": "Cell borders",
+  "cellBorder": "Cell border",
+  "horizontalBorder": "Horizontal border",
+  "verticalBorder": "Vertical border",
+  "rowHeight": "Row height",
+  "columnWidth": "Column width",
+  "border": "Border",
+  "circle": "Hình tròn",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Hình chữ nhật",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Hình tam giác",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Đường thẳng",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Bán kính góc",
+  "topLeft": "Trên trái",
+  "topRight": "Trên phải",
+  "bottomLeft": "Dưới trái",
+  "bottomRight": "Dưới phải",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Bộ nhớ đệm",
+  "manage": "Quản lý",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Xóa bộ nhớ đệm",
+  "createCache": "Tạo bộ nhớ đệm",
+  "thirdPartyLicenses": "Giấy phép bên thứ ba",
+  "syncing": "Đang đồng bộ...",
+  "synced": "Đã đồng bộ",
+  "notSynced": "Chưa đồng bộ",
+  "conflict": "Xung đột",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Giữ bản cục bộ",
+  "keepConnection": "Giữ bản kết nối",
+  "keepBoth": "Giữ cả hai",
+  "forAll": "Cho tất cả",
+  "fileConflict": "{file} trong {connection} bị xung đột",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Ngoại tuyến",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "Bản cục bộ mới nhất",
+  "connectionLatest": "Bản kết nối mới nhất",
+  "path": "Đường dẫn",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Thư mục đã đồng bộ",
+  "syncRootDirectory": "Thư mục gốc đồng bộ",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Automatically enables stylus-only mode when a stylus is detected. This setting only lasts for the current session.",
+  "penOnlyInputOnDescription": "Luôn từ chối đầu vào bằng cảm ứng và chuột, chỉ chấp nhận đầu vào bằng bút cảm ứng.",
+  "penOnlyInputOffDescription": "Chấp nhận tất cả các loại đầu vào bao gồm cảm ứng, chuột và bút cảm ứng.",
+  "automatic": "Tự động",
+  "alwaysOn": "Luôn bật",
+  "alwaysOff": "Luôn tắt",
+  "showPenOnlyToggle": "Show stylus only toggle",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Cử chỉ đầu vào",
+  "inputGesturesDescription": "Lets you move and zoom the canvas with touch gestures, even while a drawing tool is selected.",
+  "nativeTitleBar": "Thanh tiêu đề gốc",
+  "mode": "Mode",
+  "syncMode": "Chế độ đồng bộ",
+  "connection": "Kết nối",
+  "always": "Luôn luôn",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "Không dùng dữ liệu di động",
+  "syncModeAlwaysDescription": "Syncs remote files automatically whenever they change.",
+  "syncModeNoMobileDescription": "Syncs automatically except on mobile devices, which can reduce mobile data usage.",
+  "manual": "Thủ công",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Only syncs when you start it yourself.",
+  "search": "Tìm kiếm",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Thuộc tính",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Ghim",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Bỏ ghim",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Phần tử",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Họa sĩ",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Vị trí",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Ghi chú",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Gói",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Gói",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "Thêm",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Yêu cầu tên",
+  "areaIndex": "Khu vực {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Khởi chạy toàn màn hình",
+  "inputs": "Đầu vào",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Chuột",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Cảm ứng",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Bàn phím",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Phím tắt",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Giữa",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "Đầu tiên",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "Thứ hai",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Công cụ đang hoạt động",
+  "activeToolDescription": "Sử dụng công cụ đang chọn trên thanh công cụ",
+  "handTool": "Công cụ Tay",
+  "handToolDescription": "Kéo để di chuyển trên canvas",
+  "toolOnToolbar": "Công cụ vị trí",
+  "toolOnToolbarDescription": "Sử dụng công cụ ở vị trí chỉ định trên thanh công cụ, tính từ trái sang",
+  "toolOnToolbarShort": "Vị trí thanh công cụ: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Công cụ",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Hiện lưới",
+  "grid": "Lưới",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Thước kẻ",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Góc",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Báo cáo",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "Thư mục mới",
+  "createPack": "Tạo gói",
+  "editPack": "Chỉnh sửa gói",
+  "packsDirectory": "Thư mục gói",
+  "stamp": "Con dấu",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Thêm vào gói",
+  "sureImportPack": "Bạn có chắc muốn nhập gói không?",
+  "byAuthor": "bởi {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Tác giả",
+  "addAsset": "Thêm tài nguyên",
+  "editAsset": "Chỉnh sửa tài nguyên",
+  "scope": "Phạm vi",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "Hiện không có gói nào",
+  "components": "Thành phần",
+  "waypoint": "Điểm dừng",
+  "actions": "Hành động",
+  "painters": "Họa sĩ",
+  "breakingChangesTitle": "Thay đổi quan trọng",
+  "breakingChangesMessage": "Có những thay đổi quan trọng trong phiên bản này. Vui lòng đọc nhật ký thay đổi trước khi cập nhật. Phiên bản tệp hiện tại là {version}, phiên bản mới là {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Kiểu dáng",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Đoạn văn",
+  "fontFamily": "Phông chữ",
+  "smoothing": "Làm mượt",
+  "streamline": "Làm thẳng",
+  "presentation": "Trình chiếu",
+  "simple": "Simple",
+  "createPresentation": "Create presentation",
+  "addSlide": "Add new slide",
+  "updateSlide": "Update slide",
+  "deleteSlide": "Delete slide",
+  "transitionDuration": "Transition duration",
+  "transitionDurationDescription": "How long the camera takes to move to the next slide. On the last slide, this is used when you add a new one.",
+  "transitionDurationValue": "{seconds}s transition",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Add keyframe here",
+  "updateKeyframe": "Update from current camera",
+  "deleteKeyframe": "Delete keyframe",
+  "markAsSlide": "Mark as slide",
+  "removeSlideMarker": "Remove slide marker",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "Chọn tài nguyên",
+  "clearStyle": "Xóa kiểu",
+  "unknownImportType": "Loại nhập không xác định",
+  "sureImportTemplate": "Bạn có chắc muốn nhập mẫu không?",
+  "frame": "Khung",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Phát",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "Khung/giây",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Điểm dừng",
+  "presentationControls": "Điều khiển trình chiếu",
+  "nextSlide": "Trang tiếp theo",
+  "nextSlideDescription": "Vuốt phải hoặc nhấn phím mũi tên phải để đến trang tiếp theo",
+  "previousSlide": "Trang trước",
+  "previousSlideDescription": "Vuốt trái hoặc nhấn phím mũi tên trái để về trang trước",
+  "exitPresentation": "Thoát trình chiếu",
+  "exitPresentationDescription": "Nhấn phím Esc hoặc vuốt xuống để thoát trình chiếu",
+  "pausePresentation": "Tạm dừng trình chiếu",
+  "pausePresentationDescription": "Chạm vào màn hình hoặc nhấn phím cách để tạm dừng hoặc tiếp tục",
+  "keyframe": "Khung then chốt",
+  "endOfPresentation": "Bạn đã đến cuối trình chiếu",
+  "startOfPresentation": "Bạn đã đến đầu trình chiếu",
+  "palettes": "Bảng màu",
+  "headline": "Tiêu đề {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Mã",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Trích dẫn",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Liên kết",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Hộp kiểm",
+  "deleted": "Đã xóa",
+  "emphasis": "Nhấn mạnh",
+  "listBullet": "Danh sách dấu đầu dòng",
+  "strong": "Đậm",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Trang chủ",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Tệp tin",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Sắp xếp theo",
+  "location": "Vị trí",
+  "whatsNew": "Có gì mới?",
+  "unstar": "Bỏ gắn sao",
+  "star": "Gắn sao",
+  "goUp": "Lên trên",
+  "created": "Đã tạo",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Đã sửa",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Bắt đầu nhanh",
+  "noTemplates": "Hiện không có mẫu nào",
+  "importCorePack": "Nhập gói cốt lõi",
+  "importCorePackDescription": "Nhập gói cốt lõi chứa tất cả tài nguyên cơ bản để bắt đầu. Thao tác này sẽ ghi đè gói cốt lõi hiện tại.",
+  "never": "Không bao giờ",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Chỉ khi cập nhật",
+  "visibility": "Hiển thị",
+  "captureThumbnail": "Chụp hình thu nhỏ",
+  "autoThumbnail": "Update thumbnail on close",
+  "autoThumbnailDescription": "Capture the current view when you close this document. Manually capturing a thumbnail turns this off.",
+  "capturedThumbnail": "Đã chụp hình thu nhỏ thành công",
+  "chooseLabelMode": "Chọn chế độ nhãn",
+  "foreground": "Tiền cảnh",
+  "version": "Phiên bản",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Kho lưu trữ",
+  "pages": "Trang",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Trình điều hướng",
+  "arrange": "Sắp xếp",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Đưa lên trên",
+  "sendToBack": "Đưa xuống dưới",
+  "bringForward": "Đưa lên trước",
+  "sendBackward": "Đưa xuống sau",
+  "rotation": "Xoay",
+  "rotationStep": "Rotation step",
+  "zoomStep": "Zoom step",
+  "zoomStepDescription": "Amount used by the zoom in and zoom out keyboard shortcuts. Continuous zoom gestures use their own sensitivity setting.",
+  "direction": "Direction",
+  "onlyAvailableLargerScreen": "Chỉ khả dụng trên màn hình lớn hơn",
+  "toolbarPosition": "Vị trí thanh công cụ",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Xoay",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Rotate left",
+  "rotateRight": "Rotate right",
+  "spacer": "Khoảng trống",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Thanh điều hướng",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Cắt",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Chèn trước",
+  "insertAfter": "Chèn sau",
+  "insertFirst": "Chèn đầu tiên",
+  "insertLast": "Chèn cuối cùng",
+  "paste": "Dán",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Tăng dần",
+  "descending": "Giảm dần",
+  "imageScale": "Tỷ lệ hình ảnh",
+  "svgScale": "SVG scale",
+  "noImageSelected": "No image selected",
+  "noSvgSelected": "No SVG selected",
+  "select": "Chọn",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Công cụ",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Kết cấu",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Giao diện nền tảng",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Máy tính",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Di động",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Bề mặt",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Mẫu",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Bạn có chắc muốn đóng tài liệu không?",
+  "thereAreUnsavedChanges": "Có một số thay đổi chưa được lưu",
+  "page": "Trang",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "Máy chủ ICE",
+  "collaboration": "Cộng tác",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Socket",
+  "iceServer": "Máy chủ ICE",
+  "port": "Cổng",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Loại",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Bên",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "Khách hàng",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Máy chủ",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Chuyển chế độ xem",
+  "lasso": "Thòng lọng",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Ẩn giao diện",
+  "density": "Mật độ",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Gọn",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Thoải mái",
+  "standard": "Tiêu chuẩn",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Khóa",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Thêm phần tử",
+  "notDefaultConnection": "Không phải kết nối mặc định",
+  "defaultConnection": "Kết nối mặc định",
+  "hide": "Ẩn",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Hiện",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "Tạm dừng",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Dừng",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Làm mới",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "In",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Công cụ lấy màu",
+  "users": "Người dùng",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Thử nghiệm",
+  "experimentsWarning": "Các tính năng này đang thử nghiệm và có thể thay đổi, hỏng hoặc biến mất bất cứ lúc nào. Việc kích hoạt có thể gây mất ổn định hoặc mất dữ liệu. Hãy cẩn thận. Vui lòng báo lỗi nếu có.",
+  "address": "Địa chỉ",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Trải ra các trang",
+  "rootDirectorySpecifiedDescription": "Thư mục gốc đã được chỉ định. Tất cả đường dẫn thư mục nâng cao sẽ dựa trên thư mục này. Giữ trống để vô hiệu hóa.",
+  "rootDirectoryNotSpecifiedDescription": "Chưa chỉ định thư mục gốc. Cần có tên. Tất cả đường dẫn thư mục nâng cao sẽ là đường dẫn tuyệt đối. Giữ trống để vô hiệu hóa.",
+  "unsecureConnectionTitle": "Kết nối không bảo mật",
+  "unsecureConnectionMessage": "Kết nối không bảo mật. Điều này có thể rủi ro bảo mật. Vui lòng chỉ tiếp tục nếu bạn tin tưởng kết nối. Dấu vân tay SHA1 là {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Tiếp tục",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Show navigator previews",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Show cached preview thumbnails in the areas and pages navigators",
+  "highContrast": "Độ tương phản cao",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "Giá trị này phải là số hợp lệ",
+  "createAreas": "Tạo khu vực",
+  "autosave": "Tự động lưu",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Đảo ngược",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "Các thao tác",
+  "medium": "Vừa",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "Lớn",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Kích thước thanh công cụ",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Thêm tất cả",
+  "onlyCurrentPage": "Chỉ trang hiện tại",
+  "smoothNavigation": "Điều hướng mượt",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Edge pan area switching",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Use Android SAF",
+  "exact": "Chính xác",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "Nội tuyến",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Số hàng thanh công cụ",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "Kiểm tra con trỏ",
+  "pressure": "Áp lực",
+  "small": "Nhỏ",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Rất nhỏ",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Chọn tất cả",
+  "overrideTools": "Ghi đè công cụ",
+  "hideCursorWhileDrawing": "Ẩn con trỏ khi vẽ",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Đã cài",
+  "install": "Cài đặt",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Bỏ chọn",
+  "changeCollection": "Đổi bộ sưu tập",
+  "collections": "Các bộ sưu tập",
+  "fullSelection": "Chọn toàn bộ",
+  "collection": "Bộ sưu tập",
+  "defaultCollection": "Bộ sưu tập mặc định",
+  "scroll": "Cuộn",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "Khi khởi động",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Màn hình chính",
+  "lastNote": "Ghi chú cuối",
+  "newNote": "Ghi chú mới",
+  "moveToLayer": "Move to layer",
+  "createLayer": "Create layer",
+  "merge": "Gộp",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Lên",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Xuống",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "Khác",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{Không có phần tử} =1{1 phần tử} other{{count} phần tử}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Thanh công cụ màu",
+  "yesButShowButtons": "Có, nhưng hiển thị nút",
+  "optionsPanelPosition": "Vị trí bảng tùy chọn",
+  "hideDuration": "Thời gian ẩn",
+  "animation": "Hoạt ảnh",
+  "performance": "Hiệu năng",
+  "performanceDescription": "Tối ưu cho tốc độ và bộ nhớ. Chỉ phần hiển thị được nướng thành hình ảnh.",
+  "normalDescription": "Cân bằng chất lượng và hiệu năng. Nướng hình ảnh phủ 1.5 lần vùng hiển thị, mượt hơn khi cuộn.",
+  "high": "Cao",
+  "highDescription": "Tối đa hóa chất lượng với chi phí hiệu suất. Nướng một hình ảnh bao phủ gấp 2 lần vùng hiển thị, đảm bảo hiển thị liền mạch ngay cả khi cuộn hoặc thu phóng nhanh.",
+  "renderResolution": "Độ phân giải render",
+  "translate": "Dịch",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Chưa mã hóa",
+  "encrypted": "Đã mã hóa",
+  "encryptDocumentMessage": "Nhấp để mã hóa tài liệu",
+  "unencryptDocumentMessage": "Nhấp để giải mã tài liệu",
+  "unencrypt": "Giải mã",
+  "encrypt": "Mã hóa",
+  "encryptWarning": "Thao tác này sẽ mã hóa tài liệu. Bạn cần nhớ mật khẩu để giải mã.",
+  "unencryptWarning": "Thao tác này sẽ giải mã tài liệu. Mật khẩu sẽ bị xóa và ai cũng có thể mở.",
+  "confirmPassword": "Xác nhận mật khẩu",
+  "passwordMismatch": "Mật khẩu không khớp",
+  "action": "Thao tác",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "Văn bản SVG",
+  "offset": "Độ lệch",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "End",
+  "radius": "Radius",
+  "focalPoint": "Focal point",
+  "useOffCenterStartPoint": "Use an off-center start point",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Color stops",
+  "addStop": "Add stop",
+  "positionDependent": "Phụ thuộc vị trí",
+  "flipHorizontal": "Lật ngang",
+  "flipVertical": "Lật dọc",
+  "grayscale": "Thang xám",
+  "moveOnGesture": "Di chuyển khi cử chỉ",
+  "exportAllFiles": "Xuất tất cả tệp tin",
+  "restoreSettingsFromFile": "Khôi phục cài đặt từ tệp tin",
+  "resetAllSettings": "Reset all settings",
+  "exportSettingsToFile": "Xuất cài đặt ra tệp tin",
+  "barcode": "Mã vạch",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Loại mã vạch",
+  "qrCode": "Mã QR",
+  "dataMatrix": "Ma trận dữ liệu",
+  "code128": "Code 128",
+  "defaultUserName": "Người dùng {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Di chuyển sang trái",
+  "moveRight": "Di chuyển sang phải",
+  "bundledPacks": "Gói đi kèm",
+  "component": "Component",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Chọn thành phần",
+  "bundlePackInDocument": "Đóng gói vào tài liệu",
+  "bundledPacksDescription": "Các gói đi kèm được bao gồm trong tài liệu và chỉ dùng khi chia sẻ cùng tài liệu. Tài nguyên chỉ dùng khi gói được cài. Nhấp để cài gói.",
+  "fillAlpha": "Độ trong suốt lớp tô",
+  "packagedFile": "Tệp đóng gói",
+  "rawFile": "Tệp gốc",
+  "webSocketDescription": "Thiết bị của bạn đóng vai trò máy chủ, vì vậy cộng tác viên chỉ có thể tham gia trong cùng mạng hoặc khi bạn mở cổng.",
+  "swampDescription": "Tin nhắn của bạn được định tuyến qua máy chủ trung gian mã hóa đầu cuối. Cần địa chỉ máy chủ swamp để tạo phiên.",
+  "createRawNote": "Tạo ghi chú gốc",
+  "polygon": "Đa giác",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Hoàn thành hình",
+  "submit": "Gửi",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Toán học",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Bỏ qua áp lực",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignores the first pressure reading, which can be inaccurate on some styluses.",
+  "ignorePressureNeverDescription": "Uses every pressure reading from the stylus.",
+  "ignorePressureAlwaysDescription": "Ignores pressure and treats the stylus as fully pressed.",
+  "temporary": "Tạm thời",
+  "simpleToolbarVisibility": "Khả năng hiển thị thanh công cụ đơn giản",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Độ trễ tự động lưu",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Đã lưu",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Đang lưu...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Chỉ đọc",
+  "saveDelayed": "Lưu bị trì hoãn",
+  "unsaved": "Chưa lưu",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "Hiện tại không có khu vực nào để xuất. Vui lòng chọn ít nhất một khu vực bằng nút dấu cộng ở góc trên bên phải hoặc thêm tất cả các khu vực từ trang hiện tại hoặc từ toàn bộ tài liệu bên dưới.",
+  "densityMaximize": "Phóng to",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Customize shortcuts",
+  "clickToSave": "Click to save",
+  "toolbars": "Toolbars",
+  "logs": "Logs",
+  "ruledSimple": "Ruled simple",
+  "ruledSimpleDark": "Ruled simple dark",
+  "quadSimple": "Quad simple",
+  "quadSimpleDark": "Quad simple dark",
+  "redLinedRuled": "Red lined ruled",
+  "redLinedRuledDark": "Red lined ruled dark",
+  "redLinedQuad": "Red lined quad",
+  "redLinedQuadDark": "Red lined quad dark",
+  "noItemSelected": "No item selected",
+  "areaAsInitial": "Open area as initial view",
+  "swap": "Swap",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Hide file extension",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "New from template",
+  "exportAsTextShortcut": "Export as text",
+  "exportAsImageShortcut": "Export as image",
+  "exportAsPdfShortcut": "Export as PDF",
+  "exportAsSvgShortcut": "Export as SVG",
+  "changePathShortcut": "Change path",
+  "fullScreenShortcut": "Toàn màn hình",
+  "doublePressAction": "Double press action",
+  "triplePressAction": "Triple press action",
+  "twoFingerTap": "Two-finger tap",
+  "threeFingerTap": "Three-finger tap",
+  "longPress": "Long press",
+  "toolNumber": "Tool {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Hold Shortcuts",
+  "holdShortcutsDescription": "Hold a key to temporarily switch to another tool. Releasing the key switches back to the previous tool.",
+  "key": "Key",
+  "bringMovedElementsToFront": "Bring moved elements to front",
+  "addTool": "Add tool",
+  "nextPage": "Next page",
+  "previousPage": "Previous page",
+  "persistenceDocumentStates": "Persistent document states",
+  "persistentStatesEnabled": "Enable persistent document states",
+  "persistentStateCurrentPage": "Current page",
+  "persistentStateViewport": "Viewport position and zoom",
+  "persistentStateSelectedTool": "Selected tool",
+  "persistentStateMaxRecords": "Maximum stored records",
+  "persistentStateDeleteOlderThanDays": "Delete records older than days",
+  "persistentStateCleanup": "Clean up stored states",
+  "persistentStateCleanupDescription": "Delete records older than the limits above",
+  "persistentStateCleanupInProgress": "Cleaning up...",
+  "persistentStateDefaultLocks": "Default locks",
+  "persistentStateDefaultLocksDescription": "Apply these locks when a document has no saved state",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Cleaned up 1 storage location} other{Cleaned up {locations} storage locations}}; {records, plural, =1{removed 1 record} other{removed {records} records}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Saves changes automatically as you work.",
+  "autosaveDelayedDescription": "Saves changes automatically after the selected delay.",
+  "autosaveShowButtonDescription": "Saves automatically and also keeps the save button visible.",
+  "autosaveDisabledDescription": "Only saves when you use the save command.",
+  "hideCursorWhileDrawingDescription": "Hides the mouse pointer while you draw, so it does not cover your stroke.",
+  "onStartupHomeScreenDescription": "Opens the home screen when Butterfly starts.",
+  "onStartupLastNoteDescription": "Reopens your most recently used note when Butterfly starts.",
+  "onStartupNewNoteDescription": "Creates a new note when Butterfly starts.",
+  "smoothNavigationDescription": "Makes panning and zooming feel smoother by simplifying the canvas while it is moving.",
+  "edgePanAreaSwitchingDescription": "Switches to a neighboring area when you pan near the edge of the canvas.",
+  "collaborationDescription": "Allows multiple people to edit the same note together in real time.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Includes detailed diagnostic messages in the log view and console. These messages can help when troubleshooting a problem.",
+  "bringMovedElementsToFrontDescription": "Places an element above overlapping elements after you move it.",
+  "persistenceDocumentStatesDescription": "Controls which parts of your workspace Butterfly remembers for each note, such as the current page, zoom, and selected tool.",
+  "persistentStatesEnabledDescription": "Store document state information between app sessions",
+  "persistentStateCurrentPageDescription": "Remember the current page when reopening a file",
+  "persistentStateViewportDescription": "Remember the viewport position, zoom and rotation for each page",
+  "persistentStateSelectedToolDescription": "Remember the selected tool when reopening a file",
+  "persistentStateLocksDescription": "Remember lock settings when reopening a file",
+  "persistentStateNavigatorDescription": "Remember the navigator state when reopening a file",
+  "persistentStateLayersDescription": "Remember the layer panel state when reopening a file",
+  "persistentStateAreasDescription": "Remember the area panel state when reopening a file",
+  "persistentStateAutoThumbnail": "Automatic thumbnails",
+  "persistentStateAutoThumbnailDescription": "Show the per-document switch and allow thumbnails to update when documents close",
+  "persistentStateMaxRecordsDescription": "Keep at most this many stored states per file",
+  "persistentStateDeleteOlderThanDaysDescription": "Delete stored states older than this many days",
+  "contentViewportDescription": "Limits how far you can pan away from the content of your note.",
+  "limitViewportPositiveDescription": "Keeps the canvas within the area to the right and below its starting point.",
+  "startInFullScreenDescription": "Opens Butterfly in full-screen mode when supported.",
+  "designDescription": "Changes the overall visual style of Butterfly without changing whether the app uses light or dark colors.",
+  "platformThemeDescription": "Lets you use the desktop or mobile layout instead of the layout Butterfly normally chooses for your device.",
+  "densityDescription": "Changes the spacing and size of interface elements. It does not change the size of your note content.",
+  "highContrastDescription": "Uses stronger color differences to make controls and text easier to distinguish.",
+  "nativeTitleBarDescription": "Uses your operating system's standard window title bar instead of Butterfly's custom title bar.",
+  "propertiesDescription": "Chooses where the panel for editing the selected tool or element appears.",
+  "navigationRailDescription": "Shows a permanent navigation bar on wide screens for quicker access to app sections.",
+  "optionsPanelPositionDescription": "Chooses whether tool options appear above or below the canvas.",
+  "simpleToolbarVisibilityDescription": "Controls when the smaller, simplified toolbar appears while editing a note.",
+  "penOnlyInputDescription": "Prevents accidental marks from your hand or mouse by choosing when only stylus input can draw.",
+  "showPenOnlyToggleDescription": "Shows a quick stylus-only switch in the editor after Butterfly detects a stylus.",
+  "ignorePressureDescription": "Controls whether stylus pressure changes the stroke and works around inaccurate pressure readings from some styluses.",
+  "moveOnGestureDescription": "Lets multi-touch gestures move the canvas instead of interacting with note content.",
+  "spreadPagesDescription": "Splits multi-page imports across separate note pages instead of placing everything on one page.",
+  "shear": "Shear",
+  "resetRotation": "Reset rotation",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Choose the controls for zoom and rotation. Reset buttons remain available in every layout.",
+  "zoomPanelFull": "Full (slider, text field and buttons)",
+  "zoomPanelSliderInput": "Slider and text field",
+  "zoomPanelSlider": "Slider",
+  "zoomPanelInputButtons": "Text field and buttons",
+  "zoomPanelInput": "Text field",
+  "rotationDisplay": "Rotation display",
+  "rotationDisplayDescription": "Choose when the rotation row appears above zoom. This does not change rotation gestures or shortcuts.",
+  "whenRotated": "When rotated",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Rotate canvas by dragging"
+}

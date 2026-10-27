@@ -1,0 +1,232 @@
+package dev.linwood.butterfly;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.MotionEvent;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.mumunotes.core.touch.PalmGuardFlutterHostHelper;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
+
+import io.flutter.embedding.android.FlutterActivity;
+import io.flutter.plugin.common.MethodChannel;
+
+
+public class MainActivity extends FlutterActivity {
+    private static final String CHANNEL = "linwood.dev/butterfly";
+    private static final String PALM_GUARD_CHANNEL = "com.mumunotes/palm_guard";
+    private static final String PALM_GUARD_CORE_CHANNEL = "com.mumunotes.core.touch/palm_guard";
+    private static final String AUDIO_SYNC_CHANNEL = "com.mumunotes/audio_sync";
+
+    private String intentType = null;
+    private byte[] intentData = null;
+
+    @Nullable
+    private PalmGuardFlutterHostHelper palmGuardHelper = null;
+    @Nullable
+    private MethodChannel palmGuardMethodChannel = null;
+    @Nullable
+    private MethodChannel palmGuardCoreMethodChannel = null;
+    @Nullable
+    private AudioSyncChannel audioSyncChannel = null;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initPalmGuardHelper();
+    }
+
+    private void initPalmGuardHelper() {
+        if (palmGuardHelper == null) {
+            palmGuardHelper = new PalmGuardFlutterHostHelper(this);
+        }
+        palmGuardHelper.configureTransientSystemBars(false);
+        palmGuardHelper.ensureLayoutChangeListenerAttached();
+        palmGuardHelper.setPointerCancelDispatcher(pointerId -> runOnUiThread(() -> {
+            Map<String, Object> args = Map.of("pointerId", pointerId);
+            if (palmGuardMethodChannel != null) {
+                palmGuardMethodChannel.invokeMethod("cancelPointer", args);
+            }
+            if (palmGuardCoreMethodChannel != null) {
+                palmGuardCoreMethodChannel.invokeMethod("cancelPointer", args);
+            }
+        }));
+        palmGuardHelper.setArbiterEventCallback((eventType, payload) -> runOnUiThread(() -> {
+            Map<String, Object> args = Map.of("eventType", eventType, "payload", payload);
+            if (palmGuardMethodChannel != null) {
+                palmGuardMethodChannel.invokeMethod("onArbiterEvent", args);
+            }
+            if (palmGuardCoreMethodChannel != null) {
+                palmGuardCoreMethodChannel.invokeMethod("onArbiterEvent", args);
+            }
+        }));
+    }
+
+    @Override
+    public boolean dispatchGenericMotionEvent(MotionEvent ev) {
+        if (ev != null && palmGuardHelper != null) {
+            return palmGuardHelper.dispatchGenericMotionEvent(ev, super::dispatchGenericMotionEvent);
+        }
+        return super.dispatchGenericMotionEvent(ev);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev != null && palmGuardHelper != null) {
+            return palmGuardHelper.dispatchTouchEvent(ev, super::dispatchTouchEvent);
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    @Nullable
+    public String getInitialRoute() {
+        if (handleIntent(getIntent())) {
+            return "/intent";
+        }
+        return super.getInitialRoute();
+    }
+
+    @Override
+    protected void onNewIntent(@NonNull Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        if (handleIntent(intent) && getFlutterEngine() != null) {
+            getFlutterEngine().getNavigationChannel().pushRoute("/intent");
+        }
+    }
+
+    private boolean handleIntent(Intent intent) {
+        String action = intent.getAction();
+        String type = intent.getType();
+
+        if (Intent.ACTION_VIEW.equals(action) || Intent.ACTION_EDIT.equals(action) || Intent.ACTION_SEND.equals(action)) {
+            Uri uri = intent.getData();
+            if (uri == null) {
+                uri = getParcelableExtraStream(intent);
+            }
+            if (uri == null && intent.getClipData() != null && intent.getClipData().getItemCount() > 0) {
+                uri = intent.getClipData().getItemAt(0).getUri();
+            }
+            if (uri != null) {
+                if (type == null) {
+                    type = getContentResolver().getType(uri);
+                }
+                if (type == null) {
+                    type = "application/octet-stream";
+                }
+                intentType = type;
+                try {
+                    InputStream inputStream = getContentResolver().openInputStream(uri);
+                    if (inputStream != null) {
+                        intentData = getBytes(inputStream);
+                        inputStream.close();
+                        return true;
+                    }
+                } catch (IOException e) {
+                    //noinspection CallToPrintStackTrace
+                    e.printStackTrace();
+                    intentData = null;
+                    intentType = null;
+                }
+            } else if (Intent.ACTION_SEND.equals(action) && intent.hasExtra(Intent.EXTRA_TEXT)) {
+                String text = intent.getStringExtra(Intent.EXTRA_TEXT);
+                if (text != null) {
+                    intentType = type != null ? type : "text/plain";
+                    intentData = text.getBytes(StandardCharsets.UTF_8);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Nullable
+    @SuppressWarnings("deprecation")
+    private Uri getParcelableExtraStream(Intent intent) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            return intent.getParcelableExtra(Intent.EXTRA_STREAM, Uri.class);
+        }
+        return intent.getParcelableExtra(Intent.EXTRA_STREAM);
+    }
+
+    private byte[] getBytes(InputStream inputStream) throws IOException {
+        java.io.ByteArrayOutputStream byteBuffer = new java.io.ByteArrayOutputStream();
+        int bufferSize = 1024;
+        byte[] buffer = new byte[bufferSize];
+        int len;
+        while ((len = inputStream.read(buffer)) != -1) {
+            byteBuffer.write(buffer, 0, len);
+        }
+        return byteBuffer.toByteArray();
+    }
+
+    @Override
+    public void configureFlutterEngine(@NonNull io.flutter.embedding.engine.FlutterEngine flutterEngine) {
+        super.configureFlutterEngine(flutterEngine);
+        new MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL)
+                .setMethodCallHandler(
+                        (call, result) -> {
+                            if (call.method.equals("getIntentType")) {
+                                result.success(intentType);
+                            } else if (call.method.equals("getIntentData")) {
+                                result.success(intentData);
+                            } else {
+                                result.notImplemented();
+                            }
+                        }
+                );
+
+        initPalmGuardHelper();
+        MethodChannel.MethodCallHandler handler = (call, result) -> {
+            Object response = palmGuardHelper.handleMethodCall(call.method, call.arguments);
+            if (response != null) {
+                result.success(response);
+            } else {
+                result.notImplemented();
+            }
+        };
+        palmGuardMethodChannel = new MethodChannel(
+                flutterEngine.getDartExecutor().getBinaryMessenger(),
+                PALM_GUARD_CHANNEL
+        );
+        palmGuardMethodChannel.setMethodCallHandler(handler);
+
+        palmGuardCoreMethodChannel = new MethodChannel(
+                flutterEngine.getDartExecutor().getBinaryMessenger(),
+                PALM_GUARD_CORE_CHANNEL
+        );
+        palmGuardCoreMethodChannel.setMethodCallHandler(handler);
+
+        audioSyncChannel = new AudioSyncChannel(this);
+        MethodChannel audioChannel = new MethodChannel(
+                flutterEngine.getDartExecutor().getBinaryMessenger(),
+                AUDIO_SYNC_CHANNEL
+        );
+        audioChannel.setMethodCallHandler(audioSyncChannel);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (audioSyncChannel != null) {
+            audioSyncChannel.onRequestPermissionsResult(requestCode, grantResults);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (audioSyncChannel != null) {
+            audioSyncChannel.dispose();
+        }
+        super.onDestroy();
+    }
+}

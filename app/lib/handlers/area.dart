@@ -1,0 +1,399 @@
+part of 'handler.dart';
+
+class AreaHandler extends Handler<AreaTool> {
+  final _selectionManager = RectSelectionForegroundManager(
+    enableRotation: false,
+  );
+  Offset? _start, _end;
+  bool _centered = false;
+  Area? _currentArea;
+
+  AreaHandler(super.data);
+
+  Rect? getSelectionRect() => _currentArea?.rect;
+  void _setCurrentArea(Area? area) {
+    _currentArea = area;
+    _selectionManager.select(area?.rect);
+  }
+
+  void _updateSelectionRect() => _selectionManager.select(getSelectionRect());
+
+  @override
+  void onDocumentUpdated(
+    DocumentLoadSuccess state,
+    DocumentLoadSuccess? oldState,
+  ) {
+    final area = _currentArea;
+    if (area == null) return;
+    final updatedArea = state.page.getAreaByName(area.name);
+    final oldArea = oldState?.page.getAreaByName(area.name);
+    if (oldState != null && oldArea == updatedArea && area == updatedArea) {
+      return;
+    }
+    _setCurrentArea(updatedArea);
+  }
+
+  Rect? get currentRect {
+    if (_start == null || _end == null) return null;
+    if (_centered) {
+      final delta = _end! - _start!;
+      return Rect.fromPoints(_start! - delta, _start! + delta);
+    }
+    return Rect.fromPoints(_start!, _end!);
+  }
+
+  set currentRect(Rect? value) {
+    _start = value?.topLeft;
+    _end = value?.bottomRight;
+    if (value == null) _centered = false;
+  }
+
+  void _startArea(Offset position, bool centered) {
+    _start = position;
+    _end = null;
+    _centered = centered;
+  }
+
+  void _updateArea() {
+    final area = _currentArea;
+    final transform = _selectionManager.getTransform();
+    final rect = _selectionManager.selection;
+    if (area == null || transform == null) return;
+    _currentArea = area.copyWith(
+      position: (rect.topLeft + transform.position).toPoint(),
+      width: rect.width * transform.scaleX,
+      height: rect.height * transform.scaleY,
+    );
+  }
+
+  @override
+  bool canChange(PointerDownEvent event, EventContext context) =>
+      event.kind == .mouse && event.buttons != kSecondaryMouseButton;
+
+  @override
+  List<Renderer> createForegrounds(
+    EditorController editorController,
+    NoteData document,
+    DocumentPage page,
+    DocumentInfo info, [
+    Area? currentArea,
+  ]) {
+    final rect = currentRect;
+    final visibleAreas = currentArea == null
+        ? page.areas
+        : page.areas.where((area) => area.rect.overlaps(currentArea.rect));
+    return [
+      ...visibleAreas
+          .where((element) => element.name != _currentArea?.name)
+          .map((e) => AreaForegroundRenderer(e)),
+      if (_currentArea != null) AreaForegroundRenderer(_currentArea!),
+      if (rect != null)
+        AreaForegroundRenderer(
+          Area(
+            width: rect.width,
+            height: rect.height,
+            position: rect.topLeft.toPoint(),
+            color: data.color,
+          ),
+        ),
+      _selectionManager.renderer,
+    ];
+  }
+
+  @override
+  void resetInput(DocumentBloc bloc) {
+    currentRect = null;
+    _setCurrentArea(null);
+  }
+
+  @override
+  void onPointerHover(PointerHoverEvent event, EventContext context) {
+    final transform = context.getCameraTransform();
+    _selectionManager.updateCurrentPosition(
+      transform.localToGlobal(event.localPosition),
+    );
+    _selectionManager.updateCursor(
+      transform.size,
+      context.getSettings().touchSensitivity,
+      transform.rotation,
+    );
+    context.refreshForegrounds();
+  }
+
+  @override
+  void onScaleStartAbort(ScaleStartDetails details, EventContext context) {
+    currentRect = null;
+    context.refreshForegrounds();
+  }
+
+  @override
+  bool onScaleStart(ScaleStartDetails details, EventContext context) {
+    final toolState = context.getToolState();
+    final inputState = context.getInputState();
+    if (inputState.buttons == kSecondaryMouseButton &&
+        toolState.temporaryHandler == null) {
+      return true;
+    }
+    final transform = context.getCameraTransform();
+    var localPos = details.localFocalPoint;
+    localPos = PointerManipulationHandler.calculatePointerPosition(
+      toolState,
+      localPos,
+      context.viewportSize,
+      transform,
+    );
+    final globalPos = transform.localToGlobal(localPos);
+    if (_selectionManager.isValid) {
+      final startedTransform = _selectionManager.startTransform(
+        globalPos,
+        transform.size,
+        context.getSettings().touchSensitivity,
+      );
+      if (!startedTransform) {
+        _setCurrentArea(null);
+        _startArea(globalPos, context.isAltPressed);
+      }
+      context.refreshForegrounds();
+      return true;
+    }
+
+    _startArea(globalPos, context.isAltPressed);
+    return true;
+  }
+
+  @override
+  void onScaleUpdate(ScaleUpdateDetails details, EventContext context) {
+    final transform = context.getCameraTransform();
+    final currentIndex = context.getToolState();
+    var localPos = details.localFocalPoint;
+    localPos = PointerManipulationHandler.calculatePointerPosition(
+      currentIndex,
+      localPos,
+      context.viewportSize,
+      transform,
+    );
+    var globalPos = transform.localToGlobal(localPos);
+    if (_selectionManager.isTransforming) {
+      _selectionManager.updateModifiers(
+        proportional: context.isShiftPressed,
+        centered: context.isAltPressed,
+      );
+      _selectionManager.updateCurrentPosition(globalPos);
+      _updateArea();
+      context.refreshForegrounds();
+      return;
+    }
+    final start = _start;
+    if (start == null) return;
+    final hasConstrainedWidth = data.constrainedWidth != 0;
+    final hasConstrainedHeight = data.constrainedHeight != 0;
+    final constrainedAspectRatio = context.isShiftPressed
+        ? (data.constrainedAspectRatio == 0 ? 1.0 : 0.0)
+        : data.constrainedAspectRatio;
+    final hasConstrainedAspectRatio = constrainedAspectRatio != 0;
+    if (hasConstrainedWidth) {
+      final direction = (globalPos.dx - start.dx).sign;
+      final width = data.constrainedWidth * (direction == 0 ? 1 : direction);
+      globalPos = Offset(width + start.dx, globalPos.dy);
+    }
+    if (hasConstrainedHeight) {
+      final direction = (globalPos.dy - start.dy).sign;
+      final height = data.constrainedHeight * (direction == 0 ? 1 : direction);
+      globalPos = Offset(globalPos.dx, height + start.dy);
+    }
+    if (hasConstrainedAspectRatio) {
+      final aspectRatio = constrainedAspectRatio;
+      final width = (globalPos.dx - start.dx).abs();
+      final height = (globalPos.dy - start.dy).abs();
+      final xDirection = (globalPos.dx - start.dx).sign;
+      final yDirection = (globalPos.dy - start.dy).sign;
+      if (hasConstrainedWidth && !hasConstrainedHeight) {
+        globalPos = Offset(
+          globalPos.dx,
+          start.dy + width / aspectRatio * (yDirection == 0 ? 1 : yDirection),
+        );
+      } else if (hasConstrainedHeight && !hasConstrainedWidth) {
+        globalPos = Offset(
+          start.dx + height * aspectRatio * (xDirection == 0 ? 1 : xDirection),
+          globalPos.dy,
+        );
+      } else if (!hasConstrainedWidth && !hasConstrainedHeight) {
+        final currentAspectRatio = width / height;
+        if (currentAspectRatio < aspectRatio) {
+          globalPos = Offset(
+            start.dx +
+                height * aspectRatio * (xDirection == 0 ? 1 : xDirection),
+            globalPos.dy,
+          );
+        } else {
+          globalPos = Offset(
+            globalPos.dx,
+            start.dy + width / aspectRatio * (yDirection == 0 ? 1 : yDirection),
+          );
+        }
+      }
+    }
+    _centered = context.isAltPressed;
+    _end = globalPos;
+    context.refreshForegrounds();
+  }
+
+  @override
+  Future<void> onScaleEnd(ScaleEndDetails details, EventContext context) async {
+    final rect = currentRect;
+    if (_selectionManager.isValid) {
+      final transform = _selectionManager.getTransform();
+      final moved =
+          _selectionManager.isMoving &&
+          transform != null &&
+          transform.position != .zero;
+      _updateArea();
+      final area = _currentArea;
+      if (area != null) {
+        context.getDocumentBloc().add(AreaChanged(area.name, area, moved));
+      }
+      _selectionManager.resetTransform();
+      _updateSelectionRect();
+      context.refresh();
+      return;
+    }
+    final state = context.getState();
+    if (state == null || rect == null) return;
+    context.refresh();
+    final name = await createAreaName(
+      context.buildContext,
+      state.page,
+      data.askForName,
+    );
+    if (name == null || name.isEmpty) return;
+    currentRect = null;
+    context.getDocumentBloc().add(
+      AreasCreated([
+        AreaPreset(
+          area: Area(
+            width: rect.width,
+            height: rect.height,
+            position: rect.topLeft.toPoint(),
+            name: name,
+            color: data.color,
+          ),
+        ),
+      ]),
+    );
+    context.refresh();
+  }
+
+  bool _startLongPress = false;
+
+  @override
+  void onLongPressDown(LongPressDownDetails details, EventContext context) {
+    _startLongPress = details.kind != .mouse;
+  }
+
+  @override
+  void onLongPressEnd(LongPressEndDetails details, EventContext context) {
+    if (!_startLongPress) return;
+    _inspectArea(details.localPosition, context);
+  }
+
+  @override
+  void onTapUp(TapUpDetails details, EventContext context) {
+    _setCurrentArea(
+      context.getPage()?.getArea(
+        context.getCameraTransform().localToGlobal(details.localPosition),
+      ),
+    );
+    context.refresh();
+  }
+
+  @override
+  void onSecondaryTapUp(TapUpDetails details, EventContext context) =>
+      _inspectArea(details.localPosition, context);
+
+  Future<void> _inspectArea(Offset localPosition, EventContext context) async {
+    final state = context.getState();
+    if (state == null) return;
+    final zoom = context.getCameraTransform().size;
+    final distance = context.getSettings().selectSensitivity / zoom;
+    final globalPosition = context.getCameraTransform().localToGlobal(
+      localPosition,
+    );
+    final areas = state.page.getAreas(globalPosition, distance);
+    var area = areas.firstOrNull ?? state.currentArea;
+    if (_selectionManager.isValid) {
+      if (_selectionManager.selection.contains(globalPosition)) {
+        area = _currentArea;
+      }
+      _setCurrentArea(null);
+    }
+    if (area == null) return;
+    if (areas.length > 1) {
+      area = await showDialog<Area>(
+        context: context.buildContext,
+        builder: (context) => AlertDialog(
+          title: Text(AppLocalizations.of(context).selectArea),
+          scrollable: true,
+          content: Column(
+            children: areas
+                .map(
+                  (e) => ListTile(
+                    title: Text(e.name),
+                    onTap: () => Navigator.of(context).pop(e),
+                  ),
+                )
+                .toList(),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+            ),
+          ],
+        ),
+      );
+      if (area == null) return;
+    }
+    var buildContext = context.buildContext;
+    if (buildContext.mounted) {
+      await _openAreaContextMenu(buildContext, localPosition, area);
+      context.refresh();
+    }
+  }
+
+  Future<void> _openAreaContextMenu(
+    BuildContext context,
+    Offset localPosition,
+    Area area,
+  ) async {
+    final bloc = context.read<DocumentBloc>();
+    final settingsCubit = context.read<SettingsCubit>();
+    final state = bloc.state;
+    if (state is! DocumentLoadSuccess) return;
+    return showContextMenu(
+      context: context,
+      position: localPosition,
+      builder: buildAreaContextMenu(bloc, state, area, settingsCubit),
+    );
+  }
+
+  @override
+  MouseCursor? get cursor => _selectionManager.cursor;
+}
+
+Future<String?> createAreaName(
+  BuildContext context,
+  DocumentPage page, [
+  bool askForName = true,
+]) async {
+  String? name = page.createAreaName(context);
+  if (askForName) {
+    name = await showDialog<String>(
+      context: context,
+      builder: (_) => NameDialog(
+        value: name,
+        validator: defaultNameValidator(context, page.getAreaNames().toList()),
+      ),
+    );
+  }
+  return name;
+}

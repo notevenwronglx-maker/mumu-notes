@@ -1,0 +1,249 @@
+import 'dart:typed_data';
+
+import 'package:butterfly/api/file_system.dart';
+import 'package:butterfly/views/files/list.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+import 'package:lw_file_system/lw_file_system.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:butterfly/widgets/file_name_display.dart';
+
+class FileEntityGridItem extends StatelessWidget {
+  final String? modifiedText, createdText;
+  final bool active, editable, collapsed;
+  final bool? selected;
+  final Widget actionButton;
+  final PhosphorIconData icon;
+  final VoidCallback onTap, onDelete;
+  final ValueChanged<bool> onEdit, onSelectedChanged;
+  final Future<void> Function(String) onRename;
+  final Uint8List? thumbnail;
+  final FileSystemEntity<NoteFile> entity;
+  final TextEditingController nameController;
+
+  const FileEntityGridItem({
+    super.key,
+    this.createdText,
+    this.modifiedText,
+    this.selected = false,
+    this.active = false,
+    this.editable = false,
+    this.collapsed = false,
+    required this.actionButton,
+    required this.icon,
+    required this.onTap,
+    required this.onDelete,
+    required this.onEdit,
+    required this.onRename,
+    required this.onSelectedChanged,
+    this.thumbnail,
+    required this.entity,
+    required this.nameController,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = ColorScheme.of(context);
+    final highlighted = active || selected == true;
+    final fileSystem = context.read<ButterflyFileSystem>();
+    final settingsCubit = fileSystem.settingsCubit;
+    final remote = settingsCubit.getRemote(entity.location.remote);
+    final leading = Align(
+      alignment: Alignment.bottomCenter,
+      child: PhosphorIcon(icon, color: colorScheme.outline, size: 48),
+    );
+    return Card(
+      elevation: 5,
+      color: highlighted ? colorScheme.surfaceContainerHighest : null,
+      shape: RoundedRectangleBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        side: active
+            ? BorderSide(color: colorScheme.primaryContainer, width: 1)
+            : BorderSide.none,
+      ),
+      surfaceTintColor: highlighted
+          ? colorScheme.surfaceContainerHighest
+          : colorScheme.secondaryContainer,
+      clipBehavior: .hardEdge,
+      child: InkWell(
+        onTap: onTap,
+        highlightColor: active ? colorScheme.primaryContainer : null,
+        child: SizedBox(
+          width: 160,
+          height: 192,
+          child: Column(
+            crossAxisAlignment: .stretch,
+            children: [
+              Stack(
+                children: [
+                  Center(
+                    child: Container(
+                      height: 96,
+                      padding: const EdgeInsets.only(
+                        left: 4,
+                        right: 4,
+                        top: 4,
+                        bottom: 2,
+                      ),
+                      child: thumbnail != null
+                          ? AspectRatio(
+                              aspectRatio: kThumbnailRatio,
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(8),
+                                ),
+                                child: Image.memory(
+                                  thumbnail!,
+                                  fit: .cover,
+                                  gaplessPlayback: true,
+                                  cacheHeight: kThumbnailHeight,
+                                  cacheWidth: kThumbnailWidth,
+                                  errorBuilder: (context, error, stackTrace) =>
+                                      leading,
+                                ),
+                              ),
+                            )
+                          : leading,
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional.topEnd,
+                    child: actionButton,
+                  ),
+                  if (remote is RemoteStorage)
+                    Align(
+                      alignment: AlignmentDirectional.bottomStart,
+                      child: FileSyncStatusButton(
+                        remote: remote,
+                        location: entity.location,
+                        directory: entity is FileSystemDirectory,
+                      ),
+                    ),
+                  if (selected != null)
+                    Align(
+                      alignment: AlignmentDirectional.topStart,
+                      child: Checkbox(
+                        value: selected,
+                        onChanged: (value) => onSelectedChanged(value ?? false),
+                      ),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 4,
+                    horizontal: 12,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: .end,
+                    crossAxisAlignment: .stretch,
+                    children: [
+                      SizedBox(
+                        height: 16,
+                        child: modifiedText != null
+                            ? Tooltip(
+                                message: AppLocalizations.of(context).modified,
+                                child: Row(
+                                  children: [
+                                    PhosphorIcon(
+                                      PhosphorIconsLight.clockCounterClockwise,
+                                      size: 12,
+                                      color: colorScheme.outline,
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      modifiedText!,
+                                      style: TextTheme.of(context).bodySmall
+                                          ?.copyWith(
+                                            color: colorScheme.outline,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : null,
+                      ),
+                      SizedBox(
+                        height: 16,
+                        child: createdText != null
+                            ? Tooltip(
+                                message: AppLocalizations.of(context).created,
+                                child: Row(
+                                  children: [
+                                    PhosphorIcon(
+                                      PhosphorIconsLight.plus,
+                                      size: 12,
+                                      color: colorScheme.outline,
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      createdText!,
+                                      style: TextTheme.of(context).bodySmall
+                                          ?.copyWith(
+                                            color: colorScheme.outline,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : null,
+                      ),
+                      const SizedBox(height: 8),
+                      SizedBox(
+                        height: 32,
+                        child: editable
+                            ? ConstrainedBox(
+                                constraints: const BoxConstraints(
+                                  maxWidth: 200,
+                                ),
+                                child: TextField(
+                                  controller: nameController,
+                                  autofocus: true,
+                                  style: TextTheme.of(context).labelLarge,
+                                  onSubmitted: onRename,
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    hintText: AppLocalizations.of(context)
+                                        .enterText,
+                                    suffix: IconButton(
+                                      onPressed: () =>
+                                          onRename(nameController.text),
+                                      icon: const PhosphorIcon(
+                                        PhosphorIconsLight.check,
+                                        textDirection: .ltr,
+                                      ),
+                                      tooltip: AppLocalizations.of(context)
+                                          .save,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : Align(
+                                alignment: Alignment.centerLeft,
+                                child: Tooltip(
+                                  message: entity.fileName,
+                                  child: GestureDetector(
+                                    onDoubleTap: () => onEdit(true),
+                                    child: FileNameDisplay(
+                                      entity: entity,
+                                      style: TextTheme.of(context).labelLarge,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

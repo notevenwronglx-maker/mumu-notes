@@ -1,0 +1,1397 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'text.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format off
+T _$identity<T>(T value) => value;
+SpanProperty _$SpanPropertyFromJson(
+  Map<String, dynamic> json
+) {
+        switch (json['type']) {
+                  case 'defined':
+          return DefinedSpanProperty.fromJson(
+            json
+          );
+                case 'named':
+          return NamedSpanProperty.fromJson(
+            json
+          );
+                case 'undefined':
+          return UndefinedSpanProperty.fromJson(
+            json
+          );
+        
+          default:
+            throw CheckedFromJsonException(
+  json,
+  'type',
+  'SpanProperty',
+  'Invalid union type "${json['type']}"!'
+);
+        }
+      
+}
+
+/// @nodoc
+mixin _$SpanProperty {
+
+
+
+  /// Serializes this SpanProperty to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SpanProperty);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+    return 'SpanProperty()';
+}
+
+
+}
+
+/// @nodoc
+class $SpanPropertyCopyWith<$Res>  {
+$SpanPropertyCopyWith(SpanProperty _, $Res Function(SpanProperty) __);
+}
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class DefinedSpanProperty implements SpanProperty {
+  const DefinedSpanProperty({this.size, @ColorJsonConverter() this.color, this.fontWeight, this.lineThrough, this.underline, this.overline, this.italic, this.letterSpacing, @ColorJsonConverter() this.decorationColor, this.decorationStyle, this.decorationThickness, @ColorJsonConverter() this.backgroundColor,  String? $type}): $type = $type ?? 'defined';
+  factory DefinedSpanProperty.fromJson(Map<String, dynamic> json) => _$DefinedSpanPropertyFromJson(json);
+
+ final  double? size;
+@ColorJsonConverter() final  SRGBColor? color;
+ final  int? fontWeight;
+ final  bool? lineThrough;
+ final  bool? underline;
+ final  bool? overline;
+ final  bool? italic;
+ final  double? letterSpacing;
+@ColorJsonConverter() final  SRGBColor? decorationColor;
+ final  TextDecorationStyle? decorationStyle;
+ final  double? decorationThickness;
+@ColorJsonConverter() final  SRGBColor? backgroundColor;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of SpanProperty
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DefinedSpanPropertyCopyWith<DefinedSpanProperty> get copyWith => _$DefinedSpanPropertyCopyWithImpl<DefinedSpanProperty>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DefinedSpanPropertyToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DefinedSpanProperty&&(identical(other.size, size) || other.size == size)&&(identical(other.color, color) || other.color == color)&&(identical(other.fontWeight, fontWeight) || other.fontWeight == fontWeight)&&(identical(other.lineThrough, lineThrough) || other.lineThrough == lineThrough)&&(identical(other.underline, underline) || other.underline == underline)&&(identical(other.overline, overline) || other.overline == overline)&&(identical(other.italic, italic) || other.italic == italic)&&(identical(other.letterSpacing, letterSpacing) || other.letterSpacing == letterSpacing)&&(identical(other.decorationColor, decorationColor) || other.decorationColor == decorationColor)&&(identical(other.decorationStyle, decorationStyle) || other.decorationStyle == decorationStyle)&&(identical(other.decorationThickness, decorationThickness) || other.decorationThickness == decorationThickness)&&(identical(other.backgroundColor, backgroundColor) || other.backgroundColor == backgroundColor));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,size,color,fontWeight,lineThrough,underline,overline,italic,letterSpacing,decorationColor,decorationStyle,decorationThickness,backgroundColor);
+}
+
+@override
+String toString() {
+    return 'SpanProperty.defined(size: $size, color: $color, fontWeight: $fontWeight, lineThrough: $lineThrough, underline: $underline, overline: $overline, italic: $italic, letterSpacing: $letterSpacing, decorationColor: $decorationColor, decorationStyle: $decorationStyle, decorationThickness: $decorationThickness, backgroundColor: $backgroundColor)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DefinedSpanPropertyCopyWith<$Res> implements $SpanPropertyCopyWith<$Res> {
+  factory $DefinedSpanPropertyCopyWith(DefinedSpanProperty value, $Res Function(DefinedSpanProperty) _then) = _$DefinedSpanPropertyCopyWithImpl;
+@useResult
+$Res call({
+ double? size,@ColorJsonConverter() SRGBColor? color, int? fontWeight, bool? lineThrough, bool? underline, bool? overline, bool? italic, double? letterSpacing,@ColorJsonConverter() SRGBColor? decorationColor, TextDecorationStyle? decorationStyle, double? decorationThickness,@ColorJsonConverter() SRGBColor? backgroundColor
+});
+
+
+
+
+}
+/// @nodoc
+class _$DefinedSpanPropertyCopyWithImpl<$Res>
+    implements $DefinedSpanPropertyCopyWith<$Res> {
+  _$DefinedSpanPropertyCopyWithImpl(this._self, this._then);
+
+  final DefinedSpanProperty _self;
+  final $Res Function(DefinedSpanProperty) _then;
+
+/// Create a copy of SpanProperty
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? size = freezed,Object? color = freezed,Object? fontWeight = freezed,Object? lineThrough = freezed,Object? underline = freezed,Object? overline = freezed,Object? italic = freezed,Object? letterSpacing = freezed,Object? decorationColor = freezed,Object? decorationStyle = freezed,Object? decorationThickness = freezed,Object? backgroundColor = freezed,}) {
+  return _then(DefinedSpanProperty(
+size: freezed == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
+as double?,color: freezed == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
+as SRGBColor?,fontWeight: freezed == fontWeight ? _self.fontWeight : fontWeight // ignore: cast_nullable_to_non_nullable
+as int?,lineThrough: freezed == lineThrough ? _self.lineThrough : lineThrough // ignore: cast_nullable_to_non_nullable
+as bool?,underline: freezed == underline ? _self.underline : underline // ignore: cast_nullable_to_non_nullable
+as bool?,overline: freezed == overline ? _self.overline : overline // ignore: cast_nullable_to_non_nullable
+as bool?,italic: freezed == italic ? _self.italic : italic // ignore: cast_nullable_to_non_nullable
+as bool?,letterSpacing: freezed == letterSpacing ? _self.letterSpacing : letterSpacing // ignore: cast_nullable_to_non_nullable
+as double?,decorationColor: freezed == decorationColor ? _self.decorationColor : decorationColor // ignore: cast_nullable_to_non_nullable
+as SRGBColor?,decorationStyle: freezed == decorationStyle ? _self.decorationStyle : decorationStyle // ignore: cast_nullable_to_non_nullable
+as TextDecorationStyle?,decorationThickness: freezed == decorationThickness ? _self.decorationThickness : decorationThickness // ignore: cast_nullable_to_non_nullable
+as double?,backgroundColor: freezed == backgroundColor ? _self.backgroundColor : backgroundColor // ignore: cast_nullable_to_non_nullable
+as SRGBColor?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class NamedSpanProperty implements SpanProperty {
+  const NamedSpanProperty(this.name, { String? $type}): $type = $type ?? 'named';
+  factory NamedSpanProperty.fromJson(Map<String, dynamic> json) => _$NamedSpanPropertyFromJson(json);
+
+ final  String name;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of SpanProperty
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NamedSpanPropertyCopyWith<NamedSpanProperty> get copyWith => _$NamedSpanPropertyCopyWithImpl<NamedSpanProperty>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$NamedSpanPropertyToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NamedSpanProperty&&(identical(other.name, name) || other.name == name));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,name);
+}
+
+@override
+String toString() {
+    return 'SpanProperty.named(name: $name)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $NamedSpanPropertyCopyWith<$Res> implements $SpanPropertyCopyWith<$Res> {
+  factory $NamedSpanPropertyCopyWith(NamedSpanProperty value, $Res Function(NamedSpanProperty) _then) = _$NamedSpanPropertyCopyWithImpl;
+@useResult
+$Res call({
+ String name
+});
+
+
+
+
+}
+/// @nodoc
+class _$NamedSpanPropertyCopyWithImpl<$Res>
+    implements $NamedSpanPropertyCopyWith<$Res> {
+  _$NamedSpanPropertyCopyWithImpl(this._self, this._then);
+
+  final NamedSpanProperty _self;
+  final $Res Function(NamedSpanProperty) _then;
+
+/// Create a copy of SpanProperty
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? name = null,}) {
+  return _then(NamedSpanProperty(
+null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class UndefinedSpanProperty implements SpanProperty {
+  const UndefinedSpanProperty({ String? $type}): $type = $type ?? 'undefined';
+  factory UndefinedSpanProperty.fromJson(Map<String, dynamic> json) => _$UndefinedSpanPropertyFromJson(json);
+
+
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$UndefinedSpanPropertyToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UndefinedSpanProperty);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+    return 'SpanProperty.undefined()';
+}
+
+
+}
+
+
+
+
+ParagraphProperty _$ParagraphPropertyFromJson(
+  Map<String, dynamic> json
+) {
+        switch (json['type']) {
+                  case 'defined':
+          return DefinedParagraphProperty.fromJson(
+            json
+          );
+                case 'named':
+          return NamedParagraphProperty.fromJson(
+            json
+          );
+                case 'undefined':
+          return UndefinedParagraphProperty.fromJson(
+            json
+          );
+        
+          default:
+            throw CheckedFromJsonException(
+  json,
+  'type',
+  'ParagraphProperty',
+  'Invalid union type "${json['type']}"!'
+);
+        }
+      
+}
+
+/// @nodoc
+mixin _$ParagraphProperty {
+
+
+
+  /// Serializes this ParagraphProperty to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParagraphProperty);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+    return 'ParagraphProperty()';
+}
+
+
+}
+
+/// @nodoc
+class $ParagraphPropertyCopyWith<$Res>  {
+$ParagraphPropertyCopyWith(ParagraphProperty _, $Res Function(ParagraphProperty) __);
+}
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class DefinedParagraphProperty implements ParagraphProperty {
+  const DefinedParagraphProperty({this.span = const DefinedSpanProperty(), this.alignment = HorizontalAlignment.left,  String? $type}): $type = $type ?? 'defined';
+  factory DefinedParagraphProperty.fromJson(Map<String, dynamic> json) => _$DefinedParagraphPropertyFromJson(json);
+
+@JsonKey() final  DefinedSpanProperty span;
+@JsonKey() final  HorizontalAlignment alignment;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of ParagraphProperty
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DefinedParagraphPropertyCopyWith<DefinedParagraphProperty> get copyWith => _$DefinedParagraphPropertyCopyWithImpl<DefinedParagraphProperty>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DefinedParagraphPropertyToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DefinedParagraphProperty&&const DeepCollectionEquality().equals(other.span, span)&&(identical(other.alignment, alignment) || other.alignment == alignment));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(span),alignment);
+}
+
+@override
+String toString() {
+    return 'ParagraphProperty.defined(span: $span, alignment: $alignment)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DefinedParagraphPropertyCopyWith<$Res> implements $ParagraphPropertyCopyWith<$Res> {
+  factory $DefinedParagraphPropertyCopyWith(DefinedParagraphProperty value, $Res Function(DefinedParagraphProperty) _then) = _$DefinedParagraphPropertyCopyWithImpl;
+@useResult
+$Res call({
+ DefinedSpanProperty span, HorizontalAlignment alignment
+});
+
+
+
+
+}
+/// @nodoc
+class _$DefinedParagraphPropertyCopyWithImpl<$Res>
+    implements $DefinedParagraphPropertyCopyWith<$Res> {
+  _$DefinedParagraphPropertyCopyWithImpl(this._self, this._then);
+
+  final DefinedParagraphProperty _self;
+  final $Res Function(DefinedParagraphProperty) _then;
+
+/// Create a copy of ParagraphProperty
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? span = freezed,Object? alignment = null,}) {
+  return _then(DefinedParagraphProperty(
+span: freezed == span ? _self.span : span // ignore: cast_nullable_to_non_nullable
+as DefinedSpanProperty,alignment: null == alignment ? _self.alignment : alignment // ignore: cast_nullable_to_non_nullable
+as HorizontalAlignment,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class NamedParagraphProperty implements ParagraphProperty {
+  const NamedParagraphProperty(this.name, { String? $type}): $type = $type ?? 'named';
+  factory NamedParagraphProperty.fromJson(Map<String, dynamic> json) => _$NamedParagraphPropertyFromJson(json);
+
+ final  String name;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of ParagraphProperty
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$NamedParagraphPropertyCopyWith<NamedParagraphProperty> get copyWith => _$NamedParagraphPropertyCopyWithImpl<NamedParagraphProperty>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$NamedParagraphPropertyToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NamedParagraphProperty&&(identical(other.name, name) || other.name == name));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,name);
+}
+
+@override
+String toString() {
+    return 'ParagraphProperty.named(name: $name)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $NamedParagraphPropertyCopyWith<$Res> implements $ParagraphPropertyCopyWith<$Res> {
+  factory $NamedParagraphPropertyCopyWith(NamedParagraphProperty value, $Res Function(NamedParagraphProperty) _then) = _$NamedParagraphPropertyCopyWithImpl;
+@useResult
+$Res call({
+ String name
+});
+
+
+
+
+}
+/// @nodoc
+class _$NamedParagraphPropertyCopyWithImpl<$Res>
+    implements $NamedParagraphPropertyCopyWith<$Res> {
+  _$NamedParagraphPropertyCopyWithImpl(this._self, this._then);
+
+  final NamedParagraphProperty _self;
+  final $Res Function(NamedParagraphProperty) _then;
+
+/// Create a copy of ParagraphProperty
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? name = null,}) {
+  return _then(NamedParagraphProperty(
+null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class UndefinedParagraphProperty implements ParagraphProperty {
+  const UndefinedParagraphProperty({ String? $type}): $type = $type ?? 'undefined';
+  factory UndefinedParagraphProperty.fromJson(Map<String, dynamic> json) => _$UndefinedParagraphPropertyFromJson(json);
+
+
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+
+@override
+Map<String, dynamic> toJson() {
+  return _$UndefinedParagraphPropertyToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is UndefinedParagraphProperty);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+    return 'ParagraphProperty.undefined()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+mixin _$AreaProperty {
+
+
+/// Create a copy of AreaProperty
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AreaPropertyCopyWith<AreaProperty> get copyWith => _$AreaPropertyCopyWithImpl<AreaProperty>(this as AreaProperty, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as AreaProperty;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AreaProperty&&(identical(other.alignment, _this.alignment) || other.alignment == _this.alignment));
+}
+
+
+@override
+int get hashCode {
+  final _this = this as AreaProperty;
+  return Object.hash(runtimeType,_this.alignment);
+}
+
+@override
+String toString() {
+  final _this = this as AreaProperty;
+  return 'AreaProperty(alignment: ${_this.alignment})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AreaPropertyCopyWith<$Res>  {
+  factory $AreaPropertyCopyWith(AreaProperty value, $Res Function(AreaProperty) _then) = _$AreaPropertyCopyWithImpl;
+@useResult
+$Res call({
+ VerticalAlignment alignment
+});
+
+
+
+
+}
+/// @nodoc
+class _$AreaPropertyCopyWithImpl<$Res>
+    implements $AreaPropertyCopyWith<$Res> {
+  _$AreaPropertyCopyWithImpl(this._self, this._then);
+
+  final AreaProperty _self;
+  final $Res Function(AreaProperty) _then;
+
+/// Create a copy of AreaProperty
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? alignment = null,}) {
+  return _then(AreaProperty(
+alignment: null == alignment ? _self.alignment : alignment // ignore: cast_nullable_to_non_nullable
+as VerticalAlignment,
+  ));
+}
+
+}
+
+
+
+InlineSpan _$InlineSpanFromJson(
+  Map<String, dynamic> json
+) {
+        switch (json['type']) {
+                  case 'text':
+          return TextSpan.fromJson(
+            json
+          );
+                case 'math':
+          return MathTextSpan.fromJson(
+            json
+          );
+        
+          default:
+            throw CheckedFromJsonException(
+  json,
+  'type',
+  'InlineSpan',
+  'Invalid union type "${json['type']}"!'
+);
+        }
+      
+}
+
+/// @nodoc
+mixin _$InlineSpan {
+
+ String get text; SpanProperty get property;
+/// Create a copy of InlineSpan
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$InlineSpanCopyWith<InlineSpan> get copyWith => _$InlineSpanCopyWithImpl<InlineSpan>(this as InlineSpan, _$identity);
+
+  /// Serializes this InlineSpan to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as InlineSpan;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is InlineSpan&&(identical(other.text, _this.text) || other.text == _this.text)&&(identical(other.property, _this.property) || other.property == _this.property));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as InlineSpan;
+  return Object.hash(runtimeType,_this.text,_this.property);
+}
+
+@override
+String toString() {
+  final _this = this as InlineSpan;
+  return 'InlineSpan(text: ${_this.text}, property: ${_this.property})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $InlineSpanCopyWith<$Res>  {
+  factory $InlineSpanCopyWith(InlineSpan value, $Res Function(InlineSpan) _then) = _$InlineSpanCopyWithImpl;
+@useResult
+$Res call({
+ String text, SpanProperty property
+});
+
+
+$SpanPropertyCopyWith<$Res> get property;
+
+}
+/// @nodoc
+class _$InlineSpanCopyWithImpl<$Res>
+    implements $InlineSpanCopyWith<$Res> {
+  _$InlineSpanCopyWithImpl(this._self, this._then);
+
+  final InlineSpan _self;
+  final $Res Function(InlineSpan) _then;
+
+/// Create a copy of InlineSpan
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? text = null,Object? property = null,}) {
+  return _then(_self.copyWith(
+text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
+as String,property: null == property ? _self.property : property // ignore: cast_nullable_to_non_nullable
+as SpanProperty,
+  ));
+}
+/// Create a copy of InlineSpan
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SpanPropertyCopyWith<$Res> get property {
+  
+  return $SpanPropertyCopyWith<$Res>(_self.property, (value) {
+    return _then(_self.copyWith(property: value));
+  });
+}
+}
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class TextSpan extends InlineSpan {
+  const TextSpan({this.text = '', this.property = const SpanProperty.undefined(),  String? $type}): $type = $type ?? 'text',super._();
+  factory TextSpan.fromJson(Map<String, dynamic> json) => _$TextSpanFromJson(json);
+
+@override@JsonKey() final  String text;
+@override@JsonKey() final  SpanProperty property;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of InlineSpan
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TextSpanCopyWith<TextSpan> get copyWith => _$TextSpanCopyWithImpl<TextSpan>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TextSpanToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is TextSpan&&(identical(other.text, text) || other.text == text)&&(identical(other.property, property) || other.property == property));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,text,property);
+}
+
+@override
+String toString() {
+    return 'InlineSpan.text(text: $text, property: $property)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $TextSpanCopyWith<$Res> implements $InlineSpanCopyWith<$Res> {
+  factory $TextSpanCopyWith(TextSpan value, $Res Function(TextSpan) _then) = _$TextSpanCopyWithImpl;
+@override @useResult
+$Res call({
+ String text, SpanProperty property
+});
+
+
+@override $SpanPropertyCopyWith<$Res> get property;
+
+}
+/// @nodoc
+class _$TextSpanCopyWithImpl<$Res>
+    implements $TextSpanCopyWith<$Res> {
+  _$TextSpanCopyWithImpl(this._self, this._then);
+
+  final TextSpan _self;
+  final $Res Function(TextSpan) _then;
+
+/// Create a copy of InlineSpan
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? text = null,Object? property = null,}) {
+  return _then(TextSpan(
+text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
+as String,property: null == property ? _self.property : property // ignore: cast_nullable_to_non_nullable
+as SpanProperty,
+  ));
+}
+
+/// Create a copy of InlineSpan
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SpanPropertyCopyWith<$Res> get property {
+  
+  return $SpanPropertyCopyWith<$Res>(_self.property, (value) {
+    return _then(_self.copyWith(property: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class MathTextSpan extends InlineSpan {
+  const MathTextSpan({this.text = '', this.property = const SpanProperty.undefined(),  String? $type}): $type = $type ?? 'math',super._();
+  factory MathTextSpan.fromJson(Map<String, dynamic> json) => _$MathTextSpanFromJson(json);
+
+@override@JsonKey() final  String text;
+@override@JsonKey() final  SpanProperty property;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of InlineSpan
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MathTextSpanCopyWith<MathTextSpan> get copyWith => _$MathTextSpanCopyWithImpl<MathTextSpan>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$MathTextSpanToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is MathTextSpan&&(identical(other.text, text) || other.text == text)&&(identical(other.property, property) || other.property == property));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,text,property);
+}
+
+@override
+String toString() {
+    return 'InlineSpan.math(text: $text, property: $property)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $MathTextSpanCopyWith<$Res> implements $InlineSpanCopyWith<$Res> {
+  factory $MathTextSpanCopyWith(MathTextSpan value, $Res Function(MathTextSpan) _then) = _$MathTextSpanCopyWithImpl;
+@override @useResult
+$Res call({
+ String text, SpanProperty property
+});
+
+
+@override $SpanPropertyCopyWith<$Res> get property;
+
+}
+/// @nodoc
+class _$MathTextSpanCopyWithImpl<$Res>
+    implements $MathTextSpanCopyWith<$Res> {
+  _$MathTextSpanCopyWithImpl(this._self, this._then);
+
+  final MathTextSpan _self;
+  final $Res Function(MathTextSpan) _then;
+
+/// Create a copy of InlineSpan
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? text = null,Object? property = null,}) {
+  return _then(MathTextSpan(
+text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
+as String,property: null == property ? _self.property : property // ignore: cast_nullable_to_non_nullable
+as SpanProperty,
+  ));
+}
+
+/// Create a copy of InlineSpan
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SpanPropertyCopyWith<$Res> get property {
+  
+  return $SpanPropertyCopyWith<$Res>(_self.property, (value) {
+    return _then(_self.copyWith(property: value));
+  });
+}
+}
+
+
+/// @nodoc
+mixin _$TextParagraph {
+
+ ParagraphProperty get property; List<InlineSpan> get textSpans;
+/// Create a copy of TextParagraph
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TextParagraphCopyWith<TextParagraph> get copyWith => _$TextParagraphCopyWithImpl<TextParagraph>(this as TextParagraph, _$identity);
+
+  /// Serializes this TextParagraph to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as TextParagraph;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TextParagraph&&(identical(other.property, _this.property) || other.property == _this.property)&&const DeepCollectionEquality().equals(other.textSpans, _this.textSpans));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as TextParagraph;
+  return Object.hash(runtimeType,_this.property,const DeepCollectionEquality().hash(_this.textSpans));
+}
+
+@override
+String toString() {
+  final _this = this as TextParagraph;
+  return 'TextParagraph(property: ${_this.property}, textSpans: ${_this.textSpans})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $TextParagraphCopyWith<$Res>  {
+  factory $TextParagraphCopyWith(TextParagraph value, $Res Function(TextParagraph) _then) = _$TextParagraphCopyWithImpl;
+@useResult
+$Res call({
+ ParagraphProperty property, List<InlineSpan> textSpans
+});
+
+
+$ParagraphPropertyCopyWith<$Res> get property;
+
+}
+/// @nodoc
+class _$TextParagraphCopyWithImpl<$Res>
+    implements $TextParagraphCopyWith<$Res> {
+  _$TextParagraphCopyWithImpl(this._self, this._then);
+
+  final TextParagraph _self;
+  final $Res Function(TextParagraph) _then;
+
+/// Create a copy of TextParagraph
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? property = null,Object? textSpans = null,}) {
+  return _then(TextParagraph(
+property: null == property ? _self.property : property // ignore: cast_nullable_to_non_nullable
+as ParagraphProperty,textSpans: null == textSpans ? _self.textSpans : textSpans // ignore: cast_nullable_to_non_nullable
+as List<InlineSpan>,
+  ));
+}
+/// Create a copy of TextParagraph
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ParagraphPropertyCopyWith<$Res> get property {
+  
+  return $ParagraphPropertyCopyWith<$Res>(_self.property, (value) {
+    return _then(_self.copyWith(property: value));
+  });
+}
+}
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class _TextParagraph extends TextParagraph {
+  const _TextParagraph({this.property = const ParagraphProperty.undefined(),  List<InlineSpan> textSpans = const []}): _textSpans = textSpans,super._();
+  factory _TextParagraph.fromJson(Map<String, dynamic> json) => _$TextParagraphFromJson(json);
+
+@override@JsonKey() final  ParagraphProperty property;
+ final  List<InlineSpan> _textSpans;
+@override@JsonKey() List<InlineSpan> get textSpans {
+  if (_textSpans is EqualUnmodifiableListView) return _textSpans;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_textSpans);
+}
+
+
+/// Create a copy of TextParagraph
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TextParagraphCopyWith<_TextParagraph> get copyWith => __$TextParagraphCopyWithImpl<_TextParagraph>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TextParagraphToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _TextParagraph&&(identical(other.property, property) || other.property == property)&&const DeepCollectionEquality().equals(other.textSpans, _textSpans));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,property,const DeepCollectionEquality().hash(_textSpans));
+}
+
+@override
+String toString() {
+    return 'TextParagraph(property: $property, textSpans: $textSpans)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TextParagraphCopyWith<$Res> implements $TextParagraphCopyWith<$Res> {
+  factory _$TextParagraphCopyWith(_TextParagraph value, $Res Function(_TextParagraph) _then) = __$TextParagraphCopyWithImpl;
+@override @useResult
+$Res call({
+ ParagraphProperty property, List<InlineSpan> textSpans
+});
+
+
+@override $ParagraphPropertyCopyWith<$Res> get property;
+
+}
+/// @nodoc
+class __$TextParagraphCopyWithImpl<$Res>
+    implements _$TextParagraphCopyWith<$Res> {
+  __$TextParagraphCopyWithImpl(this._self, this._then);
+
+  final _TextParagraph _self;
+  final $Res Function(_TextParagraph) _then;
+
+/// Create a copy of TextParagraph
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? property = null,Object? textSpans = null,}) {
+  return _then(_TextParagraph(
+property: null == property ? _self.property : property // ignore: cast_nullable_to_non_nullable
+as ParagraphProperty,textSpans: null == textSpans ? _self._textSpans : textSpans // ignore: cast_nullable_to_non_nullable
+as List<InlineSpan>,
+  ));
+}
+
+/// Create a copy of TextParagraph
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ParagraphPropertyCopyWith<$Res> get property {
+  
+  return $ParagraphPropertyCopyWith<$Res>(_self.property, (value) {
+    return _then(_self.copyWith(property: value));
+  });
+}
+}
+
+
+/// @nodoc
+mixin _$TextArea {
+
+ AreaProperty get areaProperty; TextParagraph get paragraph;
+/// Create a copy of TextArea
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TextAreaCopyWith<TextArea> get copyWith => _$TextAreaCopyWithImpl<TextArea>(this as TextArea, _$identity);
+
+  /// Serializes this TextArea to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as TextArea;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TextArea&&(identical(other.areaProperty, _this.areaProperty) || other.areaProperty == _this.areaProperty)&&(identical(other.paragraph, _this.paragraph) || other.paragraph == _this.paragraph));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as TextArea;
+  return Object.hash(runtimeType,_this.areaProperty,_this.paragraph);
+}
+
+@override
+String toString() {
+  final _this = this as TextArea;
+  return 'TextArea(areaProperty: ${_this.areaProperty}, paragraph: ${_this.paragraph})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $TextAreaCopyWith<$Res>  {
+  factory $TextAreaCopyWith(TextArea value, $Res Function(TextArea) _then) = _$TextAreaCopyWithImpl;
+@useResult
+$Res call({
+ AreaProperty areaProperty, TextParagraph paragraph
+});
+
+
+$AreaPropertyCopyWith<$Res> get areaProperty;$TextParagraphCopyWith<$Res> get paragraph;
+
+}
+/// @nodoc
+class _$TextAreaCopyWithImpl<$Res>
+    implements $TextAreaCopyWith<$Res> {
+  _$TextAreaCopyWithImpl(this._self, this._then);
+
+  final TextArea _self;
+  final $Res Function(TextArea) _then;
+
+/// Create a copy of TextArea
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? areaProperty = null,Object? paragraph = null,}) {
+  return _then(TextArea(
+areaProperty: null == areaProperty ? _self.areaProperty : areaProperty // ignore: cast_nullable_to_non_nullable
+as AreaProperty,paragraph: null == paragraph ? _self.paragraph : paragraph // ignore: cast_nullable_to_non_nullable
+as TextParagraph,
+  ));
+}
+/// Create a copy of TextArea
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AreaPropertyCopyWith<$Res> get areaProperty {
+  
+  return $AreaPropertyCopyWith<$Res>(_self.areaProperty, (value) {
+    return _then(_self.copyWith(areaProperty: value));
+  });
+}/// Create a copy of TextArea
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TextParagraphCopyWith<$Res> get paragraph {
+  
+  return $TextParagraphCopyWith<$Res>(_self.paragraph, (value) {
+    return _then(_self.copyWith(paragraph: value));
+  });
+}
+}
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class _TextArea extends TextArea {
+  const _TextArea({this.areaProperty = const AreaProperty(), required this.paragraph}): super._();
+  factory _TextArea.fromJson(Map<String, dynamic> json) => _$TextAreaFromJson(json);
+
+@override@JsonKey() final  AreaProperty areaProperty;
+@override final  TextParagraph paragraph;
+
+/// Create a copy of TextArea
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TextAreaCopyWith<_TextArea> get copyWith => __$TextAreaCopyWithImpl<_TextArea>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TextAreaToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _TextArea&&(identical(other.areaProperty, areaProperty) || other.areaProperty == areaProperty)&&(identical(other.paragraph, paragraph) || other.paragraph == paragraph));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,areaProperty,paragraph);
+}
+
+@override
+String toString() {
+    return 'TextArea(areaProperty: $areaProperty, paragraph: $paragraph)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TextAreaCopyWith<$Res> implements $TextAreaCopyWith<$Res> {
+  factory _$TextAreaCopyWith(_TextArea value, $Res Function(_TextArea) _then) = __$TextAreaCopyWithImpl;
+@override @useResult
+$Res call({
+ AreaProperty areaProperty, TextParagraph paragraph
+});
+
+
+@override $AreaPropertyCopyWith<$Res> get areaProperty;@override $TextParagraphCopyWith<$Res> get paragraph;
+
+}
+/// @nodoc
+class __$TextAreaCopyWithImpl<$Res>
+    implements _$TextAreaCopyWith<$Res> {
+  __$TextAreaCopyWithImpl(this._self, this._then);
+
+  final _TextArea _self;
+  final $Res Function(_TextArea) _then;
+
+/// Create a copy of TextArea
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? areaProperty = null,Object? paragraph = null,}) {
+  return _then(_TextArea(
+areaProperty: null == areaProperty ? _self.areaProperty : areaProperty // ignore: cast_nullable_to_non_nullable
+as AreaProperty,paragraph: null == paragraph ? _self.paragraph : paragraph // ignore: cast_nullable_to_non_nullable
+as TextParagraph,
+  ));
+}
+
+/// Create a copy of TextArea
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AreaPropertyCopyWith<$Res> get areaProperty {
+  
+  return $AreaPropertyCopyWith<$Res>(_self.areaProperty, (value) {
+    return _then(_self.copyWith(areaProperty: value));
+  });
+}/// Create a copy of TextArea
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TextParagraphCopyWith<$Res> get paragraph {
+  
+  return $TextParagraphCopyWith<$Res>(_self.paragraph, (value) {
+    return _then(_self.copyWith(paragraph: value));
+  });
+}
+}
+
+
+/// @nodoc
+mixin _$TextStyleSheet {
+
+ String get fontFamily; List<String> get fontFamilyFallback; Map<String, DefinedSpanProperty> get spanProperties; Map<String, DefinedParagraphProperty> get paragraphProperties;
+/// Create a copy of TextStyleSheet
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TextStyleSheetCopyWith<TextStyleSheet> get copyWith => _$TextStyleSheetCopyWithImpl<TextStyleSheet>(this as TextStyleSheet, _$identity);
+
+  /// Serializes this TextStyleSheet to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as TextStyleSheet;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TextStyleSheet&&(identical(other.fontFamily, _this.fontFamily) || other.fontFamily == _this.fontFamily)&&const DeepCollectionEquality().equals(other.fontFamilyFallback, _this.fontFamilyFallback)&&const DeepCollectionEquality().equals(other.spanProperties, _this.spanProperties)&&const DeepCollectionEquality().equals(other.paragraphProperties, _this.paragraphProperties));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as TextStyleSheet;
+  return Object.hash(runtimeType,_this.fontFamily,const DeepCollectionEquality().hash(_this.fontFamilyFallback),const DeepCollectionEquality().hash(_this.spanProperties),const DeepCollectionEquality().hash(_this.paragraphProperties));
+}
+
+@override
+String toString() {
+  final _this = this as TextStyleSheet;
+  return 'TextStyleSheet(fontFamily: ${_this.fontFamily}, fontFamilyFallback: ${_this.fontFamilyFallback}, spanProperties: ${_this.spanProperties}, paragraphProperties: ${_this.paragraphProperties})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $TextStyleSheetCopyWith<$Res>  {
+  factory $TextStyleSheetCopyWith(TextStyleSheet value, $Res Function(TextStyleSheet) _then) = _$TextStyleSheetCopyWithImpl;
+@useResult
+$Res call({
+ String fontFamily, List<String> fontFamilyFallback, Map<String, DefinedSpanProperty> spanProperties, Map<String, DefinedParagraphProperty> paragraphProperties
+});
+
+
+
+
+}
+/// @nodoc
+class _$TextStyleSheetCopyWithImpl<$Res>
+    implements $TextStyleSheetCopyWith<$Res> {
+  _$TextStyleSheetCopyWithImpl(this._self, this._then);
+
+  final TextStyleSheet _self;
+  final $Res Function(TextStyleSheet) _then;
+
+/// Create a copy of TextStyleSheet
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? fontFamily = null,Object? fontFamilyFallback = null,Object? spanProperties = null,Object? paragraphProperties = null,}) {
+  return _then(TextStyleSheet(
+fontFamily: null == fontFamily ? _self.fontFamily : fontFamily // ignore: cast_nullable_to_non_nullable
+as String,fontFamilyFallback: null == fontFamilyFallback ? _self.fontFamilyFallback : fontFamilyFallback // ignore: cast_nullable_to_non_nullable
+as List<String>,spanProperties: null == spanProperties ? _self.spanProperties : spanProperties // ignore: cast_nullable_to_non_nullable
+as Map<String, DefinedSpanProperty>,paragraphProperties: null == paragraphProperties ? _self.paragraphProperties : paragraphProperties // ignore: cast_nullable_to_non_nullable
+as Map<String, DefinedParagraphProperty>,
+  ));
+}
+
+}
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class _TextStyleSheet extends TextStyleSheet {
+  const _TextStyleSheet({this.fontFamily = 'Roboto',  List<String> fontFamilyFallback = const [],  Map<String, DefinedSpanProperty> spanProperties = const {},  Map<String, DefinedParagraphProperty> paragraphProperties = const {}}): _fontFamilyFallback = fontFamilyFallback,_spanProperties = spanProperties,_paragraphProperties = paragraphProperties,super._();
+  factory _TextStyleSheet.fromJson(Map<String, dynamic> json) => _$TextStyleSheetFromJson(json);
+
+@override@JsonKey() final  String fontFamily;
+ final  List<String> _fontFamilyFallback;
+@override@JsonKey() List<String> get fontFamilyFallback {
+  if (_fontFamilyFallback is EqualUnmodifiableListView) return _fontFamilyFallback;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_fontFamilyFallback);
+}
+
+ final  Map<String, DefinedSpanProperty> _spanProperties;
+@override@JsonKey() Map<String, DefinedSpanProperty> get spanProperties {
+  if (_spanProperties is EqualUnmodifiableMapView) return _spanProperties;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_spanProperties);
+}
+
+ final  Map<String, DefinedParagraphProperty> _paragraphProperties;
+@override@JsonKey() Map<String, DefinedParagraphProperty> get paragraphProperties {
+  if (_paragraphProperties is EqualUnmodifiableMapView) return _paragraphProperties;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_paragraphProperties);
+}
+
+
+/// Create a copy of TextStyleSheet
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$TextStyleSheetCopyWith<_TextStyleSheet> get copyWith => __$TextStyleSheetCopyWithImpl<_TextStyleSheet>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TextStyleSheetToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _TextStyleSheet&&(identical(other.fontFamily, fontFamily) || other.fontFamily == fontFamily)&&const DeepCollectionEquality().equals(other.fontFamilyFallback, _fontFamilyFallback)&&const DeepCollectionEquality().equals(other.spanProperties, _spanProperties)&&const DeepCollectionEquality().equals(other.paragraphProperties, _paragraphProperties));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,fontFamily,const DeepCollectionEquality().hash(_fontFamilyFallback),const DeepCollectionEquality().hash(_spanProperties),const DeepCollectionEquality().hash(_paragraphProperties));
+}
+
+@override
+String toString() {
+    return 'TextStyleSheet(fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, spanProperties: $spanProperties, paragraphProperties: $paragraphProperties)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$TextStyleSheetCopyWith<$Res> implements $TextStyleSheetCopyWith<$Res> {
+  factory _$TextStyleSheetCopyWith(_TextStyleSheet value, $Res Function(_TextStyleSheet) _then) = __$TextStyleSheetCopyWithImpl;
+@override @useResult
+$Res call({
+ String fontFamily, List<String> fontFamilyFallback, Map<String, DefinedSpanProperty> spanProperties, Map<String, DefinedParagraphProperty> paragraphProperties
+});
+
+
+
+
+}
+/// @nodoc
+class __$TextStyleSheetCopyWithImpl<$Res>
+    implements _$TextStyleSheetCopyWith<$Res> {
+  __$TextStyleSheetCopyWithImpl(this._self, this._then);
+
+  final _TextStyleSheet _self;
+  final $Res Function(_TextStyleSheet) _then;
+
+/// Create a copy of TextStyleSheet
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? fontFamily = null,Object? fontFamilyFallback = null,Object? spanProperties = null,Object? paragraphProperties = null,}) {
+  return _then(_TextStyleSheet(
+fontFamily: null == fontFamily ? _self.fontFamily : fontFamily // ignore: cast_nullable_to_non_nullable
+as String,fontFamilyFallback: null == fontFamilyFallback ? _self._fontFamilyFallback : fontFamilyFallback // ignore: cast_nullable_to_non_nullable
+as List<String>,spanProperties: null == spanProperties ? _self._spanProperties : spanProperties // ignore: cast_nullable_to_non_nullable
+as Map<String, DefinedSpanProperty>,paragraphProperties: null == paragraphProperties ? _self._paragraphProperties : paragraphProperties // ignore: cast_nullable_to_non_nullable
+as Map<String, DefinedParagraphProperty>,
+  ));
+}
+
+
+}
+
+// dart format on

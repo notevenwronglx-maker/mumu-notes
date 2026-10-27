@@ -1,0 +1,2152 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'tool.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format off
+T _$identity<T>(T value) => value;
+Tool _$ToolFromJson(
+  Map<String, dynamic> json
+) {
+        switch (json['type']) {
+                  case 'select':
+          return SelectTool.fromJson(
+            json
+          );
+                case 'hand':
+          return HandTool.fromJson(
+            json
+          );
+                case 'import':
+          return ImportTool.fromJson(
+            json
+          );
+                case 'undo':
+          return UndoTool.fromJson(
+            json
+          );
+                case 'redo':
+          return RedoTool.fromJson(
+            json
+          );
+                case 'label':
+          return LabelTool.fromJson(
+            json
+          );
+                case 'pen':
+          return PenTool.fromJson(
+            json
+          );
+                case 'eraser':
+          return EraserTool.fromJson(
+            json
+          );
+                case 'collection':
+          return CollectionTool.fromJson(
+            json
+          );
+                case 'area':
+          return AreaTool.fromJson(
+            json
+          );
+                case 'laser':
+          return LaserTool.fromJson(
+            json
+          );
+                case 'shape':
+          return ShapeTool.fromJson(
+            json
+          );
+                case 'table':
+          return TableTool.fromJson(
+            json
+          );
+                case 'stamp':
+          return StampTool.fromJson(
+            json
+          );
+                case 'presentation':
+          return PresentationTool.fromJson(
+            json
+          );
+                case 'spacer':
+          return SpacerTool.fromJson(
+            json
+          );
+                case 'fullSceen':
+          return FullScreenTool.fromJson(
+            json
+          );
+                case 'asset':
+          return AssetTool.fromJson(
+            json
+          );
+                case 'export':
+          return ExportTool.fromJson(
+            json
+          );
+                case 'texture':
+          return TextureTool.fromJson(
+            json
+          );
+                case 'ruler':
+          return RulerTool.fromJson(
+            json
+          );
+                case 'grid':
+          return GridTool.fromJson(
+            json
+          );
+                case 'eyeDropper':
+          return EyeDropperTool.fromJson(
+            json
+          );
+                case 'barcode':
+          return BarcodeTool.fromJson(
+            json
+          );
+                case 'polygon':
+          return PolygonTool.fromJson(
+            json
+          );
+        
+          default:
+            throw CheckedFromJsonException(
+  json,
+  'type',
+  'Tool',
+  'Invalid union type "${json['type']}"!'
+);
+        }
+      
+}
+
+/// @nodoc
+mixin _$Tool {
+
+ String get name; String get displayIcon;@IdJsonConverter() String? get id;
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ToolCopyWith<Tool> get copyWith => _$ToolCopyWithImpl<Tool>(this as Tool, _$identity);
+
+  /// Serializes this Tool to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+
+
+@override
+String toString() {
+  final _this = this as Tool;
+  return 'Tool(name: ${_this.name}, displayIcon: ${_this.displayIcon}, id: ${_this.id})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ToolCopyWith<$Res>  {
+  factory $ToolCopyWith(Tool value, $Res Function(Tool) _then) = _$ToolCopyWithImpl;
+@useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id
+});
+
+
+
+
+}
+/// @nodoc
+class _$ToolCopyWithImpl<$Res>
+    implements $ToolCopyWith<$Res> {
+  _$ToolCopyWithImpl(this._self, this._then);
+
+  final Tool _self;
+  final $Res Function(Tool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+}
+
+
+
+/// @nodoc
+@JsonSerializable()
+
+class SelectTool extends Tool {
+   SelectTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.mode = SelectMode.rectangle, this.hitElementMode = HitElementMode.touchAnywhere,  String? $type}): $type = $type ?? 'select',super._();
+  factory SelectTool.fromJson(Map<String, dynamic> json) => _$SelectToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  SelectMode mode;
+@JsonKey() final  HitElementMode hitElementMode;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SelectToolCopyWith<SelectTool> get copyWith => _$SelectToolCopyWithImpl<SelectTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$SelectToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.select(name: $name, displayIcon: $displayIcon, id: $id, mode: $mode, hitElementMode: $hitElementMode)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SelectToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $SelectToolCopyWith(SelectTool value, $Res Function(SelectTool) _then) = _$SelectToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, SelectMode mode, HitElementMode hitElementMode
+});
+
+
+
+
+}
+/// @nodoc
+class _$SelectToolCopyWithImpl<$Res>
+    implements $SelectToolCopyWith<$Res> {
+  _$SelectToolCopyWithImpl(this._self, this._then);
+
+  final SelectTool _self;
+  final $Res Function(SelectTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? mode = null,Object? hitElementMode = null,}) {
+  return _then(SelectTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as SelectMode,hitElementMode: null == hitElementMode ? _self.hitElementMode : hitElementMode // ignore: cast_nullable_to_non_nullable
+as HitElementMode,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class HandTool extends Tool {
+   HandTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id,  String? $type}): $type = $type ?? 'hand',super._();
+  factory HandTool.fromJson(Map<String, dynamic> json) => _$HandToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$HandToolCopyWith<HandTool> get copyWith => _$HandToolCopyWithImpl<HandTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$HandToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.hand(name: $name, displayIcon: $displayIcon, id: $id)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $HandToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $HandToolCopyWith(HandTool value, $Res Function(HandTool) _then) = _$HandToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id
+});
+
+
+
+
+}
+/// @nodoc
+class _$HandToolCopyWithImpl<$Res>
+    implements $HandToolCopyWith<$Res> {
+  _$HandToolCopyWithImpl(this._self, this._then);
+
+  final HandTool _self;
+  final $Res Function(HandTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,}) {
+  return _then(HandTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class ImportTool extends Tool {
+   ImportTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, required  List<PadElement> elements, required  List<Area> areas, @Uint8ListJsonConverter()  Map<String, Uint8List> assets = const {},  String? $type}): _elements = elements,_areas = areas,_assets = assets,$type = $type ?? 'import',super._();
+  factory ImportTool.fromJson(Map<String, dynamic> json) => _$ImportToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+ final  List<PadElement> _elements;
+ List<PadElement> get elements {
+  if (_elements is EqualUnmodifiableListView) return _elements;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_elements);
+}
+
+ final  List<Area> _areas;
+ List<Area> get areas {
+  if (_areas is EqualUnmodifiableListView) return _areas;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_areas);
+}
+
+ final  Map<String, Uint8List> _assets;
+@JsonKey()@Uint8ListJsonConverter() Map<String, Uint8List> get assets {
+  if (_assets is EqualUnmodifiableMapView) return _assets;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_assets);
+}
+
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ImportToolCopyWith<ImportTool> get copyWith => _$ImportToolCopyWithImpl<ImportTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ImportToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.import(name: $name, displayIcon: $displayIcon, id: $id, elements: $elements, areas: $areas, assets: $assets)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ImportToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $ImportToolCopyWith(ImportTool value, $Res Function(ImportTool) _then) = _$ImportToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, List<PadElement> elements, List<Area> areas,@Uint8ListJsonConverter() Map<String, Uint8List> assets
+});
+
+
+
+
+}
+/// @nodoc
+class _$ImportToolCopyWithImpl<$Res>
+    implements $ImportToolCopyWith<$Res> {
+  _$ImportToolCopyWithImpl(this._self, this._then);
+
+  final ImportTool _self;
+  final $Res Function(ImportTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? elements = null,Object? areas = null,Object? assets = null,}) {
+  return _then(ImportTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,elements: null == elements ? _self._elements : elements // ignore: cast_nullable_to_non_nullable
+as List<PadElement>,areas: null == areas ? _self._areas : areas // ignore: cast_nullable_to_non_nullable
+as List<Area>,assets: null == assets ? _self._assets : assets // ignore: cast_nullable_to_non_nullable
+as Map<String, Uint8List>,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class UndoTool extends Tool {
+   UndoTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id,  String? $type}): $type = $type ?? 'undo',super._();
+  factory UndoTool.fromJson(Map<String, dynamic> json) => _$UndoToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$UndoToolCopyWith<UndoTool> get copyWith => _$UndoToolCopyWithImpl<UndoTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$UndoToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.undo(name: $name, displayIcon: $displayIcon, id: $id)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $UndoToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $UndoToolCopyWith(UndoTool value, $Res Function(UndoTool) _then) = _$UndoToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id
+});
+
+
+
+
+}
+/// @nodoc
+class _$UndoToolCopyWithImpl<$Res>
+    implements $UndoToolCopyWith<$Res> {
+  _$UndoToolCopyWithImpl(this._self, this._then);
+
+  final UndoTool _self;
+  final $Res Function(UndoTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,}) {
+  return _then(UndoTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class RedoTool extends Tool {
+   RedoTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id,  String? $type}): $type = $type ?? 'redo',super._();
+  factory RedoTool.fromJson(Map<String, dynamic> json) => _$RedoToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RedoToolCopyWith<RedoTool> get copyWith => _$RedoToolCopyWithImpl<RedoTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$RedoToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.redo(name: $name, displayIcon: $displayIcon, id: $id)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $RedoToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $RedoToolCopyWith(RedoTool value, $Res Function(RedoTool) _then) = _$RedoToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id
+});
+
+
+
+
+}
+/// @nodoc
+class _$RedoToolCopyWithImpl<$Res>
+    implements $RedoToolCopyWith<$Res> {
+  _$RedoToolCopyWithImpl(this._self, this._then);
+
+  final RedoTool _self;
+  final $Res Function(RedoTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,}) {
+  return _then(RedoTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class LabelTool extends Tool {
+   LabelTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.mode = LabelMode.text, this.zoomDependent = false, @ColorJsonConverter() this.foreground = SRGBColor.black, this.styleSheet, this.scale = 2.0,  String? $type}): $type = $type ?? 'label',super._();
+  factory LabelTool.fromJson(Map<String, dynamic> json) => _$LabelToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  LabelMode mode;
+@JsonKey() final  bool zoomDependent;
+@JsonKey()@ColorJsonConverter() final  SRGBColor foreground;
+ final  NamedItem<TextStyleSheet>? styleSheet;
+@JsonKey() final  double scale;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LabelToolCopyWith<LabelTool> get copyWith => _$LabelToolCopyWithImpl<LabelTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$LabelToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.label(name: $name, displayIcon: $displayIcon, id: $id, mode: $mode, zoomDependent: $zoomDependent, foreground: $foreground, styleSheet: $styleSheet, scale: $scale)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $LabelToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $LabelToolCopyWith(LabelTool value, $Res Function(LabelTool) _then) = _$LabelToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, LabelMode mode, bool zoomDependent,@ColorJsonConverter() SRGBColor foreground, NamedItem<TextStyleSheet>? styleSheet, double scale
+});
+
+
+$NamedItemCopyWith<TextStyleSheet, $Res>? get styleSheet;
+
+}
+/// @nodoc
+class _$LabelToolCopyWithImpl<$Res>
+    implements $LabelToolCopyWith<$Res> {
+  _$LabelToolCopyWithImpl(this._self, this._then);
+
+  final LabelTool _self;
+  final $Res Function(LabelTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? mode = null,Object? zoomDependent = null,Object? foreground = null,Object? styleSheet = freezed,Object? scale = null,}) {
+  return _then(LabelTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as LabelMode,zoomDependent: null == zoomDependent ? _self.zoomDependent : zoomDependent // ignore: cast_nullable_to_non_nullable
+as bool,foreground: null == foreground ? _self.foreground : foreground // ignore: cast_nullable_to_non_nullable
+as SRGBColor,styleSheet: freezed == styleSheet ? _self.styleSheet : styleSheet // ignore: cast_nullable_to_non_nullable
+as NamedItem<TextStyleSheet>?,scale: null == scale ? _self.scale : scale // ignore: cast_nullable_to_non_nullable
+as double,
+  ));
+}
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NamedItemCopyWith<TextStyleSheet, $Res>? get styleSheet {
+    if (_self.styleSheet == null) {
+    return null;
+  }
+
+  return $NamedItemCopyWith<TextStyleSheet, $Res>(_self.styleSheet!, (value) {
+    return _then(_self.copyWith(styleSheet: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class PenTool extends Tool {
+   PenTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.zoomDependent = false, this.shapeDetectionTime = 0.5, this.shapeDetectionEnabled = false, this.combinePaths = false, this.property = const PenProperty(),  String? $type}): $type = $type ?? 'pen',super._();
+  factory PenTool.fromJson(Map<String, dynamic> json) => _$PenToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  bool zoomDependent;
+@JsonKey() final  double shapeDetectionTime;
+@JsonKey() final  bool shapeDetectionEnabled;
+@JsonKey() final  bool combinePaths;
+@JsonKey() final  PenProperty property;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PenToolCopyWith<PenTool> get copyWith => _$PenToolCopyWithImpl<PenTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$PenToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.pen(name: $name, displayIcon: $displayIcon, id: $id, zoomDependent: $zoomDependent, shapeDetectionTime: $shapeDetectionTime, shapeDetectionEnabled: $shapeDetectionEnabled, combinePaths: $combinePaths, property: $property)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PenToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $PenToolCopyWith(PenTool value, $Res Function(PenTool) _then) = _$PenToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, bool zoomDependent, double shapeDetectionTime, bool shapeDetectionEnabled, bool combinePaths, PenProperty property
+});
+
+
+
+
+}
+/// @nodoc
+class _$PenToolCopyWithImpl<$Res>
+    implements $PenToolCopyWith<$Res> {
+  _$PenToolCopyWithImpl(this._self, this._then);
+
+  final PenTool _self;
+  final $Res Function(PenTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? zoomDependent = null,Object? shapeDetectionTime = null,Object? shapeDetectionEnabled = null,Object? combinePaths = null,Object? property = freezed,}) {
+  return _then(PenTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,zoomDependent: null == zoomDependent ? _self.zoomDependent : zoomDependent // ignore: cast_nullable_to_non_nullable
+as bool,shapeDetectionTime: null == shapeDetectionTime ? _self.shapeDetectionTime : shapeDetectionTime // ignore: cast_nullable_to_non_nullable
+as double,shapeDetectionEnabled: null == shapeDetectionEnabled ? _self.shapeDetectionEnabled : shapeDetectionEnabled // ignore: cast_nullable_to_non_nullable
+as bool,combinePaths: null == combinePaths ? _self.combinePaths : combinePaths // ignore: cast_nullable_to_non_nullable
+as bool,property: freezed == property ? _self.property : property // ignore: cast_nullable_to_non_nullable
+as PenProperty,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class EraserTool extends Tool {
+   EraserTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.mode = EraserMode.stroke, this.strokeWidth = 5, this.hitElementMode = HitElementMode.touchAnywhere, this.eraseElements = false,  String? $type}): $type = $type ?? 'eraser',super._();
+  factory EraserTool.fromJson(Map<String, dynamic> json) => _$EraserToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  EraserMode mode;
+@JsonKey() final  double strokeWidth;
+@JsonKey() final  HitElementMode hitElementMode;
+@JsonKey() final  bool eraseElements;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EraserToolCopyWith<EraserTool> get copyWith => _$EraserToolCopyWithImpl<EraserTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$EraserToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.eraser(name: $name, displayIcon: $displayIcon, id: $id, mode: $mode, strokeWidth: $strokeWidth, hitElementMode: $hitElementMode, eraseElements: $eraseElements)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $EraserToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $EraserToolCopyWith(EraserTool value, $Res Function(EraserTool) _then) = _$EraserToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, EraserMode mode, double strokeWidth, HitElementMode hitElementMode, bool eraseElements
+});
+
+
+
+
+}
+/// @nodoc
+class _$EraserToolCopyWithImpl<$Res>
+    implements $EraserToolCopyWith<$Res> {
+  _$EraserToolCopyWithImpl(this._self, this._then);
+
+  final EraserTool _self;
+  final $Res Function(EraserTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? mode = null,Object? strokeWidth = null,Object? hitElementMode = null,Object? eraseElements = null,}) {
+  return _then(EraserTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,mode: null == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
+as EraserMode,strokeWidth: null == strokeWidth ? _self.strokeWidth : strokeWidth // ignore: cast_nullable_to_non_nullable
+as double,hitElementMode: null == hitElementMode ? _self.hitElementMode : hitElementMode // ignore: cast_nullable_to_non_nullable
+as HitElementMode,eraseElements: null == eraseElements ? _self.eraseElements : eraseElements // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class CollectionTool extends Tool {
+   CollectionTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.strokeWidth = 5,  String? $type}): $type = $type ?? 'collection',super._();
+  factory CollectionTool.fromJson(Map<String, dynamic> json) => _$CollectionToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  double strokeWidth;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CollectionToolCopyWith<CollectionTool> get copyWith => _$CollectionToolCopyWithImpl<CollectionTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$CollectionToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.collection(name: $name, displayIcon: $displayIcon, id: $id, strokeWidth: $strokeWidth)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $CollectionToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $CollectionToolCopyWith(CollectionTool value, $Res Function(CollectionTool) _then) = _$CollectionToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, double strokeWidth
+});
+
+
+
+
+}
+/// @nodoc
+class _$CollectionToolCopyWithImpl<$Res>
+    implements $CollectionToolCopyWith<$Res> {
+  _$CollectionToolCopyWithImpl(this._self, this._then);
+
+  final CollectionTool _self;
+  final $Res Function(CollectionTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? strokeWidth = null,}) {
+  return _then(CollectionTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,strokeWidth: null == strokeWidth ? _self.strokeWidth : strokeWidth // ignore: cast_nullable_to_non_nullable
+as double,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class AreaTool extends Tool {
+   AreaTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, @ColorJsonConverter() this.color, this.constrainedWidth = 0, this.constrainedHeight = 0, this.constrainedAspectRatio = 0, this.askForName = false,  String? $type}): $type = $type ?? 'area',super._();
+  factory AreaTool.fromJson(Map<String, dynamic> json) => _$AreaToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@ColorJsonConverter() final  SRGBColor? color;
+@JsonKey() final  double constrainedWidth;
+@JsonKey() final  double constrainedHeight;
+@JsonKey() final  double constrainedAspectRatio;
+@JsonKey() final  bool askForName;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AreaToolCopyWith<AreaTool> get copyWith => _$AreaToolCopyWithImpl<AreaTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$AreaToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.area(name: $name, displayIcon: $displayIcon, id: $id, color: $color, constrainedWidth: $constrainedWidth, constrainedHeight: $constrainedHeight, constrainedAspectRatio: $constrainedAspectRatio, askForName: $askForName)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AreaToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $AreaToolCopyWith(AreaTool value, $Res Function(AreaTool) _then) = _$AreaToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id,@ColorJsonConverter() SRGBColor? color, double constrainedWidth, double constrainedHeight, double constrainedAspectRatio, bool askForName
+});
+
+
+
+
+}
+/// @nodoc
+class _$AreaToolCopyWithImpl<$Res>
+    implements $AreaToolCopyWith<$Res> {
+  _$AreaToolCopyWithImpl(this._self, this._then);
+
+  final AreaTool _self;
+  final $Res Function(AreaTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? color = freezed,Object? constrainedWidth = null,Object? constrainedHeight = null,Object? constrainedAspectRatio = null,Object? askForName = null,}) {
+  return _then(AreaTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,color: freezed == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
+as SRGBColor?,constrainedWidth: null == constrainedWidth ? _self.constrainedWidth : constrainedWidth // ignore: cast_nullable_to_non_nullable
+as double,constrainedHeight: null == constrainedHeight ? _self.constrainedHeight : constrainedHeight // ignore: cast_nullable_to_non_nullable
+as double,constrainedAspectRatio: null == constrainedAspectRatio ? _self.constrainedAspectRatio : constrainedAspectRatio // ignore: cast_nullable_to_non_nullable
+as double,askForName: null == askForName ? _self.askForName : askForName // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class LaserTool extends Tool {
+   LaserTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.duration = 5, this.hideDuration = 0.5, this.strokeWidth = 5, this.thinning = 0.4, @ColorJsonConverter() this.color = BasicColors.red, this.animation = LaserAnimation.fade,  String? $type}): $type = $type ?? 'laser',super._();
+  factory LaserTool.fromJson(Map<String, dynamic> json) => _$LaserToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  double duration;
+@JsonKey() final  double hideDuration;
+@JsonKey() final  double strokeWidth;
+@JsonKey() final  double thinning;
+@JsonKey()@ColorJsonConverter() final  SRGBColor color;
+@JsonKey() final  LaserAnimation animation;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LaserToolCopyWith<LaserTool> get copyWith => _$LaserToolCopyWithImpl<LaserTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$LaserToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.laser(name: $name, displayIcon: $displayIcon, id: $id, duration: $duration, hideDuration: $hideDuration, strokeWidth: $strokeWidth, thinning: $thinning, color: $color, animation: $animation)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $LaserToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $LaserToolCopyWith(LaserTool value, $Res Function(LaserTool) _then) = _$LaserToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, double duration, double hideDuration, double strokeWidth, double thinning,@ColorJsonConverter() SRGBColor color, LaserAnimation animation
+});
+
+
+
+
+}
+/// @nodoc
+class _$LaserToolCopyWithImpl<$Res>
+    implements $LaserToolCopyWith<$Res> {
+  _$LaserToolCopyWithImpl(this._self, this._then);
+
+  final LaserTool _self;
+  final $Res Function(LaserTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? duration = null,Object? hideDuration = null,Object? strokeWidth = null,Object? thinning = null,Object? color = null,Object? animation = null,}) {
+  return _then(LaserTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,duration: null == duration ? _self.duration : duration // ignore: cast_nullable_to_non_nullable
+as double,hideDuration: null == hideDuration ? _self.hideDuration : hideDuration // ignore: cast_nullable_to_non_nullable
+as double,strokeWidth: null == strokeWidth ? _self.strokeWidth : strokeWidth // ignore: cast_nullable_to_non_nullable
+as double,thinning: null == thinning ? _self.thinning : thinning // ignore: cast_nullable_to_non_nullable
+as double,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
+as SRGBColor,animation: null == animation ? _self.animation : animation // ignore: cast_nullable_to_non_nullable
+as LaserAnimation,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class ShapeTool extends Tool {
+   ShapeTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.zoomDependent = false, this.constrainedWidth = 0, this.constrainedHeight = 0, this.constrainedAspectRatio = 0, this.property = const ShapeProperty(shape: RectangleShape()), this.drawFromCenter = false, this.constrain = false,  String? $type}): $type = $type ?? 'shape',super._();
+  factory ShapeTool.fromJson(Map<String, dynamic> json) => _$ShapeToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  bool zoomDependent;
+@JsonKey() final  double constrainedWidth;
+@JsonKey() final  double constrainedHeight;
+@JsonKey() final  double constrainedAspectRatio;
+@JsonKey() final  ShapeProperty property;
+@JsonKey() final  bool drawFromCenter;
+@JsonKey() final  bool constrain;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ShapeToolCopyWith<ShapeTool> get copyWith => _$ShapeToolCopyWithImpl<ShapeTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ShapeToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.shape(name: $name, displayIcon: $displayIcon, id: $id, zoomDependent: $zoomDependent, constrainedWidth: $constrainedWidth, constrainedHeight: $constrainedHeight, constrainedAspectRatio: $constrainedAspectRatio, property: $property, drawFromCenter: $drawFromCenter, constrain: $constrain)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ShapeToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $ShapeToolCopyWith(ShapeTool value, $Res Function(ShapeTool) _then) = _$ShapeToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, bool zoomDependent, double constrainedWidth, double constrainedHeight, double constrainedAspectRatio, ShapeProperty property, bool drawFromCenter, bool constrain
+});
+
+
+
+
+}
+/// @nodoc
+class _$ShapeToolCopyWithImpl<$Res>
+    implements $ShapeToolCopyWith<$Res> {
+  _$ShapeToolCopyWithImpl(this._self, this._then);
+
+  final ShapeTool _self;
+  final $Res Function(ShapeTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? zoomDependent = null,Object? constrainedWidth = null,Object? constrainedHeight = null,Object? constrainedAspectRatio = null,Object? property = freezed,Object? drawFromCenter = null,Object? constrain = null,}) {
+  return _then(ShapeTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,zoomDependent: null == zoomDependent ? _self.zoomDependent : zoomDependent // ignore: cast_nullable_to_non_nullable
+as bool,constrainedWidth: null == constrainedWidth ? _self.constrainedWidth : constrainedWidth // ignore: cast_nullable_to_non_nullable
+as double,constrainedHeight: null == constrainedHeight ? _self.constrainedHeight : constrainedHeight // ignore: cast_nullable_to_non_nullable
+as double,constrainedAspectRatio: null == constrainedAspectRatio ? _self.constrainedAspectRatio : constrainedAspectRatio // ignore: cast_nullable_to_non_nullable
+as double,property: freezed == property ? _self.property : property // ignore: cast_nullable_to_non_nullable
+as ShapeProperty,drawFromCenter: null == drawFromCenter ? _self.drawFromCenter : drawFromCenter // ignore: cast_nullable_to_non_nullable
+as bool,constrain: null == constrain ? _self.constrain : constrain // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class TableTool extends Tool {
+   TableTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.zoomDependent = false, this.constrainedWidth = 0, this.constrainedHeight = 0, this.constrainedAspectRatio = 0, this.rows = 3, this.columns = 3, this.border = const TableBorderProperty(), @ColorJsonConverter() this.fillColor = SRGBColor.transparent,  String? $type}): $type = $type ?? 'table',super._();
+  factory TableTool.fromJson(Map<String, dynamic> json) => _$TableToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  bool zoomDependent;
+@JsonKey() final  double constrainedWidth;
+@JsonKey() final  double constrainedHeight;
+@JsonKey() final  double constrainedAspectRatio;
+@JsonKey() final  int rows;
+@JsonKey() final  int columns;
+@JsonKey() final  TableBorderProperty border;
+@JsonKey()@ColorJsonConverter() final  SRGBColor fillColor;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TableToolCopyWith<TableTool> get copyWith => _$TableToolCopyWithImpl<TableTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TableToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.table(name: $name, displayIcon: $displayIcon, id: $id, zoomDependent: $zoomDependent, constrainedWidth: $constrainedWidth, constrainedHeight: $constrainedHeight, constrainedAspectRatio: $constrainedAspectRatio, rows: $rows, columns: $columns, border: $border, fillColor: $fillColor)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $TableToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $TableToolCopyWith(TableTool value, $Res Function(TableTool) _then) = _$TableToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, bool zoomDependent, double constrainedWidth, double constrainedHeight, double constrainedAspectRatio, int rows, int columns, TableBorderProperty border,@ColorJsonConverter() SRGBColor fillColor
+});
+
+
+$TableBorderPropertyCopyWith<$Res> get border;
+
+}
+/// @nodoc
+class _$TableToolCopyWithImpl<$Res>
+    implements $TableToolCopyWith<$Res> {
+  _$TableToolCopyWithImpl(this._self, this._then);
+
+  final TableTool _self;
+  final $Res Function(TableTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? zoomDependent = null,Object? constrainedWidth = null,Object? constrainedHeight = null,Object? constrainedAspectRatio = null,Object? rows = null,Object? columns = null,Object? border = null,Object? fillColor = null,}) {
+  return _then(TableTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,zoomDependent: null == zoomDependent ? _self.zoomDependent : zoomDependent // ignore: cast_nullable_to_non_nullable
+as bool,constrainedWidth: null == constrainedWidth ? _self.constrainedWidth : constrainedWidth // ignore: cast_nullable_to_non_nullable
+as double,constrainedHeight: null == constrainedHeight ? _self.constrainedHeight : constrainedHeight // ignore: cast_nullable_to_non_nullable
+as double,constrainedAspectRatio: null == constrainedAspectRatio ? _self.constrainedAspectRatio : constrainedAspectRatio // ignore: cast_nullable_to_non_nullable
+as double,rows: null == rows ? _self.rows : rows // ignore: cast_nullable_to_non_nullable
+as int,columns: null == columns ? _self.columns : columns // ignore: cast_nullable_to_non_nullable
+as int,border: null == border ? _self.border : border // ignore: cast_nullable_to_non_nullable
+as TableBorderProperty,fillColor: null == fillColor ? _self.fillColor : fillColor // ignore: cast_nullable_to_non_nullable
+as SRGBColor,
+  ));
+}
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$TableBorderPropertyCopyWith<$Res> get border {
+  
+  return $TableBorderPropertyCopyWith<$Res>(_self.border, (value) {
+    return _then(_self.copyWith(border: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class StampTool extends Tool {
+   StampTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.component,  String? $type}): $type = $type ?? 'stamp',super._();
+  factory StampTool.fromJson(Map<String, dynamic> json) => _$StampToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+ final  NamedItem<ButterflyComponent>? component;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StampToolCopyWith<StampTool> get copyWith => _$StampToolCopyWithImpl<StampTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$StampToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.stamp(name: $name, displayIcon: $displayIcon, id: $id, component: $component)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $StampToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $StampToolCopyWith(StampTool value, $Res Function(StampTool) _then) = _$StampToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, NamedItem<ButterflyComponent>? component
+});
+
+
+$NamedItemCopyWith<ButterflyComponent, $Res>? get component;
+
+}
+/// @nodoc
+class _$StampToolCopyWithImpl<$Res>
+    implements $StampToolCopyWith<$Res> {
+  _$StampToolCopyWithImpl(this._self, this._then);
+
+  final StampTool _self;
+  final $Res Function(StampTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? component = freezed,}) {
+  return _then(StampTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,component: freezed == component ? _self.component : component // ignore: cast_nullable_to_non_nullable
+as NamedItem<ButterflyComponent>?,
+  ));
+}
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$NamedItemCopyWith<ButterflyComponent, $Res>? get component {
+    if (_self.component == null) {
+    return null;
+  }
+
+  return $NamedItemCopyWith<ButterflyComponent, $Res>(_self.component!, (value) {
+    return _then(_self.copyWith(component: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class PresentationTool extends Tool {
+   PresentationTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id,  String? $type}): $type = $type ?? 'presentation',super._();
+  factory PresentationTool.fromJson(Map<String, dynamic> json) => _$PresentationToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PresentationToolCopyWith<PresentationTool> get copyWith => _$PresentationToolCopyWithImpl<PresentationTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$PresentationToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.presentation(name: $name, displayIcon: $displayIcon, id: $id)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PresentationToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $PresentationToolCopyWith(PresentationTool value, $Res Function(PresentationTool) _then) = _$PresentationToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id
+});
+
+
+
+
+}
+/// @nodoc
+class _$PresentationToolCopyWithImpl<$Res>
+    implements $PresentationToolCopyWith<$Res> {
+  _$PresentationToolCopyWithImpl(this._self, this._then);
+
+  final PresentationTool _self;
+  final $Res Function(PresentationTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,}) {
+  return _then(PresentationTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class SpacerTool extends Tool {
+   SpacerTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.axis = Axis2D.horizontal,  String? $type}): $type = $type ?? 'spacer',super._();
+  factory SpacerTool.fromJson(Map<String, dynamic> json) => _$SpacerToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  Axis2D axis;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SpacerToolCopyWith<SpacerTool> get copyWith => _$SpacerToolCopyWithImpl<SpacerTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$SpacerToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.spacer(name: $name, displayIcon: $displayIcon, id: $id, axis: $axis)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SpacerToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $SpacerToolCopyWith(SpacerTool value, $Res Function(SpacerTool) _then) = _$SpacerToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, Axis2D axis
+});
+
+
+
+
+}
+/// @nodoc
+class _$SpacerToolCopyWithImpl<$Res>
+    implements $SpacerToolCopyWith<$Res> {
+  _$SpacerToolCopyWithImpl(this._self, this._then);
+
+  final SpacerTool _self;
+  final $Res Function(SpacerTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? axis = null,}) {
+  return _then(SpacerTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,axis: null == axis ? _self.axis : axis // ignore: cast_nullable_to_non_nullable
+as Axis2D,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class FullScreenTool extends Tool {
+   FullScreenTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id,  String? $type}): $type = $type ?? 'fullSceen',super._();
+  factory FullScreenTool.fromJson(Map<String, dynamic> json) => _$FullScreenToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$FullScreenToolCopyWith<FullScreenTool> get copyWith => _$FullScreenToolCopyWithImpl<FullScreenTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$FullScreenToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.fullScreen(name: $name, displayIcon: $displayIcon, id: $id)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $FullScreenToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $FullScreenToolCopyWith(FullScreenTool value, $Res Function(FullScreenTool) _then) = _$FullScreenToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id
+});
+
+
+
+
+}
+/// @nodoc
+class _$FullScreenToolCopyWithImpl<$Res>
+    implements $FullScreenToolCopyWith<$Res> {
+  _$FullScreenToolCopyWithImpl(this._self, this._then);
+
+  final FullScreenTool _self;
+  final $Res Function(FullScreenTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,}) {
+  return _then(FullScreenTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class AssetTool extends Tool {
+   AssetTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.importType = ImportType.file, this.advanced = true,  String? $type}): $type = $type ?? 'asset',super._();
+  factory AssetTool.fromJson(Map<String, dynamic> json) => _$AssetToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  ImportType importType;
+@JsonKey() final  bool advanced;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AssetToolCopyWith<AssetTool> get copyWith => _$AssetToolCopyWithImpl<AssetTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$AssetToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.asset(name: $name, displayIcon: $displayIcon, id: $id, importType: $importType, advanced: $advanced)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AssetToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $AssetToolCopyWith(AssetTool value, $Res Function(AssetTool) _then) = _$AssetToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, ImportType importType, bool advanced
+});
+
+
+
+
+}
+/// @nodoc
+class _$AssetToolCopyWithImpl<$Res>
+    implements $AssetToolCopyWith<$Res> {
+  _$AssetToolCopyWithImpl(this._self, this._then);
+
+  final AssetTool _self;
+  final $Res Function(AssetTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? importType = null,Object? advanced = null,}) {
+  return _then(AssetTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,importType: null == importType ? _self.importType : importType // ignore: cast_nullable_to_non_nullable
+as ImportType,advanced: null == advanced ? _self.advanced : advanced // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class ExportTool extends Tool {
+   ExportTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, required this.options,  String? $type}): $type = $type ?? 'export',super._();
+  factory ExportTool.fromJson(Map<String, dynamic> json) => _$ExportToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+ final  ExportOptions options;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ExportToolCopyWith<ExportTool> get copyWith => _$ExportToolCopyWithImpl<ExportTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ExportToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.export(name: $name, displayIcon: $displayIcon, id: $id, options: $options)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ExportToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $ExportToolCopyWith(ExportTool value, $Res Function(ExportTool) _then) = _$ExportToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, ExportOptions options
+});
+
+
+$ExportOptionsCopyWith<$Res> get options;
+
+}
+/// @nodoc
+class _$ExportToolCopyWithImpl<$Res>
+    implements $ExportToolCopyWith<$Res> {
+  _$ExportToolCopyWithImpl(this._self, this._then);
+
+  final ExportTool _self;
+  final $Res Function(ExportTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? options = null,}) {
+  return _then(ExportTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,options: null == options ? _self.options : options // ignore: cast_nullable_to_non_nullable
+as ExportOptions,
+  ));
+}
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ExportOptionsCopyWith<$Res> get options {
+  
+  return $ExportOptionsCopyWith<$Res>(_self.options, (value) {
+    return _then(_self.copyWith(options: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class TextureTool extends Tool {
+   TextureTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.zoomDependent = false, this.constrainedWidth = 0, this.constrainedHeight = 0, this.constrainedAspectRatio = 0, this.texture = const SurfaceTexture.pattern(),  String? $type}): $type = $type ?? 'texture',super._();
+  factory TextureTool.fromJson(Map<String, dynamic> json) => _$TextureToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  bool zoomDependent;
+@JsonKey() final  double constrainedWidth;
+@JsonKey() final  double constrainedHeight;
+@JsonKey() final  double constrainedAspectRatio;
+@JsonKey() final  SurfaceTexture texture;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TextureToolCopyWith<TextureTool> get copyWith => _$TextureToolCopyWithImpl<TextureTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TextureToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.texture(name: $name, displayIcon: $displayIcon, id: $id, zoomDependent: $zoomDependent, constrainedWidth: $constrainedWidth, constrainedHeight: $constrainedHeight, constrainedAspectRatio: $constrainedAspectRatio, texture: $texture)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $TextureToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $TextureToolCopyWith(TextureTool value, $Res Function(TextureTool) _then) = _$TextureToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, bool zoomDependent, double constrainedWidth, double constrainedHeight, double constrainedAspectRatio, SurfaceTexture texture
+});
+
+
+$SurfaceTextureCopyWith<$Res> get texture;
+
+}
+/// @nodoc
+class _$TextureToolCopyWithImpl<$Res>
+    implements $TextureToolCopyWith<$Res> {
+  _$TextureToolCopyWithImpl(this._self, this._then);
+
+  final TextureTool _self;
+  final $Res Function(TextureTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? zoomDependent = null,Object? constrainedWidth = null,Object? constrainedHeight = null,Object? constrainedAspectRatio = null,Object? texture = null,}) {
+  return _then(TextureTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,zoomDependent: null == zoomDependent ? _self.zoomDependent : zoomDependent // ignore: cast_nullable_to_non_nullable
+as bool,constrainedWidth: null == constrainedWidth ? _self.constrainedWidth : constrainedWidth // ignore: cast_nullable_to_non_nullable
+as double,constrainedHeight: null == constrainedHeight ? _self.constrainedHeight : constrainedHeight // ignore: cast_nullable_to_non_nullable
+as double,constrainedAspectRatio: null == constrainedAspectRatio ? _self.constrainedAspectRatio : constrainedAspectRatio // ignore: cast_nullable_to_non_nullable
+as double,texture: null == texture ? _self.texture : texture // ignore: cast_nullable_to_non_nullable
+as SurfaceTexture,
+  ));
+}
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SurfaceTextureCopyWith<$Res> get texture {
+  
+  return $SurfaceTextureCopyWith<$Res>(_self.texture, (value) {
+    return _then(_self.copyWith(texture: value));
+  });
+}
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class RulerTool extends Tool {
+   RulerTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, @ColorJsonConverter() this.color, @ColorJsonConverter() this.foreground, this.size = 100,  String? $type}): $type = $type ?? 'ruler',super._();
+  factory RulerTool.fromJson(Map<String, dynamic> json) => _$RulerToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@ColorJsonConverter() final  SRGBColor? color;
+@ColorJsonConverter() final  SRGBColor? foreground;
+@JsonKey() final  int size;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RulerToolCopyWith<RulerTool> get copyWith => _$RulerToolCopyWithImpl<RulerTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$RulerToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.ruler(name: $name, displayIcon: $displayIcon, id: $id, color: $color, foreground: $foreground, size: $size)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $RulerToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $RulerToolCopyWith(RulerTool value, $Res Function(RulerTool) _then) = _$RulerToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id,@ColorJsonConverter() SRGBColor? color,@ColorJsonConverter() SRGBColor? foreground, int size
+});
+
+
+
+
+}
+/// @nodoc
+class _$RulerToolCopyWithImpl<$Res>
+    implements $RulerToolCopyWith<$Res> {
+  _$RulerToolCopyWithImpl(this._self, this._then);
+
+  final RulerTool _self;
+  final $Res Function(RulerTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? color = freezed,Object? foreground = freezed,Object? size = null,}) {
+  return _then(RulerTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,color: freezed == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
+as SRGBColor?,foreground: freezed == foreground ? _self.foreground : foreground // ignore: cast_nullable_to_non_nullable
+as SRGBColor?,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class GridTool extends Tool {
+   GridTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, @ColorJsonConverter() this.color = SRGBColor.black, this.xSize = 20, this.ySize = 20, this.xOffset = 0, this.yOffset = 0, this.positionDependent = false, this.zoomDependent = false, this.stroke = 1,  String? $type}): $type = $type ?? 'grid',super._();
+  factory GridTool.fromJson(Map<String, dynamic> json) => _$GridToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey()@ColorJsonConverter() final  SRGBColor color;
+@JsonKey() final  double xSize;
+@JsonKey() final  double ySize;
+@JsonKey() final  double xOffset;
+@JsonKey() final  double yOffset;
+@JsonKey() final  bool positionDependent;
+@JsonKey() final  bool zoomDependent;
+@JsonKey() final  double stroke;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GridToolCopyWith<GridTool> get copyWith => _$GridToolCopyWithImpl<GridTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$GridToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.grid(name: $name, displayIcon: $displayIcon, id: $id, color: $color, xSize: $xSize, ySize: $ySize, xOffset: $xOffset, yOffset: $yOffset, positionDependent: $positionDependent, zoomDependent: $zoomDependent, stroke: $stroke)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $GridToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $GridToolCopyWith(GridTool value, $Res Function(GridTool) _then) = _$GridToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id,@ColorJsonConverter() SRGBColor color, double xSize, double ySize, double xOffset, double yOffset, bool positionDependent, bool zoomDependent, double stroke
+});
+
+
+
+
+}
+/// @nodoc
+class _$GridToolCopyWithImpl<$Res>
+    implements $GridToolCopyWith<$Res> {
+  _$GridToolCopyWithImpl(this._self, this._then);
+
+  final GridTool _self;
+  final $Res Function(GridTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? color = null,Object? xSize = null,Object? ySize = null,Object? xOffset = null,Object? yOffset = null,Object? positionDependent = null,Object? zoomDependent = null,Object? stroke = null,}) {
+  return _then(GridTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
+as SRGBColor,xSize: null == xSize ? _self.xSize : xSize // ignore: cast_nullable_to_non_nullable
+as double,ySize: null == ySize ? _self.ySize : ySize // ignore: cast_nullable_to_non_nullable
+as double,xOffset: null == xOffset ? _self.xOffset : xOffset // ignore: cast_nullable_to_non_nullable
+as double,yOffset: null == yOffset ? _self.yOffset : yOffset // ignore: cast_nullable_to_non_nullable
+as double,positionDependent: null == positionDependent ? _self.positionDependent : positionDependent // ignore: cast_nullable_to_non_nullable
+as bool,zoomDependent: null == zoomDependent ? _self.zoomDependent : zoomDependent // ignore: cast_nullable_to_non_nullable
+as bool,stroke: null == stroke ? _self.stroke : stroke // ignore: cast_nullable_to_non_nullable
+as double,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class EyeDropperTool extends Tool {
+   EyeDropperTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id,  String? $type}): $type = $type ?? 'eyeDropper',super._();
+  factory EyeDropperTool.fromJson(Map<String, dynamic> json) => _$EyeDropperToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EyeDropperToolCopyWith<EyeDropperTool> get copyWith => _$EyeDropperToolCopyWithImpl<EyeDropperTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$EyeDropperToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.eyeDropper(name: $name, displayIcon: $displayIcon, id: $id)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $EyeDropperToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $EyeDropperToolCopyWith(EyeDropperTool value, $Res Function(EyeDropperTool) _then) = _$EyeDropperToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id
+});
+
+
+
+
+}
+/// @nodoc
+class _$EyeDropperToolCopyWithImpl<$Res>
+    implements $EyeDropperToolCopyWith<$Res> {
+  _$EyeDropperToolCopyWithImpl(this._self, this._then);
+
+  final EyeDropperTool _self;
+  final $Res Function(EyeDropperTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,}) {
+  return _then(EyeDropperTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class BarcodeTool extends Tool {
+   BarcodeTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.barcodeType = BarcodeType.qrCode, @ColorJsonConverter() this.color = SRGBColor.black,  String? $type}): $type = $type ?? 'barcode',super._();
+  factory BarcodeTool.fromJson(Map<String, dynamic> json) => _$BarcodeToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  BarcodeType barcodeType;
+@JsonKey()@ColorJsonConverter() final  SRGBColor color;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BarcodeToolCopyWith<BarcodeTool> get copyWith => _$BarcodeToolCopyWithImpl<BarcodeTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$BarcodeToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.barcode(name: $name, displayIcon: $displayIcon, id: $id, barcodeType: $barcodeType, color: $color)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $BarcodeToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $BarcodeToolCopyWith(BarcodeTool value, $Res Function(BarcodeTool) _then) = _$BarcodeToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, BarcodeType barcodeType,@ColorJsonConverter() SRGBColor color
+});
+
+
+
+
+}
+/// @nodoc
+class _$BarcodeToolCopyWithImpl<$Res>
+    implements $BarcodeToolCopyWith<$Res> {
+  _$BarcodeToolCopyWithImpl(this._self, this._then);
+
+  final BarcodeTool _self;
+  final $Res Function(BarcodeTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? barcodeType = null,Object? color = null,}) {
+  return _then(BarcodeTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,barcodeType: null == barcodeType ? _self.barcodeType : barcodeType // ignore: cast_nullable_to_non_nullable
+as BarcodeType,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
+as SRGBColor,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class PolygonTool extends Tool {
+   PolygonTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.zoomDependent = false, this.property = const PolygonProperty(),  String? $type}): $type = $type ?? 'polygon',super._();
+  factory PolygonTool.fromJson(Map<String, dynamic> json) => _$PolygonToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  bool zoomDependent;
+@JsonKey() final  PolygonProperty property;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PolygonToolCopyWith<PolygonTool> get copyWith => _$PolygonToolCopyWithImpl<PolygonTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$PolygonToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+    return 'Tool.polygon(name: $name, displayIcon: $displayIcon, id: $id, zoomDependent: $zoomDependent, property: $property)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PolygonToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $PolygonToolCopyWith(PolygonTool value, $Res Function(PolygonTool) _then) = _$PolygonToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, bool zoomDependent, PolygonProperty property
+});
+
+
+
+
+}
+/// @nodoc
+class _$PolygonToolCopyWithImpl<$Res>
+    implements $PolygonToolCopyWith<$Res> {
+  _$PolygonToolCopyWithImpl(this._self, this._then);
+
+  final PolygonTool _self;
+  final $Res Function(PolygonTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? zoomDependent = null,Object? property = freezed,}) {
+  return _then(PolygonTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,zoomDependent: null == zoomDependent ? _self.zoomDependent : zoomDependent // ignore: cast_nullable_to_non_nullable
+as bool,property: freezed == property ? _self.property : property // ignore: cast_nullable_to_non_nullable
+as PolygonProperty,
+  ));
+}
+
+
+}
+
+// dart format on

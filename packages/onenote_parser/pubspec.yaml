@@ -1,0 +1,7 @@
+name: onenote_parser
+description: Pure-Dart OneNote data model & parser interface (no Rust/MSVC native hook required).
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ^3.11.0

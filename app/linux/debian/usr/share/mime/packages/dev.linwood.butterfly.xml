@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-butterfly">
+    <sub-class-of type="application/zip"/>
+    <icon name="dev.linwood.butterfly"/>
+    <comment>Butterfly files</comment>
+    <glob pattern="*.bfly"/>
+  </mime-type>
+  <mime-type type="application/x-text-butterfly">
+    <sub-class-of type="application/json"/>
+    <icon name="dev.linwood.butterfly"/>
+    <comment>Butterfly text files</comment>
+    <glob pattern="*.tbfly"/>
+  </mime-type>
+  <mime-type type="application/onenote">
+    <icon name="dev.linwood.butterfly"/>
+    <comment>Microsoft OneNote files</comment>
+    <glob pattern="*.one"/>
+    <glob pattern="*.onepkg"/>
+  </mime-type>
+</mime-info>

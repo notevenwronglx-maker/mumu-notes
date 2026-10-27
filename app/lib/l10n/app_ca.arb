@@ -1,0 +1,1693 @@
+{
+  "open": "Obrir",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Reveal in file explorer",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Configuració",
+  "personalization": "Personalització",
+  "theme": "Tema",
+  "darkTheme": "Tema fosc",
+  "lightTheme": "Tema clar",
+  "systemTheme": "Utilitzar tema del sistema per defecte",
+  "view": "Veure",
+  "contentViewport": "Content Viewport",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Limit Viewport to positive coordinates",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Off",
+  "canvas": "Canvas",
+  "interface": "Interface",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Editar",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Exportar",
+  "save": "Desa",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Zoom",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Amplia",
+  "zoomOut": "Redueix",
+  "resetZoom": "Reinicia zoom",
+  "strokeWidth": "Amplada del traç",
+  "strokeStyle": "Stroke style",
+  "dashLength": "Dash length",
+  "gapLength": "Gap length",
+  "includeEraser": "Incloure esborrador?",
+  "thinning": "Afinament",
+  "pen": "Bolígraf",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Inverted Stylus",
+  "eraser": "Esborrador",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Stroke",
+  "label": "Etiqueta",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Suprimeix",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Estàs segur?",
+  "reallyDelete": "Realment vols suprimir aquest element?",
+  "no": "No",
+  "yes": "Sí",
+  "undo": "Desfer",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Tornar a fer",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "General",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Copiat al porta-retalls",
+  "loading": "Carregant...",
+  "enterText": "Introdueix el text",
+  "size": "Mida",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Amplada",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Alçada",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Nombre",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Espai",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Fons",
+  "applyBackground": "Apply background",
+  "applyAreas": "Apply areas",
+  "currentPage": "Current page",
+  "allPages": "All pages",
+  "box": "Quadre",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "Configuració regional",
+  "systemLocale": "Configuració regional del sistema",
+  "information": "Informació",
+  "license": "Llicència",
+  "imprint": "Avís legal",
+  "privacypolicy": "Política de privacitat",
+  "sourceCode": "Codi font",
+  "documentation": "Documentació",
+  "changelog": "Registre de canvis",
+  "source": "Font",
+  "existOverride": "Aquest element ja existeix. Sobreescriure?",
+  "description": "Descripció",
+  "fill": "Omplir",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Paleta per defecte",
+  "highlighter": "Marcador",
+  "combinePaths": "Combine paths",
+  "add": "Afegeix",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Elimina",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Realment vols eliminar això?",
+  "resetPalette": "Reinicia paleta",
+  "custom": "Personalitzat",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Decoració",
+  "underline": "Subratllat",
+  "overline": "Sobrelineat",
+  "strikethrough": "Ratllat",
+  "thickness": "Gruix",
+  "style": "Estil",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Sòlid",
+  "solidColor": "Solid color",
+  "gradient": "Gradient",
+  "gradientType": "Gradient type",
+  "linear": "Linear",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Doble",
+  "dotted": "Puntejat",
+  "dottedDark": "Dotted dark",
+  "dashed": "Guionet",
+  "wavy": "Ondulat",
+  "fontWeight": "Gruix de la font",
+  "normal": "Normal",
+  "bold": "Negreta",
+  "italic": "Cursiva",
+  "clipboard": "Porta-retalls",
+  "file": "Fitxer",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Dades",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Comparteix",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Espaiat",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Imatge",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Introdueix l'URL",
+  "scale": "Escala",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Ajuda",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Realment vols reiniciar-ho?",
+  "whatToDo": "Què vols fer?",
+  "ignore": "Ignora",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Còpia de seguretat",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Backup connection",
+  "automaticBackups": "Automatic backups",
+  "automaticBackupsDescription": "Creates backups while Butterfly is running.",
+  "backupInterval": "Backup interval",
+  "backupNow": "Back up now",
+  "lastBackup": "Last backup",
+  "backupCreated": "Backup created",
+  "hour": "hour",
+  "hours": "hours",
+  "day": "day",
+  "days": "days",
+  "week": "week",
+  "weeks": "weeks",
+  "createdInNewerVersion": "El fitxer {fileName} es va crear en una versió més nova ({fileVersion}). Què cal fer amb aquest fitxer?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Punts de pas",
+  "origin": "Origen",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "Importa",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "Nou",
+  "selectElement": "Selecciona element",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Maj",
+  "altKey": "Alt",
+  "copyVersion": "Copia versió",
+  "input": "Entrada",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Comportaments",
+  "dataDirectory": "Directori de dades",
+  "warning": "Warning",
+  "platformExperimentalWarning": "Warning: This setting is experimental and can have problems on this platform.",
+  "changeDataDirectoryWarningContent": "Are you sure you want to change the data folder? You should make a backup of your data before proceeding.",
+  "defaultPath": "Ruta per defecte",
+  "dateFormat": "Format de data",
+  "updatedAt": "Actualitzat a: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Creat a: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Canvia nom",
+  "duplicate": "Duplica",
+  "hand": "Mà",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Carpeta",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Mou",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Copia",
+  "openContextMenu": "Open context menu",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Enrere",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Forward",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Depenent del zoom",
+  "shapeDetection": "Detecció de formes",
+  "delay": "Retard",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Capa per defecte",
+  "layer": "Capa",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Capes",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "No establert",
+  "enterLayer": "Introdueix el nom de la capa",
+  "eraseShapes": "Erase shapes",
+  "eraseShapeModeNone": "Don't erase shapes",
+  "eraseShapeModeTouchEdges": "Erase when touching edges",
+  "eraseShapeModeTouchAnywhere": "Erase when touching anywhere",
+  "selectElementModeTouchEdges": "Select when touching edges",
+  "selectElementModeTouchAnywhere": "Select when touching anywhere",
+  "selectElements": "Selecciona elements",
+  "deleteElements": "Suprimeix elements",
+  "eraseAllElements": "Erase all elements",
+  "deleteElementsConfirm": "Realment vols suprimir els elements seleccionats?",
+  "selectCustomCollection": "Selecciona una col·lecció personalitzada",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Sensibilitat",
+  "selectionTolerance": "Selection tolerance",
+  "selectionToleranceDescription": "How close a pointer must be to an element or area to select it. Higher values make selection easier.",
+  "selectionHandleSensitivity": "Selection handle hit area",
+  "selectionHandleSensitivityDescription": "Size of the hit area around selection and area handles for all pointer types.",
+  "panGestureSensitivity": "Pan gesture sensitivity",
+  "panGestureSensitivityDescription": "Canvas movement from touch or trackpad gestures. Higher values move the canvas farther.",
+  "zoomGestureSensitivity": "Continuous zoom sensitivity",
+  "zoomGestureSensitivityDescription": "Zoom from pinching, trackpad gestures, and Ctrl+scroll. Higher values zoom farther.",
+  "rotationGestureSensitivity": "Rotation gesture sensitivity",
+  "rotationGestureSensitivityDescription": "Canvas rotation from gestures. Higher values rotate farther.",
+  "scrollPanSensitivity": "Scroll pan sensitivity",
+  "scrollPanSensitivityDescription": "Canvas movement from mouse wheel and trackpad scrolling. Higher values pan farther.",
+  "horizontal": "Horitzontal",
+  "vertical": "Vertical",
+  "plain": "Pla",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Clar",
+  "ruled": "Ratllat",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Quadrícula",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Música",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Fosc",
+  "plainDark": "Plain dark",
+  "ruledDark": "Ratllat fosc",
+  "quadDark": "Quadrícula fosca",
+  "musicDark": "Música fosca",
+  "templates": "Plantilles",
+  "untitled": "Sense títol",
+  "createTemplate": "Crea plantilla",
+  "createTemplateContent": "Realment vols crear una plantilla d'aquest document? El document original s'eliminarà.",
+  "fileName": "File name",
+  "defaultFileName": "Default file name",
+  "templateFileNameDescription": "Documents opened from the template picker are saved automatically with this name. Templates without a name use the default configured in Data settings. Combine your own text with {dateExample} and {timeExample}. Characters that are not allowed in file names will be rejected.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Preview",
+  "replace": "Substitueix",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Realment vols substituir la plantilla? Aquesta operació no es pot desfer!",
+  "defaultTemplate": "Plantilla per defecte",
+  "insert": "Insereix",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Document",
+  "documentStates": "Document states",
+  "camera": "Càmera",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Impressió",
+  "selectCamera": "Selecciona una càmera",
+  "changeDocumentPath": "Canvia la ruta del document",
+  "deleteWholeStroke": "Suprimeix tot el traç",
+  "alpha": "Alfa",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Àrea",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Selecciona l'àrea",
+  "aspectRatio": "Relació d'aspecte",
+  "presets": "Predefinits",
+  "pagePortrait": "Pàgina vertical",
+  "pageLandscape": "Pàgina horitzontal",
+  "square": "Quadrat",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Àrees",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Introdueix l'àrea",
+  "exitArea": "Surt de l'àrea",
+  "currentArea": "Àrea actual",
+  "design": "Disseny",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Text",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Hola, això és Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "Un espai de dibuix lliure i de codi obert!",
+  "updated": "Aplicació actualitzada a la versió {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Notes de la versió",
+  "constraints": "Restriccions",
+  "scaled": "Escalat",
+  "fixed": "Fix",
+  "dynamicContent": "Dinàmic",
+  "none": "Cap",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Inclou àrea",
+  "verticalAlignment": "Alineació vertical",
+  "horizontalAlignment": "Alineació horitzontal",
+  "top": "Superior",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Centre",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Inferior",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Esquerra",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Dreta",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Justifica",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Restricció",
+  "length": "Longitud",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "Exporta SVG",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Selecciona pàgines",
+  "recentFiles": "Fitxers recents",
+  "start": "Inicia",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "Cap fitxer recent",
+  "countPages": "{count,plural, =0{Cap pàgina} =1{1 pàgina} other{{count} pàgines}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Pàgina {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Surt",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "Cap element",
+  "invertSelection": "Inverteix selecció",
+  "errorWhileImporting": "Error en importar",
+  "errorWhileImportingContent": "Ha ocorregut un error en importar el fitxer",
+  "showDetails": "Mostra detalls",
+  "hideDetails": "Amaga detalls",
+  "error": "Error",
+  "stackTrace": "Traça de pila",
+  "laser": "Làser",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Durada",
+  "quality": "Qualitat",
+  "exportPdf": "Exporta PDF",
+  "local": "Local",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Afegeix connexió",
+  "connections": "Connexions",
+  "noConnections": "Cap connexió",
+  "url": "URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "The full WebDAV URL provided by your storage provider",
+  "connect": "Connecta",
+  "username": "Nom d'usuari",
+  "password": "Contrasenya",
+  "authenticationPassword": "Authentication password",
+  "documentEncryptionPassword": "Document encryption password",
+  "documentEncryptionPasswordDescription": "Encrypts documents stored in this connection. Leave empty to keep them unencrypted",
+  "documentEncryptionEnabled": "Document encryption enabled",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Add document encryption password",
+  "changeDocumentEncryptionPassword": "Change document encryption password",
+  "webNotSupported": "Web no compatible",
+  "advanced": "Avançat",
+  "symmetric": "Symmetric",
+  "perSide": "Per side",
+  "directory": "Directori",
+  "connectionNameDescription": "Only used to identify this connection in Butterfly",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Directori de documents",
+  "templatesDirectory": "Directori de plantilles",
+  "errorWhileCreatingConnection": "Error en crear connexió",
+  "cannotConnect": "No es pot connectar",
+  "urlNotValid": "URL no vàlida",
+  "icon": "Icona",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Optional URL of an image to use as the connection icon",
+  "update": "Actualitza",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Actualització disponible",
+  "stable": "Estable",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Nightly",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Comprova actualitzacions",
+  "checkForUpdatesWarning": "Fer una comprovació d'actualitzacions se connectarà al lloc web de Butterfly per obtenir la informació.",
+  "usingLatestStable": "Estàs utilitzant l'última versió estable",
+  "usingLatestNightly": "Estàs utilitzant l'última versió nightly",
+  "currentVersion": "Versió actual",
+  "updateNow": "Actualitza ara",
+  "shape": "Forma",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Table",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "row": "Row",
+  "column": "Column",
+  "insertRowBefore": "Insert row before",
+  "insertRowAfter": "Insert row after",
+  "insertColumnBefore": "Insert column before",
+  "insertColumnAfter": "Insert column after",
+  "deleteRow": "Delete row",
+  "deleteColumn": "Delete column",
+  "cellColor": "Cell color",
+  "cellBorders": "Cell borders",
+  "cellBorder": "Cell border",
+  "horizontalBorder": "Horizontal border",
+  "verticalBorder": "Vertical border",
+  "rowHeight": "Row height",
+  "columnWidth": "Column width",
+  "border": "Border",
+  "circle": "Cercle",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Rectangle",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Triangle",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Línia",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Radi de cantonada",
+  "topLeft": "Superior esquerra",
+  "topRight": "Superior dreta",
+  "bottomLeft": "Inferior esquerra",
+  "bottomRight": "Inferior dreta",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Cachés",
+  "manage": "Gestiona",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Neteja cachés",
+  "createCache": "Crea caché",
+  "thirdPartyLicenses": "Llicències de tercers",
+  "syncing": "Sincronitzant...",
+  "synced": "Sincronitzat",
+  "notSynced": "No sincronitzat",
+  "conflict": "Conflicte",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Manté local",
+  "keepConnection": "Manté connexió",
+  "keepBoth": "Manté ambdós",
+  "forAll": "Per a tots",
+  "fileConflict": "{file} a {connection} té un conflicte",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Desconnectat",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "Local més recent",
+  "connectionLatest": "Connexió més recent",
+  "path": "Ruta",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Carpeta sincronitzada",
+  "syncRootDirectory": "Directori arrel de sincronització",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Automatically enables stylus-only mode when a stylus is detected. This setting only lasts for the current session.",
+  "penOnlyInputOnDescription": "Always reject touch and mouse input, only accept stylus input.",
+  "penOnlyInputOffDescription": "Accept all input types including touch, mouse, and stylus.",
+  "automatic": "Automatic",
+  "alwaysOn": "Always on",
+  "alwaysOff": "Always off",
+  "showPenOnlyToggle": "Show stylus only toggle",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Gestos d'entrada",
+  "inputGesturesDescription": "Lets you move and zoom the canvas with touch gestures, even while a drawing tool is selected.",
+  "nativeTitleBar": "Barra de títol nativa",
+  "mode": "Mode",
+  "syncMode": "Mode de sincronització",
+  "connection": "Connexió",
+  "always": "Sempre",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "Sense mòbil",
+  "syncModeAlwaysDescription": "Syncs remote files automatically whenever they change.",
+  "syncModeNoMobileDescription": "Syncs automatically except on mobile devices, which can reduce mobile data usage.",
+  "manual": "Manual",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Only syncs when you start it yourself.",
+  "search": "Cerca",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Propietats",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Fixar",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Desfixar",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Element",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Pintor",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Posició",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Nota",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Paquets",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Pack",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "Més",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Demana nom",
+  "areaIndex": "Àrea {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Inicia en pantalla completa",
+  "inputs": "Entrades",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Ratolí",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Tacte",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Teclat",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Dreceres",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Mig",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "Primer",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "Segon",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Eina activa",
+  "activeToolDescription": "Utilitza l'eina seleccionada actualment a la barra d'eines",
+  "handTool": "Eina de mà",
+  "handToolDescription": "Arrossega per desplaçar el llenç",
+  "toolOnToolbar": "Eina específica a la barra d'eines",
+  "toolOnToolbarDescription": "Utilitza l'eina en la posició especificada a la barra d'eines, començant per l'esquerra",
+  "toolOnToolbarShort": "Posició a la barra: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Eines",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Mostra quadrícula",
+  "grid": "Quadrícula",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Regle",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Angle",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Informe",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "Nova carpeta",
+  "createPack": "Crea pack",
+  "editPack": "Edita pack",
+  "packsDirectory": "Directori de packs",
+  "stamp": "Segell",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Afegeix al pack",
+  "sureImportPack": "Segur que vols importar el pack?",
+  "byAuthor": "per {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Autor",
+  "addAsset": "Afegeix recurs",
+  "editAsset": "Edita recurs",
+  "scope": "Àmbit",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "Actualment no hi ha packs disponibles",
+  "components": "Components",
+  "waypoint": "Punt de pas",
+  "actions": "Accions",
+  "painters": "Pintors",
+  "breakingChangesTitle": "Canvis incompatibles",
+  "breakingChangesMessage": "Hi ha canvis incompatibles en aquesta versió. Llegeix el registre de canvis abans d'actualitzar. La versió actual del fitxer és {version}, la nova versió és {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Estils",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Pàrraf",
+  "fontFamily": "Tipus de lletra",
+  "smoothing": "Suavització",
+  "streamline": "Suavitzat",
+  "presentation": "Presentació",
+  "simple": "Simple",
+  "createPresentation": "Create presentation",
+  "addSlide": "Add new slide",
+  "updateSlide": "Update slide",
+  "deleteSlide": "Delete slide",
+  "transitionDuration": "Transition duration",
+  "transitionDurationDescription": "How long the camera takes to move to the next slide. On the last slide, this is used when you add a new one.",
+  "transitionDurationValue": "{seconds}s transition",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Add keyframe here",
+  "updateKeyframe": "Update from current camera",
+  "deleteKeyframe": "Delete keyframe",
+  "markAsSlide": "Mark as slide",
+  "removeSlideMarker": "Remove slide marker",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "Selecciona recurs",
+  "clearStyle": "Esborra estil",
+  "unknownImportType": "Tipus d'importació desconegut",
+  "sureImportTemplate": "Segur que vols importar la plantilla?",
+  "frame": "Marc",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Reprodueix",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Vídeo",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Punt de ruptura",
+  "presentationControls": "Controls de presentació",
+  "nextSlide": "Següent diapositiva",
+  "nextSlideDescription": "Fes lliscar a la dreta o prem la fletxa dreta per anar a la diapositiva següent",
+  "previousSlide": "Diapositiva anterior",
+  "previousSlideDescription": "Fes lliscar a l'esquerra o prem la fletxa esquerra per anar a la diapositiva anterior",
+  "exitPresentation": "Sortir de la presentació",
+  "exitPresentationDescription": "Prem Esc o fes lliscar cap avall per sortir de la presentació",
+  "pausePresentation": "Pausa presentació",
+  "pausePresentationDescription": "Toca la pantalla o prem la barra espaiadora per pausar o reprendre la presentació",
+  "keyframe": "Fotograma clau",
+  "endOfPresentation": "Has arribat al final de la presentació",
+  "startOfPresentation": "Has arribat al principi de la presentació",
+  "palettes": "Paletes",
+  "headline": "Títol {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Codi",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Cita",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Enllaç",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Casella de selecció",
+  "deleted": "Eliminat",
+  "emphasis": "Èmfasi",
+  "listBullet": "Llista amb vinyetes",
+  "strong": "Fort",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Inici",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Fitxers",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Ordena per",
+  "location": "Ubicació",
+  "whatsNew": "Què hi ha de nou?",
+  "unstar": "Elimina estrella",
+  "star": "Marca amb estrella",
+  "goUp": "Puja",
+  "created": "Creat",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Modificat",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Inici ràpid",
+  "noTemplates": "Actualment no hi ha plantilles disponibles",
+  "importCorePack": "Importa pack principal",
+  "importCorePackDescription": "Importa el pack principal que conté tots els recursos bàsics per començar. Això sobreescriurà el pack principal actual.",
+  "never": "Mai",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Només en actualitzacions",
+  "visibility": "Visibilitat",
+  "captureThumbnail": "Captura la miniatura",
+  "autoThumbnail": "Update thumbnail on close",
+  "autoThumbnailDescription": "Capture the current view when you close this document. Manually capturing a thumbnail turns this off.",
+  "capturedThumbnail": "Miniatura capturada correctament",
+  "chooseLabelMode": "Tria mode d'etiqueta",
+  "foreground": "Primer pla",
+  "version": "Versió",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Repositori",
+  "pages": "Pàgines",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Navegador",
+  "arrange": "Organitza",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Porta al davant",
+  "sendToBack": "Envia enrere",
+  "bringForward": "Porta endavant",
+  "sendBackward": "Envia enrere",
+  "rotation": "Rotació",
+  "rotationStep": "Rotation step",
+  "zoomStep": "Zoom step",
+  "zoomStepDescription": "Amount used by the zoom in and zoom out keyboard shortcuts. Continuous zoom gestures use their own sensitivity setting.",
+  "direction": "Direction",
+  "onlyAvailableLargerScreen": "Només disponible en pantalles grans",
+  "toolbarPosition": "Posició de la barra d'eines",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Rota",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Rotate left",
+  "rotateRight": "Rotate right",
+  "spacer": "Separador",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Rail de navegació",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Talla",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Insereix abans",
+  "insertAfter": "Insereix després",
+  "insertFirst": "Insereix primer",
+  "insertLast": "Insereix últim",
+  "paste": "Enganxa",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Ascendent",
+  "descending": "Descendent",
+  "imageScale": "Escala d'imatge",
+  "svgScale": "SVG scale",
+  "noImageSelected": "No image selected",
+  "noSvgSelected": "No SVG selected",
+  "select": "Selecciona",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Eina",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Textura",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Tema de plataforma",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Escriptori",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Mòbil",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Superfície",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Patró",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Segur que vols tancar el document?",
+  "thereAreUnsavedChanges": "Hi ha canvis sense desar",
+  "page": "Pàgina",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "Servidors ICE",
+  "collaboration": "Col·laboració",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Socket",
+  "iceServer": "Servidor ICE",
+  "port": "Port",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Tipus",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Costat",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "Client",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Servidor",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Canvia vista",
+  "lasso": "Llaç",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Amaga la interfície",
+  "density": "Densitat",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Compacte",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Còmode",
+  "standard": "Estàndard",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Bloqueja",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Afegeix element",
+  "notDefaultConnection": "Connexió no per defecte",
+  "defaultConnection": "Connexió per defecte",
+  "hide": "Amaga",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Mostra",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "Pausa",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Atura",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Actualitza",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "Imprimeix",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Pipeta",
+  "users": "Usuaris",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Experiments",
+  "experimentsWarning": "Aquestes funcions són experimentals i poden canviar, trencar-se o desaparèixer en qualsevol moment. Activar-les pot causar inestabilitat o pèrdua de dades. Procedeix amb precaució. Si us plau, informa de qualsevol error.",
+  "address": "Adreça",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Estén a pàgines",
+  "rootDirectorySpecifiedDescription": "S'ha especificat el directori arrel. Totes les rutes de directori avançades seran relatives a aquest directori. Deixa-ho buit per desactivar aquest tipus de directori.",
+  "rootDirectoryNotSpecifiedDescription": "No s'ha especificat el directori arrel. Es requereix un nom. Totes les rutes de directori avançades seran absolutes. Deixa-ho buit per desactivar aquest tipus de directori.",
+  "unsecureConnectionTitle": "Connexió insegura",
+  "unsecureConnectionMessage": "La connexió no és segura. Això pot ser un risc de seguretat. Si us plau, només continua si confies en la connexió. La empremta sha1 és {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Continua igualment",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Show navigator previews",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Show cached preview thumbnails in the areas and pages navigators",
+  "highContrast": "Alt contrast",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "Aquest valor ha de ser un nombre vàlid",
+  "createAreas": "Crea àrees",
+  "autosave": "Desament automàtic",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Inverteix",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "Operacions",
+  "medium": "Mitjà",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "Gran",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Mida de la barra d'eines",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Afegeix-ho tot",
+  "onlyCurrentPage": "Només pàgina actual",
+  "smoothNavigation": "Navegació fluida",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Edge pan area switching",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Use Android SAF",
+  "exact": "Exacte",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "En línia",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Files de barra d'eines",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "Prova de punter",
+  "pressure": "Pressió",
+  "small": "Petit",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Minúscul",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Selecciona-ho tot",
+  "overrideTools": "Sobreescriu eines",
+  "hideCursorWhileDrawing": "Amaga el cursor mentre dibuixes",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Instal·lat",
+  "install": "Instal·la",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Deselecciona",
+  "changeCollection": "Canvia col·lecció",
+  "collections": "Col·leccions",
+  "fullSelection": "Selecció completa",
+  "collection": "Col·lecció",
+  "defaultCollection": "Col·lecció per defecte",
+  "scroll": "Desplaça",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "A l'inici",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Pantalla d'inici",
+  "lastNote": "Darrera nota",
+  "newNote": "Nova nota",
+  "moveToLayer": "Move to layer",
+  "createLayer": "Create layer",
+  "merge": "Fusiona",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Amunt",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Avall",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "Altres",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{Cap element} =1{1 element} other{{count} elements}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Barra de color",
+  "yesButShowButtons": "Sí, però mostra els botons",
+  "optionsPanelPosition": "Posició del panell d'opcions",
+  "hideDuration": "Durada d'ocultació",
+  "animation": "Animació",
+  "performance": "Rendiment",
+  "performanceDescription": "Optimitzat per a velocitat i ús de memòria. Només la porció visible de la nota s'integra a la imatge.",
+  "normalDescription": "Equilibra qualitat i rendiment. Integra una imatge que cobreix 1,5 vegades l'àrea visible, proporcionant transicions més suaus en desplaçar-se.",
+  "high": "Alt",
+  "highDescription": "Maximizes quality at the cost of performance. Bakes an image covering 2 times the visible area, ensuring seamless rendering even during rapid scrolling or zooming.",
+  "renderResolution": "Resolució de renderitzat",
+  "translate": "Tradueix",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Sense xifrar",
+  "encrypted": "Xifrat",
+  "encryptDocumentMessage": "Fes clic per xifrar el document",
+  "unencryptDocumentMessage": "Fes clic per desxifrar el document",
+  "unencrypt": "Desxifra",
+  "encrypt": "Xifra",
+  "encryptWarning": "Això xifrarà el document. Hauràs de recordar la contrasenya per desxifrar-lo.",
+  "unencryptWarning": "Això desxifrarà el document. La contrasenya s'eliminarà i tothom amb accés podrà obrir-lo.",
+  "confirmPassword": "Confirma la contrasenya",
+  "passwordMismatch": "Les contrasenyes no coincideixen",
+  "action": "Acció",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "Text SVG",
+  "offset": "Desplaçament",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "End",
+  "radius": "Radius",
+  "focalPoint": "Focal point",
+  "useOffCenterStartPoint": "Use an off-center start point",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Color stops",
+  "addStop": "Add stop",
+  "positionDependent": "Depend de la posició",
+  "flipHorizontal": "Gira horitzontalment",
+  "flipVertical": "Gira verticalment",
+  "grayscale": "Escala de grisos",
+  "moveOnGesture": "Mou amb gest",
+  "exportAllFiles": "Exporta tots els fitxers",
+  "restoreSettingsFromFile": "Restaura configuració des de fitxer",
+  "resetAllSettings": "Reset all settings",
+  "exportSettingsToFile": "Exporta configuració a fitxer",
+  "barcode": "Codi de barres",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Tipus de codi de barres",
+  "qrCode": "Codi QR",
+  "dataMatrix": "Data Matrix",
+  "code128": "Code 128",
+  "defaultUserName": "Usuari {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Mou a l'esquerra",
+  "moveRight": "Mou a la dreta",
+  "bundledPacks": "Packs inclosos",
+  "component": "Component",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Selecciona component",
+  "bundlePackInDocument": "Inclou pack en el document",
+  "bundledPacksDescription": "Els packs inclosos estan en el document i només es poden utilitzar per compartir amb el document. Els recursos només es poden usar si el pack està instal·lat. Es poden instal·lar fent clic sobre ells.",
+  "fillAlpha": "Alfa de farciment",
+  "packagedFile": "Fitxer empaquetat",
+  "rawFile": "Fitxer brut",
+  "webSocketDescription": "El teu dispositiu allotja el servidor, així que els col·laboradors només poden unir-se per la mateixa xarxa o des de qualsevol lloc si reenvies el port al teu router.",
+  "swampDescription": "Els teus missatges es redirigeixen a través d'un servidor de relé segur amb xifrat de punta a punta. Es requereix una adreça de servidor swamp per crear una sessió.",
+  "createRawNote": "Crea nota bruta",
+  "polygon": "Polígon",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Acaba la forma",
+  "submit": "Envia",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Math",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ignore pressure",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignores the first pressure reading, which can be inaccurate on some styluses.",
+  "ignorePressureNeverDescription": "Uses every pressure reading from the stylus.",
+  "ignorePressureAlwaysDescription": "Ignores pressure and treats the stylus as fully pressed.",
+  "temporary": "Temporary",
+  "simpleToolbarVisibility": "Simple toolbar visibility",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Autosave delay",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Saved",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Saving...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Read only",
+  "saveDelayed": "Save delayed",
+  "unsaved": "Unsaved",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "There are currently no areas to export. Please select at least one area using the plus button in the top right corner or add all areas from the current page or from the whole document below.",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Customize shortcuts",
+  "clickToSave": "Click to save",
+  "toolbars": "Toolbars",
+  "logs": "Logs",
+  "ruledSimple": "Ruled simple",
+  "ruledSimpleDark": "Ruled simple dark",
+  "quadSimple": "Quad simple",
+  "quadSimpleDark": "Quad simple dark",
+  "redLinedRuled": "Red lined ruled",
+  "redLinedRuledDark": "Red lined ruled dark",
+  "redLinedQuad": "Red lined quad",
+  "redLinedQuadDark": "Red lined quad dark",
+  "noItemSelected": "No item selected",
+  "areaAsInitial": "Open area as initial view",
+  "swap": "Swap",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Hide file extension",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "New from template",
+  "exportAsTextShortcut": "Export as text",
+  "exportAsImageShortcut": "Export as image",
+  "exportAsPdfShortcut": "Export as PDF",
+  "exportAsSvgShortcut": "Export as SVG",
+  "changePathShortcut": "Change path",
+  "fullScreenShortcut": "Full screen",
+  "doublePressAction": "Double press action",
+  "triplePressAction": "Triple press action",
+  "twoFingerTap": "Two-finger tap",
+  "threeFingerTap": "Three-finger tap",
+  "longPress": "Long press",
+  "toolNumber": "Tool {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Hold Shortcuts",
+  "holdShortcutsDescription": "Hold a key to temporarily switch to another tool. Releasing the key switches back to the previous tool.",
+  "key": "Key",
+  "bringMovedElementsToFront": "Bring moved elements to front",
+  "addTool": "Add tool",
+  "nextPage": "Next page",
+  "previousPage": "Previous page",
+  "persistenceDocumentStates": "Persistent document states",
+  "persistentStatesEnabled": "Enable persistent document states",
+  "persistentStateCurrentPage": "Current page",
+  "persistentStateViewport": "Viewport position and zoom",
+  "persistentStateSelectedTool": "Selected tool",
+  "persistentStateMaxRecords": "Maximum stored records",
+  "persistentStateDeleteOlderThanDays": "Delete records older than days",
+  "persistentStateCleanup": "Clean up stored states",
+  "persistentStateCleanupDescription": "Delete records older than the limits above",
+  "persistentStateCleanupInProgress": "Cleaning up...",
+  "persistentStateDefaultLocks": "Default locks",
+  "persistentStateDefaultLocksDescription": "Apply these locks when a document has no saved state",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Cleaned up 1 storage location} other{Cleaned up {locations} storage locations}}; {records, plural, =1{removed 1 record} other{removed {records} records}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Saves changes automatically as you work.",
+  "autosaveDelayedDescription": "Saves changes automatically after the selected delay.",
+  "autosaveShowButtonDescription": "Saves automatically and also keeps the save button visible.",
+  "autosaveDisabledDescription": "Only saves when you use the save command.",
+  "hideCursorWhileDrawingDescription": "Hides the mouse pointer while you draw, so it does not cover your stroke.",
+  "onStartupHomeScreenDescription": "Opens the home screen when Butterfly starts.",
+  "onStartupLastNoteDescription": "Reopens your most recently used note when Butterfly starts.",
+  "onStartupNewNoteDescription": "Creates a new note when Butterfly starts.",
+  "smoothNavigationDescription": "Makes panning and zooming feel smoother by simplifying the canvas while it is moving.",
+  "edgePanAreaSwitchingDescription": "Switches to a neighboring area when you pan near the edge of the canvas.",
+  "collaborationDescription": "Allows multiple people to edit the same note together in real time.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Includes detailed diagnostic messages in the log view and console. These messages can help when troubleshooting a problem.",
+  "bringMovedElementsToFrontDescription": "Places an element above overlapping elements after you move it.",
+  "persistenceDocumentStatesDescription": "Controls which parts of your workspace Butterfly remembers for each note, such as the current page, zoom, and selected tool.",
+  "persistentStatesEnabledDescription": "Store document state information between app sessions",
+  "persistentStateCurrentPageDescription": "Remember the current page when reopening a file",
+  "persistentStateViewportDescription": "Remember the viewport position, zoom and rotation for each page",
+  "persistentStateSelectedToolDescription": "Remember the selected tool when reopening a file",
+  "persistentStateLocksDescription": "Remember lock settings when reopening a file",
+  "persistentStateNavigatorDescription": "Remember the navigator state when reopening a file",
+  "persistentStateLayersDescription": "Remember the layer panel state when reopening a file",
+  "persistentStateAreasDescription": "Remember the area panel state when reopening a file",
+  "persistentStateAutoThumbnail": "Automatic thumbnails",
+  "persistentStateAutoThumbnailDescription": "Show the per-document switch and allow thumbnails to update when documents close",
+  "persistentStateMaxRecordsDescription": "Keep at most this many stored states per file",
+  "persistentStateDeleteOlderThanDaysDescription": "Delete stored states older than this many days",
+  "contentViewportDescription": "Limits how far you can pan away from the content of your note.",
+  "limitViewportPositiveDescription": "Keeps the canvas within the area to the right and below its starting point.",
+  "startInFullScreenDescription": "Opens Butterfly in full-screen mode when supported.",
+  "designDescription": "Changes the overall visual style of Butterfly without changing whether the app uses light or dark colors.",
+  "platformThemeDescription": "Lets you use the desktop or mobile layout instead of the layout Butterfly normally chooses for your device.",
+  "densityDescription": "Changes the spacing and size of interface elements. It does not change the size of your note content.",
+  "highContrastDescription": "Uses stronger color differences to make controls and text easier to distinguish.",
+  "nativeTitleBarDescription": "Uses your operating system's standard window title bar instead of Butterfly's custom title bar.",
+  "propertiesDescription": "Chooses where the panel for editing the selected tool or element appears.",
+  "navigationRailDescription": "Shows a permanent navigation bar on wide screens for quicker access to app sections.",
+  "optionsPanelPositionDescription": "Chooses whether tool options appear above or below the canvas.",
+  "simpleToolbarVisibilityDescription": "Controls when the smaller, simplified toolbar appears while editing a note.",
+  "penOnlyInputDescription": "Prevents accidental marks from your hand or mouse by choosing when only stylus input can draw.",
+  "showPenOnlyToggleDescription": "Shows a quick stylus-only switch in the editor after Butterfly detects a stylus.",
+  "ignorePressureDescription": "Controls whether stylus pressure changes the stroke and works around inaccurate pressure readings from some styluses.",
+  "moveOnGestureDescription": "Lets multi-touch gestures move the canvas instead of interacting with note content.",
+  "spreadPagesDescription": "Splits multi-page imports across separate note pages instead of placing everything on one page.",
+  "shear": "Shear",
+  "resetRotation": "Reset rotation",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Choose the controls for zoom and rotation. Reset buttons remain available in every layout.",
+  "zoomPanelFull": "Full (slider, text field and buttons)",
+  "zoomPanelSliderInput": "Slider and text field",
+  "zoomPanelSlider": "Slider",
+  "zoomPanelInputButtons": "Text field and buttons",
+  "zoomPanelInput": "Text field",
+  "rotationDisplay": "Rotation display",
+  "rotationDisplayDescription": "Choose when the rotation row appears above zoom. This does not change rotation gestures or shortcuts.",
+  "whenRotated": "When rotated",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Rotate canvas by dragging"
+}

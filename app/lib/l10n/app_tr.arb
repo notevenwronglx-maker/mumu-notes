@@ -1,0 +1,1693 @@
+{
+  "open": "Aç",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Reveal in file explorer",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Ayarlar",
+  "personalization": "Kişiselleştirme",
+  "theme": "Tema",
+  "darkTheme": "Koyu Tema",
+  "lightTheme": "Aydınlık Tema",
+  "systemTheme": "Varsayılan sistem temasını kullan",
+  "view": "Görüntüle",
+  "contentViewport": "Content Viewport",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Limit Viewport to positive coordinates",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Off",
+  "canvas": "Canvas",
+  "interface": "Interface",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Düzenle",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Dışa Aktar",
+  "save": "Kaydet",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Yakınlaştırma",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Yakınlaştır",
+  "zoomOut": "Uzaklaştır",
+  "resetZoom": "Yakınlaştırmayı sıfırla",
+  "strokeWidth": "Kontur genişliği",
+  "strokeStyle": "Stroke style",
+  "dashLength": "Dash length",
+  "gapLength": "Gap length",
+  "includeEraser": "Dahili silgi?",
+  "thinning": "Kalinlik",
+  "pen": "Kalem",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Inverted Stylus",
+  "eraser": "Silgi",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Stroke",
+  "label": "Etiket",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Sil",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Emin misiniz?",
+  "reallyDelete": "Bu ögeyi gerçekten silmek isteyor musunuz?",
+  "no": "Hayır",
+  "yes": "Evet",
+  "undo": "Geri al",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Yinele",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "Genel",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Panoya kopyalandı",
+  "loading": "Yükleniyor...",
+  "enterText": "Metin girin",
+  "size": "Boyut",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Genişlik",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Yükseklik",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Miktar",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Boşluk",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Arkaplan",
+  "applyBackground": "Apply background",
+  "applyAreas": "Apply areas",
+  "currentPage": "Current page",
+  "allPages": "All pages",
+  "box": "Kutu",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "Dil",
+  "systemLocale": "Sistem varsayılanı",
+  "information": "Bilgilendirme",
+  "license": "Lisans",
+  "imprint": "Künye",
+  "privacypolicy": "Gizlilik politikası",
+  "sourceCode": "Kaynak kodu",
+  "documentation": "Belgeler",
+  "changelog": "Değişiklik günlüğü",
+  "source": "Kaynak",
+  "existOverride": "Dosya zaten var. Üzerine yazılsın mı?",
+  "description": "Tanım",
+  "fill": "Dolgu",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Varsayılan palet",
+  "highlighter": "Fosforlu kalem",
+  "combinePaths": "Combine paths",
+  "add": "Ekle",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Kaldır",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Bunu gerçekten kaldırmak istiyor musunuz?",
+  "resetPalette": "Paleti sıfırla",
+  "custom": "Özel",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Dekorasyon",
+  "underline": "Alt Çizgi",
+  "overline": "Üst çizgi",
+  "strikethrough": "Üstü çizili",
+  "thickness": "Kalınlık",
+  "style": "Biçim",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Katı",
+  "solidColor": "Solid color",
+  "gradient": "Gradient",
+  "gradientType": "Gradient type",
+  "linear": "Linear",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Çift",
+  "dotted": "Noktalı",
+  "dottedDark": "Dotted dark",
+  "dashed": "Kesik çizgili",
+  "wavy": "Dalgalı",
+  "fontWeight": "Yazı tipi kalınlığı",
+  "normal": "Normal",
+  "bold": "Kalın",
+  "italic": "Eğik",
+  "clipboard": "Pano",
+  "file": "Dosya",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Veri",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Paylaş",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Aralık",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Görsel",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Bağlantı adresini girin",
+  "scale": "Ölçek",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Yardım",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Bunu gerçekten sıfırlamak istiyor musunuz?",
+  "whatToDo": "Ne yapmak istiyorsun?",
+  "ignore": "Yoksay",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Yedekle",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Backup connection",
+  "automaticBackups": "Automatic backups",
+  "automaticBackupsDescription": "Creates backups while Butterfly is running.",
+  "backupInterval": "Backup interval",
+  "backupNow": "Back up now",
+  "lastBackup": "Last backup",
+  "backupCreated": "Backup created",
+  "hour": "hour",
+  "hours": "hours",
+  "day": "day",
+  "days": "days",
+  "week": "week",
+  "weeks": "weeks",
+  "createdInNewerVersion": "{fileName} adındaki dosya daha yeni bir sürümde ({fileVersion}) adıyla yeniden oluşturuldu. Bu dosyazı ne yapmak istersiniz?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Yer İşaretleri",
+  "origin": "Kaynak",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "İçe aktar",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "Yeni",
+  "selectElement": "Ögeyi seç",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Shift",
+  "altKey": "Alt",
+  "copyVersion": "Kopya sürümü",
+  "input": "Girdi",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Davranışlar",
+  "dataDirectory": "Veri dizini",
+  "warning": "Warning",
+  "platformExperimentalWarning": "Warning: This setting is experimental and can have problems on this platform.",
+  "changeDataDirectoryWarningContent": "Are you sure you want to change the data folder? You should make a backup of your data before proceeding.",
+  "defaultPath": "Varsayılan yol",
+  "dateFormat": "Tarih biçimi",
+  "updatedAt": "Güncellenme tarihi: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Oluşturulma tarihi: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Yeniden adlandır",
+  "duplicate": "Çoğalt",
+  "hand": "El",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Klasör",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Taşı",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Kopyala",
+  "openContextMenu": "Open context menu",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Geri",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Forward",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Bağımlı yakınlaştırma",
+  "shapeDetection": "Şekil Algılama",
+  "delay": "Gecikme",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Varsayılan Katman",
+  "layer": "Katman",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Katmanlar",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "Ayarlanmamış",
+  "enterLayer": "Katman adı gir",
+  "eraseShapes": "Erase shapes",
+  "eraseShapeModeNone": "Don't erase shapes",
+  "eraseShapeModeTouchEdges": "Erase when touching edges",
+  "eraseShapeModeTouchAnywhere": "Erase when touching anywhere",
+  "selectElementModeTouchEdges": "Select when touching edges",
+  "selectElementModeTouchAnywhere": "Select when touching anywhere",
+  "selectElements": "Ögeleri seçin",
+  "deleteElements": "Ögeleri sil",
+  "eraseAllElements": "Erase all elements",
+  "deleteElementsConfirm": "Seçili ögeleri gerçekten silmek istiyor musunuz?",
+  "selectCustomCollection": "Özel koleksiyon seç",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Hassasiyet",
+  "selectionTolerance": "Selection tolerance",
+  "selectionToleranceDescription": "How close a pointer must be to an element or area to select it. Higher values make selection easier.",
+  "selectionHandleSensitivity": "Selection handle hit area",
+  "selectionHandleSensitivityDescription": "Size of the hit area around selection and area handles for all pointer types.",
+  "panGestureSensitivity": "Pan gesture sensitivity",
+  "panGestureSensitivityDescription": "Canvas movement from touch or trackpad gestures. Higher values move the canvas farther.",
+  "zoomGestureSensitivity": "Continuous zoom sensitivity",
+  "zoomGestureSensitivityDescription": "Zoom from pinching, trackpad gestures, and Ctrl+scroll. Higher values zoom farther.",
+  "rotationGestureSensitivity": "Rotation gesture sensitivity",
+  "rotationGestureSensitivityDescription": "Canvas rotation from gestures. Higher values rotate farther.",
+  "scrollPanSensitivity": "Scroll pan sensitivity",
+  "scrollPanSensitivityDescription": "Canvas movement from mouse wheel and trackpad scrolling. Higher values pan farther.",
+  "horizontal": "Yatay",
+  "vertical": "Dikey",
+  "plain": "Sade",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Açık",
+  "ruled": "Çizgili",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Kareli",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Müzik",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Koyu",
+  "plainDark": "Sade koyu",
+  "ruledDark": "Çizgili koyu",
+  "quadDark": "Kareli koyu",
+  "musicDark": "Müzik koyu",
+  "templates": "Şablonlar",
+  "untitled": "Başlıksız",
+  "createTemplate": "Şablon oluştur",
+  "createTemplateContent": "Bu belgeyi şablon haline getirmek istediğinizden emin misiniz? Orijinal belge silinecektir.",
+  "fileName": "File name",
+  "defaultFileName": "Default file name",
+  "templateFileNameDescription": "Documents opened from the template picker are saved automatically with this name. Templates without a name use the default configured in Data settings. Combine your own text with {dateExample} and {timeExample}. Characters that are not allowed in file names will be rejected.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Preview",
+  "replace": "Değiştir",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Bu şablonu gerçekten silmek istiyor musunuz? Bu işlem geri alınamaz!",
+  "defaultTemplate": "Varsayılan şablon",
+  "insert": "Ekle",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Belge",
+  "documentStates": "Document states",
+  "camera": "Kamera",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Çıktı",
+  "selectCamera": "Kamera Seç",
+  "changeDocumentPath": "Belge yolunu değiştir",
+  "deleteWholeStroke": "Tüm konturu sil",
+  "alpha": "Şefaflık",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Alan",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Bir alan seçin",
+  "aspectRatio": "En boy oranı",
+  "presets": "Hazır Ayarlar",
+  "pagePortrait": "Dikey sayfa",
+  "pageLandscape": "Yatay sayfa",
+  "square": "Kare",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Alanlar",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Alana gir",
+  "exitArea": "Alandan çık",
+  "currentArea": "Mevcut alan",
+  "design": "Tasarım",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Metin",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Hey, this is Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "Ücretsiz ve açık kaynaklı bir çizim alanı!",
+  "updated": "Uygulama {version} sürümüne güncellendi",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Sürüm bilgileri",
+  "constraints": "Kısıtlamalar",
+  "scaled": "Ölçeklendirilmiş",
+  "fixed": "Sabit",
+  "dynamicContent": "Dinamik",
+  "none": "Yok",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Dahili alan",
+  "verticalAlignment": "Dikey hizalama",
+  "horizontalAlignment": "Yatay hizalama",
+  "top": "Üst",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Orta",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Alt",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Sol",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Sağ",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Yasla",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Kısıtlama",
+  "length": "Uzunluk",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "SVG olarak dışa aktar",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Sayfaları seçin",
+  "recentFiles": "Son kullanılanlar",
+  "start": "Başlat",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "Son kullanılan dosya yok",
+  "countPages": "{count,plural, =0{No pages} =1{1 page} other{{count} pages}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Sayfa {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Çıkış",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "Öge yok",
+  "invertSelection": "Seçimi tersine çevir",
+  "errorWhileImporting": "İçeri aktarılırken hata oluştu",
+  "errorWhileImportingContent": "Dosya içeri aktarırken bir hata oluştu",
+  "showDetails": "Ayrıntıları göster",
+  "hideDetails": "Detayları gizle",
+  "error": "Hata",
+  "stackTrace": "Yığın izleme",
+  "laser": "Lazer",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Süre",
+  "quality": "Kalite",
+  "exportPdf": "PDF dışa aktar",
+  "local": "Dil",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Bağlantı ekle",
+  "connections": "Bağlantılar",
+  "noConnections": "Bağlantı yok",
+  "url": "URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "The full WebDAV URL provided by your storage provider",
+  "connect": "Bağlan",
+  "username": "Kullanıcı Adı",
+  "password": "Şifre",
+  "authenticationPassword": "Authentication password",
+  "documentEncryptionPassword": "Document encryption password",
+  "documentEncryptionPasswordDescription": "Encrypts documents stored in this connection. Leave empty to keep them unencrypted",
+  "documentEncryptionEnabled": "Document encryption enabled",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Add document encryption password",
+  "changeDocumentEncryptionPassword": "Change document encryption password",
+  "webNotSupported": "Web desteklenmiyor",
+  "advanced": "Gelişmiş",
+  "symmetric": "Symmetric",
+  "perSide": "Per side",
+  "directory": "Dizin",
+  "connectionNameDescription": "Only used to identify this connection in Butterfly",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Belge dizini",
+  "templatesDirectory": "Şablon dizini",
+  "errorWhileCreatingConnection": "Bağlantı oluşturulurken hata",
+  "cannotConnect": "Bağlanamıyor",
+  "urlNotValid": "URL geçerli değil",
+  "icon": "Simge",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Optional URL of an image to use as the connection icon",
+  "update": "Güncelleme",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Güncelleme mevcut",
+  "stable": "Kararlı",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Nightly",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Güncellemeleri denetle",
+  "checkForUpdatesWarning": "Performing a check for updates will connect to the Butterfly website to get the information.",
+  "usingLatestStable": "En son sürümü kullanıyorsunuz",
+  "usingLatestNightly": "En son nightly (kod tabanından gelen) sürümü kullanıyorsunuz",
+  "currentVersion": "Şu anki sürüm",
+  "updateNow": "Şimdi güncelle",
+  "shape": "Şekil",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Table",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "row": "Row",
+  "column": "Column",
+  "insertRowBefore": "Insert row before",
+  "insertRowAfter": "Insert row after",
+  "insertColumnBefore": "Insert column before",
+  "insertColumnAfter": "Insert column after",
+  "deleteRow": "Delete row",
+  "deleteColumn": "Delete column",
+  "cellColor": "Cell color",
+  "cellBorders": "Cell borders",
+  "cellBorder": "Cell border",
+  "horizontalBorder": "Horizontal border",
+  "verticalBorder": "Vertical border",
+  "rowHeight": "Row height",
+  "columnWidth": "Column width",
+  "border": "Border",
+  "circle": "Daire",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Dikdörtgen",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Üçgen",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Çizgi",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Köşe yuvarlaklığı",
+  "topLeft": "Sol üst",
+  "topRight": "Sağ üst",
+  "bottomLeft": "Sol alt",
+  "bottomRight": "Sağ alt",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Önbellek",
+  "manage": "Yönet",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Önbelleği Temizle",
+  "createCache": "Önbellek oluştur",
+  "thirdPartyLicenses": "Üçüncü parti lisansları",
+  "syncing": "Eşitleniyor...",
+  "synced": "Eşitlendi",
+  "notSynced": "Eşitlenmedi",
+  "conflict": "Çakışma",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Yerel olarak sakla",
+  "keepConnection": "Bağlantıyı sürdür",
+  "keepBoth": "Her ikisini de sakla",
+  "forAll": "Tümü için",
+  "fileConflict": "{connection} içinde {file} çakışması var",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Çevrimdışı",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "En son dizin",
+  "connectionLatest": "En son bağlantı",
+  "path": "Yol",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Klasör eşitlendi",
+  "syncRootDirectory": "Kök dizini eşitle",
+  "stylus": "Kalem",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Automatically enables stylus-only mode when a stylus is detected. This setting only lasts for the current session.",
+  "penOnlyInputOnDescription": "Always reject touch and mouse input, only accept stylus input.",
+  "penOnlyInputOffDescription": "Accept all input types including touch, mouse, and stylus.",
+  "automatic": "Automatic",
+  "alwaysOn": "Always on",
+  "alwaysOff": "Always off",
+  "showPenOnlyToggle": "Show stylus only toggle",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Giriş hareketleri",
+  "inputGesturesDescription": "Lets you move and zoom the canvas with touch gestures, even while a drawing tool is selected.",
+  "nativeTitleBar": "Yerel başlık çubuğu",
+  "mode": "Mode",
+  "syncMode": "Eşitleme kipi",
+  "connection": "Bağlantı",
+  "always": "Her zaman",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "Mobil olmayan",
+  "syncModeAlwaysDescription": "Syncs remote files automatically whenever they change.",
+  "syncModeNoMobileDescription": "Syncs automatically except on mobile devices, which can reduce mobile data usage.",
+  "manual": "Kullanım kılavuzu",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Only syncs when you start it yourself.",
+  "search": "Ara",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Özellikler",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Sabitle",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Sabitlemeyi kaldır",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Öge",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Araç",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Konum",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Not",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Paketler",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Paket",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "Daha fazla",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Isim sor",
+  "areaIndex": "Alan {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Tam ekran göster",
+  "inputs": "Girdiler",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Fare",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Dokunma",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Klavye",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Kısayollar",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Orta",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "İlk",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "İkinci",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Aktif Araç",
+  "activeToolDescription": "Araç çubuğunda şu anda seçili aracı kullan",
+  "handTool": "El Aracı",
+  "handToolDescription": "Tuvali taşımak için sürükle",
+  "toolOnToolbar": "Araç Çubuğunda Belirli Araç",
+  "toolOnToolbarDescription": "Sol taraftan itibaren araç çubuğunda belirtilen konumdaki aracı kullan",
+  "toolOnToolbarShort": "Araç Çubuğu Konumu: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Aletler",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Izgarayı göster",
+  "grid": "Izgara",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Cetvel",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Açı",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Rapor Et",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "Yeni klasör",
+  "createPack": "Paket oluştur",
+  "editPack": "Paketi düzenle",
+  "packsDirectory": "Paket dizini",
+  "stamp": "Damga",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Paket ekle",
+  "sureImportPack": "Paketi içe aktarmak istediğinizden emin misiniz?",
+  "byAuthor": "{author} tarafından",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Yazar",
+  "addAsset": "Varlık ekle",
+  "editAsset": "Varlığı düzenle",
+  "scope": "Kapsam",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "Şu anda kullanılabilir paket yok",
+  "components": "Bileşenler",
+  "waypoint": "Yer İşareti",
+  "actions": "Eylemler",
+  "painters": "Araçlar",
+  "breakingChangesTitle": "Son dakika değişiklikleri",
+  "breakingChangesMessage": "Bu sürümde çok önemli değişiklikler var. Güncellemeden önce lütfen değişiklik günlüğünü okuyun. Geçerli dosya sürümü {version}, yeni sürüm ise {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Stiller",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Paragraf",
+  "fontFamily": "Yazı tipi ailesi",
+  "smoothing": "Yumuşatma",
+  "streamline": "Kolaylaştırmak",
+  "presentation": "Sunum",
+  "simple": "Simple",
+  "createPresentation": "Create presentation",
+  "addSlide": "Add new slide",
+  "updateSlide": "Update slide",
+  "deleteSlide": "Delete slide",
+  "transitionDuration": "Transition duration",
+  "transitionDurationDescription": "How long the camera takes to move to the next slide. On the last slide, this is used when you add a new one.",
+  "transitionDurationValue": "{seconds}s transition",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Add keyframe here",
+  "updateKeyframe": "Update from current camera",
+  "deleteKeyframe": "Delete keyframe",
+  "markAsSlide": "Mark as slide",
+  "removeSlideMarker": "Remove slide marker",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "Varlık seçin",
+  "clearStyle": "Stili Temizle",
+  "unknownImportType": "Bilinmeyen içe aktarım biçimi",
+  "sureImportTemplate": "Şablonu içe aktarmak istediğinizden emin misiniz?",
+  "frame": "Çerçeve",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Yürüt",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Kesme noktası",
+  "presentationControls": "Sunum kontrolleri",
+  "nextSlide": "Sonraki slayt",
+  "nextSlideDescription": "Bir sonraki slayda gitmek için sağa kaydırın veya sağ ok tuşuna basın",
+  "previousSlide": "Önceki slayt",
+  "previousSlideDescription": "Bir önceki slayda gitmek için sola kaydırın veya sol ok tuşuna basın",
+  "exitPresentation": "Sunum modundan çık",
+  "exitPresentationDescription": "Sunundan çıkmak için escape tuşuna basın veya aşağı kaydırın",
+  "pausePresentation": "Sunum modunu duraklat",
+  "pausePresentationDescription": "Sunumu duraklatmak veya sürdürmek için ekrana dokunun veya boşluk çubuğuna basın",
+  "keyframe": "Keyframe",
+  "endOfPresentation": "Sunumun sonuna geldiniz",
+  "startOfPresentation": "Sunumun başlangıcına ulaştınız",
+  "palettes": "Paletler",
+  "headline": "Başlık {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Kod",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Alıntı",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Bağlantı",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Onay kutusu",
+  "deleted": "Silinmiş",
+  "emphasis": "Vurgu",
+  "listBullet": "Liste madde işareti",
+  "strong": "Kalın",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Ana sayfa",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Dosyalar",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Şuna göre sırala",
+  "location": "Konum",
+  "whatsNew": "Yenilikler",
+  "unstar": "Yıldızı kaldır",
+  "star": "Yıldız",
+  "goUp": "Yukarı git",
+  "created": "Oluşturuldu",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Değiştirildi",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Hızlı Başlangıç",
+  "noTemplates": "Şu anda kullanılabilir şablon yok",
+  "importCorePack": "Çekirdek paketi içe aktar",
+  "importCorePackDescription": "Başlamak için tüm temel varlıkları içeren temel paketi içe aktarın. Bu, mevcut çekirdek paketi geçersiz kılacaktır.",
+  "never": "Asla",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Yalnızca güncellemelerde",
+  "visibility": "Görünürlük",
+  "captureThumbnail": "Önizleme görseli yakala",
+  "autoThumbnail": "Update thumbnail on close",
+  "autoThumbnailDescription": "Capture the current view when you close this document. Manually capturing a thumbnail turns this off.",
+  "capturedThumbnail": "Önizleme görseli başarıyla yakalandı",
+  "chooseLabelMode": "Etiket modunu seç",
+  "foreground": "Ön plan",
+  "version": "Sürüm",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Depo",
+  "pages": "Sayfalar",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Gezgin",
+  "arrange": "Yerleştir",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Öne getir",
+  "sendToBack": "Arkaya gönder",
+  "bringForward": "Bir adım öne getir",
+  "sendBackward": "Bir adım geriye gönder",
+  "rotation": "Döndürme",
+  "rotationStep": "Rotation step",
+  "zoomStep": "Zoom step",
+  "zoomStepDescription": "Amount used by the zoom in and zoom out keyboard shortcuts. Continuous zoom gestures use their own sensitivity setting.",
+  "direction": "Direction",
+  "onlyAvailableLargerScreen": "Sadece daha büyük ekranlarda kullanılabilir",
+  "toolbarPosition": "Araç çubuğu konumu",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Döndür",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Rotate left",
+  "rotateRight": "Rotate right",
+  "spacer": "Boşluk",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Gezinme rayı",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Kes",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Öncesine ekle",
+  "insertAfter": "Sonrasına ekle",
+  "insertFirst": "Başa ekle",
+  "insertLast": "Sona ekle",
+  "paste": "Yapıştır",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Artan",
+  "descending": "Azalan",
+  "imageScale": "Görsel ölçeği",
+  "svgScale": "SVG scale",
+  "noImageSelected": "No image selected",
+  "noSvgSelected": "No SVG selected",
+  "select": "Seç",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Araç",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Doku",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Platform teması",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Masaüstü",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Mobil",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Yüzey",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Desen",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Belgeyi kapatmak istediğinizden emin misiniz?",
+  "thereAreUnsavedChanges": "Kaydedilmemiş değişiklikler var",
+  "page": "Sayfa",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "ICE Sunucuları",
+  "collaboration": "İş birliği",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Soket",
+  "iceServer": "ICE Sunucusu",
+  "port": "Port",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Tür",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Taraf",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "İstemci",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Sunucu",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Görünümü Değiştir",
+  "lasso": "Kement",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Arayüzü Gizle",
+  "density": "Yoğunluk",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Kompakt",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Rahat",
+  "standard": "Standart",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Kilitle",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Öğe ekle",
+  "notDefaultConnection": "Varsayılan bağlantı değil",
+  "defaultConnection": "Varsayılan bağlantı",
+  "hide": "Gizle",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Göster",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "Duraklat",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Durdur",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Yenile",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "Yazdır",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Damlalık",
+  "users": "Kullanıcılar",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Deneyler",
+  "experimentsWarning": "Bu özellikler deneysel olup herhangi bir zamanda değişebilir, bozulabilir veya kaybolabilir. Etkinleştirmek kararsızlığa veya veri kaybına neden olabilir. Dikkatli ilerleyin. Lütfen herhangi bir hatayı bildirin.",
+  "address": "Adres",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Sayfalara yay",
+  "rootDirectorySpecifiedDescription": "Kök dizin belirtildi. Tüm gelişmiş dizin yolları bu dizine göre relatif olacaktır. Bu dizin türünü devre dışı bırakmak için boş bırakın.",
+  "rootDirectoryNotSpecifiedDescription": "Kök dizin belirtilmedi. Bir ad gereklidir. Tüm gelişmiş dizin yolları mutlak olacaktır. Bu dizin türünü devre dışı bırakmak için boş bırakın.",
+  "unsecureConnectionTitle": "Güvensiz bağlantı",
+  "unsecureConnectionMessage": "Bağlantı güvenli değil. Bu bir güvenlik riski oluşturabilir. Lütfen sadece bağlantıya güveniyorsanız devam edin. SHA1 parmak izi: {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Yine de devam et",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Show navigator previews",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Show cached preview thumbnails in the areas and pages navigators",
+  "highContrast": "Yüksek kontrast",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "Bu değer geçerli bir sayı olmalıdır",
+  "createAreas": "Alanlar oluştur",
+  "autosave": "Otomatik kaydetme",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Ters çevir",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "İşlemler",
+  "medium": "Orta",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "Büyük",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Araç çubuğu boyutu",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Tümünü ekle",
+  "onlyCurrentPage": "Sadece geçerli sayfa",
+  "smoothNavigation": "Akıcı gezinme",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Edge pan area switching",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Use Android SAF",
+  "exact": "Tam",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "Satır içi",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Araç çubuğu satırları",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "İşaretçi testi",
+  "pressure": "Basınç",
+  "small": "Küçük",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Minik",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Tümünü seç",
+  "overrideTools": "Araçları geçersiz kıl",
+  "hideCursorWhileDrawing": "Çizim yaparken imleci gizle",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Yüklü",
+  "install": "Yükle",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Seçimi kaldır",
+  "changeCollection": "Koleksiyonu değiştir",
+  "collections": "Koleksiyonlar",
+  "fullSelection": "Tam seçim",
+  "collection": "Koleksiyon",
+  "defaultCollection": "Varsayılan koleksiyon",
+  "scroll": "Kaydır",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "Başlangıçta",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Ana ekran",
+  "lastNote": "Son not",
+  "newNote": "Yeni not",
+  "moveToLayer": "Move to layer",
+  "createLayer": "Create layer",
+  "merge": "Birleştir",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Yukarı",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Aşağı",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "Diğer",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{No elements} =1{1 element} other{{count} elements}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Renk araç çubuğu",
+  "yesButShowButtons": "Evet, ama düğmeleri göster",
+  "optionsPanelPosition": "Seçenekler paneli konumu",
+  "hideDuration": "Gizleme süresi",
+  "animation": "Animasyon",
+  "performance": "Performans",
+  "performanceDescription": "Hız ve bellek kullanımı için optimize edildi. Notun yalnızca görünen kısmı görüntüye işlenir.",
+  "normalDescription": "Kalite ve performans arasında denge sağlar. Görünen alanın 1.5 katını kapsayan bir görüntü oluşturur, kaydırırken daha pürüzsüz geçişler sağlar.",
+  "high": "Yüksek",
+  "highDescription": "Maximizes quality at the cost of performance. Bakes an image covering 2 times the visible area, ensuring seamless rendering even during rapid scrolling or zooming.",
+  "renderResolution": "Render çözünürlüğü",
+  "translate": "Çevir",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Şifrelenmemiş",
+  "encrypted": "Şifrelenmiş",
+  "encryptDocumentMessage": "Belgeyi şifrelemek için tıklayın",
+  "unencryptDocumentMessage": "Belge şifrelemesini kaldırmak için tıklayın",
+  "unencrypt": "Şifrelemesini Kaldır",
+  "encrypt": "Şifrele",
+  "encryptWarning": "Bu, belgeyi şifreleyecektir. Belgeyi çözmek için parolayı hatırlamanız gerekecektir.",
+  "unencryptWarning": "Bu, belgenin şifrelemesini kaldıracaktır. Parola kaldırılacak ve erişimi olan herkes belgeyi açabilecek.",
+  "confirmPassword": "Parolayı Onayla",
+  "passwordMismatch": "Parolalar eşleşmiyor",
+  "action": "Eylem",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "SVG Metni",
+  "offset": "Ofset",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "Bitiş",
+  "radius": "Radius",
+  "focalPoint": "Focal point",
+  "useOffCenterStartPoint": "Use an off-center start point",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Color stops",
+  "addStop": "Add stop",
+  "positionDependent": "Konuma bağlı",
+  "flipHorizontal": "Yatay çevir",
+  "flipVertical": "Dikey çevir",
+  "grayscale": "Gri tonlama",
+  "moveOnGesture": "Eylemle taşı",
+  "exportAllFiles": "Tüm dosyaları dışa aktar",
+  "restoreSettingsFromFile": "Ayarları dosyadan geri yükle",
+  "resetAllSettings": "Reset all settings",
+  "exportSettingsToFile": "Ayarları dosyaya dışa aktar",
+  "barcode": "Barkod",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Barkod türü",
+  "qrCode": "QR Kodu",
+  "dataMatrix": "Data Matrix",
+  "code128": "Code 128",
+  "defaultUserName": "Kullanıcı {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Sola taşı",
+  "moveRight": "Sağa taşı",
+  "bundledPacks": "Paketlenmiş Paketler",
+  "component": "Component",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Bileşen seç",
+  "bundlePackInDocument": "Paketi belgeye dahil et",
+  "bundledPacksDescription": "Birlikte paketlenmiş paketler belgeye dahil edilir ve yalnızca belge ile paylaşmak için kullanılabilir. Paket yüklendiğinde varlıklar yalnızca belgede kullanılabilir. Paketler üzerine tıklanarak yüklenebilir.",
+  "fillAlpha": "Doldurma alfa",
+  "packagedFile": "Paketlenmiş dosya",
+  "rawFile": "Ham dosya",
+  "webSocketDescription": "Cihazınız sunucu olarak hizmet veriyor, bu nedenle işbirlikçiler yalnızca aynı ağ üzerinden veya yönlendiricinizdeki portu yönlendirirseniz her yerden bağlanabilir.",
+  "swampDescription": "Mesajlarınız uçtan uca şifrelemeli güvenli bir röle sunucusu üzerinden yönlendirilir. Bir swamp sunucu adresi oturum oluşturmak için gereklidir.",
+  "createRawNote": "Ham not oluştur",
+  "polygon": "Çokgen",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Şekli tamamla",
+  "submit": "Gönder",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Math",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ignore pressure",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignores the first pressure reading, which can be inaccurate on some styluses.",
+  "ignorePressureNeverDescription": "Uses every pressure reading from the stylus.",
+  "ignorePressureAlwaysDescription": "Ignores pressure and treats the stylus as fully pressed.",
+  "temporary": "Temporary",
+  "simpleToolbarVisibility": "Simple toolbar visibility",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Autosave delay",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Saved",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Saving...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Read only",
+  "saveDelayed": "Save delayed",
+  "unsaved": "Unsaved",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "There are currently no areas to export. Please select at least one area using the plus button in the top right corner or add all areas from the current page or from the whole document below.",
+  "densityMaximize": "Büyüt",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Customize shortcuts",
+  "clickToSave": "Click to save",
+  "toolbars": "Toolbars",
+  "logs": "Logs",
+  "ruledSimple": "Ruled simple",
+  "ruledSimpleDark": "Ruled simple dark",
+  "quadSimple": "Quad simple",
+  "quadSimpleDark": "Quad simple dark",
+  "redLinedRuled": "Red lined ruled",
+  "redLinedRuledDark": "Red lined ruled dark",
+  "redLinedQuad": "Red lined quad",
+  "redLinedQuadDark": "Red lined quad dark",
+  "noItemSelected": "No item selected",
+  "areaAsInitial": "Open area as initial view",
+  "swap": "Swap",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Hide file extension",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "New from template",
+  "exportAsTextShortcut": "Export as text",
+  "exportAsImageShortcut": "Export as image",
+  "exportAsPdfShortcut": "Export as PDF",
+  "exportAsSvgShortcut": "Export as SVG",
+  "changePathShortcut": "Change path",
+  "fullScreenShortcut": "Tam ekran",
+  "doublePressAction": "Double press action",
+  "triplePressAction": "Triple press action",
+  "twoFingerTap": "Two-finger tap",
+  "threeFingerTap": "Three-finger tap",
+  "longPress": "Long press",
+  "toolNumber": "Tool {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Hold Shortcuts",
+  "holdShortcutsDescription": "Hold a key to temporarily switch to another tool. Releasing the key switches back to the previous tool.",
+  "key": "Key",
+  "bringMovedElementsToFront": "Bring moved elements to front",
+  "addTool": "Add tool",
+  "nextPage": "Next page",
+  "previousPage": "Previous page",
+  "persistenceDocumentStates": "Persistent document states",
+  "persistentStatesEnabled": "Enable persistent document states",
+  "persistentStateCurrentPage": "Current page",
+  "persistentStateViewport": "Viewport position and zoom",
+  "persistentStateSelectedTool": "Selected tool",
+  "persistentStateMaxRecords": "Maximum stored records",
+  "persistentStateDeleteOlderThanDays": "Delete records older than days",
+  "persistentStateCleanup": "Clean up stored states",
+  "persistentStateCleanupDescription": "Delete records older than the limits above",
+  "persistentStateCleanupInProgress": "Cleaning up...",
+  "persistentStateDefaultLocks": "Default locks",
+  "persistentStateDefaultLocksDescription": "Apply these locks when a document has no saved state",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Cleaned up 1 storage location} other{Cleaned up {locations} storage locations}}; {records, plural, =1{removed 1 record} other{removed {records} records}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Saves changes automatically as you work.",
+  "autosaveDelayedDescription": "Saves changes automatically after the selected delay.",
+  "autosaveShowButtonDescription": "Saves automatically and also keeps the save button visible.",
+  "autosaveDisabledDescription": "Only saves when you use the save command.",
+  "hideCursorWhileDrawingDescription": "Hides the mouse pointer while you draw, so it does not cover your stroke.",
+  "onStartupHomeScreenDescription": "Opens the home screen when Butterfly starts.",
+  "onStartupLastNoteDescription": "Reopens your most recently used note when Butterfly starts.",
+  "onStartupNewNoteDescription": "Creates a new note when Butterfly starts.",
+  "smoothNavigationDescription": "Makes panning and zooming feel smoother by simplifying the canvas while it is moving.",
+  "edgePanAreaSwitchingDescription": "Switches to a neighboring area when you pan near the edge of the canvas.",
+  "collaborationDescription": "Allows multiple people to edit the same note together in real time.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Includes detailed diagnostic messages in the log view and console. These messages can help when troubleshooting a problem.",
+  "bringMovedElementsToFrontDescription": "Places an element above overlapping elements after you move it.",
+  "persistenceDocumentStatesDescription": "Controls which parts of your workspace Butterfly remembers for each note, such as the current page, zoom, and selected tool.",
+  "persistentStatesEnabledDescription": "Store document state information between app sessions",
+  "persistentStateCurrentPageDescription": "Remember the current page when reopening a file",
+  "persistentStateViewportDescription": "Remember the viewport position, zoom and rotation for each page",
+  "persistentStateSelectedToolDescription": "Remember the selected tool when reopening a file",
+  "persistentStateLocksDescription": "Remember lock settings when reopening a file",
+  "persistentStateNavigatorDescription": "Remember the navigator state when reopening a file",
+  "persistentStateLayersDescription": "Remember the layer panel state when reopening a file",
+  "persistentStateAreasDescription": "Remember the area panel state when reopening a file",
+  "persistentStateAutoThumbnail": "Automatic thumbnails",
+  "persistentStateAutoThumbnailDescription": "Show the per-document switch and allow thumbnails to update when documents close",
+  "persistentStateMaxRecordsDescription": "Keep at most this many stored states per file",
+  "persistentStateDeleteOlderThanDaysDescription": "Delete stored states older than this many days",
+  "contentViewportDescription": "Limits how far you can pan away from the content of your note.",
+  "limitViewportPositiveDescription": "Keeps the canvas within the area to the right and below its starting point.",
+  "startInFullScreenDescription": "Opens Butterfly in full-screen mode when supported.",
+  "designDescription": "Changes the overall visual style of Butterfly without changing whether the app uses light or dark colors.",
+  "platformThemeDescription": "Lets you use the desktop or mobile layout instead of the layout Butterfly normally chooses for your device.",
+  "densityDescription": "Changes the spacing and size of interface elements. It does not change the size of your note content.",
+  "highContrastDescription": "Uses stronger color differences to make controls and text easier to distinguish.",
+  "nativeTitleBarDescription": "Uses your operating system's standard window title bar instead of Butterfly's custom title bar.",
+  "propertiesDescription": "Chooses where the panel for editing the selected tool or element appears.",
+  "navigationRailDescription": "Shows a permanent navigation bar on wide screens for quicker access to app sections.",
+  "optionsPanelPositionDescription": "Chooses whether tool options appear above or below the canvas.",
+  "simpleToolbarVisibilityDescription": "Controls when the smaller, simplified toolbar appears while editing a note.",
+  "penOnlyInputDescription": "Prevents accidental marks from your hand or mouse by choosing when only stylus input can draw.",
+  "showPenOnlyToggleDescription": "Shows a quick stylus-only switch in the editor after Butterfly detects a stylus.",
+  "ignorePressureDescription": "Controls whether stylus pressure changes the stroke and works around inaccurate pressure readings from some styluses.",
+  "moveOnGestureDescription": "Lets multi-touch gestures move the canvas instead of interacting with note content.",
+  "spreadPagesDescription": "Splits multi-page imports across separate note pages instead of placing everything on one page.",
+  "shear": "Shear",
+  "resetRotation": "Reset rotation",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Choose the controls for zoom and rotation. Reset buttons remain available in every layout.",
+  "zoomPanelFull": "Full (slider, text field and buttons)",
+  "zoomPanelSliderInput": "Slider and text field",
+  "zoomPanelSlider": "Slider",
+  "zoomPanelInputButtons": "Text field and buttons",
+  "zoomPanelInput": "Metin alanı",
+  "rotationDisplay": "Rotation display",
+  "rotationDisplayDescription": "Choose when the rotation row appears above zoom. This does not change rotation gestures or shortcuts.",
+  "whenRotated": "When rotated",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Rotate canvas by dragging"
+}

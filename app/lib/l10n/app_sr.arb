@@ -1,0 +1,1693 @@
+{
+  "open": "Otvori",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Reveal in file explorer",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Podešavanja",
+  "personalization": "Personalizacija",
+  "theme": "Tema",
+  "darkTheme": "Tamna tema",
+  "lightTheme": "Svetla tema",
+  "systemTheme": "Koristi podrazumevanu sistemsku temu",
+  "view": "Prikaz",
+  "contentViewport": "Content Viewport",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Limit Viewport to positive coordinates",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Off",
+  "canvas": "Canvas",
+  "interface": "Interface",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Izmeni",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Izvezi",
+  "save": "Sačuvaj",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Zumiranje",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Uvećaj",
+  "zoomOut": "Umanji",
+  "resetZoom": "Resetuj zumiranje",
+  "strokeWidth": "Debljina linije",
+  "strokeStyle": "Stroke style",
+  "dashLength": "Dash length",
+  "gapLength": "Gap length",
+  "includeEraser": "Uključi gumicu?",
+  "thinning": "Tanjanje",
+  "pen": "Olovka",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Inverted Stylus",
+  "eraser": "Gumica",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Stroke",
+  "label": "Oznaka",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Obriši",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Da li ste sigurni?",
+  "reallyDelete": "Da li zaista želite da obrišete ovu stavku?",
+  "no": "Ne",
+  "yes": "Da",
+  "undo": "Opozovi",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Ponovi",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "Opšte",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Kopirano u klipbord",
+  "loading": "Učitavanje...",
+  "enterText": "Unesite tekst",
+  "size": "Veličina",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Širina",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Visina",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Broj",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Prostor",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Pozadina",
+  "applyBackground": "Apply background",
+  "applyAreas": "Apply areas",
+  "currentPage": "Current page",
+  "allPages": "All pages",
+  "box": "Kutija",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "Jezik",
+  "systemLocale": "Sistemski jezik",
+  "information": "Informacije",
+  "license": "Licenca",
+  "imprint": "Impresum",
+  "privacypolicy": "Politika privatnosti",
+  "sourceCode": "Izvorni kod",
+  "documentation": "Dokumentacija",
+  "changelog": "Dnevnik izmena",
+  "source": "Izvor",
+  "existOverride": "Ovaj element već postoji. Prepiši?",
+  "description": "Opis",
+  "fill": "Popuna",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Podrazumevana paleta",
+  "highlighter": "Marker",
+  "combinePaths": "Combine paths",
+  "add": "Dodaj",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Ukloni",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Da li zaista želite da uklonite ovo?",
+  "resetPalette": "Resetuj paletu",
+  "custom": "Prilagođeno",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Dekoracija",
+  "underline": "Podvučeno",
+  "overline": "Nadvučeno",
+  "strikethrough": "Precrtano",
+  "thickness": "Debljina",
+  "style": "Stil",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Puna",
+  "solidColor": "Solid color",
+  "gradient": "Gradient",
+  "gradientType": "Gradient type",
+  "linear": "Linear",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Dvostruka",
+  "dotted": "Tačkasta",
+  "dottedDark": "Dotted dark",
+  "dashed": "Isprekidana",
+  "wavy": "Talasasta",
+  "fontWeight": "Debljina fonta",
+  "normal": "Normalno",
+  "bold": "Podebljano",
+  "italic": "Kurziv",
+  "clipboard": "Klipbord",
+  "file": "Datoteka",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Podaci",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Deli",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Razmak",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Slika",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Unesite URL",
+  "scale": "Skala",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Pomoć",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Da li zaista želite da resetujete ovo?",
+  "whatToDo": "Šta želite da uradite?",
+  "ignore": "Ignoriši",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Rezervna kopija",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Backup connection",
+  "automaticBackups": "Automatic backups",
+  "automaticBackupsDescription": "Creates backups while Butterfly is running.",
+  "backupInterval": "Backup interval",
+  "backupNow": "Back up now",
+  "lastBackup": "Last backup",
+  "backupCreated": "Backup created",
+  "hour": "hour",
+  "hours": "hours",
+  "day": "day",
+  "days": "days",
+  "week": "week",
+  "weeks": "weeks",
+  "createdInNewerVersion": "Datoteka {fileName} je kreirana u novijoj verziji ({fileVersion}). Šta treba uraditi sa ovom datotekom?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Tačke putanje",
+  "origin": "Poreklo",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "Uvezi",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "Novo",
+  "selectElement": "Izaberi element",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Shift",
+  "altKey": "Alt",
+  "copyVersion": "Kopiraj verziju",
+  "input": "Unos",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Ponašanja",
+  "dataDirectory": "Direktorijum sa podacima",
+  "warning": "Warning",
+  "platformExperimentalWarning": "Warning: This setting is experimental and can have problems on this platform.",
+  "changeDataDirectoryWarningContent": "Are you sure you want to change the data folder? You should make a backup of your data before proceeding.",
+  "defaultPath": "Podrazumevana putanja",
+  "dateFormat": "Format datuma",
+  "updatedAt": "Ažurirano: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Kreirano: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Preimenuj",
+  "duplicate": "Dupliraj",
+  "hand": "Ruka",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Fascikla",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Premesti",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Kopiraj",
+  "openContextMenu": "Open context menu",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Nazad",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Forward",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Zavisno od zuma",
+  "shapeDetection": "Prepoznavanje oblika",
+  "delay": "Odlaganje",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Podrazumevani sloj",
+  "layer": "Sloj",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Slojevi",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "Nije postavljeno",
+  "enterLayer": "Unesite naziv sloja",
+  "eraseShapes": "Erase shapes",
+  "eraseShapeModeNone": "Don't erase shapes",
+  "eraseShapeModeTouchEdges": "Erase when touching edges",
+  "eraseShapeModeTouchAnywhere": "Erase when touching anywhere",
+  "selectElementModeTouchEdges": "Select when touching edges",
+  "selectElementModeTouchAnywhere": "Select when touching anywhere",
+  "selectElements": "Izaberi elemente",
+  "deleteElements": "Obriši elemente",
+  "eraseAllElements": "Erase all elements",
+  "deleteElementsConfirm": "Da li zaista želite da obrišete izabrane elemente?",
+  "selectCustomCollection": "Izaberite prilagođenu kolekciju",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Osetljivost",
+  "selectionTolerance": "Selection tolerance",
+  "selectionToleranceDescription": "How close a pointer must be to an element or area to select it. Higher values make selection easier.",
+  "selectionHandleSensitivity": "Selection handle hit area",
+  "selectionHandleSensitivityDescription": "Size of the hit area around selection and area handles for all pointer types.",
+  "panGestureSensitivity": "Pan gesture sensitivity",
+  "panGestureSensitivityDescription": "Canvas movement from touch or trackpad gestures. Higher values move the canvas farther.",
+  "zoomGestureSensitivity": "Continuous zoom sensitivity",
+  "zoomGestureSensitivityDescription": "Zoom from pinching, trackpad gestures, and Ctrl+scroll. Higher values zoom farther.",
+  "rotationGestureSensitivity": "Rotation gesture sensitivity",
+  "rotationGestureSensitivityDescription": "Canvas rotation from gestures. Higher values rotate farther.",
+  "scrollPanSensitivity": "Scroll pan sensitivity",
+  "scrollPanSensitivityDescription": "Canvas movement from mouse wheel and trackpad scrolling. Higher values pan farther.",
+  "horizontal": "Horizontalno",
+  "vertical": "Vertikalno",
+  "plain": "Obično",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Svetlo",
+  "ruled": "Linije",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Kvadrat",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Muzika",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Tamno",
+  "plainDark": "Plain dark",
+  "ruledDark": "Tamne linije",
+  "quadDark": "Tamni kvadrati",
+  "musicDark": "Tamna muzika",
+  "templates": "Šabloni",
+  "untitled": "Bez naslova",
+  "createTemplate": "Kreiraj šablon",
+  "createTemplateContent": "Da li zaista želite da kreirate šablon od ovog dokumenta? Originalni dokument će biti obrisan.",
+  "fileName": "File name",
+  "defaultFileName": "Default file name",
+  "templateFileNameDescription": "Documents opened from the template picker are saved automatically with this name. Templates without a name use the default configured in Data settings. Combine your own text with {dateExample} and {timeExample}. Characters that are not allowed in file names will be rejected.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Preview",
+  "replace": "Zameni",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Da li zaista želite da zamenite šablon? Ova operacija se ne može opozvati!",
+  "defaultTemplate": "Podrazumevani šablon",
+  "insert": "Ubaci",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Dokument",
+  "documentStates": "Document states",
+  "camera": "Kamera",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Ispis",
+  "selectCamera": "Izaberite kameru",
+  "changeDocumentPath": "Promeni putanju dokumenta",
+  "deleteWholeStroke": "Obriši celu liniju",
+  "alpha": "Alfa",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Oblast",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Izaberite oblast",
+  "aspectRatio": "Odnos širine i visine",
+  "presets": "Unapred podešeno",
+  "pagePortrait": "Portret stranica",
+  "pageLandscape": "Pejzaž stranica",
+  "square": "Kvadrat",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Oblasti",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Unesite oblast",
+  "exitArea": "Izađite iz oblasti",
+  "currentArea": "Trenutna oblast",
+  "design": "Dizajn",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Tekst",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Zdravo, ovo je Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "Besplatan prostor za crtanje otvorenog koda!",
+  "updated": "Aplikacija ažurirana na verziju {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Napomene o izdanju",
+  "constraints": "Ograničenja",
+  "scaled": "Skalirano",
+  "fixed": "Fiksno",
+  "dynamicContent": "Dinamično",
+  "none": "Ništa",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Uključi oblast",
+  "verticalAlignment": "Vertikalno poravnanje",
+  "horizontalAlignment": "Horizontalno poravnanje",
+  "top": "Vrh",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Centar",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Dno",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Levo",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Desno",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Obostrano",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Ograničenje",
+  "length": "Dužina",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "Izvezi SVG",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Izaberi stranice",
+  "recentFiles": "Nedavne datoteke",
+  "start": "Početak",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "Nema nedavnih datoteka",
+  "countPages": "{count,plural, =0{Nema stranica} =1{1 stranica} other{{count} stranice}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Stranica {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Izlaz",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "Nema elemenata",
+  "invertSelection": "Invertuj selekciju",
+  "errorWhileImporting": "Greška prilikom uvoza",
+  "errorWhileImportingContent": "Došlo je do greške prilikom uvoza datoteke",
+  "showDetails": "Prikaži detalje",
+  "hideDetails": "Sakrij detalje",
+  "error": "Greška",
+  "stackTrace": "Trag steka",
+  "laser": "Laser",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Trajanje",
+  "quality": "Kvalitet",
+  "exportPdf": "Izvezi PDF",
+  "local": "Lokalno",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Dodaj konekciju",
+  "connections": "Konekcije",
+  "noConnections": "Nema konekcija",
+  "url": "URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "The full WebDAV URL provided by your storage provider",
+  "connect": "Poveži se",
+  "username": "Korisničko ime",
+  "password": "Lozinka",
+  "authenticationPassword": "Authentication password",
+  "documentEncryptionPassword": "Document encryption password",
+  "documentEncryptionPasswordDescription": "Encrypts documents stored in this connection. Leave empty to keep them unencrypted",
+  "documentEncryptionEnabled": "Document encryption enabled",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Add document encryption password",
+  "changeDocumentEncryptionPassword": "Change document encryption password",
+  "webNotSupported": "Web nije podržan",
+  "advanced": "Napredno",
+  "symmetric": "Symmetric",
+  "perSide": "Per side",
+  "directory": "Direktorijum",
+  "connectionNameDescription": "Only used to identify this connection in Butterfly",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Direktorijum dokumenata",
+  "templatesDirectory": "Direktorijum šablona",
+  "errorWhileCreatingConnection": "Greška pri kreiranju konekcije",
+  "cannotConnect": "Povezivanje nije moguće",
+  "urlNotValid": "URL nije važeći",
+  "icon": "Ikona",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Optional URL of an image to use as the connection icon",
+  "update": "Ažuriraj",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Dostupno ažuriranje",
+  "stable": "Stabilno",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Noćno",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Proveri ažuriranja",
+  "checkForUpdatesWarning": "Provera ažuriranja će se povezati sa Butterfly veb-sajtom radi dobijanja informacija.",
+  "usingLatestStable": "Koristite najnoviju stabilnu verziju",
+  "usingLatestNightly": "Koristite najnoviju noćnu verziju",
+  "currentVersion": "Trenutna verzija",
+  "updateNow": "Ažuriraj sada",
+  "shape": "Oblik",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Table",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "row": "Row",
+  "column": "Column",
+  "insertRowBefore": "Insert row before",
+  "insertRowAfter": "Insert row after",
+  "insertColumnBefore": "Insert column before",
+  "insertColumnAfter": "Insert column after",
+  "deleteRow": "Delete row",
+  "deleteColumn": "Delete column",
+  "cellColor": "Cell color",
+  "cellBorders": "Cell borders",
+  "cellBorder": "Cell border",
+  "horizontalBorder": "Horizontal border",
+  "verticalBorder": "Vertical border",
+  "rowHeight": "Row height",
+  "columnWidth": "Column width",
+  "border": "Border",
+  "circle": "Krug",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Pravougaonik",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Trougao",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Linija",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Radijus ugla",
+  "topLeft": "Gore levo",
+  "topRight": "Gore desno",
+  "bottomLeft": "Dole levo",
+  "bottomRight": "Dole desno",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Keš memorije",
+  "manage": "Upravljaj",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Očisti keš memorije",
+  "createCache": "Kreiraj keš",
+  "thirdPartyLicenses": "Licence trećih strana",
+  "syncing": "Sinhronizovanje...",
+  "synced": "Sinhronizovano",
+  "notSynced": "Nije sinhronizovano",
+  "conflict": "Konflikt",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Zadrži lokalno",
+  "keepConnection": "Zadrži sa konekcije",
+  "keepBoth": "Zadrži oba",
+  "forAll": "Za sve",
+  "fileConflict": "Datoteka {file} na {connection} ima konflikt",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Van mreže",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "Lokalno najnovije",
+  "connectionLatest": "Sa konekcije najnovije",
+  "path": "Putanja",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Fascikla sinhronizovana",
+  "syncRootDirectory": "Sinhronizuj korenski direktorijum",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Automatically enables stylus-only mode when a stylus is detected. This setting only lasts for the current session.",
+  "penOnlyInputOnDescription": "Always reject touch and mouse input, only accept stylus input.",
+  "penOnlyInputOffDescription": "Accept all input types including touch, mouse, and stylus.",
+  "automatic": "Automatic",
+  "alwaysOn": "Always on",
+  "alwaysOff": "Always off",
+  "showPenOnlyToggle": "Show stylus only toggle",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Pokreti unosa",
+  "inputGesturesDescription": "Lets you move and zoom the canvas with touch gestures, even while a drawing tool is selected.",
+  "nativeTitleBar": "Nativna naslovna traka",
+  "mode": "Mode",
+  "syncMode": "Režim sinhronizacije",
+  "connection": "Konekcija",
+  "always": "Uvek",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "Nema na mobilnom",
+  "syncModeAlwaysDescription": "Syncs remote files automatically whenever they change.",
+  "syncModeNoMobileDescription": "Syncs automatically except on mobile devices, which can reduce mobile data usage.",
+  "manual": "Ručno",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Only syncs when you start it yourself.",
+  "search": "Pretraga",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Svojstva",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Zakači",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Otkači",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Element",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Crtaljka",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Pozicija",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Beleška",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Paketi",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Paket",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "Više",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Pitaj za ime",
+  "areaIndex": "Oblast {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Pokreni u režimu celog ekrana",
+  "inputs": "Unosi",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Miš",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Dodir",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Tastatura",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Prečice",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Srednji",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "Prvi",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "Drugi",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Aktivni alat",
+  "activeToolDescription": "Koristi trenutno izabrani alat sa trake sa alatkama",
+  "handTool": "Alat Ruka",
+  "handToolDescription": "Prevucite za kretanje po platnu",
+  "toolOnToolbar": "Specifičan alat na traci sa alatkama",
+  "toolOnToolbarDescription": "Koristi alat na navedenoj poziciji na traci sa alatkama, počevši sa leve strane",
+  "toolOnToolbarShort": "Pozicija na traci: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Alati",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Prikaži mrežu",
+  "grid": "Mreža",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Lenjir",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Ugao",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Prijavi",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "Nova fascikla",
+  "createPack": "Kreiraj paket",
+  "editPack": "Izmeni paket",
+  "packsDirectory": "Direktorijum paketa",
+  "stamp": "Pečat",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Dodaj u paket",
+  "sureImportPack": "Da li ste sigurni da želite da uvezete paket?",
+  "byAuthor": "od {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Autor",
+  "addAsset": "Dodaj resurs",
+  "editAsset": "Izmeni resurs",
+  "scope": "Obim",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "Trenutno nema dostupnih paketa",
+  "components": "Komponente",
+  "waypoint": "Tačka putanje",
+  "actions": "Akcije",
+  "painters": "Crtaljke",
+  "breakingChangesTitle": "Značajne izmene",
+  "breakingChangesMessage": "U ovoj verziji postoje značajne izmene. Molimo pročitajte dnevnik izmena pre ažuriranja. Trenutna verzija datoteke je {version}, nova verzija je {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Stilovi",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Pasus",
+  "fontFamily": "Porodica fontova",
+  "smoothing": "Izglađivanje",
+  "streamline": "Pojednostavljenje",
+  "presentation": "Prezentacija",
+  "simple": "Simple",
+  "createPresentation": "Create presentation",
+  "addSlide": "Add new slide",
+  "updateSlide": "Update slide",
+  "deleteSlide": "Delete slide",
+  "transitionDuration": "Transition duration",
+  "transitionDurationDescription": "How long the camera takes to move to the next slide. On the last slide, this is used when you add a new one.",
+  "transitionDurationValue": "{seconds}s transition",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Add keyframe here",
+  "updateKeyframe": "Update from current camera",
+  "deleteKeyframe": "Delete keyframe",
+  "markAsSlide": "Mark as slide",
+  "removeSlideMarker": "Remove slide marker",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "Izaberi resurs",
+  "clearStyle": "Očisti stil",
+  "unknownImportType": "Nepoznat tip uvoza",
+  "sureImportTemplate": "Da li ste sigurni da želite da uvezete šablon?",
+  "frame": "Okvir",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Pusti",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Tačka prekida",
+  "presentationControls": "Kontrole prezentacije",
+  "nextSlide": "Sledeći slajd",
+  "nextSlideDescription": "Prevucite udesno ili pritisnite desnu strelicu da pređete na sledeći slajd",
+  "previousSlide": "Prethodni slajd",
+  "previousSlideDescription": "Prevucite ulevo ili pritisnite levu strelicu da se vratite na prethodni slajd",
+  "exitPresentation": "Izađi iz prezentacije",
+  "exitPresentationDescription": "Pritisnite taster Esc ili prevucite nadole da izađete iz prezentacije",
+  "pausePresentation": "Pauziraj prezentaciju",
+  "pausePresentationDescription": "Dodirnite ekran ili pritisnite razmaknicu da pauzirate ili nastavite prezentaciju",
+  "keyframe": "Ključni kadar",
+  "endOfPresentation": "Došli ste do kraja prezentacije",
+  "startOfPresentation": "Došli ste do početka prezentacije",
+  "palettes": "Palete",
+  "headline": "Naslov {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Kod",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Citat",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Link",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Polje za potvrdu",
+  "deleted": "Obrisano",
+  "emphasis": "Naglasak",
+  "listBullet": "Znak za nabrajanje",
+  "strong": "Jako",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Početna",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Datoteke",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Sortiraj po",
+  "location": "Lokacija",
+  "whatsNew": "Šta je novo?",
+  "unstar": "Ukloni zvezdicu",
+  "star": "Dodaj zvezdicu",
+  "goUp": "Idi gore",
+  "created": "Kreirano",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Izmenjeno",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Brzi početak",
+  "noTemplates": "Trenutno nema dostupnih šablona",
+  "importCorePack": "Uvezi osnovni paket",
+  "importCorePackDescription": "Uvezite osnovni paket koji sadrži sve osnovne resurse za početak. Ovo će prepisati trenutni osnovni paket.",
+  "never": "Nikada",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Samo pri ažuriranjima",
+  "visibility": "Vidljivost",
+  "captureThumbnail": "Snimi sličicu",
+  "autoThumbnail": "Update thumbnail on close",
+  "autoThumbnailDescription": "Capture the current view when you close this document. Manually capturing a thumbnail turns this off.",
+  "capturedThumbnail": "Uspešno snimljena sličica",
+  "chooseLabelMode": "Izaberite režim oznake",
+  "foreground": "Prednji plan",
+  "version": "Verzija",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Repozitorijum",
+  "pages": "Stranice",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Navigator",
+  "arrange": "Rasporedi",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Dovedi napred",
+  "sendToBack": "Pošalji nazad",
+  "bringForward": "Pomeri napred",
+  "sendBackward": "Pomeri nazad",
+  "rotation": "Rotacija",
+  "rotationStep": "Rotation step",
+  "zoomStep": "Zoom step",
+  "zoomStepDescription": "Amount used by the zoom in and zoom out keyboard shortcuts. Continuous zoom gestures use their own sensitivity setting.",
+  "direction": "Direction",
+  "onlyAvailableLargerScreen": "Dostupno samo na većim ekranima",
+  "toolbarPosition": "Pozicija trake sa alatkama",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Rotiraj",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Rotate left",
+  "rotateRight": "Rotate right",
+  "spacer": "Odstojnik",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Navigaciona traka",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Iseci",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Ubaci pre",
+  "insertAfter": "Ubaci posle",
+  "insertFirst": "Ubaci na početak",
+  "insertLast": "Ubaci na kraj",
+  "paste": "Nalepi",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Uzlazno",
+  "descending": "Silazno",
+  "imageScale": "Skala slike",
+  "svgScale": "SVG scale",
+  "noImageSelected": "No image selected",
+  "noSvgSelected": "No SVG selected",
+  "select": "Izaberi",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Alat",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Tekstura",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Tema platforme",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Desktop",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Mobilni",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Površina",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Šablon",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Da li ste sigurni da želite da zatvorite dokument?",
+  "thereAreUnsavedChanges": "Postoje nesačuvane izmene",
+  "page": "Stranica",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "ICE serveri",
+  "collaboration": "Saradnja",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Socket",
+  "iceServer": "ICE Server",
+  "port": "Port",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Tip",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Strana",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "Klijent",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Server",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Promeni prikaz",
+  "lasso": "Laso",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Sakrij interfejs",
+  "density": "Gustina",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Kompaktno",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Komforno",
+  "standard": "Standardno",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Zaključaj",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Dodaj element",
+  "notDefaultConnection": "Nije podrazumevana konekcija",
+  "defaultConnection": "Podrazumevana konekcija",
+  "hide": "Sakrij",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Prikaži",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "Pauziraj",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Zaustavi",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Osveži",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "Štampaj",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Kapaljka",
+  "users": "Korisnici",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Eksperimenti",
+  "experimentsWarning": "Ove funkcije su eksperimentalne i mogu se promeniti, pokvariti ili nestati u bilo kom trenutku. Njihovo omogućavanje može izazvati nestabilnost ili gubitak podataka. Nastavite s oprezom. Molimo prijavite sve greške.",
+  "address": "Adresa",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Proširi na stranice",
+  "rootDirectorySpecifiedDescription": "Korenski direktorijum je naveden. Sve napredne putanje direktorijuma biće relativne u odnosu na ovaj direktorijum. Ostavite prazno da biste onemogućili ovaj tip direktorijuma.",
+  "rootDirectoryNotSpecifiedDescription": "Korenski direktorijum nije naveden. Ime je obavezno. Sve napredne putanje direktorijuma biće apsolutne. Ostavite prazno da biste onemogućili ovaj tip direktorijuma.",
+  "unsecureConnectionTitle": "Nebezbedna konekcija",
+  "unsecureConnectionMessage": "Konekcija nije bezbedna. Ovo može predstavljati bezbednosni rizik. Molimo nastavite samo ako verujete konekciji. SHA1 otisak prsta je {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Nastavi svejedno",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Show navigator previews",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Show cached preview thumbnails in the areas and pages navigators",
+  "highContrast": "Visok kontrast",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "Ova vrednost treba da bude važeći broj",
+  "createAreas": "Kreiraj oblasti",
+  "autosave": "Automatsko čuvanje",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Invertuj",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "Operacije",
+  "medium": "Srednje",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "Veliko",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Veličina trake sa alatkama",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Dodaj sve",
+  "onlyCurrentPage": "Samo trenutna stranica",
+  "smoothNavigation": "Glatka navigacija",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Edge pan area switching",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Use Android SAF",
+  "exact": "Tačno",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "Unutar linije",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Redovi trake sa alatkama",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "Test pokazivača",
+  "pressure": "Pritisak",
+  "small": "Malo",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Sitno",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Izaberi sve",
+  "overrideTools": "Prepiši alate",
+  "hideCursorWhileDrawing": "Sakrij kursor tokom crtanja",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Instalirano",
+  "install": "Instaliraj",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Poništi izbor",
+  "changeCollection": "Promeni kolekciju",
+  "collections": "Kolekcije",
+  "fullSelection": "Potpuna selekcija",
+  "collection": "Kolekcija",
+  "defaultCollection": "Podrazumevana kolekcija",
+  "scroll": "Skroluj",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "Pri pokretanju",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Početni ekran",
+  "lastNote": "Poslednja beleška",
+  "newNote": "Nova beleška",
+  "moveToLayer": "Move to layer",
+  "createLayer": "Create layer",
+  "merge": "Spoji",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Gore",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Dole",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "Drugo",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{Nema elemenata} =1{1 element} other{{count} elementa}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Traka sa bojama",
+  "yesButShowButtons": "Da, ali prikaži dugmad",
+  "optionsPanelPosition": "Pozicija panela sa opcijama",
+  "hideDuration": "Sakrij trajanje",
+  "animation": "Animacija",
+  "performance": "Performanse",
+  "performanceDescription": "Optimizovano za brzinu i korišćenje memorije. Samo vidljivi deo beleške se renderuje u sliku.",
+  "normalDescription": "Balansira kvalitet i performanse. Renderuje sliku koja pokriva 1,5 puta vidljivu oblast, pružajući glatkije prelaze pri skrolovanju.",
+  "high": "Visoko",
+  "highDescription": "Maximizes quality at the cost of performance. Bakes an image covering 2 times the visible area, ensuring seamless rendering even during rapid scrolling or zooming.",
+  "renderResolution": "Rezolucija renderovanja",
+  "translate": "Prevedi",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Nešifrovano",
+  "encrypted": "Šifrovano",
+  "encryptDocumentMessage": "Kliknite da šifrujete dokument",
+  "unencryptDocumentMessage": "Kliknite da dešifrujete dokument",
+  "unencrypt": "Dešifruj",
+  "encrypt": "Šifruj",
+  "encryptWarning": "Ovo će šifrovati dokument. Moraćete da zapamtite lozinku da biste ga dešifrovali.",
+  "unencryptWarning": "Ovo će dešifrovati dokument. Lozinka će biti uklonjena i svako sa pristupom će moći da ga otvori.",
+  "confirmPassword": "Potvrdi lozinku",
+  "passwordMismatch": "Lozinke se ne podudaraju",
+  "action": "Akcija",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "SVG Tekst",
+  "offset": "Pomak",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "End",
+  "radius": "Radius",
+  "focalPoint": "Focal point",
+  "useOffCenterStartPoint": "Use an off-center start point",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Color stops",
+  "addStop": "Add stop",
+  "positionDependent": "Zavisno od pozicije",
+  "flipHorizontal": "Okreni horizontalno",
+  "flipVertical": "Okreni vertikalno",
+  "grayscale": "Sivi tonovi",
+  "moveOnGesture": "Pomeri na pokret",
+  "exportAllFiles": "Izvezi sve datoteke",
+  "restoreSettingsFromFile": "Vrati podešavanja iz datoteke",
+  "resetAllSettings": "Reset all settings",
+  "exportSettingsToFile": "Izvezi podešavanja u datoteku",
+  "barcode": "Barkod",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Tip barkoda",
+  "qrCode": "QR kod",
+  "dataMatrix": "Data Matrix",
+  "code128": "Code 128",
+  "defaultUserName": "Korisnik {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Pomeri levo",
+  "moveRight": "Pomeri desno",
+  "bundledPacks": "Uključeni paketi",
+  "component": "Component",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Izaberi komponentu",
+  "bundlePackInDocument": "Uključi paket u dokument",
+  "bundledPacksDescription": "Uključeni paketi su sadržani u dokumentu i koriste se samo za deljenje sa dokumentom. Resursi se mogu koristiti u dokumentu samo ako je paket instaliran. Paketi se mogu instalirati klikom na njih.",
+  "fillAlpha": "Alfa popune",
+  "packagedFile": "Upakovana datoteka",
+  "rawFile": "Sirova datoteka",
+  "webSocketDescription": "Vaš uređaj hostuje server, tako da se saradnici mogu pridružiti samo preko iste mreže ili sa bilo kog mesta ako prosledite port na svom ruteru.",
+  "swampDescription": "Vaše poruke se rutiraju kroz siguran relejni server sa end-to-end enkripcijom. Adresa swamp servera je potrebna za kreiranje sesije.",
+  "createRawNote": "Kreiraj sirovu belešku",
+  "polygon": "Poligon",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Završi oblik",
+  "submit": "Pošalji",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Math",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ignore pressure",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignores the first pressure reading, which can be inaccurate on some styluses.",
+  "ignorePressureNeverDescription": "Uses every pressure reading from the stylus.",
+  "ignorePressureAlwaysDescription": "Ignores pressure and treats the stylus as fully pressed.",
+  "temporary": "Temporary",
+  "simpleToolbarVisibility": "Simple toolbar visibility",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Autosave delay",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Saved",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Saving...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Read only",
+  "saveDelayed": "Save delayed",
+  "unsaved": "Unsaved",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "There are currently no areas to export. Please select at least one area using the plus button in the top right corner or add all areas from the current page or from the whole document below.",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Customize shortcuts",
+  "clickToSave": "Click to save",
+  "toolbars": "Toolbars",
+  "logs": "Logs",
+  "ruledSimple": "Ruled simple",
+  "ruledSimpleDark": "Ruled simple dark",
+  "quadSimple": "Quad simple",
+  "quadSimpleDark": "Quad simple dark",
+  "redLinedRuled": "Red lined ruled",
+  "redLinedRuledDark": "Red lined ruled dark",
+  "redLinedQuad": "Red lined quad",
+  "redLinedQuadDark": "Red lined quad dark",
+  "noItemSelected": "No item selected",
+  "areaAsInitial": "Open area as initial view",
+  "swap": "Swap",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Hide file extension",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "New from template",
+  "exportAsTextShortcut": "Export as text",
+  "exportAsImageShortcut": "Export as image",
+  "exportAsPdfShortcut": "Export as PDF",
+  "exportAsSvgShortcut": "Export as SVG",
+  "changePathShortcut": "Change path",
+  "fullScreenShortcut": "Full screen",
+  "doublePressAction": "Double press action",
+  "triplePressAction": "Triple press action",
+  "twoFingerTap": "Two-finger tap",
+  "threeFingerTap": "Three-finger tap",
+  "longPress": "Long press",
+  "toolNumber": "Tool {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Hold Shortcuts",
+  "holdShortcutsDescription": "Hold a key to temporarily switch to another tool. Releasing the key switches back to the previous tool.",
+  "key": "Key",
+  "bringMovedElementsToFront": "Bring moved elements to front",
+  "addTool": "Add tool",
+  "nextPage": "Next page",
+  "previousPage": "Previous page",
+  "persistenceDocumentStates": "Persistent document states",
+  "persistentStatesEnabled": "Enable persistent document states",
+  "persistentStateCurrentPage": "Current page",
+  "persistentStateViewport": "Viewport position and zoom",
+  "persistentStateSelectedTool": "Selected tool",
+  "persistentStateMaxRecords": "Maximum stored records",
+  "persistentStateDeleteOlderThanDays": "Delete records older than days",
+  "persistentStateCleanup": "Clean up stored states",
+  "persistentStateCleanupDescription": "Delete records older than the limits above",
+  "persistentStateCleanupInProgress": "Cleaning up...",
+  "persistentStateDefaultLocks": "Default locks",
+  "persistentStateDefaultLocksDescription": "Apply these locks when a document has no saved state",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Cleaned up 1 storage location} other{Cleaned up {locations} storage locations}}; {records, plural, =1{removed 1 record} other{removed {records} records}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Saves changes automatically as you work.",
+  "autosaveDelayedDescription": "Saves changes automatically after the selected delay.",
+  "autosaveShowButtonDescription": "Saves automatically and also keeps the save button visible.",
+  "autosaveDisabledDescription": "Only saves when you use the save command.",
+  "hideCursorWhileDrawingDescription": "Hides the mouse pointer while you draw, so it does not cover your stroke.",
+  "onStartupHomeScreenDescription": "Opens the home screen when Butterfly starts.",
+  "onStartupLastNoteDescription": "Reopens your most recently used note when Butterfly starts.",
+  "onStartupNewNoteDescription": "Creates a new note when Butterfly starts.",
+  "smoothNavigationDescription": "Makes panning and zooming feel smoother by simplifying the canvas while it is moving.",
+  "edgePanAreaSwitchingDescription": "Switches to a neighboring area when you pan near the edge of the canvas.",
+  "collaborationDescription": "Allows multiple people to edit the same note together in real time.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Includes detailed diagnostic messages in the log view and console. These messages can help when troubleshooting a problem.",
+  "bringMovedElementsToFrontDescription": "Places an element above overlapping elements after you move it.",
+  "persistenceDocumentStatesDescription": "Controls which parts of your workspace Butterfly remembers for each note, such as the current page, zoom, and selected tool.",
+  "persistentStatesEnabledDescription": "Store document state information between app sessions",
+  "persistentStateCurrentPageDescription": "Remember the current page when reopening a file",
+  "persistentStateViewportDescription": "Remember the viewport position, zoom and rotation for each page",
+  "persistentStateSelectedToolDescription": "Remember the selected tool when reopening a file",
+  "persistentStateLocksDescription": "Remember lock settings when reopening a file",
+  "persistentStateNavigatorDescription": "Remember the navigator state when reopening a file",
+  "persistentStateLayersDescription": "Remember the layer panel state when reopening a file",
+  "persistentStateAreasDescription": "Remember the area panel state when reopening a file",
+  "persistentStateAutoThumbnail": "Automatic thumbnails",
+  "persistentStateAutoThumbnailDescription": "Show the per-document switch and allow thumbnails to update when documents close",
+  "persistentStateMaxRecordsDescription": "Keep at most this many stored states per file",
+  "persistentStateDeleteOlderThanDaysDescription": "Delete stored states older than this many days",
+  "contentViewportDescription": "Limits how far you can pan away from the content of your note.",
+  "limitViewportPositiveDescription": "Keeps the canvas within the area to the right and below its starting point.",
+  "startInFullScreenDescription": "Opens Butterfly in full-screen mode when supported.",
+  "designDescription": "Changes the overall visual style of Butterfly without changing whether the app uses light or dark colors.",
+  "platformThemeDescription": "Lets you use the desktop or mobile layout instead of the layout Butterfly normally chooses for your device.",
+  "densityDescription": "Changes the spacing and size of interface elements. It does not change the size of your note content.",
+  "highContrastDescription": "Uses stronger color differences to make controls and text easier to distinguish.",
+  "nativeTitleBarDescription": "Uses your operating system's standard window title bar instead of Butterfly's custom title bar.",
+  "propertiesDescription": "Chooses where the panel for editing the selected tool or element appears.",
+  "navigationRailDescription": "Shows a permanent navigation bar on wide screens for quicker access to app sections.",
+  "optionsPanelPositionDescription": "Chooses whether tool options appear above or below the canvas.",
+  "simpleToolbarVisibilityDescription": "Controls when the smaller, simplified toolbar appears while editing a note.",
+  "penOnlyInputDescription": "Prevents accidental marks from your hand or mouse by choosing when only stylus input can draw.",
+  "showPenOnlyToggleDescription": "Shows a quick stylus-only switch in the editor after Butterfly detects a stylus.",
+  "ignorePressureDescription": "Controls whether stylus pressure changes the stroke and works around inaccurate pressure readings from some styluses.",
+  "moveOnGestureDescription": "Lets multi-touch gestures move the canvas instead of interacting with note content.",
+  "spreadPagesDescription": "Splits multi-page imports across separate note pages instead of placing everything on one page.",
+  "shear": "Shear",
+  "resetRotation": "Reset rotation",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Choose the controls for zoom and rotation. Reset buttons remain available in every layout.",
+  "zoomPanelFull": "Full (slider, text field and buttons)",
+  "zoomPanelSliderInput": "Slider and text field",
+  "zoomPanelSlider": "Slider",
+  "zoomPanelInputButtons": "Text field and buttons",
+  "zoomPanelInput": "Text field",
+  "rotationDisplay": "Rotation display",
+  "rotationDisplayDescription": "Choose when the rotation row appears above zoom. This does not change rotation gestures or shortcuts.",
+  "whenRotated": "When rotated",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Rotate canvas by dragging"
+}

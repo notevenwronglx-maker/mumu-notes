@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          any_map: true
+          explicit_to_json: true
+      freezed:
+        options:
+          union_key: type
+          # `when` and `map` can be enabled/disabled entirely by setting them to `true`/`false`
+          map: false
+          # We can also enable/disable specific variants of `when`/`map` by setting them to `true`/`false`:
+          when: false

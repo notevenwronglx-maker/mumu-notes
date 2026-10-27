@@ -1,0 +1,442 @@
+part of '../../home.dart';
+
+final _persistenceSettingsPage = SettingsLeapPage<ButterflySettings>(
+  displayName: (context) =>
+      AppLocalizations.of(context).persistenceDocumentStates,
+  icon: PhosphorIconsLight.database,
+  appBarBuilder: _butterflyAppBar,
+  onReset: (context, state) => _resetSettingsPage(
+    context,
+    (current, defaults) => current.copyWith(
+      documentStatePersistence: defaults.documentStatePersistence,
+    ),
+  ),
+  sections: {
+    'content': SettingsLeapSection(
+      builder: _buildPersistenceSettingsSection,
+      wrapBuilder: false,
+    ),
+  },
+);
+
+Widget _buildPersistenceSettingsSection(
+  BuildContext context,
+  ButterflySettings state,
+  Widget child,
+) {
+  final settings = state.documentStatePersistence;
+  void change(DocumentStatePersistenceSettings next) {
+    context.read<SettingsCubit>().changeDocumentStatePersistence(next);
+  }
+
+  Widget buildDefaultLock({
+    required bool value,
+    required String title,
+    required PhosphorIconData icon,
+    required PersistentLockState Function(bool value) update,
+  }) => SwitchListTile(
+    value: value,
+    secondary: PhosphorIcon(icon),
+    title: Text(title),
+    onChanged: (value) =>
+        change(settings.copyWith(defaultLocks: update(value))),
+  );
+
+  return Center(
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: LeapBreakpoints.medium),
+        child: Card(
+          margin: settingsCardMargin,
+          child: Padding(
+            padding: settingsCardPadding,
+            child: Column(
+              children: [
+                SwitchListTile(
+                  value: settings.enabled,
+                  secondary: const PhosphorIcon(PhosphorIconsLight.power),
+                  title: Text(
+                    AppLocalizations.of(context).persistentStatesEnabled,
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStatesEnabledDescription,
+                  ),
+                  onChanged: (value) =>
+                      change(settings.copyWith(enabled: value)),
+                ),
+                const Divider(),
+                SwitchListTile(
+                  value: settings.page,
+                  secondary: const PhosphorIcon(
+                    PhosphorIconsLight.file,
+                    textDirection: .ltr,
+                  ),
+                  title: Text(
+                    AppLocalizations.of(context).persistentStateCurrentPage,
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateCurrentPageDescription,
+                  ),
+                  onChanged: settings.enabled
+                      ? (value) => change(settings.copyWith(page: value))
+                      : null,
+                ),
+                SwitchListTile(
+                  value: settings.camera,
+                  secondary: const PhosphorIcon(
+                    PhosphorIconsLight.frameCorners,
+                  ),
+                  title: Text(
+                    AppLocalizations.of(context).persistentStateViewport,
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateViewportDescription,
+                  ),
+                  onChanged: settings.enabled
+                      ? (value) => change(settings.copyWith(camera: value))
+                      : null,
+                ),
+                SwitchListTile(
+                  value: settings.locks,
+                  secondary: const PhosphorIcon(PhosphorIconsLight.lockKey),
+                  title: Text(AppLocalizations.of(context).lock),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateLocksDescription,
+                  ),
+                  onChanged: settings.enabled
+                      ? (value) => change(settings.copyWith(locks: value))
+                      : null,
+                ),
+                SwitchListTile(
+                  value: settings.tool,
+                  secondary: const PhosphorIcon(PhosphorIconsLight.toolbox),
+                  title: Text(
+                    AppLocalizations.of(context).persistentStateSelectedTool,
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateSelectedToolDescription,
+                  ),
+                  onChanged: settings.enabled
+                      ? (value) => change(settings.copyWith(tool: value))
+                      : null,
+                ),
+                SwitchListTile(
+                  value: settings.navigator,
+                  secondary: const PhosphorIcon(PhosphorIconsLight.sidebar),
+                  title: Text(AppLocalizations.of(context).navigator),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateNavigatorDescription,
+                  ),
+                  onChanged: settings.enabled
+                      ? (value) => change(settings.copyWith(navigator: value))
+                      : null,
+                ),
+                SwitchListTile(
+                  value: settings.layers,
+                  secondary: const PhosphorIcon(PhosphorIconsLight.stack),
+                  title: Text(AppLocalizations.of(context).layers),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateLayersDescription,
+                  ),
+                  onChanged: settings.enabled
+                      ? (value) => change(settings.copyWith(layers: value))
+                      : null,
+                ),
+                SwitchListTile(
+                  value: settings.areas,
+                  secondary: const PhosphorIcon(PhosphorIconsLight.selection),
+                  title: Text(AppLocalizations.of(context).areas),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateAreasDescription,
+                  ),
+                  onChanged: settings.enabled
+                      ? (value) => change(settings.copyWith(areas: value))
+                      : null,
+                ),
+                SwitchListTile(
+                  value: settings.autoThumbnail,
+                  secondary: const PhosphorIcon(PhosphorIconsLight.camera),
+                  title: Text(
+                    AppLocalizations.of(context).persistentStateAutoThumbnail,
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateAutoThumbnailDescription,
+                  ),
+                  onChanged: settings.enabled
+                      ? (value) =>
+                            change(settings.copyWith(autoThumbnail: value))
+                      : null,
+                ),
+                const Divider(),
+                ExpansionTile(
+                  leading: const PhosphorIcon(PhosphorIconsLight.lockKeyOpen),
+                  title: Text(
+                    AppLocalizations.of(context).persistentStateDefaultLocks,
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateDefaultLocksDescription,
+                  ),
+                  children: [
+                    buildDefaultLock(
+                      value: settings.defaultLocks.lockCollection,
+                      title: AppLocalizations.of(context).collection,
+                      icon: PhosphorIconsLight.folder,
+                      update: (value) =>
+                          settings.defaultLocks.copyWith(lockCollection: value),
+                    ),
+                    buildDefaultLock(
+                      value: settings.defaultLocks.lockLayer,
+                      title: AppLocalizations.of(context).layer,
+                      icon: PhosphorIconsLight.stack,
+                      update: (value) =>
+                          settings.defaultLocks.copyWith(lockLayer: value),
+                    ),
+                    buildDefaultLock(
+                      value: settings.defaultLocks.lockZoom,
+                      title: AppLocalizations.of(context).zoom,
+                      icon: PhosphorIconsLight.magnifyingGlassPlus,
+                      update: (value) =>
+                          settings.defaultLocks.copyWith(lockZoom: value),
+                    ),
+                    buildDefaultLock(
+                      value: settings.defaultLocks.lockRotation,
+                      title: AppLocalizations.of(context).rotation,
+                      icon: PhosphorIconsLight.arrowClockwise,
+                      update: (value) =>
+                          settings.defaultLocks.copyWith(lockRotation: value),
+                    ),
+                    buildDefaultLock(
+                      value: settings.defaultLocks.lockHorizontal,
+                      title: AppLocalizations.of(context).horizontal,
+                      icon: PhosphorIconsLight.arrowsHorizontal,
+                      update: (value) =>
+                          settings.defaultLocks.copyWith(lockHorizontal: value),
+                    ),
+                    buildDefaultLock(
+                      value: settings.defaultLocks.lockVertical,
+                      title: AppLocalizations.of(context).vertical,
+                      icon: PhosphorIconsLight.arrowsVertical,
+                      update: (value) =>
+                          settings.defaultLocks.copyWith(lockVertical: value),
+                    ),
+                  ],
+                ),
+                const Divider(),
+                ExactSlider(
+                  header: Text(
+                    AppLocalizations.of(context).persistentStateMaxRecords,
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateMaxRecordsDescription,
+                  ),
+                  leading: const PhosphorIcon(PhosphorIconsLight.listNumbers),
+                  value: settings.maxEntries.toDouble(),
+                  min: 20,
+                  max: 2000,
+                  sliderStep: 1,
+                  defaultValue: 400,
+                  fractionDigits: 0,
+                  onChangeEnd: (value) =>
+                      change(settings.copyWith(maxEntries: value.toInt())),
+                ),
+                ExactSlider(
+                  header: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateDeleteOlderThanDays,
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateDeleteOlderThanDaysDescription,
+                  ),
+                  leading: const PhosphorIcon(PhosphorIconsLight.calendar),
+                  value: settings.maxAgeDays.toDouble(),
+                  min: 7,
+                  max: 730,
+                  sliderStep: 1,
+                  defaultValue: 180,
+                  fractionDigits: 0,
+                  onChangeEnd: (value) =>
+                      change(settings.copyWith(maxAgeDays: value.toInt())),
+                ),
+                ListTile(
+                  leading: const PhosphorIcon(PhosphorIconsLight.trash),
+                  title: Text(
+                    AppLocalizations.of(context).persistentStateCleanup,
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .persistentStateCleanupDescription,
+                  ),
+                  enabled: settings.enabled,
+                  onTap: settings.enabled
+                      ? () => _cleanupPersistentStates(context)
+                      : null,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+Future<void> _cleanupPersistentStates(BuildContext context) async {
+  final messenger = ScaffoldMessenger.of(context);
+  final settingsCubit = context.read<SettingsCubit>();
+  final fileSystem = context.read<ButterflyFileSystem>();
+  final result = await _showCleanupTargetsDialog(
+    context,
+    settingsCubit,
+    fileSystem,
+  );
+  if (result == null) return;
+  if (!context.mounted) return;
+  messenger.showSnackBar(
+    SnackBar(
+      content: Text(
+        AppLocalizations.of(context).persistentStateCleanupFeedback(
+          result.targetCount,
+          result.deletedRecords,
+        ),
+      ),
+    ),
+  );
+}
+
+Future<_CleanupResult?> _showCleanupTargetsDialog(
+  BuildContext context,
+  SettingsCubit settingsCubit,
+  ButterflyFileSystem fileSystem,
+) async {
+  final settings = settingsCubit.state;
+  final targets = [
+    _CleanupTarget(
+      id: '',
+      label: AppLocalizations.of(context).local,
+      storage: null,
+    ),
+    ...settings.connections.map(
+      (connection) => _CleanupTarget(
+        id: connection.identifier,
+        label: connection.identifier,
+        storage: connection,
+      ),
+    ),
+  ];
+  final selected = targets.map((target) => target.id).toSet();
+  var cleaning = false;
+
+  return showDialog<_CleanupResult>(
+    context: context,
+    builder: (context) => StatefulBuilder(
+      builder: (context, setState) => AlertDialog(
+        title: Text(AppLocalizations.of(context).persistentStateCleanup),
+        scrollable: true,
+        content: Column(
+          mainAxisSize: .min,
+          children: [
+            if (cleaning) ...[
+              const LinearProgressIndicator(),
+              const SizedBox(height: 16),
+            ],
+            for (final target in targets)
+              CheckboxListTile(
+                value: selected.contains(target.id),
+                onChanged: cleaning
+                    ? null
+                    : (value) {
+                        setState(() {
+                          if (value ?? false) {
+                            selected.add(target.id);
+                          } else {
+                            selected.remove(target.id);
+                          }
+                        });
+                      },
+                secondary: PhosphorIcon(
+                  target.storage == null
+                      ? PhosphorIconsLight.house
+                      : PhosphorIconsLight.cloud,
+                ),
+                title: Text(target.label),
+                controlAffinity: .leading,
+              ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: cleaning ? null : () => Navigator.of(context).pop(),
+            child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+          ),
+          ElevatedButton(
+            onPressed: selected.isEmpty || cleaning
+                ? null
+                : () async {
+                    final selectedTargets = targets
+                        .where((target) => selected.contains(target.id))
+                        .toList();
+                    setState(() => cleaning = true);
+                    var deleted = 0;
+                    for (final target in selectedTargets) {
+                      final repository = DocumentStateService(
+                        fileSystem.buildDocumentStateSystem(target.storage),
+                        settingsProvider: () =>
+                            settingsCubit.state.documentStatePersistence,
+                      );
+                      deleted += await repository.cleanup();
+                    }
+                    if (!context.mounted) return;
+                    Navigator.of(context).pop(
+                      _CleanupResult(
+                        targetCount: selectedTargets.length,
+                        deletedRecords: deleted,
+                      ),
+                    );
+                  },
+            child: cleaning
+                ? Text(
+                    AppLocalizations.of(context)
+                        .persistentStateCleanupInProgress,
+                  )
+                : Text(AppLocalizations.of(context).delete),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+class _CleanupTarget {
+  const _CleanupTarget({
+    required this.id,
+    required this.label,
+    required this.storage,
+  });
+
+  final String id;
+  final String label;
+  final ExternalStorage? storage;
+}
+
+class _CleanupResult {
+  const _CleanupResult({
+    required this.targetCount,
+    required this.deletedRecords,
+  });
+
+  final int targetCount;
+  final int deletedRecords;
+}

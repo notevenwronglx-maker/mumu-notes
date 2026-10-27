@@ -1,0 +1,84 @@
+import 'package:butterfly/api/file_system.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+
+class SelectPackAssetDialog extends StatefulWidget {
+  final PackAssetLocation? selected;
+  final NamedItem? selectedItem;
+  final Iterable<NamedItem> Function(NoteData) getItems;
+
+  const SelectPackAssetDialog({
+    super.key,
+    this.selected,
+    this.selectedItem,
+    required this.getItems,
+  });
+
+  @override
+  State<SelectPackAssetDialog> createState() => _SelectPackAssetDialogState();
+}
+
+class _SelectPackAssetDialogState extends State<SelectPackAssetDialog> {
+  late final ButterflyFileSystem _fileSystem;
+  Future<List<(String, NoteData)>>? _packsFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _fileSystem = context.read<ButterflyFileSystem>();
+    _packsFuture = _getPacks();
+  }
+
+  Future<List<(String, NoteData)>> _getPacks() =>
+      _fileSystem.getCoreAndUserPacks();
+
+  List<PackItem> _getAssets(List<(String, NoteData)> packs) => packs.nonNulls
+      .expand(
+        (pack) =>
+            widget.getItems(pack.$2).map((e) => e.toPack(pack.$2, pack.$1)),
+      )
+      .toList();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<(String, NoteData)>>(
+      future: _packsFuture,
+      builder: (context, snapshot) {
+        final packs = snapshot.data ?? <(String, NoteData)>[];
+        return SizedBox(
+          width: 300,
+          height: 500,
+          child: AlertDialog(
+            title: Text(AppLocalizations.of(context).selectAsset),
+            content: Column(
+              mainAxisSize: .min,
+              children: _getAssets(packs)
+                  .map(
+                    (e) => ListTile(
+                      title: Text(e.key),
+                      subtitle: Text(getPackDisplayName(e.pack, e.namespace)),
+                      onTap: () => Navigator.of(context).pop(e),
+                      selected:
+                          e.location == widget.selected ||
+                          e.toNamed() == widget.selectedItem,
+                    ),
+                  )
+                  .toList(),
+            ),
+            scrollable: true,
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text(
+                  MaterialLocalizations.of(context).cancelButtonLabel,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}

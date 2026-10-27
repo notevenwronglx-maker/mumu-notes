@@ -1,0 +1,1400 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:math';
+import 'dart:ui' as ui;
+
+import 'package:archive/archive.dart';
+import 'package:butterfly/api/file_system.dart';
+import 'package:butterfly/cubits/editor_controller.dart';
+import 'package:butterfly/cubits/transform.dart';
+import 'package:butterfly/services/asset.dart';
+import 'package:butterfly/helpers/svg.dart';
+import 'package:butterfly_api/butterfly_text.dart' as text;
+import 'package:flutter/foundation.dart';
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:butterfly/dialogs/import/confirmation.dart';
+import 'package:butterfly/dialogs/import/note.dart';
+import 'package:butterfly/dialogs/load.dart';
+import 'package:butterfly/models/defaults.dart';
+import 'package:butterfly/renderers/renderer.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:collection/collection.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lw_file_system/lw_file_system.dart';
+import 'package:lw_sysapi/lw_sysapi.dart';
+import 'package:material_leap/material_leap.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+import 'package:pdfrx/pdfrx.dart';
+import 'package:meta/meta.dart';
+import 'package:path/path.dart' as p;
+
+import '../api/save.dart';
+import '../cubits/settings.dart';
+import '../dialogs/export/general.dart';
+import '../dialogs/import/pages.dart';
+import '../dialogs/export/pdf.dart';
+import '../helpers/element.dart';
+import '../helpers/rect.dart';
+import 'onenote.dart';
+
+enum _OneNoteXpsFallback { manual, skipAll }
+
+enum _OneNoteManualXpsAction { selectPdf, exportAgain, skipFile, skipAll }
+
+class ImportResult {
+  final ImportService service;
+  final NoteData? document;
+  final NoteFile? file;
+  final List<PadElement> elements;
+  final Map<String, Uint8List> assets;
+  final List<(String?, DocumentPage)> pages;
+  final List<Area> areas;
+  final List<NoteData> packs;
+  final bool choosePosition;
+  final bool documentReady;
+  final List<ExportPreset> exportPresets;
+
+  ImportResult({
+    required this.service,
+    required this.document,
+    this.file,
+    this.elements = const [],
+    this.assets = const {},
+    this.pages = const [],
+    this.areas = const [],
+    this.packs = const [],
+    this.exportPresets = const [],
+    this.choosePosition = false,
+  }) : documentReady = false;
+  ImportResult.ready({required this.service, required NoteData this.document})
+    : file = null,
+      elements = const [],
+      assets = document.getAllAssets(),
+      pages = document
+          .getPages(true)
+          .map((e) {
+            final page = document.getPage(e);
+            if (page == null) return null;
+            return (NoteData.getPageNameFromRealName(e), page);
+          })
+          .nonNulls
+          .toList(),
+      packs = document
+          .getBundledPacks()
+          .map((e) => document.getBundledPack(e))
+          .nonNulls
+          .toList(),
+      areas = const [],
+      exportPresets = const [],
+      choosePosition = false,
+      documentReady = true;
+  ImportResult.file({required ImportService service, required NoteFile file})
+    : this(service: service, document: null, file: file);
+
+  bool _isArchiveAssetPath(String path) =>
+      validAssetPaths.any((e) => path.startsWith('$e/'));
+
+  Map<String, Uint8List> get _archiveAssets => Map.fromEntries(
+    assets.entries.where((entry) => _isArchiveAssetPath(entry.key)),
+  );
+
+  Map<String, Uint8List> get _importAssets => Map.fromEntries(
+    assets.entries.where((entry) => !_isArchiveAssetPath(entry.key)),
+  );
+
+  Future<NoteData> export() async {
+    final currentDocument = this.document;
+    if (documentReady && currentDocument != null) {
+      return currentDocument;
+    }
+    var document =
+        currentDocument ??
+        DocumentDefaults.createDocument(createDefaultPage: false);
+    for (final MapEntry(key: path, value: data) in _archiveAssets.entries) {
+      document = document.setAsset(path, data);
+    }
+    final importAssets = _importAssets;
+    final state = service._getState();
+    DocumentPage page =
+        state?.page ?? document.getPage() ?? DocumentDefaults.createPage();
+    List<PadElement> imported;
+    (document, imported) = await importAssetsAsync(
+      document,
+      elements,
+      assets: importAssets,
+    );
+    if (imported.isNotEmpty) {
+      page = page.copyWith(
+        layers: [
+          DocumentLayer(
+            content: [...page.content, ...imported],
+            id: createUniqueId(),
+          ),
+        ],
+      );
+      document = document.setPage(page).$1;
+    }
+    // PDF 多页导入：把导入的纸张 Area 真正写入页面（否则只显示第 1 页，
+    // 后面的 PDF 页漂在模板区域之外，必须手动加页才看得到）。
+    if (areas.isNotEmpty) {
+      page = page.copyWith(areas: List<Area>.from(areas));
+      document = document.setPage(page).$1;
+    }
+    for (final (name, page) in pages) {
+      final layers = <DocumentLayer>[];
+      for (final layer in page.layers) {
+        List<PadElement> imported;
+        (document, imported) = await importAssetsAsync(
+          document,
+          layer.content,
+          assets: importAssets,
+        );
+        layers.add(layer.copyWith(content: imported));
+      }
+      (document, _) = document.addPage(
+        page.copyWith(layers: layers),
+        name ?? '',
+      );
+    }
+    for (final pack in packs) {
+      document = document.setBundledPack(pack);
+    }
+    return document;
+  }
+
+  Future<NoteFile> exportFile() async => file ?? (await export()).toFile();
+
+  void submit({bool? choosePosition}) {
+    choosePosition ??= this.choosePosition;
+    final state = service._getState();
+    final context = service.context;
+    final bloc = service.bloc;
+    for (final MapEntry(key: path, value: data) in _archiveAssets.entries) {
+      bloc?.add(AssetUpdated(path, data));
+    }
+    if (choosePosition &&
+        state != null &&
+        (elements.isNotEmpty || areas.isNotEmpty)) {
+      service.editorController?.toolCubit.changeTemporaryHandler(
+        context,
+        service.editorController!,
+        ImportTool(elements: elements, areas: areas, assets: _importAssets),
+        bloc: bloc!,
+        temporaryState: .removeAfterRelease,
+      );
+    } else {
+      bloc
+        ?..add(AreasCreated(areas.map((e) => AreaPreset(area: e)).toList()))
+        ..add(ElementsCreated(elements, assets: _importAssets));
+    }
+    bloc?.add(
+      PagesAdded(
+        pages
+            .map((e) => PageAddedDetails(page: e.$2, name: e.$1 ?? ''))
+            .toList(),
+      ),
+    );
+    for (final pack in packs) {
+      bloc?.add(PackAdded(pack));
+    }
+    for (final preset in exportPresets) {
+      bloc?.add(ExportPresetCreated(preset.name, preset.areas));
+    }
+  }
+}
+
+class ImportService(
+  final BuildContext context, {
+  final DocumentBloc? bloc,
+  final ExternalStorage? storage,
+  final String? path,
+  final bool useDefaultStorage = true,
+}) {
+  DocumentLoadSuccess? _getState() => bloc?.state is DocumentLoadSuccess
+      ? (bloc?.state as DocumentLoadSuccess)
+      : null;
+  EditorController? get editorController => bloc?.editorController;
+  SettingsCubit getSettingsCubit() => context.read<SettingsCubit>();
+  ButterflySettings getSettings() => getSettingsCubit().state;
+  ButterflyFileSystem getFileSystem() => context.read<ButterflyFileSystem>();
+  DocumentFileSystem getDocumentSystem() => useDefaultStorage
+      ? getFileSystem().buildDefaultDocumentSystem()
+      : getFileSystem().buildDocumentSystem(storage);
+  TemplateFileSystem getTemplateFileSystem() => useDefaultStorage
+      ? getFileSystem().buildDefaultTemplateSystem()
+      : getFileSystem().buildTemplateSystem(storage);
+  PackFileSystem getPackFileSystem() => useDefaultStorage
+      ? getFileSystem().buildDefaultPackSystem()
+      : getFileSystem().buildPackSystem(storage);
+  ExternalStorage? get effectiveStorage =>
+      useDefaultStorage ? getSettings().getDefaultRemote() : storage;
+  Future<NamedItem<text.TextStyleSheet>?> findStyleSheet() async {
+    return (await getFileSystem().findDefaultStyleSheet(effectiveStorage))
+        ?.toNamed();
+  }
+
+  @useResult
+  Future<ImportResult?> load({
+    String type = '',
+    Object? data,
+    NoteData? document,
+    bool preserveEncrypted = false,
+  }) async {
+    final location = bloc?.editorController.saveCubit.state.location;
+    Uint8List? bytes;
+    final fs = getDocumentSystem();
+    if (data is Uint8List) {
+      bytes = data;
+    } else if (data is String) {
+      bytes = Uint8List.fromList(utf8.encode(data));
+    } else if (data is FileSystemFile<NoteData>) {
+      bytes = Uint8List.fromList(data.data?.exportAsBytes() ?? []);
+    } else if (data is FileSystemFile<NoteFile>) {
+      bytes = Uint8List.fromList(data.data?.data ?? []);
+    } else if (location != null) {
+      bytes = await fs.loadAbsolute(location.path);
+    } else if (data is List) {
+      bytes = Uint8List.fromList(List<int>.from(data));
+    } else if (data is NoteData) {
+      return _importDocument(data, document: document, advanced: false);
+    } else if (data is NoteFile) {
+      bytes = data.data;
+    }
+    if (type.isEmpty) type = 'note';
+    final normalizedType = type.toLowerCase();
+    final fileType = AssetFileType.values.firstWhereOrNull(
+      (element) =>
+          element.isMimeType(normalizedType) ||
+          element.getFileExtensions().contains(normalizedType) ||
+          element.name.toLowerCase() == normalizedType,
+    );
+    if (fileType == null) {
+      await showDialog(
+        context: context,
+        builder: (context) => UnknownImportConfirmationDialog(
+          message: AppLocalizations.of(context).unknownImportType,
+        ),
+      );
+      return null;
+    }
+    if (bytes == null) return null;
+    return import(
+      fileType,
+      bytes,
+      document: document,
+      advanced: false,
+      preserveEncrypted: preserveEncrypted,
+    );
+  }
+
+  @useResult
+  Future<ImportResult?> import(
+    AssetFileType type,
+    Uint8List bytes, {
+    NoteData? document,
+    Offset? position,
+    bool advanced = true,
+    DocumentFileSystem? fileSystem,
+    TemplateFileSystem? templateSystem,
+    PackFileSystem? packSystem,
+    String? name,
+    bool preserveEncrypted = false,
+    bool? spreadToPages,
+  }) async {
+    final realDocument =
+        document ?? bloc?.state.data ?? DocumentDefaults.createDocument();
+    return switch (type) {
+      .note || AssetFileType.textNote => importBfly(
+        bytes,
+        document: document,
+        position: position,
+        advanced: advanced,
+        templateSystem: templateSystem,
+        packSystem: packSystem,
+        name: name,
+        preserveEncrypted: preserveEncrypted,
+      ),
+      .image => importImage(bytes, realDocument, position: position),
+      .svg => importSvg(bytes, realDocument, position: position),
+      .markdown => importText(
+        bytes,
+        realDocument,
+        position: position,
+        isMarkdown: true,
+      ),
+      .pdf => importPdf(
+        bytes,
+        realDocument,
+        position: position,
+        advanced: advanced,
+        name: name,
+        spreadToPagesOverride: spreadToPages,
+      ),
+      .page => importPage(bytes, realDocument, position: position),
+      .xopp => importXopp(bytes, realDocument, position: position),
+      .oneNote => importOneNote(
+        bytes,
+        isPackage: false,
+        document: document,
+        advanced: advanced,
+        name: name,
+      ),
+      .oneNotePackage => importOneNote(
+        bytes,
+        isPackage: true,
+        document: document,
+        advanced: advanced,
+        name: name,
+      ),
+      .archive => importArchive(
+        bytes,
+        fileSystem: fileSystem,
+      ).then((value) => null),
+      .rawText => importText(
+        bytes,
+        realDocument,
+        position: position,
+        isMarkdown: false,
+      ),
+    };
+  }
+
+  @useResult
+  Future<ImportResult?> importClipboard(
+    NoteData document, {
+    Offset? position,
+    bool advanced = true,
+  }) async {
+    Uint8List? data;
+    AssetFileType? type;
+    final clipboard = context.read<ClipboardManager>();
+    final content = await clipboard.getContent(
+      types: AssetFileType.values.expand((e) => e.getMimeTypes()).toList(),
+    );
+    data = content?.data;
+    try {
+      type = AssetFileType.values.firstWhereOrNull(
+        (element) => element.isMimeType(content?.type ?? ''),
+      );
+    } catch (e) {
+      await showDialog(
+        context: context,
+        builder: (context) =>
+            UnknownImportConfirmationDialog(message: e.toString()),
+      );
+    }
+    if (data == null || type == null) return null;
+    return import(
+      type,
+      data,
+      document: document,
+      position: position,
+      advanced: advanced,
+    );
+  }
+
+  @useResult
+  Future<ImportResult?> importBfly(
+    Uint8List bytes, {
+    NoteData? document,
+    Offset? position,
+    bool advanced = true,
+    TemplateFileSystem? templateSystem,
+    PackFileSystem? packSystem,
+    String? name,
+    bool preserveEncrypted = false,
+  }) async {
+    try {
+      final file = NoteFile(bytes);
+      final encrypted = file.isEncrypted();
+      if (encrypted && preserveEncrypted) {
+        return ImportResult.file(service: this, file: file);
+      }
+      var password = readConnectionEncryptionPassword(effectiveStorage);
+      NoteData? data;
+      if (encrypted) {
+        data = file.load(password: password);
+        if (!(data?.isValid ?? false)) {
+          password = await showDialog<String>(
+            context: context,
+            builder: (context) => NameDialog(
+              title: AppLocalizations.of(context).encrypted,
+              hint: AppLocalizations.of(context).password,
+              button: AppLocalizations.of(context).open,
+              obscureText: true,
+            ),
+          );
+          if (password == null) return null;
+          data = null;
+        }
+      }
+      data ??= file.load(password: encrypted ? password : null);
+      if (data == null || !data.isValid) {
+        if (!encrypted && data != null) {
+          final archive = ZipDecoder().decodeBytes(bytes);
+          await _importArchive(archive);
+          return null;
+        }
+        return await showDialog(
+          context: context,
+          builder: (context) => UnknownImportConfirmationDialog(
+            message: AppLocalizations.of(context).unknownImportType,
+          ),
+        ).then((value) => null);
+      }
+      final type = data.getMetadata()?.type;
+      return await switch (type) {
+        .document => _importDocument(
+          data,
+          document: document,
+          advanced: advanced,
+        ),
+        .template => _importTemplate(data, templateSystem),
+        .pack => _importPack(
+          data,
+          document,
+          packSystem,
+          name,
+        ).then((value) => null),
+        _ => showDialog(
+          context: context,
+          builder: (context) => UnknownImportConfirmationDialog(
+            message: AppLocalizations.of(context).unknownImportType,
+          ),
+        ).then((value) => null),
+      };
+    } catch (e) {
+      await showDialog(
+        context: context,
+        builder: (context) =>
+            UnknownImportConfirmationDialog(message: e.toString()),
+      );
+    }
+    return null;
+  }
+
+  Future<ImportResult?> _importDocument(
+    NoteData data, {
+    NoteData? document,
+    bool advanced = true,
+  }) async {
+    var pages = data.getPages();
+    var packs = data.getBundledPacks().toList();
+    if (advanced) {
+      final callback = await showDialog<NoteDialogCallback>(
+        context: context,
+        builder: (context) => NoteImportDialog(pages: pages, packs: packs),
+      );
+      if (callback == null) return null;
+      pages = callback.pages;
+      packs = callback.packs;
+    }
+    return ImportResult.ready(service: this, document: data);
+  }
+
+  @useResult
+  Future<ImportResult?> importPage(
+    Uint8List bytes,
+    NoteData document, {
+    Offset? position,
+  }) async {
+    try {
+      final page = DocumentPage.fromJson(json.decode(utf8.decode(bytes)));
+      return await _importPage(page, document, position);
+    } catch (e) {
+      await showDialog(
+        context: context,
+        builder: (context) =>
+            UnknownImportConfirmationDialog(message: e.toString()),
+      );
+    }
+    return null;
+  }
+
+  Future<ImportResult?> _importPage(
+    DocumentPage? page,
+    NoteData document, [
+    Offset? position,
+  ]) async {
+    final firstPos = position ?? Offset.zero;
+    if (page == null) return null;
+    final areas = page.areas
+        .map((e) => e.copyWith(position: e.position + firstPos.toPoint()))
+        .toList();
+
+    final renderers = page.content
+        .map((e) => e.copyWith(id: createUniqueId()))
+        .map((e) => Renderer.fromInstance(e))
+        .toList();
+    final transformCubit = TransformCubit(1, position);
+    final assetService = AssetService();
+    await Future.wait(
+      renderers.map(
+        (e) async =>
+            await e.setup(transformCubit, document, assetService, page),
+      ),
+    );
+    assetService.dispose();
+    final content = renderers
+        .map(
+          (e) =>
+              e.transform(position: firstPos, relative: true)?.element ??
+              e.element,
+        )
+        .toList();
+    return ImportResult(
+      service: this,
+      document: document,
+      elements: content,
+      areas: areas,
+      choosePosition: position == null,
+    );
+  }
+
+  Future<ImportResult?> _importTemplate(
+    NoteData template, [
+    TemplateFileSystem? templateSystem,
+  ]) async {
+    final metadata = template.getMetadata();
+    templateSystem ??= getTemplateFileSystem();
+    if (metadata == null) return null;
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (context) =>
+          TemplateImportConfirmationDialog(template: metadata),
+    );
+    if (context.mounted && result == true) {
+      templateSystem.createFile(template.name ?? '', template);
+    }
+    return ImportResult(service: this, document: template.createDocument());
+  }
+
+  Future<bool> _importPack(
+    NoteData pack, [
+    NoteData? document,
+    PackFileSystem? packSystem,
+    String? name,
+  ]) async {
+    packSystem ??= getPackFileSystem();
+    final metadata = pack.getMetadata();
+    if (metadata == null) return false;
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (context) => PackImportConfirmationDialog(pack: metadata),
+    );
+    if (result != true) return false;
+    if (context.mounted) {
+      if (document != null) {
+        document = document.setBundledPack(pack);
+      } else {
+        final fallback = pack.name?.trim().isNotEmpty == true
+            ? pack.name!
+            : 'pack';
+        var fileName = name?.trim().isNotEmpty == true ? name! : fallback;
+        if (!fileName.endsWith('.bfly')) {
+          fileName = '$fileName.bfly';
+        }
+        packSystem.createFile(fileName, pack);
+      }
+    }
+    return true;
+  }
+
+  @useResult
+  Future<ImportResult?> importBatch(
+    Iterable<(AssetFileType, Uint8List, String?)> files, {
+    required NoteData document,
+    Offset? position,
+    bool advanced = true,
+  }) async {
+    final results = <ImportResult>[];
+    for (final (type, bytes, name) in files) {
+      final result = await import(
+        type,
+        bytes,
+        document: document,
+        position: position,
+        advanced: advanced,
+        name: name,
+      );
+      if (result != null) results.add(result);
+    }
+    if (results.length <= 1) return results.firstOrNull;
+
+    final elements = <PadElement>[];
+    final areas = <Area>[];
+    var y = 0.0;
+    for (final result in results) {
+      final renderers = result.elements.map(Renderer.fromInstance).toList();
+      final bounds = [
+        ...renderers.map((e) => e.rect).nonNulls,
+        ...result.areas.map((e) => e.rect),
+      ].fold<Rect?>(null, (rect, next) => rect?.expandToInclude(next) ?? next);
+      final offset = Offset(0, y);
+      elements.addAll(
+        renderers.map(
+          (e) => e.transform(position: offset)?.element ?? e.element,
+        ),
+      );
+      areas.addAll(
+        result.areas.map(
+          (e) => e.copyWith(position: e.position + offset.toPoint()),
+        ),
+      );
+      y += bounds?.height ?? 0;
+    }
+    return ImportResult(
+      service: this,
+      document: document,
+      elements: elements,
+      areas: areas,
+      assets: {for (final result in results) ...result.assets},
+      pages: results.expand((e) => e.pages).toList(),
+      packs: results.expand((e) => e.packs).toList(),
+      exportPresets: results.expand((e) => e.exportPresets).toList(),
+      choosePosition: results.any((e) => e.choosePosition),
+    );
+  }
+
+  @useResult
+  Future<ImportResult?> importImage(
+    Uint8List bytes,
+    NoteData document, {
+    Offset? position,
+  }) async {
+    try {
+      final screen = MediaQuery.sizeOf(context);
+      final firstPos = position ?? Offset.zero;
+      final codec = await ui.instantiateImageCodec(bytes);
+      final frame = await codec.getNextFrame();
+      final image = frame.image;
+      codec.dispose();
+
+      final newBytes = await image.toByteData(format: ui.ImageByteFormat.png);
+      final state = _getState();
+      if (newBytes == null) return null;
+      final newData = newBytes.buffer.asUint8List();
+      final dataPath = Uri.dataFromBytes(
+        newData,
+        mimeType: 'image/png',
+      ).toString();
+      final height = image.height.toDouble(), width = image.width.toDouble();
+      image.dispose();
+      final settingsScale = getSettingsCubit().state.imageScale;
+      ElementConstraints? constraints;
+      if (position == null && editorController != null && settingsScale > 0) {
+        final scale = calculateImportAssetScale(
+          assetWidth: width,
+          assetHeight: height,
+          viewportWidth: screen.width,
+          viewportHeight: screen.height,
+          viewportScale:
+              editorController!.rendererCubit.state.cameraViewport.scale,
+          maxViewportFraction: settingsScale,
+        );
+        constraints = ElementConstraints.scaled(scaleX: scale, scaleY: scale);
+      }
+      return ImportResult(
+        service: this,
+        document: document,
+        elements: [
+          ImageElement(
+            height: height,
+            width: width,
+            collection: state?.currentCollection ?? '',
+            source: dataPath,
+            constraints: constraints,
+            position: firstPos.toPoint(),
+          ),
+        ],
+        choosePosition: position == null,
+      );
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) =>
+            UnknownImportConfirmationDialog(message: e.toString()),
+      );
+    }
+    return null;
+  }
+
+  @useResult
+  Future<ImportResult?> importXopp(
+    Uint8List bytes,
+    NoteData document, {
+    Offset? position,
+  }) async {
+    try {
+      final data = xoppMigrator(bytes);
+      return await _importDocument(data, document: document);
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) =>
+            UnknownImportConfirmationDialog(message: e.toString()),
+      );
+    }
+    return null;
+  }
+
+  @useResult
+  Future<ImportResult?> importOneNote(
+    Uint8List bytes, {
+    required bool isPackage,
+    NoteData? document,
+    bool advanced = true,
+    String? name,
+  }) async {
+    LoadingDialogHandler? loadingDialog;
+
+    Future<void> showLoading() async {
+      if (!context.mounted || loadingDialog != null) return;
+      loadingDialog = showLoadingDialog(context);
+      await Future<void>.delayed(Duration.zero);
+    }
+
+    void hideLoading() {
+      loadingDialog?.close();
+      loadingDialog = null;
+    }
+
+    try {
+      await showLoading();
+      var manuallyConvertXps = false;
+      var skipRemainingXps = false;
+
+      Future<Uint8List?> convertXps(Uint8List data, String fileName) async {
+        if (skipRemainingXps) return null;
+        if (!manuallyConvertXps) {
+          late Object conversionError;
+          try {
+            return await convertXpsToPdf(data);
+          } catch (error) {
+            conversionError = error;
+          }
+          if (!context.mounted) return null;
+          final executableMissing =
+              conversionError is XpsToPdfNotInstalledException;
+          hideLoading();
+          final fallback = await showDialog<_OneNoteXpsFallback>(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text(
+                executableMissing
+                    ? 'XPS converter not found'
+                    : 'Automatic XPS conversion failed',
+              ),
+              content: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 520),
+                child: Text(
+                  '${executableMissing ? 'The xpstopdf command is not installed or cannot be started.' : 'xpstopdf could not convert “$fileName”.'}\n\n'
+                  'OneNote stores printed documents as XPS files. Butterfly '
+                  'needs a PDF version to display these printouts.\n\n'
+                  'Choose “Convert manually” to:\n'
+                  '1. Export the original XPS file.\n'
+                  '2. Convert it to PDF with an application of your choice.\n'
+                  '3. Select the converted PDF and continue importing.\n\n'
+                  'You can also skip every XPS printout and import the rest '
+                  'of the notebook.',
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () =>
+                      Navigator.pop(context, _OneNoteXpsFallback.skipAll),
+                  child: const Text('Skip all XPS files'),
+                ),
+                FilledButton(
+                  onPressed: () =>
+                      Navigator.pop(context, _OneNoteXpsFallback.manual),
+                  child: const Text('Convert manually'),
+                ),
+              ],
+            ),
+          );
+          await showLoading();
+          manuallyConvertXps = fallback == _OneNoteXpsFallback.manual;
+          if (!manuallyConvertXps) {
+            skipRemainingXps = true;
+            return null;
+          }
+        }
+
+        final baseName = p
+            .basenameWithoutExtension(fileName)
+            .replaceAll(RegExp(r'[^\w.-]'), '_');
+        final safeName = baseName.isEmpty ? 'printout' : baseName;
+        var exported = false;
+        String? message;
+        while (context.mounted) {
+          hideLoading();
+          final action = await showDialog<_OneNoteManualXpsAction>(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) => AlertDialog(
+              title: Text('Convert “$fileName” to PDF'),
+              content: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 520),
+                child: Text(
+                  '${message == null ? '' : '$message\n\n'}'
+                  '${exported ? 'The XPS export has been opened.' : 'Start by exporting the original XPS file.'}\n\n'
+                  '1. Save “$safeName.xps” somewhere you can find it.\n'
+                  '2. Convert that file to PDF outside Butterfly.\n'
+                  '3. Return here and choose “Select converted PDF”.\n\n'
+                  'Canceling a file picker returns you to this dialog. '
+                  'Skipping this file does not cancel the rest of the '
+                  'OneNote import.',
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () =>
+                      Navigator.pop(context, _OneNoteManualXpsAction.skipAll),
+                  child: const Text('Skip all XPS files'),
+                ),
+                TextButton(
+                  onPressed: () =>
+                      Navigator.pop(context, _OneNoteManualXpsAction.skipFile),
+                  child: const Text('Skip this file'),
+                ),
+                OutlinedButton(
+                  onPressed: () => Navigator.pop(
+                    context,
+                    _OneNoteManualXpsAction.exportAgain,
+                  ),
+                  child: Text(exported ? 'Export XPS again' : 'Export XPS'),
+                ),
+                FilledButton(
+                  onPressed: exported
+                      ? () => Navigator.pop(
+                          context,
+                          _OneNoteManualXpsAction.selectPdf,
+                        )
+                      : null,
+                  child: const Text('Select converted PDF'),
+                ),
+              ],
+            ),
+          );
+          switch (action) {
+            case _OneNoteManualXpsAction.exportAgain:
+              await exportFile(
+                context: context,
+                bytes: data,
+                fileName: safeName,
+                fileExtension: 'xps',
+                mimeType: 'application/oxps',
+                uniformTypeIdentifier: 'com.microsoft.xps',
+                label: 'Export XPS for manual conversion',
+              );
+              exported = true;
+              message = null;
+              continue;
+            case _OneNoteManualXpsAction.selectPdf:
+              final converted = await FilePicker.pickFile(
+                dialogTitle: 'Select the PDF converted from $fileName',
+                type: .custom,
+                allowedExtensions: const ['pdf'],
+              );
+              if (converted == null) {
+                message = 'No PDF was selected.';
+                continue;
+              }
+              Uint8List convertedData;
+              try {
+                convertedData = await converted.readAsBytes();
+              } catch (error) {
+                message =
+                    'Butterfly could not read “${converted.name}”: $error';
+                continue;
+              }
+              if (!isPdfData(convertedData)) {
+                message =
+                    'The selected file does not appear to be a valid PDF. '
+                    'A PDF header was not found in the first 1024 bytes. '
+                    'Please choose the converted PDF file.';
+                continue;
+              }
+              await showLoading();
+              return convertedData;
+            case _OneNoteManualXpsAction.skipFile:
+              await showLoading();
+              return null;
+            case _OneNoteManualXpsAction.skipAll:
+            case null:
+              skipRemainingXps = true;
+              await showLoading();
+              return null;
+          }
+        }
+        return null;
+      }
+
+      isPackage =
+          isPackage ||
+          (bytes.length >= 4 &&
+              bytes[0] == 0x4D &&
+              bytes[1] == 0x53 &&
+              bytes[2] == 0x43 &&
+              bytes[3] == 0x46);
+      final data = await parseOneNoteData(
+        bytes,
+        name: name?.trim().isNotEmpty == true ? name!.trim() : 'OneNote',
+        isPackage: isPackage,
+        convertXps: convertXps,
+      );
+      hideLoading();
+      return await _importDocument(
+        data,
+        document: document,
+        advanced: advanced,
+      );
+    } catch (e) {
+      hideLoading();
+      if (context.mounted) {
+        await showDialog<void>(
+          context: context,
+          builder: (context) =>
+              UnknownImportConfirmationDialog(message: e.toString()),
+        );
+      }
+    } finally {
+      hideLoading();
+    }
+    return null;
+  }
+
+  @useResult
+  Future<ImportResult?> importSvg(
+    Uint8List bytes,
+    NoteData document, {
+    Offset? position,
+  }) async {
+    try {
+      final screen = MediaQuery.sizeOf(context);
+      final firstPos = position ?? Offset.zero;
+      final contentString = normalizeSvgBytes(bytes);
+      try {
+        var info = await vg.loadPicture(SvgStringLoader(contentString), null);
+        try {
+          final size = info.size;
+          var height = size.height, width = size.width;
+          if (!height.isFinite) height = 0;
+          if (!width.isFinite) width = 0;
+          final state = _getState();
+          String dataPath;
+          if (state != null) {
+            dataPath = Uri.dataFromBytes(
+              bytes,
+              mimeType: 'image/svg+xml',
+            ).toString();
+          } else {
+            dataPath = UriData.fromBytes(
+              bytes,
+              mimeType: 'image/svg+xml',
+            ).toString();
+          }
+          final settingsScale = getSettingsCubit().state.imageScale;
+          ElementConstraints? constraints;
+          if (position == null &&
+              editorController != null &&
+              settingsScale > 0) {
+            final scale = calculateImportAssetScale(
+              assetWidth: width,
+              assetHeight: height,
+              viewportWidth: screen.width,
+              viewportHeight: screen.height,
+              viewportScale:
+                  editorController!.rendererCubit.state.cameraViewport.scale,
+              maxViewportFraction: settingsScale,
+            );
+            constraints = ElementConstraints.scaled(
+              scaleX: scale,
+              scaleY: scale,
+            );
+          }
+          return ImportResult(
+            service: this,
+            document: document,
+            elements: [
+              SvgElement(
+                width: width,
+                height: height,
+                source: dataPath,
+                constraints: constraints,
+                position: firstPos.toPoint(),
+              ),
+            ],
+            choosePosition: position == null,
+          );
+        } finally {
+          info.picture.dispose();
+        }
+      } catch (e) {
+        showDialog<void>(
+          context: context,
+          builder: (context) =>
+              UnknownImportConfirmationDialog(message: e.toString()),
+        );
+      }
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) =>
+            UnknownImportConfirmationDialog(message: e.toString()),
+      );
+    }
+    return null;
+  }
+
+  @useResult
+  Future<ImportResult?> importText(
+    Uint8List bytes,
+    NoteData document, {
+    Offset? position,
+    required bool isMarkdown,
+  }) async {
+    try {
+      final firstPos = position ?? Offset.zero;
+      final contentString = String.fromCharCodes(bytes);
+      final state = _getState();
+      final background =
+          state?.page.backgrounds.firstOrNull?.defaultColor ?? SRGBColor.white;
+      final foreground = background.toColor().isDark()
+          ? SRGBColor.white
+          : SRGBColor.black;
+      final styleSheet = await findStyleSheet();
+      return ImportResult(
+        service: this,
+        document: document,
+        elements: [
+          isMarkdown
+              ? MarkdownElement(
+                  position: firstPos.toPoint(),
+                  text: contentString,
+                  foreground: foreground,
+                  styleSheet: styleSheet,
+                )
+              : TextElement(
+                  area: text.TextArea(
+                    paragraph: text.TextParagraph(
+                      textSpans: [text.TextSpan(text: contentString)],
+                    ),
+                  ),
+                  styleSheet: styleSheet,
+                  foreground: foreground,
+                ),
+        ],
+        choosePosition: position == null,
+      );
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) =>
+            UnknownImportConfirmationDialog(message: e.toString()),
+      );
+    }
+    return null;
+  }
+
+  @useResult
+  Future<ImportResult?> importPdf(
+    Uint8List bytes,
+    NoteData document, {
+    Offset? position,
+    String? name,
+    bool advanced = true,
+    bool? spreadToPagesOverride,
+  }) async {
+    LoadingDialogHandler? dialog;
+    PdfDocument? pdfDocument;
+    final images = <ui.Image>[];
+    try {
+      if (!context.mounted) return null;
+      dialog = showLoadingDialog(context);
+      final firstPos = position ?? Offset.zero;
+      final localizations = AppLocalizations.of(context);
+      pdfDocument = await PdfDocument.openData(bytes);
+      final elements = pdfDocument.pages;
+      if (!context.mounted) return null;
+      List<int> pages = .generate(elements.length, (index) => index);
+      bool spreadToPages =
+              spreadToPagesOverride ?? getSettingsCubit().state.spreadPages,
+          createAreas = true,
+          createExportPreset = true,
+          invert = false;
+      SRGBColor background = BasicColors.whiteTransparent;
+      if (advanced) {
+        for (int i = 0; i < elements.length; i++) {
+          final raster = elements[i];
+          dialog?.setProgress(i / elements.length);
+          // Selection only needs thumbnails, not full-resolution page images.
+          final scale = min(1.0, 512 / max(raster.width, raster.height));
+          final width = max(1, (raster.width * scale).round());
+          final height = max(1, (raster.height * scale).round());
+          final pdfImage = await raster.render(
+            width: width,
+            height: height,
+            fullWidth: width.toDouble(),
+            fullHeight: height.toDouble(),
+          );
+          if (pdfImage == null) {
+            throw StateError('Failed to render PDF page ${i + 1}');
+          }
+          try {
+            images.add(await pdfImage.createImage());
+          } finally {
+            pdfImage.dispose();
+          }
+          if (!context.mounted) return null;
+        }
+        dialog?.close();
+        dialog = null;
+        final callback = await showDialog<PageDialogCallback>(
+          context: context,
+          builder: (context) => ImportPagesDialog(pages: images, name: name),
+        );
+        if (callback == null || !context.mounted) return null;
+        pages = callback.pages;
+        spreadToPages = callback.spreadToPages;
+        createAreas = callback.createAreas;
+        createExportPreset = callback.createExportPreset;
+        invert = callback.invert;
+        background = callback.background;
+        name = callback.name;
+      }
+      String getPageName(int index) {
+        if (name?.isEmpty ?? true) return localizations.pageIndex(index + 1);
+        return '$name ${index + 1}';
+      }
+
+      dialog ??= showLoadingDialog(context);
+      final selectedElements = <PdfElement>[];
+      final areas = <Area>[];
+      final documentPages = <(String?, DocumentPage)>[];
+      final exportPresetAreas = <AreaPreset>[];
+      var y = firstPos.dy;
+      var current = 0;
+      final state = bloc?.state;
+      final backgrounds = state is DocumentLoadSuccess
+          ? state.page.backgrounds
+          : (document.getPage()?.backgrounds ?? const <Background>[]);
+      final pdfSource = spreadToPages
+          ? document.importPdf(bytes).$2
+          : '$kAssetScheme://${createUniqueId()}';
+
+      for (var i = 0; i < pages.length; i++) {
+        var raster = elements[pages[i]];
+        try {
+          await Future.delayed(const Duration(milliseconds: 1));
+          dialog?.setProgress(current / pages.length);
+          current++;
+          final height = raster.height.toDouble();
+          final width = raster.width.toDouble();
+          final pageName = getPageName(i);
+          final element = PdfElement(
+            height: height,
+            width: width,
+            source: pdfSource,
+            page: pages[i],
+            position: Point(firstPos.dx, y),
+            invert: invert,
+            background: background,
+          );
+          final area = Area(
+            height: height,
+            width: width,
+            position: Point(firstPos.dx, y),
+            name: pageName,
+          );
+          if (spreadToPages) {
+            documentPages.add((
+              pageName,
+              DocumentPage(
+                layers: [
+                  DocumentLayer(content: [element], id: createUniqueId()),
+                ],
+                areas: [if (createAreas) area],
+                backgrounds: backgrounds,
+              ),
+            ));
+            exportPresetAreas.add(
+              AreaPreset(name: createAreas ? pageName : '', page: pageName),
+            );
+          } else {
+            selectedElements.add(element);
+            areas.add(area);
+            exportPresetAreas.add(
+              AreaPreset(
+                name: pageName,
+                page:
+                    (state as DocumentLoadSuccess?)?.pageName ??
+                    document.getPages(true).firstOrNull ??
+                    '',
+              ),
+            );
+            y += height;
+          }
+        } catch (e) {
+          showDialog(
+            context: context,
+            builder: (context) =>
+                UnknownImportConfirmationDialog(message: e.toString()),
+          );
+        }
+      }
+      dialog?.close();
+      return ImportResult(
+        service: this,
+        document: document,
+        elements: selectedElements,
+        pages: documentPages,
+        areas: spreadToPages ? [] : areas,
+        choosePosition: position == null,
+        assets: {pdfSource: bytes},
+        exportPresets: [
+          if (exportPresetAreas.isNotEmpty && createExportPreset)
+            ExportPreset(
+              name: (name?.isEmpty ?? true) ? localizations.pdf : name!,
+              areas: exportPresetAreas,
+            ),
+        ],
+      );
+    } catch (e) {
+      dialog?.close();
+      dialog = null;
+      if (!context.mounted) return null;
+      await showDialog(
+        context: context,
+        builder: (context) =>
+            UnknownImportConfirmationDialog(message: e.toString()),
+      );
+    } finally {
+      dialog?.close();
+      for (final image in images) {
+        image.dispose();
+      }
+      await pdfDocument?.dispose();
+    }
+    return null;
+  }
+
+  Future<void> export() async {
+    final bloc = this.bloc;
+    final state = bloc?.state;
+    if (state is! DocumentLoadSuccess) return;
+    final fileType = bloc?.editorController.saveCubit.state.location.fileType;
+    final editorController = bloc!.editorController;
+    final viewport = editorController.rendererCubit.state.cameraViewport;
+    switch (fileType) {
+      case .note:
+      case .textNote:
+        exportData(context, await state.saveData());
+        break;
+      case .image:
+        return showDialog<void>(
+          context: context,
+          builder: (context) => BlocProvider.value(
+            value: bloc,
+            child: GeneralExportDialog(
+              options: ImageExportOptions(
+                height: viewport.height?.toDouble() ?? 1000.0,
+                width: viewport.width?.toDouble() ?? 1000.0,
+                scale: viewport.scale,
+                x: viewport.x,
+                y: viewport.y,
+              ),
+            ),
+          ),
+        );
+      case .pdf:
+        return showDialog<void>(
+          context: context,
+          builder: (context) => BlocProvider.value(
+            value: bloc,
+            child: PdfExportDialog(
+              areas: state.page.areas
+                  .map((e) => AreaPreset(name: e.name, area: e))
+                  .toList(),
+            ),
+          ),
+        );
+      case .svg:
+        return showDialog<void>(
+          context: context,
+          builder: (context) => BlocProvider.value(
+            value: bloc,
+            child: GeneralExportDialog(
+              options: SvgExportOptions(
+                width: (viewport.width ?? 1000) / viewport.scale,
+                height: (viewport.height ?? 1000) / viewport.scale,
+                x: viewport.x,
+                y: viewport.y,
+              ),
+            ),
+          ),
+        );
+      default:
+        return;
+    }
+  }
+
+  Future<bool> importArchive(
+    Uint8List bytes, {
+    DocumentFileSystem? fileSystem,
+  }) async {
+    final archive = ZipDecoder().decodeBytes(bytes);
+    final data = NoteData.fromArchive(archive);
+    if (data.isValid) {
+      fileSystem ??= getDocumentSystem();
+      var document = await (await importBfly(bytes))?.export();
+      if (document != null) {
+        document = addConnectionPasswordToNoteData(
+          fileSystem.storage,
+          document,
+        );
+        await fileSystem.createFile(
+          p.join(path ?? '', document.name ?? ''),
+          document.toFile(),
+        );
+      }
+      return document != null;
+    }
+    return _importArchive(archive, fileSystem: fileSystem);
+  }
+
+  Future<bool> _importArchive(
+    Archive archive, {
+    DocumentFileSystem? fileSystem,
+  }) async {
+    try {
+      fileSystem ??= getDocumentSystem();
+      for (final file in archive) {
+        const fileExtension = '.bfly';
+        if (!file.name.toLowerCase().endsWith(fileExtension)) continue;
+        final bytes = file.readBytes();
+        if (bytes == null) continue;
+        final noteFile = await (await importBfly(
+          bytes,
+          advanced: false,
+          preserveEncrypted: true,
+        ))?.exportFile();
+        if (noteFile != null) {
+          await fileSystem.createFile(p.join(path ?? '', file.name), noteFile);
+        }
+      }
+      return true;
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) =>
+            UnknownImportConfirmationDialog(message: e.toString()),
+      );
+      return false;
+    }
+  }
+}

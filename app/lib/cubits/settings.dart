@@ -1,0 +1,2040 @@
+import 'dart:convert';
+
+import 'package:butterfly/api/file_system.dart';
+import 'package:butterfly/api/window.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:lw_file_system/lw_file_system.dart';
+import 'package:material_leap/material_leap.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:window_manager/window_manager.dart';
+
+part 'settings.freezed.dart';
+part 'settings.g.dart';
+
+const secureStorage = FlutterSecureStorage();
+const kRecentHistorySize = 5;
+const kDefaultFileName = '{date}';
+const kFallbackSecondaryStylusButton = 0x20;
+const kDefaultRotationStep = 5.0;
+const kDefaultZoomStep = 0.1;
+const kDefaultBackupIntervalMinutes = 24 * 60;
+
+int _readBackupIntervalMinutes(SharedPreferences prefs) {
+  final minutes =
+      prefs.getInt('backup_interval_minutes') ?? kDefaultBackupIntervalMinutes;
+  return minutes < 60 ? 60 : minutes;
+}
+
+String _normalizeCachePath(String path) {
+  if (path.endsWith('/')) {
+    path = path.substring(0, path.length - 1);
+  }
+  if (!path.startsWith('/')) {
+    path = '/$path';
+  }
+  return path;
+}
+
+String _normalizeHistoryPath(String path) {
+  if (path.isEmpty || path.startsWith('/')) {
+    return path;
+  }
+  return '/$path';
+}
+
+AssetLocation _normalizeHistoryLocation(AssetLocation location) {
+  if (location.absolute) return location;
+  final path = _normalizeHistoryPath(location.path);
+  if (path == location.path) {
+    return location;
+  }
+  return location.copyWith(path: path);
+}
+
+bool _isSameHistoryLocation(AssetLocation a, AssetLocation b) =>
+    a.remote == b.remote &&
+    a.absolute == b.absolute &&
+    _normalizeHistoryPath(a.path) == _normalizeHistoryPath(b.path);
+
+String? _moveReferencedPath(
+  String path,
+  String from,
+  String to, {
+  required bool directory,
+}) {
+  path = _normalizeHistoryPath(path);
+  from = _normalizeHistoryPath(from);
+  to = _normalizeHistoryPath(to);
+  if (path == from) return to;
+  if (directory && path.startsWith('$from/')) {
+    return '$to${path.substring(from.length)}';
+  }
+  return null;
+}
+
+List<AssetLocation> _normalizeRecentHistory(Iterable<AssetLocation> locations) {
+  final history = <AssetLocation>[];
+  for (final location in locations) {
+    final normalized = _normalizeHistoryLocation(location);
+    if (history.any((entry) => _isSameHistoryLocation(entry, normalized))) {
+      continue;
+    }
+    history.add(normalized);
+  }
+  return history;
+}
+
+T _enumByNameOr<T extends Enum>(List<T> values, String? name, T fallback) {
+  if (name == null) return fallback;
+  return values.firstWhere((e) => e.name == name, orElse: () => fallback);
+}
+
+Map<String, dynamic> _decodeJsonMapOrEmpty(String? raw) {
+  if (raw == null || raw.isEmpty) return const <String, dynamic>{};
+  try {
+    final decoded = json.decode(raw);
+    if (decoded is Map<String, dynamic>) return decoded;
+    if (decoded is Map) return decoded.cast<String, dynamic>();
+  } catch (_) {
+    // Ignore malformed persisted values and fall back to defaults.
+  }
+  return const <String, dynamic>{};
+}
+
+Map<String, dynamic>? _decodeJsonMapOrNull(String? raw) {
+  if (raw == null || raw.isEmpty) return null;
+  try {
+    final decoded = json.decode(raw);
+    if (decoded is Map<String, dynamic>) return decoded;
+    if (decoded is Map) return decoded.cast<String, dynamic>();
+  } catch (_) {
+    return null;
+  }
+  return null;
+}
+
+PackAssetLocation? _decodeSelectedPaletteOrNull(String? raw) {
+  final map = _decodeJsonMapOrNull(raw);
+  if (map == null) return null;
+  try {
+    return PackAssetLocation.fromJson(map);
+  } catch (_) {
+    return null;
+  }
+}
+
+enum ToolbarSize {
+  tiny,
+  small,
+  compact,
+  normal,
+  medium,
+  large;
+
+  String getLocalizedName(BuildContext context) => switch (this) {
+    .tiny => AppLocalizations.of(context).tiny,
+    .small => AppLocalizations.of(context).small,
+    .compact => AppLocalizations.of(context).compact,
+    .normal => AppLocalizations.of(context).normal,
+    .medium => AppLocalizations.of(context).medium,
+    .large => AppLocalizations.of(context).large,
+  };
+
+  double get size => switch (this) {
+    .tiny => 45,
+    .small => 50,
+    .compact => 55,
+    .normal => 60,
+    .medium => 65,
+    .large => 70,
+  };
+}
+
+enum RenderResolution(final double multiplier) {
+  performance(1),
+  normal(1.5),
+  high(2);
+
+  Rect getRect(Rect rect) {
+    final width = (rect.width * multiplier).ceilToDouble();
+    final height = (rect.height * multiplier).ceilToDouble();
+    return Rect.fromCenter(center: rect.center, width: width, height: height);
+  }
+}
+
+enum PlatformTheme {
+  system,
+  mobile,
+  desktop;
+
+  bool isMobile(BuildContext context) {
+    final platform = Theme.of(context).platform;
+    return switch (this) {
+      .mobile => true,
+      .desktop => false,
+      .system => platform == .iOS || platform == .android,
+    };
+  }
+}
+
+enum SimpleToolbarVisibility {
+  show,
+  temporary,
+  hide;
+
+  String getLocalizedName(BuildContext context) => switch (this) {
+    .show => AppLocalizations.of(context).show,
+    .temporary => AppLocalizations.of(context).temporary,
+    .hide => AppLocalizations.of(context).hide,
+  };
+}
+
+enum SyncMode { always, noMobile, manual }
+
+enum StartupBehavior { openHomeScreen, openLastNote, openNewNote }
+
+enum InputMappingCategory { activeTool, handTool, toolOnToolbar }
+
+@freezed
+sealed class FavoriteLocation with _$FavoriteLocation {
+  const FavoriteLocation._();
+
+  const factory FavoriteLocation({String? remote, required String path}) =
+      _FavoriteLocation;
+
+  factory FavoriteLocation.fromJson(Map<String, dynamic> json) =>
+      _$FavoriteLocationFromJson(json);
+
+  factory FavoriteLocation.fromLocation(AssetLocation location) {
+    return FavoriteLocation(remote: location.remote, path: location.path);
+  }
+
+  AssetLocation toLocation([String defaultRemote = '']) {
+    return AssetLocation(path: path, remote: remote ?? defaultRemote);
+  }
+}
+
+class const InputMappingDefault._() {
+  static const InputMapping leftMouse = .new(InputMapping.activeToolValue);
+  static const InputMapping middleMouse = .new(InputMapping.handToolValue);
+  static const InputMapping rightMouse = .new(1);
+  static const InputMapping pen = .new(InputMapping.activeToolValue);
+  static const InputMapping invertedPen = .new(3);
+  static const InputMapping firstPenButton = .new(2);
+  static const InputMapping secondPenButton = .new(1);
+  static const InputMapping touch = .new(InputMapping.activeToolValue);
+}
+
+extension type const InputMapping(int value) {
+  static const int activeToolValue = -2;
+  static const int handToolValue = -1;
+
+  factory InputMapping.fromUIData(
+    InputMappingCategory category, [
+    int? toolNumber, // 1-indexed
+  ]) {
+    switch (category) {
+      case .activeTool:
+        return InputMapping(activeToolValue);
+      case .handTool:
+        return InputMapping(handToolValue);
+      case .toolOnToolbar:
+        return InputMapping(toolNumber?.clamp(1, 99).subtract(1) ?? 0);
+    }
+  }
+
+  InputMappingCategory getCategory() {
+    switch (value) {
+      case activeToolValue:
+        return InputMappingCategory.activeTool;
+      case handToolValue:
+        return InputMappingCategory.handTool;
+      default:
+        return InputMappingCategory.toolOnToolbar;
+    }
+  }
+
+  // 0-indexed
+  int? getToolPositionIndex() {
+    return getCategory() == .toolOnToolbar ? value : null;
+  }
+
+  // 1-indexed, for displaying to the user
+  int? getToolDisplayPosition() {
+    return getCategory() == .toolOnToolbar ? value + 1 : null;
+  }
+
+  String getDescription(BuildContext context) {
+    switch (value) {
+      case activeToolValue:
+        return AppLocalizations.of(context).activeTool;
+      case handToolValue:
+        return AppLocalizations.of(context).handTool;
+      default:
+        return AppLocalizations.of(context).toolOnToolbarShort(value + 1);
+    }
+  }
+
+  factory InputMapping.fromJson(int json) {
+    return InputMapping(json);
+  }
+
+  int toJson() {
+    return value;
+  }
+}
+
+@freezed
+sealed class HoldShortcut with _$HoldShortcut {
+  const factory HoldShortcut({
+    required int keyId,
+    required InputMapping mapping,
+  }) = _HoldShortcut;
+
+  factory HoldShortcut.fromJson(Map<String, dynamic> json) =>
+      _$HoldShortcutFromJson(json);
+}
+
+@freezed
+sealed class InputConfiguration with _$InputConfiguration {
+  const InputConfiguration._();
+
+  const factory InputConfiguration({
+    @Default(InputMappingDefault.leftMouse) InputMapping leftMouse,
+    @Default(InputMappingDefault.middleMouse) InputMapping middleMouse,
+    @Default(InputMappingDefault.rightMouse) InputMapping rightMouse,
+    InputMapping? backMouse,
+    InputMapping? forwardMouse,
+    @Default(InputMappingDefault.pen) InputMapping pen,
+    @Default(InputMappingDefault.invertedPen) InputMapping invertedPen,
+    @Default(InputMappingDefault.firstPenButton) InputMapping firstPenButton,
+    @Default(InputMappingDefault.secondPenButton) InputMapping secondPenButton,
+    @Default(InputMappingDefault.touch) InputMapping touch,
+    @Default([]) List<HoldShortcut> holdShortcuts,
+    String? doubleLeftMouseShortcut,
+    String? tripleLeftMouseShortcut,
+    String? doubleMiddleMouseShortcut,
+    String? tripleMiddleMouseShortcut,
+    String? doubleRightMouseShortcut,
+    String? tripleRightMouseShortcut,
+    String? doubleBackMouseShortcut,
+    String? tripleBackMouseShortcut,
+    String? doubleForwardMouseShortcut,
+    String? tripleForwardMouseShortcut,
+    String? doublePenShortcut,
+    String? triplePenShortcut,
+    String? doubleInvertedPenShortcut,
+    String? tripleInvertedPenShortcut,
+    String? doubleFirstPenButtonShortcut,
+    String? tripleFirstPenButtonShortcut,
+    String? doubleSecondPenButtonShortcut,
+    String? tripleSecondPenButtonShortcut,
+    String? doubleTouchShortcut,
+    String? tripleTouchShortcut,
+    String? twoFingerTouchShortcut,
+    String? threeFingerTouchShortcut,
+  }) = _InputConfiguration;
+
+  factory InputConfiguration.fromJson(Map<String, dynamic> json) =>
+      _$InputConfigurationFromJson(json);
+
+  Set<InputMapping> getShortcuts() => <InputMapping>{
+    leftMouse,
+    middleMouse,
+    rightMouse,
+    ?backMouse,
+    ?forwardMouse,
+    pen,
+    invertedPen,
+    firstPenButton,
+    secondPenButton,
+    touch,
+    ...holdShortcuts.map((e) => e.mapping),
+  }.toSet();
+
+  InputMapping? getMouseMapping(int buttons) {
+    if ((buttons & kForwardMouseButton) != 0) return forwardMouse;
+    if ((buttons & kBackMouseButton) != 0) return backMouse;
+    if ((buttons & kSecondaryMouseButton) != 0) return rightMouse;
+    if ((buttons & kMiddleMouseButton) != 0) return middleMouse;
+    if ((buttons & kPrimaryMouseButton) != 0) return leftMouse;
+    return null;
+  }
+
+  InputMapping? getPointerMapping(PointerDeviceKind kind, int buttons) =>
+      switch (kind) {
+        .touch => touch,
+        .mouse => getMouseMapping(buttons),
+        PointerDeviceKind.stylus
+            when (buttons & kSecondaryStylusButton) != 0 ||
+                (buttons & kFallbackSecondaryStylusButton) != 0 =>
+          secondPenButton,
+        PointerDeviceKind.stylus when (buttons & kPrimaryStylusButton) != 0 =>
+          firstPenButton,
+        .stylus => pen,
+        .invertedStylus => invertedPen,
+        _ => null,
+      };
+
+  String? getMouseShortcut(int buttons, {required bool isDoubleTap}) {
+    if ((buttons & kForwardMouseButton) != 0) {
+      return isDoubleTap
+          ? doubleForwardMouseShortcut
+          : tripleForwardMouseShortcut;
+    }
+    if ((buttons & kBackMouseButton) != 0) {
+      return isDoubleTap ? doubleBackMouseShortcut : tripleBackMouseShortcut;
+    }
+    if ((buttons & kSecondaryMouseButton) != 0) {
+      return isDoubleTap ? doubleRightMouseShortcut : tripleRightMouseShortcut;
+    }
+    if ((buttons & kMiddleMouseButton) != 0) {
+      return isDoubleTap
+          ? doubleMiddleMouseShortcut
+          : tripleMiddleMouseShortcut;
+    }
+    if ((buttons & kPrimaryMouseButton) != 0) {
+      return isDoubleTap ? doubleLeftMouseShortcut : tripleLeftMouseShortcut;
+    }
+    return null;
+  }
+
+  String? getRepeatedTapShortcut(
+    PointerDeviceKind kind,
+    int buttons,
+    int tapCount,
+  ) {
+    if (tapCount != 2 && tapCount != 3) return null;
+    final isDoubleTap = tapCount == 2;
+    return switch (kind) {
+      .mouse => getMouseShortcut(buttons, isDoubleTap: isDoubleTap),
+      PointerDeviceKind.stylus
+          when (buttons & kSecondaryStylusButton) != 0 ||
+              (buttons & kFallbackSecondaryStylusButton) != 0 =>
+        isDoubleTap
+            ? doubleSecondPenButtonShortcut
+            : tripleSecondPenButtonShortcut,
+      PointerDeviceKind.stylus when (buttons & kPrimaryStylusButton) != 0 =>
+        isDoubleTap
+            ? doubleFirstPenButtonShortcut
+            : tripleFirstPenButtonShortcut,
+      .stylus => isDoubleTap ? doublePenShortcut : triplePenShortcut,
+      .invertedStylus =>
+        isDoubleTap ? doubleInvertedPenShortcut : tripleInvertedPenShortcut,
+      .touch => isDoubleTap ? doubleTouchShortcut : tripleTouchShortcut,
+      _ => null,
+    };
+  }
+
+  bool hasRepeatedTapShortcut(PointerDeviceKind kind, int buttons) =>
+      getRepeatedTapShortcut(kind, buttons, 2) != null ||
+      getRepeatedTapShortcut(kind, buttons, 3) != null;
+
+  String? getMultiFingerTouchShortcut(int fingerCount) => switch (fingerCount) {
+    2 => twoFingerTouchShortcut,
+    3 => threeFingerTouchShortcut,
+    _ => null,
+  };
+}
+
+enum SortBy { name, created, modified }
+
+enum SortOrder { ascending, descending }
+
+enum BannerVisibility { always, never, onlyOnUpdates }
+
+enum NavigatorPosition { left, right }
+
+enum IgnorePressure { never, first, always }
+
+enum ToolbarPosition {
+  inline,
+  top,
+  bottom,
+  left,
+  right;
+
+  String getLocalizedName(BuildContext context) => switch (this) {
+    .inline => AppLocalizations.of(context).inline,
+    .top => AppLocalizations.of(context).top,
+    .bottom => AppLocalizations.of(context).bottom,
+    .left => AppLocalizations.of(context).left,
+    .right => AppLocalizations.of(context).right,
+  };
+
+  Axis get axis => switch (this) {
+    .left => .vertical,
+    .right => .vertical,
+    .inline => .horizontal,
+    .top => .horizontal,
+    .bottom => .horizontal,
+  };
+}
+
+enum CameraControlsVisibility {
+  mobile,
+  hidden,
+  temporary,
+  always;
+
+  bool isTemporary(bool isMobile) =>
+      this == temporary || (this == mobile && isMobile);
+
+  String getLocalizedName(BuildContext context) => switch (this) {
+    .mobile => AppLocalizations.of(context).temporaryOnMobile,
+    .hidden => AppLocalizations.of(context).hidden,
+    .temporary => AppLocalizations.of(context).temporary,
+    .always => AppLocalizations.of(context).always,
+  };
+}
+
+enum ZoomPanelControls {
+  full,
+  sliderAndInput,
+  slider,
+  inputAndButtons,
+  input;
+
+  bool get showSlider =>
+      this == full || this == sliderAndInput || this == slider;
+  bool get showInput => this != slider;
+  bool get showButtons => this == full || this == inputAndButtons;
+
+  double panelWidth() => switch (this) {
+    .full => 440,
+    .sliderAndInput => 320,
+    .slider => 200,
+    .inputAndButtons => 280,
+    .input => 200,
+  };
+
+  String getLocalizedName(BuildContext context) => switch (this) {
+    .full => AppLocalizations.of(context).zoomPanelFull,
+    .sliderAndInput => AppLocalizations.of(context).zoomPanelSliderInput,
+    .slider => AppLocalizations.of(context).zoomPanelSlider,
+    .inputAndButtons => AppLocalizations.of(context).zoomPanelInputButtons,
+    .input => AppLocalizations.of(context).zoomPanelInput,
+  };
+}
+
+enum RotationDisplay {
+  always,
+  whenRotated,
+  hidden;
+
+  String getLocalizedName(BuildContext context) => switch (this) {
+    .always => AppLocalizations.of(context).always,
+    .whenRotated => AppLocalizations.of(context).whenRotated,
+    .hidden => AppLocalizations.of(context).hidden,
+  };
+}
+
+enum ZoomPosition {
+  topRight,
+  topLeft,
+  bottomRight,
+  bottomLeft;
+
+  String getLocalizedName(BuildContext context) => switch (this) {
+    .topRight => AppLocalizations.of(context).topRight,
+    .topLeft => AppLocalizations.of(context).topLeft,
+    .bottomRight => AppLocalizations.of(context).bottomRight,
+    .bottomLeft => AppLocalizations.of(context).bottomLeft,
+  };
+}
+
+enum OptionsPanelPosition {
+  top,
+  bottom;
+
+  String getLocalizedName(BuildContext context) => switch (this) {
+    .top => AppLocalizations.of(context).top,
+    .bottom => AppLocalizations.of(context).bottom,
+  };
+}
+
+enum ThemeDensity {
+  system,
+  maximize,
+  desktop,
+  compact,
+  comfortable,
+  standard;
+
+  VisualDensity toFlutter() => switch (this) {
+    .maximize => const .new(horizontal: -4, vertical: -4),
+    .desktop => const .new(horizontal: -3, vertical: -3),
+    .compact => .compact,
+    .comfortable => .comfortable,
+    .standard => .standard,
+    .system => .adaptivePlatformDensity,
+  };
+}
+
+class const SRGBConverter() extends JsonConverter<SRGBColor, int> {
+  @override
+  SRGBColor fromJson(int json) => .new(json);
+
+  @override
+  int toJson(SRGBColor object) => object.value;
+}
+
+enum SaveMethod { manual, autosave, delayedAutosave }
+
+@freezed
+sealed class DocumentStatePersistenceSettings
+    with _$DocumentStatePersistenceSettings {
+  const factory DocumentStatePersistenceSettings({
+    @Default(true) bool enabled,
+    @Default(true) bool page,
+    @Default(true) bool camera,
+    @Default(true) bool locks,
+    @Default(true) bool tool,
+    @Default(true) bool navigator,
+    @Default(true) bool layers,
+    @Default(true) bool areas,
+    @Default(true) bool autoThumbnail,
+    @Default(PersistentLockState()) PersistentLockState defaultLocks,
+    @Default(400) int maxEntries,
+    @Default(180) int maxAgeDays,
+  }) = _DocumentStatePersistenceSettings;
+
+  factory DocumentStatePersistenceSettings.fromJson(
+    Map<String, dynamic> json,
+  ) => _$DocumentStatePersistenceSettingsFromJson(json);
+}
+
+@freezed
+sealed class ButterflySettings with _$ButterflySettings, LeapSettings {
+  const ButterflySettings._();
+  const factory ButterflySettings({
+    @Default(ThemeMode.system) ThemeMode theme,
+    @Default(ThemeDensity.system) ThemeDensity density,
+    double? limitViewportMultiplier,
+    @Default(false) bool limitViewportPositive,
+    @Default('') String localeTag,
+    @Default('') String documentPath,
+    @Default(1) double panGestureSensitivity,
+    @Default(1) double zoomGestureSensitivity,
+    @Default(1) double rotationGestureSensitivity,
+    @Default(1) double touchSensitivity,
+    @Default(1) double selectSensitivity,
+    @Default(1) double scrollPanSensitivity,
+    @Default(kDefaultRotationStep) double rotationStep,
+    @Default(kDefaultZoomStep) double zoomStep,
+    bool? penOnlyInput,
+    @Default(true) bool showPenOnlyToggle,
+    @Default(true) bool inputGestures,
+    @Default('') String design,
+    @Default(BannerVisibility.always) BannerVisibility bannerVisibility,
+    @Default([])
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    List<AssetLocation> history,
+    @JsonKey(unknownEnumValue: CameraControlsVisibility.mobile)
+    @Default(CameraControlsVisibility.mobile)
+    CameraControlsVisibility cameraControlsVisibility,
+    @JsonKey(unknownEnumValue: RotationDisplay.whenRotated)
+    @Default(RotationDisplay.whenRotated)
+    RotationDisplay rotationDisplay,
+    @JsonKey(unknownEnumValue: ZoomPanelControls.full)
+    @Default(ZoomPanelControls.full)
+    ZoomPanelControls zoomPanelControls,
+    @Default(ZoomPosition.bottomRight) ZoomPosition zoomPosition,
+    @Default(ZoomPosition.topRight) ZoomPosition propertyPosition,
+    String? lastVersion,
+    @Default([])
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    List<ExternalStorage> connections,
+    @Default('') String defaultRemote,
+    @Default(false) bool nativeTitleBar,
+    @Default(false) bool startInFullScreen,
+    @Default(true) bool navigationRail,
+    @Default(IgnorePressure.first) IgnorePressure ignorePressure,
+    @Default(SyncMode.noMobile) SyncMode syncMode,
+    @Default(false) bool automaticBackup,
+    @Default('') String backupRemote,
+    @Default(kDefaultBackupIntervalMinutes) int backupIntervalMinutes,
+    DateTime? lastBackup,
+    @Default(InputConfiguration()) InputConfiguration inputConfiguration,
+    @Default('') String fallbackPack,
+    @Default([]) List<String> starred,
+    @Default([]) List<FavoriteLocation> favoriteTemplates,
+    @Default('') String defaultTemplate,
+    @Default(kDefaultFileName) String defaultFileName,
+    @Default(NavigatorPosition.left) NavigatorPosition navigatorPosition,
+    @Default(ToolbarPosition.inline) ToolbarPosition toolbarPosition,
+    @Default(ToolbarSize.normal) ToolbarSize toolbarSize,
+    @Default(SortBy.modified) SortBy sortBy,
+    @Default(SortOrder.descending) SortOrder sortOrder,
+    @Default(0.5) double imageScale,
+    @Default(PlatformTheme.system) PlatformTheme platformTheme,
+    @Default([]) @SRGBConverter() List<SRGBColor> recentColors,
+    @Default([]) List<String> flags,
+    @Default(false) bool spreadPages,
+    @Default(false) bool highContrast,
+    @Default(false) bool gridView,
+    @Default(true) bool hideExtension,
+    @Default(true) bool autosave,
+    @Default(true) bool showSaveButton,
+    @Default(1) int toolbarRows,
+    @Default(true) bool delayedAutosave,
+    @Default(3) int autosaveDelaySeconds,
+    @Default(false) bool hideCursorWhileDrawing,
+    @Default(StartupBehavior.openHomeScreen) StartupBehavior onStartup,
+    @Default(DocumentStatePersistenceSettings())
+    DocumentStatePersistenceSettings documentStatePersistence,
+    @Default(SimpleToolbarVisibility.show)
+    SimpleToolbarVisibility simpleToolbarVisibility,
+    @Default(OptionsPanelPosition.top)
+    OptionsPanelPosition optionsPanelPosition,
+    @Default(RenderResolution.normal) RenderResolution renderResolution,
+    @Default(true) bool moveOnGesture,
+    @Default(true) bool rotateOnGesture,
+    @Default([]) List<String> swamps,
+    PackAssetLocation? selectedPalette,
+    @Default(false) bool showVerboseLogs,
+    @Default(true) bool showThumbnails,
+    @Default(true) bool showNavigatorPreviews,
+    @Default(false) bool bringMovedElementsToFront,
+    @Default([]) List<PackAssetLocation> favoriteTools,
+  }) = _ButterflySettings;
+
+  factory ButterflySettings.fromJson(Map<String, dynamic> json) =>
+      _$ButterflySettingsFromJson({
+        ...json,
+        'cameraControlsVisibility':
+            json['cameraControlsVisibility'] ??
+            (json['zoomEnabled'] == false
+                ? CameraControlsVisibility.hidden.name
+                : CameraControlsVisibility.mobile.name),
+        'zoomPanelControls':
+            json['zoomPanelControls'] ??
+            (json['minimalZoom'] == true
+                ? ZoomPanelControls.slider.name
+                : ZoomPanelControls.full.name),
+        'rotationDisplay':
+            json['rotationDisplay'] ??
+            (json['showRotation'] == true
+                ? RotationDisplay.always.name
+                : RotationDisplay.whenRotated.name),
+      });
+
+  factory ButterflySettings.fromPrefs(SharedPreferences prefs) {
+    final storedDefaultFileName = prefs.getString('default_file_name')?.trim();
+    final connections =
+        prefs.getStringList('connections')?.map((encoded) {
+          final serialized = json.decode(encoded) as Map<String, dynamic>;
+          final storage = ExternalStorageMapper.fromMap(serialized);
+          final encryptionEnabled = serialized[connectionEncryptionEnabledKey];
+          if (encryptionEnabled is! bool) return storage;
+          return storage.copyWith(
+            extra: {
+              ...storage.extra,
+              connectionEncryptionEnabledKey: encryptionEnabled,
+            },
+          );
+        }).toList() ??
+        const [];
+    return ButterflySettings(
+      limitViewportMultiplier: prefs.containsKey('limit_viewport_multiplier')
+          ? prefs.getDouble('limit_viewport_multiplier')
+          : null,
+      limitViewportPositive: prefs.getBool('limit_viewport_positive') ?? false,
+      localeTag: prefs.getString('locale') ?? '',
+      penOnlyInput: prefs.containsKey('pen_only_input')
+          ? prefs.getBool('pen_only_input')
+          : null,
+      showPenOnlyToggle: prefs.getBool('show_pen_only_toggle') ?? true,
+      inputGestures: prefs.getBool('input_gestures') ?? true,
+      documentPath: prefs.getString('document_path') ?? '',
+      theme: prefs.containsKey('theme_mode')
+          ? _enumByNameOr(
+              ThemeMode.values,
+              prefs.getString('theme_mode'),
+              ThemeMode.light,
+            )
+          : ThemeMode.light,
+      density: prefs.containsKey('theme_density')
+          ? _enumByNameOr(
+              ThemeDensity.values,
+              prefs.getString('theme_density'),
+              ThemeDensity.system,
+            )
+          : ThemeDensity.system,
+      touchSensitivity: prefs.getDouble('touch_sensitivity') ?? 1,
+      panGestureSensitivity: prefs.getDouble('pan_gesture_sensitivity') ?? 1,
+      zoomGestureSensitivity: prefs.getDouble('zoom_gesture_sensitivity') ?? 1,
+      rotationGestureSensitivity:
+          prefs.getDouble('rotation_gesture_sensitivity') ?? 1,
+      scrollPanSensitivity: prefs.getDouble('scroll_pan_sensitivity') ?? 1,
+      selectSensitivity: prefs.getDouble('select_sensitivity') ?? 1,
+      rotationStep: prefs.getDouble('rotation_step') ?? kDefaultRotationStep,
+      zoomStep: prefs.getDouble('zoom_step') ?? kDefaultZoomStep,
+      design: prefs.getString('design') ?? '',
+      bannerVisibility: prefs.containsKey('banner_visibility')
+          ? _enumByNameOr(
+              BannerVisibility.values,
+              prefs.getString('banner_visibility'),
+              BannerVisibility.always,
+            )
+          : BannerVisibility.always,
+      history: _normalizeRecentHistory(
+        prefs.getStringList('history')?.map((e) {
+              // Try to parse the asset location
+              try {
+                return AssetLocationMapper.fromJson(e);
+              } catch (e) {
+                return null;
+              }
+            }).nonNulls ??
+            const [],
+      ),
+      cameraControlsVisibility: _enumByNameOr(
+        CameraControlsVisibility.values,
+        prefs.getString('camera_controls_visibility'),
+        prefs.getBool('zoom_enabled') == false
+            ? CameraControlsVisibility.hidden
+            : CameraControlsVisibility.mobile,
+      ),
+      rotationDisplay: _enumByNameOr(
+        RotationDisplay.values,
+        prefs.getString('rotation_display'),
+        prefs.getBool('show_rotation') == true
+            ? RotationDisplay.always
+            : RotationDisplay.whenRotated,
+      ),
+      zoomPanelControls: _enumByNameOr(
+        ZoomPanelControls.values,
+        prefs.getString('zoom_panel_controls'),
+        prefs.getBool('minimal_zoom') == true
+            ? ZoomPanelControls.slider
+            : ZoomPanelControls.full,
+      ),
+      zoomPosition: prefs.containsKey('zoom_position')
+          ? _enumByNameOr(
+              ZoomPosition.values,
+              prefs.getString('zoom_position'),
+              ZoomPosition.bottomRight,
+            )
+          : ZoomPosition.bottomRight,
+      propertyPosition: prefs.containsKey('property_position')
+          ? _enumByNameOr(
+              ZoomPosition.values,
+              prefs.getString('property_position'),
+              ZoomPosition.topRight,
+            )
+          : ZoomPosition.topRight,
+      lastVersion: prefs.getString('last_version'),
+      connections: connections,
+      defaultRemote: prefs.getString('default_remote') ?? '',
+      nativeTitleBar: prefs.getBool('native_title_bar') ?? false,
+      startInFullScreen: prefs.getBool('start_in_full_screen') ?? false,
+      syncMode: _enumByNameOr(
+        SyncMode.values,
+        prefs.getString('sync_mode'),
+        SyncMode.noMobile,
+      ),
+      automaticBackup: prefs.getBool('automatic_backup') ?? false,
+      backupRemote: prefs.getString('backup_remote') ?? '',
+      backupIntervalMinutes: _readBackupIntervalMinutes(prefs),
+      lastBackup: DateTime.tryParse(prefs.getString('last_backup') ?? ''),
+      inputConfiguration: InputConfiguration.fromJson(
+        _decodeJsonMapOrEmpty(prefs.getString('input_configuration')),
+      ),
+      fallbackPack: prefs.getString('fallback_pack') ?? '',
+      starred: prefs.getStringList('starred') ?? [],
+      favoriteTemplates:
+          prefs
+              .getStringList('favorite_templates')
+              ?.map((e) {
+                try {
+                  return FavoriteLocation.fromJson(json.decode(e));
+                } catch (e) {
+                  return null;
+                }
+              })
+              .nonNulls
+              .toList() ??
+          [],
+      defaultTemplate: prefs.getString('default_template') ?? '',
+      defaultFileName: storedDefaultFileName?.isNotEmpty ?? false
+          ? storedDefaultFileName!
+          : kDefaultFileName,
+      toolbarPosition: prefs.containsKey('toolbar_position')
+          ? _enumByNameOr(
+              ToolbarPosition.values,
+              prefs.getString('toolbar_position'),
+              ToolbarPosition.inline,
+            )
+          : ToolbarPosition.inline,
+      navigationRail: prefs.getBool('navigation_rail') ?? true,
+      sortBy: prefs.containsKey('sort_by')
+          ? _enumByNameOr(
+              SortBy.values,
+              prefs.getString('sort_by'),
+              SortBy.modified,
+            )
+          : SortBy.modified,
+      sortOrder: prefs.containsKey('sort_order')
+          ? _enumByNameOr(
+              SortOrder.values,
+              prefs.getString('sort_order'),
+              SortOrder.descending,
+            )
+          : SortOrder.descending,
+      imageScale: prefs.getDouble('image_scale') ?? 0.5,
+      platformTheme: prefs.containsKey('platform_theme')
+          ? _enumByNameOr(
+              PlatformTheme.values,
+              prefs.getString('platform_theme'),
+              PlatformTheme.system,
+            )
+          : PlatformTheme.system,
+      recentColors:
+          prefs
+              .getStringList('recent_colors')
+              ?.map((e) {
+                final parsed = int.tryParse(e);
+                if (parsed == null) return null;
+                return SRGBColor(parsed);
+              })
+              .whereType<SRGBColor>()
+              .toList() ??
+          const <SRGBColor>[],
+      flags: prefs.getStringList('flags') ?? [],
+      spreadPages: prefs.getBool('spread_pages') ?? false,
+      highContrast: prefs.getBool('high_contrast') ?? false,
+      gridView: prefs.getBool('grid_view') ?? false,
+      autosave: prefs.getBool('autosave') ?? true,
+      delayedAutosave: prefs.getBool('delayed_autosave') ?? true,
+      autosaveDelaySeconds: prefs.getInt('autosave_delay_seconds') ?? 3,
+      toolbarSize: prefs.containsKey('toolbar_size')
+          ? _enumByNameOr(
+              ToolbarSize.values,
+              prefs.getString('toolbar_size'),
+              ToolbarSize.normal,
+            )
+          : ToolbarSize.normal,
+      toolbarRows: prefs.getInt('toolbar_rows') ?? 1,
+      hideCursorWhileDrawing:
+          prefs.getBool('hide_cursor_while_drawing') ?? false,
+      navigatorPosition: prefs.containsKey('navigator_position')
+          ? _enumByNameOr(
+              NavigatorPosition.values,
+              prefs.getString('navigator_position'),
+              NavigatorPosition.left,
+            )
+          : NavigatorPosition.left,
+      onStartup: prefs.containsKey('on_startup')
+          ? _enumByNameOr(
+              StartupBehavior.values,
+              prefs.getString('on_startup'),
+              StartupBehavior.openHomeScreen,
+            )
+          : StartupBehavior.openHomeScreen,
+      documentStatePersistence: prefs.containsKey('document_state_persistence')
+          ? DocumentStatePersistenceSettings.fromJson(
+              _decodeJsonMapOrEmpty(
+                prefs.getString('document_state_persistence'),
+              ),
+            )
+          : const DocumentStatePersistenceSettings(),
+      simpleToolbarVisibility: prefs.containsKey('simple_toolbar_visibility')
+          ? _enumByNameOr(
+              SimpleToolbarVisibility.values,
+              prefs.getString('simple_toolbar_visibility'),
+              SimpleToolbarVisibility.show,
+            )
+          : (prefs.getBool('color_toolbar_enabled') ?? true
+                ? SimpleToolbarVisibility.show
+                : SimpleToolbarVisibility.hide),
+      showSaveButton: prefs.getBool('show_save_button') ?? true,
+      optionsPanelPosition: prefs.containsKey('options_panel_position')
+          ? _enumByNameOr(
+              OptionsPanelPosition.values,
+              prefs.getString('options_panel_position'),
+              OptionsPanelPosition.top,
+            )
+          : OptionsPanelPosition.top,
+      renderResolution: prefs.containsKey('render_resolution')
+          ? _enumByNameOr(
+              RenderResolution.values,
+              prefs.getString('render_resolution'),
+              RenderResolution.normal,
+            )
+          : RenderResolution.normal,
+      moveOnGesture: prefs.getBool('move_on_gesture') ?? true,
+      rotateOnGesture: prefs.getBool('rotate_on_gesture') ?? true,
+      swamps: prefs.getStringList('swamps') ?? [],
+      ignorePressure: prefs.containsKey('ignore_pressure')
+          ? _enumByNameOr(
+              IgnorePressure.values,
+              prefs.getString('ignore_pressure'),
+              IgnorePressure.first,
+            )
+          : IgnorePressure.first,
+      selectedPalette: prefs.containsKey('selected_palette')
+          ? _decodeSelectedPaletteOrNull(prefs.getString('selected_palette'))
+          : null,
+      showVerboseLogs: prefs.getBool('show_verbose_logs') ?? false,
+      hideExtension: prefs.getBool('hide_extension') ?? true,
+      showThumbnails: prefs.getBool('show_thumbnails') ?? true,
+      showNavigatorPreviews: prefs.getBool('show_navigator_previews') ?? true,
+      bringMovedElementsToFront:
+          prefs.getBool('bring_moved_elements_to_front') ?? false,
+      favoriteTools:
+          prefs
+              .getStringList('favorite_tools')
+              ?.map((e) {
+                try {
+                  return PackAssetLocation.fromJson(json.decode(e));
+                } catch (e) {
+                  return null;
+                }
+              })
+              .nonNulls
+              .toList() ??
+          [],
+    );
+  }
+
+  Locale? get locale {
+    if (localeTag.isEmpty) {
+      return null;
+    }
+    if (localeTag.contains('-')) {
+      return Locale(localeTag.split('-')[0], localeTag.split('-')[1]);
+    }
+    return Locale(localeTag);
+  }
+
+  List<String> getRemoteIdentifiers() {
+    return connections.map((e) => e.identifier).toList();
+  }
+
+  bool get isInline => toolbarPosition == .inline && toolbarRows <= 1;
+
+  Future<void> save() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (limitViewportMultiplier != null) {
+      await prefs.setDouble(
+        'limit_viewport_multiplier',
+        limitViewportMultiplier!,
+      );
+    } else if (prefs.containsKey('limit_viewport_multiplier')) {
+      await prefs.remove('limit_viewport_multiplier');
+    }
+    await prefs.setBool('limit_viewport_positive', limitViewportPositive);
+    await prefs.setString('theme_mode', theme.name);
+    await prefs.setString('theme_density', density.name);
+    await prefs.setString('locale', localeTag);
+    if (penOnlyInput != null) {
+      await prefs.setBool('pen_only_input', penOnlyInput!);
+    }
+    await prefs.setBool('show_pen_only_toggle', showPenOnlyToggle);
+    await prefs.setBool('input_gestures', inputGestures);
+    await prefs.setString('document_path', documentPath);
+    await prefs.setDouble('touch_sensitivity', touchSensitivity);
+    await prefs.setDouble('pan_gesture_sensitivity', panGestureSensitivity);
+    await prefs.setDouble('zoom_gesture_sensitivity', zoomGestureSensitivity);
+    await prefs.setDouble(
+      'rotation_gesture_sensitivity',
+      rotationGestureSensitivity,
+    );
+    await prefs.setDouble('scroll_pan_sensitivity', scrollPanSensitivity);
+    await prefs.setDouble('select_sensitivity', selectSensitivity);
+    await prefs.setDouble('rotation_step', rotationStep);
+    await prefs.setDouble('zoom_step', zoomStep);
+    await prefs.setString('design', design);
+    await prefs.setString('banner_visibility', bannerVisibility.name);
+    await prefs.setStringList(
+      'history',
+      history.map((e) => e.toJson()).toList(),
+    );
+    await prefs.setString(
+      'camera_controls_visibility',
+      cameraControlsVisibility.name,
+    );
+    await prefs.remove('zoom_enabled');
+    await prefs.setString('rotation_display', rotationDisplay.name);
+    await prefs.setString('zoom_panel_controls', zoomPanelControls.name);
+    await prefs.remove('show_rotation');
+    await prefs.remove('minimal_zoom');
+    await prefs.setString('zoom_position', zoomPosition.name);
+    await prefs.setString('property_position', propertyPosition.name);
+    if (lastVersion == null && prefs.containsKey('last_version')) {
+      await prefs.remove('last_version');
+    } else if (lastVersion != null) {
+      await prefs.setString('last_version', lastVersion!);
+    }
+    await prefs.setStringList(
+      'connections',
+      connections.map((e) => e.toJson()).toList(),
+    );
+    await prefs.setString('default_remote', defaultRemote);
+    await prefs.setBool('native_title_bar', nativeTitleBar);
+    await prefs.setBool('start_in_full_screen', startInFullScreen);
+    await prefs.setString('sync_mode', syncMode.name);
+    await prefs.setBool('automatic_backup', automaticBackup);
+    await prefs.setString('backup_remote', backupRemote);
+    await prefs.setInt('backup_interval_minutes', backupIntervalMinutes);
+    if (lastBackup == null) {
+      await prefs.remove('last_backup');
+    } else {
+      await prefs.setString('last_backup', lastBackup!.toIso8601String());
+    }
+    await prefs.setString(
+      'input_configuration',
+      json.encode(inputConfiguration.toJson()),
+    );
+    await prefs.setString('fallback_pack', fallbackPack);
+    await prefs.setStringList('starred', starred);
+    await prefs.setStringList(
+      'favorite_templates',
+      favoriteTemplates.map((e) => json.encode(e.toJson())).toList(),
+    );
+    await prefs.setInt('version', 0);
+    await prefs.setString('default_template', defaultTemplate);
+    await prefs.setString('default_file_name', defaultFileName);
+    await prefs.setString('toolbar_position', toolbarPosition.name);
+    await prefs.setBool('navigation_rail', navigationRail);
+    await prefs.setString('sort_by', sortBy.name);
+    await prefs.setString('sort_order', sortOrder.name);
+    await prefs.setDouble('image_scale', imageScale);
+    await prefs.setString('platform_theme', platformTheme.name);
+    await prefs.setStringList(
+      'recent_colors',
+      recentColors.map((e) => e.value.toString()).toList(),
+    );
+    await prefs.setStringList('flags', flags);
+    await prefs.setBool('spread_pages', spreadPages);
+    await prefs.setBool('high_contrast', highContrast);
+    await prefs.setBool('grid_view', gridView);
+    await prefs.setBool('autosave', autosave);
+    await prefs.setBool('delayed_autosave', delayedAutosave);
+    await prefs.setInt('autosave_delay_seconds', autosaveDelaySeconds);
+    await prefs.setString('toolbar_size', toolbarSize.name);
+    await prefs.setInt('toolbar_rows', toolbarRows);
+    await prefs.setBool('hide_cursor_while_drawing', hideCursorWhileDrawing);
+    await prefs.setString('navigator_position', navigatorPosition.name);
+    await prefs.setString('on_startup', onStartup.name);
+    await prefs.setString(
+      'document_state_persistence',
+      json.encode(documentStatePersistence.toJson()),
+    );
+    await prefs.setString(
+      'simple_toolbar_visibility',
+      simpleToolbarVisibility.name,
+    );
+    await prefs.setBool('show_save_button', showSaveButton);
+    await prefs.setString('options_panel_position', optionsPanelPosition.name);
+    await prefs.setString('render_resolution', renderResolution.name);
+    await prefs.setBool('move_on_gesture', moveOnGesture);
+    await prefs.setBool('rotate_on_gesture', rotateOnGesture);
+    await prefs.setStringList('swamps', swamps);
+    await prefs.setString('ignore_pressure', ignorePressure.name);
+    if (selectedPalette != null) {
+      await prefs.setString(
+        'selected_palette',
+        json.encode(selectedPalette!.toJson()),
+      );
+    } else {
+      await prefs.remove('selected_palette');
+    }
+    await prefs.setBool('show_verbose_logs', showVerboseLogs);
+    await prefs.setBool('hide_extension', hideExtension);
+    await prefs.setBool(
+      'bring_moved_elements_to_front',
+      bringMovedElementsToFront,
+    );
+    await prefs.setBool('show_thumbnails', showThumbnails);
+    await prefs.setBool('show_navigator_previews', showNavigatorPreviews);
+    await prefs.setStringList(
+      'favorite_tools',
+      favoriteTools.map((e) => json.encode(e.toJson())).toList(),
+    );
+  }
+
+  ExternalStorage? getRemote(String? identifier) {
+    if (identifier == null) {
+      return getDefaultRemote();
+    }
+    if (identifier.isEmpty) {
+      return null;
+    }
+    return connections.firstWhereOrNull((e) => e.identifier == identifier);
+  }
+
+  bool hasRemote(String identifier) {
+    return connections.any((e) => e.identifier == identifier);
+  }
+
+  ExternalStorage? getDefaultRemote() {
+    return connections.firstWhereOrNull((e) => e.identifier == defaultRemote);
+  }
+
+  bool isStarred(AssetLocation location) {
+    if (location.remote.isEmpty) {
+      return starred.contains(location.path);
+    }
+    return getRemote(location.remote)?.starred['']?.contains(location.path) ??
+        false;
+  }
+
+  bool hasFlag(String s) => flags.contains(s);
+}
+
+class SettingsCubit(SharedPreferences prefs)
+    extends Cubit<ButterflySettings>
+    with LeapSettingsBlocBaseMixin {
+  this : super(ButterflySettings.fromPrefs(prefs));
+
+  Future<void> resetSettings(
+    ButterflySettings Function(
+      ButterflySettings current,
+      ButterflySettings defaults,
+    )
+    reset,
+  ) {
+    emit(reset(state, const ButterflySettings()));
+    return save();
+  }
+
+  Future<void> resetAllSettings() {
+    emit(
+      const ButterflySettings().copyWith(
+        history: state.history,
+        connections: state.connections,
+      ),
+    );
+    return save();
+  }
+
+  void setTheme(BuildContext context, [ThemeMode? theme]) {
+    if (kIsWeb || !isWindow) return;
+    final brightness = switch (theme ?? state.theme) {
+      .light => Brightness.light,
+      .dark => Brightness.dark,
+      .system => MediaQuery.platformBrightnessOf(context),
+    };
+    windowManager.setBrightness(brightness);
+  }
+
+  Future<void> changeTheme(ThemeMode theme, [BuildContext? modify]) async {
+    if (modify != null) {
+      setTheme(modify, theme);
+    }
+    emit(state.copyWith(theme: theme));
+    return save();
+  }
+
+  Future<void> changeDensity(ThemeDensity density) async {
+    emit(state.copyWith(density: density));
+    return save();
+  }
+
+  Future<void> changeDesign(String design) async {
+    emit(state.copyWith(design: design));
+    return save();
+  }
+
+  Future<void> resetDesign() async {
+    emit(state.copyWith(design: ''));
+    return save();
+  }
+
+  Future<void> changeLocale(Locale? locale) {
+    emit(state.copyWith(localeTag: locale?.toLanguageTag() ?? ''));
+    return save();
+  }
+
+  Future<void> resetLocale() {
+    emit(state.copyWith(localeTag: ''));
+    return save();
+  }
+
+  Future<void> changeToolbarPosition(ToolbarPosition pos) {
+    emit(state.copyWith(toolbarPosition: pos));
+    return save();
+  }
+
+  Future<void> resetToolbarPosition() {
+    emit(state.copyWith(toolbarPosition: ToolbarPosition.top));
+    return save();
+  }
+
+  Future<void> changeToolbarSize(ToolbarSize size) {
+    emit(state.copyWith(toolbarSize: size));
+    return save();
+  }
+
+  Future<void> resetToolbarSize() => changeToolbarSize(ToolbarSize.normal);
+
+  Future<void> changeOptionsPanelPosition(OptionsPanelPosition position) {
+    emit(state.copyWith(optionsPanelPosition: position));
+    return save();
+  }
+
+  Future<void> resetOptionsPanelPosition() =>
+      changeOptionsPanelPosition(OptionsPanelPosition.top);
+
+  Future<void> changeZoomPosition(ZoomPosition position) {
+    emit(state.copyWith(zoomPosition: position));
+    return save();
+  }
+
+  Future<void> resetZoomPosition() =>
+      changeZoomPosition(ZoomPosition.bottomRight);
+
+  Future<void> changePropertyPosition(ZoomPosition position) {
+    emit(state.copyWith(propertyPosition: position));
+    return save();
+  }
+
+  Future<void> resetPropertyPosition() =>
+      changePropertyPosition(ZoomPosition.topRight);
+
+  void changeLocaleTemporarily(String locale) {
+    emit(state.copyWith(localeTag: locale));
+  }
+
+  Future<void> changeDocumentPath(String documentPath) {
+    emit(state.copyWith(documentPath: documentPath));
+    return save();
+  }
+
+  Future<void> resetDocumentPath() {
+    emit(state.copyWith(documentPath: ''));
+    return save();
+  }
+
+  Future<void> changePenOnlyInput(bool? penOnlyInput) async {
+    emit(state.copyWith(penOnlyInput: penOnlyInput));
+    // This editor toggle must not rewrite every preference on each click.
+    final prefs = await SharedPreferences.getInstance();
+    if (penOnlyInput == null) {
+      await prefs.remove('pen_only_input');
+    } else {
+      await prefs.setBool('pen_only_input', penOnlyInput);
+    }
+  }
+
+  Future<void> resetPenOnlyInput() => changePenOnlyInput(null);
+
+  Future<void> changeShowPenOnlyToggle(bool showPenOnlyToggle) {
+    emit(state.copyWith(showPenOnlyToggle: showPenOnlyToggle));
+    return save();
+  }
+
+  Future<void> changeInputGestures(bool inputGestures) {
+    emit(state.copyWith(inputGestures: inputGestures));
+    return save();
+  }
+
+  Future<void> changeTouchSensitivity(double sensitivity) {
+    emit(state.copyWith(touchSensitivity: sensitivity));
+    return save();
+  }
+
+  Future<void> resetTouchSensitivity() => changeTouchSensitivity(1);
+
+  Future<void> changePanGestureSensitivity(double sensitivity) {
+    emit(state.copyWith(panGestureSensitivity: sensitivity));
+    return save();
+  }
+
+  Future<void> resetPanGestureSensitivity() => changePanGestureSensitivity(1);
+
+  Future<void> changeZoomGestureSensitivity(double sensitivity) {
+    emit(state.copyWith(zoomGestureSensitivity: sensitivity));
+    return save();
+  }
+
+  Future<void> changeRotationGestureSensitivity(double sensitivity) {
+    emit(state.copyWith(rotationGestureSensitivity: sensitivity));
+    return save();
+  }
+
+  Future<void> changeScrollPanSensitivity(double sensitivity) {
+    emit(state.copyWith(scrollPanSensitivity: sensitivity));
+    return save();
+  }
+
+  Future<void> resetScrollPanSensitivity() => changeScrollPanSensitivity(1);
+
+  Future<void> changeSelectSensitivity(double sensitivity) {
+    emit(state.copyWith(selectSensitivity: sensitivity));
+    return save();
+  }
+
+  Future<void> resetSelectSensitivity() => changeSelectSensitivity(1);
+
+  Future<void> changeRotationStep(double rotationStep) {
+    emit(state.copyWith(rotationStep: rotationStep));
+    return save();
+  }
+
+  Future<void> resetRotationStep() => changeRotationStep(kDefaultRotationStep);
+
+  Future<void> changeZoomStep(double zoomStep) {
+    emit(state.copyWith(zoomStep: zoomStep));
+    return save();
+  }
+
+  Future<void> resetZoomStep() => changeZoomStep(kDefaultZoomStep);
+
+  Future<void> changeBannerVisibility(BannerVisibility visibility) {
+    emit(state.copyWith(bannerVisibility: visibility));
+    return save();
+  }
+
+  Future<void> addRecentHistory(AssetLocation location) async {
+    final history = state.history.toList();
+    location = _normalizeHistoryLocation(location);
+    if (history.isNotEmpty && _isSameHistoryLocation(history.first, location)) {
+      return;
+    }
+    history.removeWhere((element) => _isSameHistoryLocation(element, location));
+    history.insert(0, location);
+    if (history.length > 10) {
+      history.removeLast();
+    }
+    emit(state.copyWith(history: history));
+    return save();
+  }
+
+  Future<void> removeRecentHistory(AssetLocation location) async {
+    final history = state.history.toList();
+    history.removeWhere(
+      (element) =>
+          element.remote == location.remote &&
+          element.path.startsWith(location.path),
+    );
+    emit(state.copyWith(history: history));
+    return save();
+  }
+
+  Future<void> moveAssetReferences(
+    AssetLocation from,
+    AssetLocation to, {
+    bool directory = false,
+  }) async {
+    from = _normalizeHistoryLocation(from);
+    to = _normalizeHistoryLocation(to);
+    var changed = false;
+    final history = state.history.map((location) {
+      if (location.remote != from.remote ||
+          location.absolute != from.absolute) {
+        return location;
+      }
+      final path = _moveReferencedPath(
+        location.path,
+        from.path,
+        to.path,
+        directory: directory,
+      );
+      if (path == null) return location;
+      changed = true;
+      return to.copyWith(path: path);
+    }).toList();
+    final starred = from.remote.isEmpty && !from.absolute
+        ? state.starred.map((path) {
+            final moved = _moveReferencedPath(
+              path,
+              from.path,
+              to.path,
+              directory: directory,
+            );
+            if (moved == null) return path;
+            changed = true;
+            return moved;
+          }).toList()
+        : state.starred;
+    final connections = from.remote.isEmpty
+        ? state.connections
+        : state.connections.map((connection) {
+            if (connection.identifier != from.remote) return connection;
+            if (connection is! RemoteStorage) return connection;
+            var connectionChanged = false;
+            final connectionStarred = connection.starred.map((key, paths) {
+              return MapEntry(
+                key,
+                paths.map((path) {
+                  final moved = _moveReferencedPath(
+                    path,
+                    from.path,
+                    to.path,
+                    directory: directory,
+                  );
+                  if (moved == null) return path;
+                  connectionChanged = true;
+                  return moved;
+                }).toList(),
+              );
+            });
+            final pinnedPaths = connection.pinnedPaths.map((key, paths) {
+              return MapEntry(
+                key,
+                paths.map((path) {
+                  final moved = _moveReferencedPath(
+                    path,
+                    from.path,
+                    to.path,
+                    directory: directory,
+                  );
+                  if (moved == null) return path;
+                  connectionChanged = true;
+                  return moved;
+                }).toList(),
+              );
+            });
+            if (!connectionChanged) return connection;
+            changed = true;
+            return connection.copyWith(
+              starred: connectionStarred,
+              pinnedPaths: pinnedPaths,
+            );
+          }).toList();
+    if (!changed) return;
+    emit(
+      state.copyWith(
+        history: _normalizeRecentHistory(history),
+        starred: starred,
+        connections: connections,
+      ),
+    );
+    return save();
+  }
+
+  Future<void> resetRecentHistory() {
+    emit(state.copyWith(history: []));
+    return save();
+  }
+
+  Future<void> changeCameraControlsVisibility(CameraControlsVisibility value) {
+    emit(state.copyWith(cameraControlsVisibility: value));
+    return save();
+  }
+
+  Future<void> changeZoomPanelControls(ZoomPanelControls value) {
+    emit(state.copyWith(zoomPanelControls: value));
+    return save();
+  }
+
+  Future<void> changeRotationDisplay(RotationDisplay value) {
+    emit(state.copyWith(rotationDisplay: value));
+    return save();
+  }
+
+  Future<void> changeStartInFullScreen(bool value) {
+    emit(state.copyWith(startInFullScreen: value));
+    return save();
+  }
+
+  bool isFirstStart() {
+    return state.lastVersion == null;
+  }
+
+  Future<bool> hasNewerVersion() async {
+    final packageInfo = await PackageInfo.fromPlatform();
+    return packageInfo.version != state.lastVersion;
+  }
+
+  Future<void> updateLastVersion() async {
+    final packageInfo = await PackageInfo.fromPlatform();
+    emit(state.copyWith(lastVersion: packageInfo.version));
+    return save();
+  }
+
+  Future<void> save() => state.save();
+
+  Future<void> addRemote(ExternalStorage storage, {required String password}) {
+    emit(
+      state.copyWith(
+        connections: List.from(state.connections)
+          ..removeWhere((element) => element.identifier == storage.identifier)
+          ..add(storage),
+      ),
+    );
+    if (storage is RemoteStorage) {
+      passwordStorage.write(storage, password);
+    }
+    return save();
+  }
+
+  Future<void> deleteRemote(String identifier) async {
+    final remote = state.connections
+        .whereType<RemoteStorage>()
+        .firstWhereOrNull((storage) => storage.identifier == identifier);
+    if (remote != null) {
+      await connectionEncryptionPasswordStorage.delete(remote);
+    }
+    emit(
+      state.copyWith(
+        connections: state.connections
+            .where((r) => r.identifier != identifier)
+            .toList(),
+        defaultRemote: state.defaultRemote == identifier
+            ? ''
+            : state.defaultRemote,
+        automaticBackup: state.backupRemote == identifier
+            ? false
+            : state.automaticBackup,
+        backupRemote: state.backupRemote == identifier
+            ? ''
+            : state.backupRemote,
+        lastBackup: state.backupRemote == identifier ? null : state.lastBackup,
+      ),
+    );
+    await const FlutterSecureStorage().delete(key: 'connections/$identifier');
+    return save();
+  }
+
+  Future<void> setDefaultRemote(String identifier) async {
+    emit(state.copyWith(defaultRemote: identifier));
+    return save();
+  }
+
+  Future<void> enableConnectionEncryption(String identifier) async {
+    var changed = false;
+    final connections = state.connections.map((storage) {
+      if (storage is! RemoteStorage ||
+          storage.identifier != identifier ||
+          storage.isConnectionEncryptionEnabled) {
+        return storage;
+      }
+      changed = true;
+      return storage.copyWith(
+        extra: {...storage.extra, connectionEncryptionEnabledKey: true},
+      );
+    }).toList();
+    if (!changed) return;
+
+    emit(state.copyWith(connections: connections));
+    await save();
+  }
+
+  Future<void> addCache(String identifier, String current) async {
+    current = _normalizeCachePath(current);
+    emit(
+      state.copyWith(
+        connections: List<ExternalStorage>.from(state.connections).map((e) {
+          if (e.identifier == identifier && e is RemoteStorage) {
+            final documents = List<String>.from(
+              e.pinnedPaths['documents'] ?? [],
+            );
+            return e.copyWith(
+              pinnedPaths: {
+                ...e.pinnedPaths,
+                'documents': documents
+                  ..removeWhere((element) => element == current)
+                  ..add(current),
+              },
+            );
+          }
+          return e;
+        }).toList(),
+      ),
+    );
+    return save();
+  }
+
+  Future<void> removeCache(String identifier, String current) {
+    current = _normalizeCachePath(current);
+    emit(
+      state.copyWith(
+        connections: List<ExternalStorage>.from(state.connections).map((e) {
+          if (e.identifier == identifier && e is RemoteStorage) {
+            final documents = List<String>.from(
+              e.pinnedPaths['documents'] ?? [],
+            );
+            return e.copyWith(
+              pinnedPaths: {
+                ...e.pinnedPaths,
+                'documents': documents
+                  ..removeWhere((element) => element == current),
+              },
+            );
+          }
+          return e;
+        }).toList(),
+      ),
+    );
+    return save();
+  }
+
+  Future<void> updateLastSynced(String identifier) {
+    emit(
+      state.copyWith(
+        connections: List<ExternalStorage>.from(state.connections).map((e) {
+          if (e.identifier == identifier && e is RemoteStorage) {
+            return (e as dynamic).copyWith(lastSynced: DateTime.now().toUtc())
+                as ExternalStorage;
+          }
+          return e;
+        }).toList(),
+      ),
+    );
+    return save();
+  }
+
+  Future<void> clearCaches(String identifier) {
+    emit(
+      state.copyWith(
+        connections: List<ExternalStorage>.from(state.connections).map((e) {
+          if (e.identifier == identifier && e is RemoteStorage) {
+            return e.copyWith(pinnedPaths: const {});
+          }
+          return e;
+        }).toList(),
+      ),
+    );
+    return save();
+  }
+
+  Future<void> setNativeTitleBar([bool? value]) async {
+    if (kIsWeb || !isWindow) return;
+    await applyNativeTitleBar(value ?? state.nativeTitleBar);
+  }
+
+  Future<void> changeNativeTitleBar(bool value, [bool modify = true]) async {
+    if (modify) await setNativeTitleBar(value);
+    emit(state.copyWith(nativeTitleBar: value));
+    await save();
+  }
+
+  Future<void> changeSyncMode(SyncMode syncMode) {
+    emit(state.copyWith(syncMode: syncMode));
+    return save();
+  }
+
+  Future<void> changeBackupRemote(String identifier) {
+    final remote = state.connections
+        .whereType<RemoteStorage>()
+        .firstWhereOrNull((storage) => storage.identifier == identifier);
+    if (remote == null) return Future.value();
+    emit(state.copyWith(backupRemote: identifier, lastBackup: null));
+    return save();
+  }
+
+  Future<void> changeAutomaticBackup(bool enabled) {
+    if (enabled && state.getRemote(state.backupRemote) is! RemoteStorage) {
+      return Future.value();
+    }
+    emit(state.copyWith(automaticBackup: enabled));
+    return save();
+  }
+
+  Future<void> changeBackupInterval(Duration interval) {
+    if (interval < const Duration(hours: 1)) return Future.value();
+    emit(state.copyWith(backupIntervalMinutes: interval.inMinutes));
+    return save();
+  }
+
+  Future<void> updateLastBackup(DateTime lastBackup) {
+    emit(state.copyWith(lastBackup: lastBackup));
+    return save();
+  }
+
+  Future<void> changeInputConfiguration(InputConfiguration inputConfiguration) {
+    emit(state.copyWith(inputConfiguration: inputConfiguration));
+    return save();
+  }
+
+  ExternalStorage? getRemote([String? remote]) {
+    return state.getRemote(remote);
+  }
+
+  Future<void> toggleStarred(AssetLocation location) {
+    if (location.remote.isEmpty) {
+      final starred = state.starred.toList();
+      if (starred.contains(location.path)) {
+        starred.remove(location.path);
+      } else {
+        starred.add(location.path);
+      }
+      emit(state.copyWith(starred: starred));
+    } else {
+      final remote = getRemote(location.remote);
+      if (remote != null) {
+        final starred = remote.starred['']?.toList() ?? [];
+        if (starred.contains(location.path)) {
+          starred.remove(location.path);
+        } else {
+          starred.add(location.path);
+        }
+        emit(
+          state.copyWith(
+            connections: List<ExternalStorage>.from(state.connections).map((e) {
+              if (e.identifier == remote.identifier) {
+                return e.copyWith(starred: {'': starred});
+              }
+              return e;
+            }).toList(),
+          ),
+        );
+      }
+    }
+    return save();
+  }
+
+  Future<void> changeDefaultTemplate(String name) {
+    emit(state.copyWith(defaultTemplate: name));
+    return save();
+  }
+
+  Future<void> changeDefaultFileName(String pattern) {
+    final normalized = pattern.trim();
+    emit(
+      state.copyWith(
+        defaultFileName: normalized.isEmpty ? kDefaultFileName : normalized,
+      ),
+    );
+    return save();
+  }
+
+  Future<void> toggleFavoriteTemplate(FavoriteLocation template) {
+    final favorites = state.favoriteTemplates.toList();
+    if (favorites.contains(template)) {
+      favorites.remove(template);
+    } else {
+      favorites.add(template);
+    }
+    emit(state.copyWith(favoriteTemplates: favorites));
+    return save();
+  }
+
+  Future<void> changeNavigationRail(bool value) {
+    emit(state.copyWith(navigationRail: value));
+    return save();
+  }
+
+  Future<void> changeSortBy(SortBy value) {
+    emit(state.copyWith(sortBy: value));
+    return save();
+  }
+
+  Future<void> changeSortOrder(SortOrder value) {
+    emit(state.copyWith(sortOrder: value));
+    return save();
+  }
+
+  Future<void> changeImageScale(double value) {
+    emit(state.copyWith(imageScale: value));
+    return save();
+  }
+
+  Future<void> changePlatformTheme(PlatformTheme locale) {
+    emit(state.copyWith(platformTheme: locale));
+    return save();
+  }
+
+  Future<void> addRecentColors(SRGBColor color) async {
+    final recentColors = state.recentColors.toList();
+    recentColors.remove(color);
+    recentColors.insert(0, color);
+    if (recentColors.length > 5) {
+      recentColors.removeLast();
+    }
+    emit(state.copyWith(recentColors: recentColors));
+    return save();
+  }
+
+  Future<void> removeRecentColors(SRGBColor color) async {
+    final recentColors = state.recentColors.toList();
+    recentColors.remove(color);
+    emit(state.copyWith(recentColors: recentColors));
+    return save();
+  }
+
+  Future<void> addFlag(String flag) async {
+    final flags = state.flags.toSet();
+    flags.add(flag);
+    emit(state.copyWith(flags: flags.toList()));
+    return save();
+  }
+
+  Future<void> removeFlag(String flag) async {
+    final flags = state.flags.toList();
+    flags.remove(flag);
+    emit(state.copyWith(flags: flags));
+    return save();
+  }
+
+  Future<void> resetFlags() {
+    emit(state.copyWith(flags: []));
+    return save();
+  }
+
+  Future<void> changeSpreadPages(bool value) {
+    emit(state.copyWith(spreadPages: value));
+    return save();
+  }
+
+  Future<void> changeHighContrast(bool value) {
+    emit(state.copyWith(highContrast: value));
+    return save();
+  }
+
+  Future<void> changeGridView(bool value) {
+    emit(state.copyWith(gridView: value));
+    return save();
+  }
+
+  Future<void> toggleGridView() => changeGridView(!state.gridView);
+
+  Future<void> changeHideExtension(bool value) {
+    emit(state.copyWith(hideExtension: value));
+    return save();
+  }
+
+  Future<void> changeAutosave(bool? value, {bool delayed = false}) {
+    emit(
+      state.copyWith(
+        autosave: value ?? true,
+        showSaveButton: value == null,
+        delayedAutosave: delayed,
+      ),
+    );
+    return save();
+  }
+
+  Future<void> changeAutosaveDelaySeconds(int seconds) {
+    final normalized = seconds.clamp(1, 3600);
+    emit(state.copyWith(autosaveDelaySeconds: normalized));
+    return save();
+  }
+
+  Future<void> changeToolbarRows(int value) {
+    emit(state.copyWith(toolbarRows: value));
+    return save();
+  }
+
+  Future<void> changeHideCursorWhileDrawing(bool value) {
+    emit(state.copyWith(hideCursorWhileDrawing: value));
+    return save();
+  }
+
+  Future<void> changeNavigatorPosition(NavigatorPosition value) {
+    emit(state.copyWith(navigatorPosition: value));
+    return save();
+  }
+
+  Future<void> changeStartupBehavior(StartupBehavior behavior) {
+    emit(state.copyWith(onStartup: behavior));
+    return save();
+  }
+
+  Future<void> changeDocumentStatePersistence(
+    DocumentStatePersistenceSettings settings,
+  ) {
+    emit(state.copyWith(documentStatePersistence: settings));
+    return save();
+  }
+
+  Future<void> changeSimpleToolbarVisibility(
+    SimpleToolbarVisibility visibility,
+  ) {
+    emit(state.copyWith(simpleToolbarVisibility: visibility));
+    return save();
+  }
+
+  Future<void> changeRenderResolution(RenderResolution value) {
+    emit(state.copyWith(renderResolution: value));
+    return save();
+  }
+
+  Future<void> changeMoveOnGesture(bool value) {
+    emit(state.copyWith(moveOnGesture: value));
+    return save();
+  }
+
+  Future<void> changeRotateOnGesture(bool value) {
+    emit(state.copyWith(rotateOnGesture: value));
+    return save();
+  }
+
+  Future<void> changeSwamp(String swamp) {
+    emit(state.copyWith(swamps: [swamp]));
+    return save();
+  }
+
+  Future<void> changeIgnorePressure(IgnorePressure value) {
+    emit(state.copyWith(ignorePressure: value));
+    return save();
+  }
+
+  Future<void> importSettings(String data) {
+    try {
+      final decoded = _decodeJsonMapOrNull(data);
+      if (decoded == null) {
+        throw const FormatException('Invalid settings JSON');
+      }
+      final settings = ButterflySettings.fromJson(decoded)
+          .copyWith(history: state.history, connections: state.connections);
+      emit(settings);
+      return save();
+    } catch (e) {
+      return Future.error(FormatException('Invalid settings file: $e'));
+    }
+  }
+
+  Future<String> exportSettings() async {
+    return json.encode(state.toJson());
+  }
+
+  Future<void> changeSelectedPalette(PackAssetLocation palette) {
+    emit(state.copyWith(selectedPalette: palette));
+    return save();
+  }
+
+  Future<void> changeShowVerboseLogs(bool value) {
+    emit(state.copyWith(showVerboseLogs: value));
+    return save();
+  }
+
+  Future<void> changeShowThumbnails(bool value) {
+    emit(state.copyWith(showThumbnails: value));
+    return save();
+  }
+
+  Future<void> changeShowNavigatorPreviews(bool value) {
+    emit(state.copyWith(showNavigatorPreviews: value));
+    return save();
+  }
+
+  Future<void> changeLimitViewportMultiplier(double? value) {
+    emit(state.copyWith(limitViewportMultiplier: value));
+    return save();
+  }
+
+  Future<void> changeLimitViewportPositive(bool value) {
+    emit(state.copyWith(limitViewportPositive: value));
+    return save();
+  }
+
+  Future<void> changeBringMovedElementsToFront(bool value) {
+    emit(state.copyWith(bringMovedElementsToFront: value));
+    return save();
+  }
+
+  Future<void> toggleFavoriteTool(PackAssetLocation template) {
+    final favorites = state.favoriteTools.toList();
+    if (favorites.contains(template)) {
+      favorites.remove(template);
+    } else {
+      favorites.add(template);
+    }
+    emit(state.copyWith(favoriteTools: favorites));
+    return save();
+  }
+}

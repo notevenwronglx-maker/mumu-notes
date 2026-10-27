@@ -1,0 +1,1693 @@
+{
+  "open": "Megnyit",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Reveal in file explorer",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Beállítások",
+  "personalization": "Személyre szabás",
+  "theme": "Kinézet",
+  "darkTheme": "Sötét téma",
+  "lightTheme": "Világos téma",
+  "systemTheme": "Rendszer téma",
+  "view": "Megtekintés",
+  "contentViewport": "Content Viewport",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Limit Viewport to positive coordinates",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Off",
+  "canvas": "Canvas",
+  "interface": "Interface",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Szerkesztés",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Exportálás",
+  "save": "Mentés",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Nagyítás",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Nagyítás",
+  "zoomOut": "Kicsinyítés",
+  "resetZoom": "Eredeti nagyítás visszaállítása",
+  "strokeWidth": "Vastagság",
+  "strokeStyle": "Stroke style",
+  "dashLength": "Dash length",
+  "gapLength": "Gap length",
+  "includeEraser": "Radír?",
+  "thinning": "Vékonyítás",
+  "pen": "Toll",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Inverted Stylus",
+  "eraser": "Radír",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Stroke",
+  "label": "Címke",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Törlés",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Biztos vagy benne?",
+  "reallyDelete": "Valóban törölni akarod ezt a tételt?",
+  "no": "Nem",
+  "yes": "Igen",
+  "undo": "Mégse",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Újra",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "Általános",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Vágólapra másolva",
+  "loading": "Betöltés...",
+  "enterText": "Adja meg a szöveget",
+  "size": "Méret",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Szélesség",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Magasság",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Mennyiség",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Szóköz",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Háttér",
+  "applyBackground": "Apply background",
+  "applyAreas": "Apply areas",
+  "currentPage": "Current page",
+  "allPages": "All pages",
+  "box": "Doboz",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "A készüléken",
+  "systemLocale": "Helyi rendszer",
+  "information": "Információ",
+  "license": "Licensz",
+  "imprint": "Impresszum",
+  "privacypolicy": "Adatvédelmi nyilatkozat",
+  "sourceCode": "Forráskód",
+  "documentation": "Dokumentáció",
+  "changelog": "Változások listája",
+  "source": "Forráskód",
+  "existOverride": "Ez az elem már létezik. Felülírja?",
+  "description": "Leírás",
+  "fill": "Kitöltés",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Alapértelmezett paletta",
+  "highlighter": "Kiemelés",
+  "combinePaths": "Combine paths",
+  "add": "Hozzáadás",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Törlés",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Biztosan törölni szeretné?",
+  "resetPalette": "Paletta visszaállítása",
+  "custom": "Egyedi",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Díszítés",
+  "underline": "Aláhúzás",
+  "overline": "Felülvonás",
+  "strikethrough": "Áthúzás",
+  "thickness": "Vastagság",
+  "style": "Stílus",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Szilárd",
+  "solidColor": "Solid color",
+  "gradient": "Gradient",
+  "gradientType": "Gradient type",
+  "linear": "Linear",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Dupla",
+  "dotted": "Pontozott",
+  "dottedDark": "Dotted dark",
+  "dashed": "Szaggatott",
+  "wavy": "Hullámos",
+  "fontWeight": "Betűvastagság",
+  "normal": "Normál",
+  "bold": "Félkövér",
+  "italic": "Dőlt",
+  "clipboard": "Vágólap",
+  "file": "Fájl",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Adat",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Megosztás",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Tagolás",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Kép",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Adja meg a webcíмет",
+  "scale": "Skálázás",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Súgó",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Biztosan vissza szeretné állítani?",
+  "whatToDo": "Mit akar tenni?",
+  "ignore": "Figyelmen kívül hagyás",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Biztonsági mentés",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Backup connection",
+  "automaticBackups": "Automatic backups",
+  "automaticBackupsDescription": "Creates backups while Butterfly is running.",
+  "backupInterval": "Backup interval",
+  "backupNow": "Back up now",
+  "lastBackup": "Last backup",
+  "backupCreated": "Backup created",
+  "hour": "hour",
+  "hours": "hours",
+  "day": "day",
+  "days": "days",
+  "week": "week",
+  "weeks": "weeks",
+  "createdInNewerVersion": "A fájl {fileName} egy újabb verzióban készült ({fileVersion}). Mit akar csinálni a fájlal?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Útvonalpontok",
+  "origin": "Származás",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "Importálás",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "Új",
+  "selectElement": "Elemek kiválasztása",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Shift",
+  "altKey": "Alt",
+  "copyVersion": "Verzió másolása",
+  "input": "Beviteli mód",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Viselkedés",
+  "dataDirectory": "Adatmappa",
+  "warning": "Warning",
+  "platformExperimentalWarning": "Warning: This setting is experimental and can have problems on this platform.",
+  "changeDataDirectoryWarningContent": "Are you sure you want to change the data folder? You should make a backup of your data before proceeding.",
+  "defaultPath": "Alapértelmezett útvonal",
+  "dateFormat": "Időformátum",
+  "updatedAt": "Frissítve:{dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Létrehozva:{dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Átnevezés",
+  "duplicate": "Másolat",
+  "hand": "Kéz",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Könyvtár",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Áthelyezés",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Másolás",
+  "openContextMenu": "Open context menu",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Vissza",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Forward",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Függőleges nagyítás",
+  "shapeDetection": "Forma felismerés",
+  "delay": "Késleltetés",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Alapértelmezett réteg",
+  "layer": "Réteg",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Rétegek",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "Nincs beállítva",
+  "enterLayer": "Írd be az új réteg nevét",
+  "eraseShapes": "Erase shapes",
+  "eraseShapeModeNone": "Don't erase shapes",
+  "eraseShapeModeTouchEdges": "Erase when touching edges",
+  "eraseShapeModeTouchAnywhere": "Erase when touching anywhere",
+  "selectElementModeTouchEdges": "Select when touching edges",
+  "selectElementModeTouchAnywhere": "Select when touching anywhere",
+  "selectElements": "Elemek kiválasztása",
+  "deleteElements": "Elemek törlése",
+  "eraseAllElements": "Erase all elements",
+  "deleteElementsConfirm": "Valóban törölni kívánja a kiválasztott elemeket?",
+  "selectCustomCollection": "Egyedi kollekció kiválasztása",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Érzékenység",
+  "selectionTolerance": "Selection tolerance",
+  "selectionToleranceDescription": "How close a pointer must be to an element or area to select it. Higher values make selection easier.",
+  "selectionHandleSensitivity": "Selection handle hit area",
+  "selectionHandleSensitivityDescription": "Size of the hit area around selection and area handles for all pointer types.",
+  "panGestureSensitivity": "Pan gesture sensitivity",
+  "panGestureSensitivityDescription": "Canvas movement from touch or trackpad gestures. Higher values move the canvas farther.",
+  "zoomGestureSensitivity": "Continuous zoom sensitivity",
+  "zoomGestureSensitivityDescription": "Zoom from pinching, trackpad gestures, and Ctrl+scroll. Higher values zoom farther.",
+  "rotationGestureSensitivity": "Rotation gesture sensitivity",
+  "rotationGestureSensitivityDescription": "Canvas rotation from gestures. Higher values rotate farther.",
+  "scrollPanSensitivity": "Scroll pan sensitivity",
+  "scrollPanSensitivityDescription": "Canvas movement from mouse wheel and trackpad scrolling. Higher values pan farther.",
+  "horizontal": "Vízszintes",
+  "vertical": "Függőleges",
+  "plain": "Sima",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Világos",
+  "ruled": "Szabályzott",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Négyzetrácsos",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Zene",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Sötét",
+  "plainDark": "Plain dark",
+  "ruledDark": "Szabályzott sötét",
+  "quadDark": "Négyzetrácsos sötét",
+  "musicDark": "Zene sötét",
+  "templates": "Sablonok",
+  "untitled": "Névtelen",
+  "createTemplate": "Sablon létrehozása",
+  "createTemplateContent": "Tényleg szeretne sablont létrehozni ebből a dokumentumból? Az eredeti dokumentum törölve lesz.",
+  "fileName": "File name",
+  "defaultFileName": "Default file name",
+  "templateFileNameDescription": "Documents opened from the template picker are saved automatically with this name. Templates without a name use the default configured in Data settings. Combine your own text with {dateExample} and {timeExample}. Characters that are not allowed in file names will be rejected.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Preview",
+  "replace": "Kicserélés",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Tényleg ki akarja cserélni a sablont? ez a művelet visszavonhatatlan!",
+  "defaultTemplate": "Alapértelmezett sablon",
+  "insert": "Beillesztés",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Dokumentum",
+  "documentStates": "Document states",
+  "camera": "Kamera",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Nyomtatott dokumentum",
+  "selectCamera": "Kamera kiválasztása",
+  "changeDocumentPath": "Dokumentum útvonal megváltoztatása",
+  "deleteWholeStroke": "Teljes vonás törlése",
+  "alpha": "Áttetszőség",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Terület",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Terület kiválasztása",
+  "aspectRatio": "Oldalarány",
+  "presets": "Előbeállítások",
+  "pagePortrait": "Álló oldal",
+  "pageLandscape": "Fekvő oldal",
+  "square": "Négyzet",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Területek",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Írd be a terület nevét",
+  "exitArea": "Kilépés a területből",
+  "currentArea": "Aktuális terület",
+  "design": "Tervezés",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Szöveg",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Szia, Linwood Butterfly {codeName} vagyok",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "Ingyenes és nyílt forráskódú rajzolófelület!",
+  "updated": "Az alkalmazás {version} verzióra frissült",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Kiadási megjegyzések",
+  "constraints": "Korlátozások",
+  "scaled": "Méretezett",
+  "fixed": "Rögzített",
+  "dynamicContent": "Dinamikus",
+  "none": "Nincs",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Terület bevonása",
+  "verticalAlignment": "Függőleges igazítás",
+  "horizontalAlignment": "Vízszintes igazítás",
+  "top": "Fent",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Közép",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Alsó",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Bal",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Jobb",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Sorkizárt",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Korlátozás",
+  "length": "Hosszúság",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "Exportálás SVG-be",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Válasszon ki oldalakat",
+  "recentFiles": "Legutóbbi fájlok",
+  "start": "Indítás",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "Nincsenek legutóbbi fájlok",
+  "countPages": "{count,plural, =0{Nincs oldal} =1{1 oldal} other{{count} oldal}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Oldal {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Kilépés",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "Nincsenek elemek",
+  "invertSelection": "Kijelölés megfordítása",
+  "errorWhileImporting": "Hiba az importálás során",
+  "errorWhileImportingContent": "Hiba történt a fájl megnyitása közben",
+  "showDetails": "Részletek megjelenítése",
+  "hideDetails": "Részletek elrejtése",
+  "error": "Hiba",
+  "stackTrace": "Hívásverem",
+  "laser": "Lézer",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Időtartam",
+  "quality": "Minőség",
+  "exportPdf": "PDF exportálása",
+  "local": "Helyi",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Kapcsolat hozzáadása",
+  "connections": "Kapcsolatok",
+  "noConnections": "Nincsenek kapcsolatok",
+  "url": "Webcím",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "The full WebDAV URL provided by your storage provider",
+  "connect": "Csatlakozás",
+  "username": "Felhasználónév",
+  "password": "Jelszó",
+  "authenticationPassword": "Authentication password",
+  "documentEncryptionPassword": "Document encryption password",
+  "documentEncryptionPasswordDescription": "Encrypts documents stored in this connection. Leave empty to keep them unencrypted",
+  "documentEncryptionEnabled": "Document encryption enabled",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Add document encryption password",
+  "changeDocumentEncryptionPassword": "Change document encryption password",
+  "webNotSupported": "A web nem támogatott",
+  "advanced": "Speciális",
+  "symmetric": "Symmetric",
+  "perSide": "Per side",
+  "directory": "Könyvtár",
+  "connectionNameDescription": "Only used to identify this connection in Butterfly",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Dokumentumok könyvtára",
+  "templatesDirectory": "Sablonok könyvtára",
+  "errorWhileCreatingConnection": "Hiba a kapcsolat létrehozása során",
+  "cannotConnect": "Nem tud csatlakozni",
+  "urlNotValid": "Az URL nem érvényes",
+  "icon": "Ikon",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Optional URL of an image to use as the connection icon",
+  "update": "Frissítés",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Frissítés elérhető",
+  "stable": "Stabil",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Éjszakai",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Frissítések keresése",
+  "checkForUpdatesWarning": "A frissítések keresése csatlakozik a Butterfly weboldalhoz az információk lekéréséhez.",
+  "usingLatestStable": "A legújabb stabil verziót használja",
+  "usingLatestNightly": "A legújabb éjszakai verziót használja",
+  "currentVersion": "Jelenlegi verzió",
+  "updateNow": "Frissítés most",
+  "shape": "Forma",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Table",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "row": "Row",
+  "column": "Column",
+  "insertRowBefore": "Insert row before",
+  "insertRowAfter": "Insert row after",
+  "insertColumnBefore": "Insert column before",
+  "insertColumnAfter": "Insert column after",
+  "deleteRow": "Delete row",
+  "deleteColumn": "Delete column",
+  "cellColor": "Cell color",
+  "cellBorders": "Cell borders",
+  "cellBorder": "Cell border",
+  "horizontalBorder": "Horizontal border",
+  "verticalBorder": "Vertical border",
+  "rowHeight": "Row height",
+  "columnWidth": "Column width",
+  "border": "Border",
+  "circle": "Kör",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Téglalap",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Háromszög",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Vonal",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Sarok sugara",
+  "topLeft": "Bal felső",
+  "topRight": "Jobb felső",
+  "bottomLeft": "Bal alsó",
+  "bottomRight": "Jobb alsó",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Gyorsítótárak",
+  "manage": "Kezelés",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Gyorsítótárak törlése",
+  "createCache": "Gyorsítótár létrehozása",
+  "thirdPartyLicenses": "Harmadik fél licenszei",
+  "syncing": "Szinkronizálás...",
+  "synced": "Szinkronizálva",
+  "notSynced": "Nincs szinkronizálva",
+  "conflict": "Konfliktus",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Helyi megtartása",
+  "keepConnection": "Kapcsolat megtartása",
+  "keepBoth": "Mindkettő megtartása",
+  "forAll": "Mindegyikre",
+  "fileConflict": "{file} és {connection} között konfliktus van",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Offline",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "Legfrissebb helyi verzió",
+  "connectionLatest": "Legfrissebb kapcsolati verzió",
+  "path": "Útvonal",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Könyvtár szinkronizálva",
+  "syncRootDirectory": "Szinkron gyökérkönyvtár",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Automatically enables stylus-only mode when a stylus is detected. This setting only lasts for the current session.",
+  "penOnlyInputOnDescription": "Always reject touch and mouse input, only accept stylus input.",
+  "penOnlyInputOffDescription": "Accept all input types including touch, mouse, and stylus.",
+  "automatic": "Automatic",
+  "alwaysOn": "Always on",
+  "alwaysOff": "Always off",
+  "showPenOnlyToggle": "Show stylus only toggle",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Beviteli gesztusok",
+  "inputGesturesDescription": "Lets you move and zoom the canvas with touch gestures, even while a drawing tool is selected.",
+  "nativeTitleBar": "Natív címsor",
+  "mode": "Mode",
+  "syncMode": "Szinkronizációs mód",
+  "connection": "Kapcsolat",
+  "always": "Mindig",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "Mobilhálózat letiltva",
+  "syncModeAlwaysDescription": "Syncs remote files automatically whenever they change.",
+  "syncModeNoMobileDescription": "Syncs automatically except on mobile devices, which can reduce mobile data usage.",
+  "manual": "Kézi",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Only syncs when you start it yourself.",
+  "search": "Keresés",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Tulajdonságok",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Rögzítés",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Rögzítés megszüntetése",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Elem",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Festő",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Pozíció",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Megjegyzés",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Csomagok",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Csomag",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "Több",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Név bekérése",
+  "areaIndex": "Terület {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Teljes képernyős indítás",
+  "inputs": "Bemenetek",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Egér",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Érintés",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Billentyűzet",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Billentyűparancsok",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Középső",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "Első",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "Második",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Aktív eszköz",
+  "activeToolDescription": "Használja a kiválasztott eszközt az eszköztáron",
+  "handTool": "Kéz eszköz",
+  "handToolDescription": "Húzással mozgassa a vásznat",
+  "toolOnToolbar": "Konkrét eszköz az eszköztáron",
+  "toolOnToolbarDescription": "Használja az eszközt az eszköztáron a megadott pozícióban, balról számítva",
+  "toolOnToolbarShort": "Eszköztár pozíció: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Eszközök",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Rács megjelenítése",
+  "grid": "Rács",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Vonalzó",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Szög",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Jelentés",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "Új könyvtár",
+  "createPack": "Csomag létrehozása",
+  "editPack": "Csomag szerkesztése",
+  "packsDirectory": "Csomagok könyvtára",
+  "stamp": "Bélyegző",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Hozzáadás a csomaghoz",
+  "sureImportPack": "Biztosan importálni szeretné a csomagot?",
+  "byAuthor": "{author} által",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Szerző",
+  "addAsset": "Erőforrás hozzáadása",
+  "editAsset": "Erőforrás szerkesztése",
+  "scope": "Hatókör",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "Jelenleg nincsenek elérhető csomagok",
+  "components": "Komponensek",
+  "waypoint": "Útvonalpont",
+  "actions": "Műveletek",
+  "painters": "Festők",
+  "breakingChangesTitle": "Visszafelé nem kompatibilis változások",
+  "breakingChangesMessage": "Ebben a verzióban vannak visszafelé nem kompatibilis változások. Kérjük, olvassa el a változáslistát a frissítés előtt. A jelenlegi fájlverzió: {version}, az új verzió: {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Stílusok",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Bekezdés",
+  "fontFamily": "Betűcsalád",
+  "smoothing": "Simítás",
+  "streamline": "Letisztítás",
+  "presentation": "Prezentáció",
+  "simple": "Simple",
+  "createPresentation": "Create presentation",
+  "addSlide": "Add new slide",
+  "updateSlide": "Update slide",
+  "deleteSlide": "Delete slide",
+  "transitionDuration": "Transition duration",
+  "transitionDurationDescription": "How long the camera takes to move to the next slide. On the last slide, this is used when you add a new one.",
+  "transitionDurationValue": "{seconds}s transition",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Add keyframe here",
+  "updateKeyframe": "Update from current camera",
+  "deleteKeyframe": "Delete keyframe",
+  "markAsSlide": "Mark as slide",
+  "removeSlideMarker": "Remove slide marker",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "Erőforrás kiválasztása",
+  "clearStyle": "Stílus törlése",
+  "unknownImportType": "Ismeretlen import típus",
+  "sureImportTemplate": "Biztosan importálni szeretné a sablont?",
+  "frame": "Keret",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Lejátszás",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Videó",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Töréspont",
+  "presentationControls": "Prezentációvezérlők",
+  "nextSlide": "Következő dia",
+  "nextSlideDescription": "Lapozzon jobbra vagy nyomja meg a jobb nyíl billentyűt a következő diára lépéshez",
+  "previousSlide": "Előző dia",
+  "previousSlideDescription": "Lapozzon balra vagy nyomja meg a bal nyíl billentyűt az előző diára lépéshez",
+  "exitPresentation": "Kilépés a prezentációból",
+  "exitPresentationDescription": "Nyomja meg az Esc billentyűt vagy lapozzon lefelé a prezentációból való kilépéshez",
+  "pausePresentation": "Prezentáció szüneteltetése",
+  "pausePresentationDescription": "Érintse meg a képernyőt vagy nyomja meg a szóköz billentyűt a prezentáció szüneteltetéséhez vagy folytatásához",
+  "keyframe": "Kulcskocka",
+  "endOfPresentation": "Elérte a prezentáció végét",
+  "startOfPresentation": "Elérte a prezentáció elejét",
+  "palettes": "Paletták",
+  "headline": "Főcím {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Kód",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Idézet",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Hivatkozás",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Jelölőnégyzet",
+  "deleted": "Törölve",
+  "emphasis": "Kiemelés",
+  "listBullet": "Felsorolásjel",
+  "strong": "Félkövér",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Kezdőlap",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Fájlok",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Rendezés",
+  "location": "Hely",
+  "whatsNew": "Mi újdonság?",
+  "unstar": "Csillag eltávolítása",
+  "star": "Csillag hozzáadása",
+  "goUp": "Fel",
+  "created": "Létrehozva",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Módosítva",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Gyors kezdés",
+  "noTemplates": "Jelenleg nincsenek elérhető sablonok",
+  "importCorePack": "Alapcsomag importálása",
+  "importCorePackDescription": "Importálja az alapcsomagot, amely az összes alapvető erőforrást tartalmazza a kezdéshez. Ez felülírja a jelenlegi alapcsomagot.",
+  "never": "Soha",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Csak frissítéseknél",
+  "visibility": "Láthatóság",
+  "captureThumbnail": "Bélyegkép készítése",
+  "autoThumbnail": "Update thumbnail on close",
+  "autoThumbnailDescription": "Capture the current view when you close this document. Manually capturing a thumbnail turns this off.",
+  "capturedThumbnail": "Bélyegkép sikeresen rögzítve",
+  "chooseLabelMode": "Címkemód választása",
+  "foreground": "Előtér",
+  "version": "Verzió",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Tároló",
+  "pages": "Oldalak",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Navigátor",
+  "arrange": "Elrendezés",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Előtérbe hozás",
+  "sendToBack": "Háttérbe küldés",
+  "bringForward": "Előrébb hozás",
+  "sendBackward": "Hátrébb hozás",
+  "rotation": "Elforgatás",
+  "rotationStep": "Rotation step",
+  "zoomStep": "Zoom step",
+  "zoomStepDescription": "Amount used by the zoom in and zoom out keyboard shortcuts. Continuous zoom gestures use their own sensitivity setting.",
+  "direction": "Direction",
+  "onlyAvailableLargerScreen": "Csak nagyobb képernyőkön érhető el",
+  "toolbarPosition": "Eszköztár pozíció",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Elforgatás",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Rotate left",
+  "rotateRight": "Rotate right",
+  "spacer": "Helykitöltő",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Navigációs sáv",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Kivágás",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Beszúrás elé",
+  "insertAfter": "Beszúrás után",
+  "insertFirst": "Beszúrás elejére",
+  "insertLast": "Beszúrás végére",
+  "paste": "Beillesztés",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Növekvő",
+  "descending": "Csökkenő",
+  "imageScale": "Kép méretezése",
+  "svgScale": "SVG scale",
+  "noImageSelected": "No image selected",
+  "noSvgSelected": "No SVG selected",
+  "select": "Kiválasztás",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Eszköz",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Textúra",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Platform téma",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Asztali",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Mobil",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Felület",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Minta",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Biztosan be szeretné zárni a dokumentumot?",
+  "thereAreUnsavedChanges": "Mentetlen módosítások vannak",
+  "page": "Oldal",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "ICE szerverek",
+  "collaboration": "Együttműködés",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "WebRTC",
+  "webSocket": "WebSocket",
+  "iceServer": "ICE szerver",
+  "port": "Port",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Típus",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Oldal",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "Kliens",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Szerver",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Nézet váltása",
+  "lasso": "Lasszó",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Felület elrejtése",
+  "density": "Sűrűség",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Tömör",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Kényelmes",
+  "standard": "Normál",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Zárolás",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Elem hozzáadása",
+  "notDefaultConnection": "Nem alapértelmezett kapcsolat",
+  "defaultConnection": "Alapértelmezett kapcsolat",
+  "hide": "Elrejtés",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Megjelenítés",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "Szüneteltetés",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Megállítás",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Frissítés",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "Nyomtatás",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Színpipetta",
+  "users": "Felhasználók",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Kísérletek",
+  "experimentsWarning": "Ezek a funkciók kísérleti jellegűek és bármikor megváltozhatnak, működésképtelenné válhatnak vagy eltűnhetnek. Bekapcsolásuk instabilitást vagy adatvesztést okozhat. Elővigyázatossággal járjon el. Kérjük, jelentsen minden hibát.",
+  "address": "Cím",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Oldalakra terítés",
+  "rootDirectorySpecifiedDescription": "A gyökérkönyvtár meg van adva. Az összes speciális könyvtárútvonal ehhez a könyvtárhoz lesz relatív. Hagyja üresen a könyvtártípus letiltásához.",
+  "rootDirectoryNotSpecifiedDescription": "A gyökérkönyvtár nincs megadva. Név megadása szükséges. Minden speciális könyvtárútvonal abszolút lesz. Hagyja üresen a könyvtártípus letiltásához.",
+  "unsecureConnectionTitle": "Nem biztonságos kapcsolat",
+  "unsecureConnectionMessage": "A kapcsolat nem biztonságos. Ez biztonsági kockázatot jelenthet. Csak abban az esetben folytassa, ha megbízik a kapcsolatban. A SHA1 ujjlenyomat: {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Mindenképpen folytat",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Show navigator previews",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Show cached preview thumbnails in the areas and pages navigators",
+  "highContrast": "Magas kontraszt",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "Ennek az értéknek érvényes számnak kell lennie",
+  "createAreas": "Területek létrehozása",
+  "autosave": "Automatikus mentés",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Invertálás",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "Műveletek",
+  "medium": "Közepes",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "Nagy",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Eszköztár méret",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Összes hozzáadása",
+  "onlyCurrentPage": "Csak aktuális oldal",
+  "smoothNavigation": "Sima navigáció",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Edge pan area switching",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Use Android SAF",
+  "exact": "Pontos",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "Beágyazott",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Eszköztár sorok",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "Mutató teszt",
+  "pressure": "Nyomás",
+  "small": "Kicsi",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Apró",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Mindet kijelöl",
+  "overrideTools": "Eszközök felülírása",
+  "hideCursorWhileDrawing": "Rajzolás közben a kurzor elrejtése",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Telepítve",
+  "install": "Telepítés",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Kijelölés törlése",
+  "changeCollection": "Gyűjtemény módosítása",
+  "collections": "Gyűjtemények",
+  "fullSelection": "Teljes kijelölés",
+  "collection": "Gyűjtemény",
+  "defaultCollection": "Alapértelmezett gyűjtemény",
+  "scroll": "Görgetés",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "Indításkor",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Kezdőképernyő",
+  "lastNote": "Utolsó jegyzet",
+  "newNote": "Új jegyzet",
+  "moveToLayer": "Move to layer",
+  "createLayer": "Create layer",
+  "merge": "Egyesítés",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Fel",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Le",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "Egyéb",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{Nincsenek elemek} =1{1 elem} other{{count} elem}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Színes eszköztár",
+  "yesButShowButtons": "Igen, de gombok megjelenítése",
+  "optionsPanelPosition": "Opciópanel pozíciója",
+  "hideDuration": "Elrejtés időtartama",
+  "animation": "Animáció",
+  "performance": "Teljesítmény",
+  "performanceDescription": "Sebességre és memóriahasználatra optimalizált. A képbe csak a látható rész kerül beégetésre.",
+  "normalDescription": "Minőség és teljesítmény kiegyensúlyozása: a kép a látható terület másfélszeresét tartalmazza, gördítés során simább átmenetet biztosítva.",
+  "high": "Magas",
+  "highDescription": "Maximizes quality at the cost of performance. Bakes an image covering 2 times the visible area, ensuring seamless rendering even during rapid scrolling or zooming.",
+  "renderResolution": "Renderelési felbontás",
+  "translate": "Fordítás",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Nem titkosított",
+  "encrypted": "Titkosított",
+  "encryptDocumentMessage": "A dokumentum titkosításához kattintson ide",
+  "unencryptDocumentMessage": "A dokumentum titkosításának feloldásához kattintson ide",
+  "unencrypt": "Titkosítás feloldása",
+  "encrypt": "Titkosítás",
+  "encryptWarning": "Ez titkosítja a dokumentumot. A jelszót meg kell jegyeznie a visszafejtéshez.",
+  "unencryptWarning": "Ez feloldja a dokumentum titkosítását. A jelszó eltávolításra kerül, és bárki, akinek hozzáférése van, meg tudja nyitni.",
+  "confirmPassword": "Jelszó megerősítése",
+  "passwordMismatch": "A jelszavak nem egyeznek",
+  "action": "Művelet",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "SVG szöveg",
+  "offset": "Eltolás",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "End",
+  "radius": "Radius",
+  "focalPoint": "Focal point",
+  "useOffCenterStartPoint": "Use an off-center start point",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Color stops",
+  "addStop": "Add stop",
+  "positionDependent": "Pozíciófüggő",
+  "flipHorizontal": "Vízszintes tükrözés",
+  "flipVertical": "Függőleges tükrözés",
+  "grayscale": "Szürkeárnyalatos",
+  "moveOnGesture": "Mozgatás gesztussal",
+  "exportAllFiles": "Minden fájl exportálása",
+  "restoreSettingsFromFile": "Beállítások visszaállítása fájlból",
+  "resetAllSettings": "Reset all settings",
+  "exportSettingsToFile": "Beállítások exportálása fájlba",
+  "barcode": "Vonalkód",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Vonalkód típusa",
+  "qrCode": "QR-kód",
+  "dataMatrix": "Adatmátrix",
+  "code128": "Code 128",
+  "defaultUserName": "Felhasználó {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Mozgatás balra",
+  "moveRight": "Mozgatás jobbra",
+  "bundledPacks": "Beépített csomagok",
+  "component": "Component",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Komponens kiválasztása",
+  "bundlePackInDocument": "Csomag beágyazása dokumentumba",
+  "bundledPacksDescription": "A beépített csomagok a dokumentumba vannak ágyazva, és csak a dokumentummal együtt oszthatók meg. Az erőforrások csak akkor használhatók a dokumentumban, ha a csomag telepítve van. A csomagok telepítéséhez kattintson rájuk.",
+  "fillAlpha": "Kitöltés átlátszósága",
+  "packagedFile": "Csomagolt fájl",
+  "rawFile": "Nyers fájl",
+  "webSocketDescription": "Az eszköz tárhelyszolgáltatóként működik, így a kollaborátorok csak ugyanazon a hálózaton csatlakozhatnak, vagy bárhonnan, ha a hálózati útválasztón engedélyezi a port továbbítását.",
+  "swampDescription": "Az üzeneteket egy biztonságos relé szerver továbbítja, mely végpontok közötti titkosítást biztosít. A munkamenet létrehozásához Swamp szerver címre van szükség.",
+  "createRawNote": "Nyers jegyzet létrehozása",
+  "polygon": "Sokszög",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Alakzat befejezése",
+  "submit": "Küldés",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Math",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ignore pressure",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignores the first pressure reading, which can be inaccurate on some styluses.",
+  "ignorePressureNeverDescription": "Uses every pressure reading from the stylus.",
+  "ignorePressureAlwaysDescription": "Ignores pressure and treats the stylus as fully pressed.",
+  "temporary": "Temporary",
+  "simpleToolbarVisibility": "Simple toolbar visibility",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Autosave delay",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Saved",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Saving...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Read only",
+  "saveDelayed": "Save delayed",
+  "unsaved": "Unsaved",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "There are currently no areas to export. Please select at least one area using the plus button in the top right corner or add all areas from the current page or from the whole document below.",
+  "densityMaximize": "Teljes méret",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Customize shortcuts",
+  "clickToSave": "Click to save",
+  "toolbars": "Toolbars",
+  "logs": "Logs",
+  "ruledSimple": "Ruled simple",
+  "ruledSimpleDark": "Ruled simple dark",
+  "quadSimple": "Quad simple",
+  "quadSimpleDark": "Quad simple dark",
+  "redLinedRuled": "Red lined ruled",
+  "redLinedRuledDark": "Red lined ruled dark",
+  "redLinedQuad": "Red lined quad",
+  "redLinedQuadDark": "Red lined quad dark",
+  "noItemSelected": "No item selected",
+  "areaAsInitial": "Open area as initial view",
+  "swap": "Swap",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Hide file extension",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "New from template",
+  "exportAsTextShortcut": "Export as text",
+  "exportAsImageShortcut": "Export as image",
+  "exportAsPdfShortcut": "Export as PDF",
+  "exportAsSvgShortcut": "Export as SVG",
+  "changePathShortcut": "Change path",
+  "fullScreenShortcut": "Full screen",
+  "doublePressAction": "Double press action",
+  "triplePressAction": "Triple press action",
+  "twoFingerTap": "Two-finger tap",
+  "threeFingerTap": "Three-finger tap",
+  "longPress": "Long press",
+  "toolNumber": "Tool {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Hold Shortcuts",
+  "holdShortcutsDescription": "Hold a key to temporarily switch to another tool. Releasing the key switches back to the previous tool.",
+  "key": "Key",
+  "bringMovedElementsToFront": "Bring moved elements to front",
+  "addTool": "Add tool",
+  "nextPage": "Next page",
+  "previousPage": "Previous page",
+  "persistenceDocumentStates": "Persistent document states",
+  "persistentStatesEnabled": "Enable persistent document states",
+  "persistentStateCurrentPage": "Current page",
+  "persistentStateViewport": "Viewport position and zoom",
+  "persistentStateSelectedTool": "Selected tool",
+  "persistentStateMaxRecords": "Maximum stored records",
+  "persistentStateDeleteOlderThanDays": "Delete records older than days",
+  "persistentStateCleanup": "Clean up stored states",
+  "persistentStateCleanupDescription": "Delete records older than the limits above",
+  "persistentStateCleanupInProgress": "Cleaning up...",
+  "persistentStateDefaultLocks": "Default locks",
+  "persistentStateDefaultLocksDescription": "Apply these locks when a document has no saved state",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Cleaned up 1 storage location} other{Cleaned up {locations} storage locations}}; {records, plural, =1{removed 1 record} other{removed {records} records}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Saves changes automatically as you work.",
+  "autosaveDelayedDescription": "Saves changes automatically after the selected delay.",
+  "autosaveShowButtonDescription": "Saves automatically and also keeps the save button visible.",
+  "autosaveDisabledDescription": "Only saves when you use the save command.",
+  "hideCursorWhileDrawingDescription": "Hides the mouse pointer while you draw, so it does not cover your stroke.",
+  "onStartupHomeScreenDescription": "Opens the home screen when Butterfly starts.",
+  "onStartupLastNoteDescription": "Reopens your most recently used note when Butterfly starts.",
+  "onStartupNewNoteDescription": "Creates a new note when Butterfly starts.",
+  "smoothNavigationDescription": "Makes panning and zooming feel smoother by simplifying the canvas while it is moving.",
+  "edgePanAreaSwitchingDescription": "Switches to a neighboring area when you pan near the edge of the canvas.",
+  "collaborationDescription": "Allows multiple people to edit the same note together in real time.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Includes detailed diagnostic messages in the log view and console. These messages can help when troubleshooting a problem.",
+  "bringMovedElementsToFrontDescription": "Places an element above overlapping elements after you move it.",
+  "persistenceDocumentStatesDescription": "Controls which parts of your workspace Butterfly remembers for each note, such as the current page, zoom, and selected tool.",
+  "persistentStatesEnabledDescription": "Store document state information between app sessions",
+  "persistentStateCurrentPageDescription": "Remember the current page when reopening a file",
+  "persistentStateViewportDescription": "Remember the viewport position, zoom and rotation for each page",
+  "persistentStateSelectedToolDescription": "Remember the selected tool when reopening a file",
+  "persistentStateLocksDescription": "Remember lock settings when reopening a file",
+  "persistentStateNavigatorDescription": "Remember the navigator state when reopening a file",
+  "persistentStateLayersDescription": "Remember the layer panel state when reopening a file",
+  "persistentStateAreasDescription": "Remember the area panel state when reopening a file",
+  "persistentStateAutoThumbnail": "Automatic thumbnails",
+  "persistentStateAutoThumbnailDescription": "Show the per-document switch and allow thumbnails to update when documents close",
+  "persistentStateMaxRecordsDescription": "Keep at most this many stored states per file",
+  "persistentStateDeleteOlderThanDaysDescription": "Delete stored states older than this many days",
+  "contentViewportDescription": "Limits how far you can pan away from the content of your note.",
+  "limitViewportPositiveDescription": "Keeps the canvas within the area to the right and below its starting point.",
+  "startInFullScreenDescription": "Opens Butterfly in full-screen mode when supported.",
+  "designDescription": "Changes the overall visual style of Butterfly without changing whether the app uses light or dark colors.",
+  "platformThemeDescription": "Lets you use the desktop or mobile layout instead of the layout Butterfly normally chooses for your device.",
+  "densityDescription": "Changes the spacing and size of interface elements. It does not change the size of your note content.",
+  "highContrastDescription": "Uses stronger color differences to make controls and text easier to distinguish.",
+  "nativeTitleBarDescription": "Uses your operating system's standard window title bar instead of Butterfly's custom title bar.",
+  "propertiesDescription": "Chooses where the panel for editing the selected tool or element appears.",
+  "navigationRailDescription": "Shows a permanent navigation bar on wide screens for quicker access to app sections.",
+  "optionsPanelPositionDescription": "Chooses whether tool options appear above or below the canvas.",
+  "simpleToolbarVisibilityDescription": "Controls when the smaller, simplified toolbar appears while editing a note.",
+  "penOnlyInputDescription": "Prevents accidental marks from your hand or mouse by choosing when only stylus input can draw.",
+  "showPenOnlyToggleDescription": "Shows a quick stylus-only switch in the editor after Butterfly detects a stylus.",
+  "ignorePressureDescription": "Controls whether stylus pressure changes the stroke and works around inaccurate pressure readings from some styluses.",
+  "moveOnGestureDescription": "Lets multi-touch gestures move the canvas instead of interacting with note content.",
+  "spreadPagesDescription": "Splits multi-page imports across separate note pages instead of placing everything on one page.",
+  "shear": "Shear",
+  "resetRotation": "Reset rotation",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Choose the controls for zoom and rotation. Reset buttons remain available in every layout.",
+  "zoomPanelFull": "Full (slider, text field and buttons)",
+  "zoomPanelSliderInput": "Slider and text field",
+  "zoomPanelSlider": "Slider",
+  "zoomPanelInputButtons": "Text field and buttons",
+  "zoomPanelInput": "Text field",
+  "rotationDisplay": "Rotation display",
+  "rotationDisplayDescription": "Choose when the rotation row appears above zoom. This does not change rotation gestures or shortcuts.",
+  "whenRotated": "When rotated",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Rotate canvas by dragging"
+}

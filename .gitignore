@@ -1,0 +1,22 @@
+# Editor related
+.idea
+.vscode
+*.iml
+\#*\#
+.\#*f
+.zed
+
+# Temporary files
+docs_old/
+./snap/
+.offline-build/
+
+# Android local environment & compiler caches
+local.properties
+app/android/local.properties
+.kotlin/
+app/android/.kotlin/
+.gradle/
+app/android/.gradle/
+captures/
+app/android/captures/

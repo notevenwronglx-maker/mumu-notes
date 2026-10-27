@@ -1,0 +1,414 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:butterfly/cubits/editor_controller.dart';
+import 'package:butterfly/cubits/transform.dart';
+import 'package:butterfly/models/defaults.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:go_router/go_router.dart';
+
+import 'action.dart';
+import 'embedding.dart';
+import 'view_state.dart';
+
+class EmbedHandler {
+  EmbedHandler();
+  EventListener? getDataListener,
+      getViewStateListener,
+      setViewStateListener,
+      getThumbnailListener,
+      setDataListener,
+      resetListener,
+      renderListener,
+      renderSVGListener;
+  StreamSubscription? _blocSubscription;
+  StreamSubscription<CameraTransform>? _transformSubscription;
+  Timer? _changeDebounceTimer;
+  Timer? _viewChangeDebounceTimer;
+
+  Map<String, dynamic>? _messageToMap(Object? message) {
+    if (message is Map<String, dynamic>) return message;
+    if (message is Map) return message.cast<String, dynamic>();
+    if (message is String) {
+      try {
+        final decoded = json.decode(message);
+        if (decoded is Map<String, dynamic>) return decoded;
+        if (decoded is Map) return decoded.cast<String, dynamic>();
+      } catch (_) {
+        return null;
+      }
+    }
+    return null;
+  }
+
+  double _mapDouble(Map<String, dynamic> map, String key, double fallback) =>
+      (map[key] as num?)?.toDouble() ?? fallback;
+
+  bool _mapBool(Map<String, dynamic> map, String key, bool fallback) =>
+      map[key] is bool ? map[key] as bool : fallback;
+
+  ExportPadding _mapPadding(Map<String, dynamic> map) {
+    final value = map['padding'];
+    if (value is! Map) return const ExportPadding();
+    final padding = value.cast<String, dynamic>();
+    return ExportPadding(
+      top: _mapDouble(padding, 'top', 0),
+      right: _mapDouble(padding, 'right', 0),
+      bottom: _mapDouble(padding, 'bottom', 0),
+      left: _mapDouble(padding, 'left', 0),
+    );
+  }
+
+  Size _renderViewportSize(BuildContext context, EditorController controller) {
+    final measured = controller.rendererCubit.state.cameraViewport.viewportSize;
+    if (measured != null && measured.width > 0 && measured.height > 0) {
+      return measured;
+    }
+    return MediaQuery.sizeOf(context);
+  }
+
+  Uint8List? _messageToBytes(Object? message) {
+    if (message is Uint8List) return message;
+    if (message is ByteBuffer) return message.asUint8List();
+    if (message is ByteData) {
+      return message.buffer.asUint8List(
+        message.offsetInBytes,
+        message.lengthInBytes,
+      );
+    }
+    if (message is List) {
+      try {
+        return Uint8List.fromList(
+          message.cast<num>().map((e) => e.toInt()).toList(),
+        );
+      } catch (_) {
+        return null;
+      }
+    }
+    return null;
+  }
+
+  bool _isValidDocumentData(Uint8List bytes) {
+    try {
+      return NoteData.fromData(bytes).isValid;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  Uri _buildEmbedUri(Embedding embedding) => Uri(
+    path: '/embed',
+    queryParameters: {
+      if (!embedding.save) 'save': 'false',
+      if (!embedding.editable) 'editable': 'false',
+      if (embedding.fullScreen != .enabled)
+        'fullScreen': embedding.fullScreen.queryValue,
+      if (embedding.language.isNotEmpty) 'language': embedding.language,
+      if (embedding.theme.isNotEmpty) 'theme': embedding.theme,
+      if (embedding.fileName.isNotEmpty) 'fileName': embedding.fileName,
+    },
+  );
+
+  void _replaceDocument(
+    BuildContext context,
+    DocumentBloc bloc,
+    Object data, [
+    EmbedViewState? viewState,
+  ]) {
+    final embedding = bloc.editorController.saveCubit.state.embedding;
+    if (embedding == null) return;
+    GoRouter.of(context).go(
+      _buildEmbedUri(embedding).toString(),
+      extra: EmbedDocumentData(data, viewState),
+    );
+  }
+
+  void _resetDocument(BuildContext context, DocumentBloc bloc) {
+    _replaceDocument(context, bloc, DocumentDefaults.createDocument());
+  }
+
+  void register(BuildContext context, DocumentBloc bloc) {
+    final transformCubit = bloc.editorController.transformCubit;
+    _transformSubscription ??= transformCubit.stream.listen((_) {
+      _viewChangeDebounceTimer?.cancel();
+      _viewChangeDebounceTimer = Timer(const Duration(milliseconds: 250), () {
+        sendEmbedMessage(
+          'viewChange',
+          EmbedViewState.fromTransform(transformCubit.state).toJson(),
+        );
+      });
+    });
+    _blocSubscription ??= bloc.stream.listen((state) {
+      if (state is DocumentLoadSuccess &&
+          bloc.editorController.saveCubit.state.saved == .unsaved) {
+        _changeDebounceTimer?.cancel();
+        _changeDebounceTimer = Timer(
+          const Duration(milliseconds: 500),
+          () async {
+            final currentState = bloc.state;
+            if (currentState is DocumentLoadSuccess) {
+              sendEmbedMessage(
+                'change',
+                (await currentState.saveData()).exportAsBytes(),
+              );
+            }
+          },
+        );
+      }
+    });
+
+    getDataListener ??= onEmbedMessage('getData', (message) async {
+      final state = bloc.state;
+      if (state is DocumentLoadSuccess) {
+        sendEmbedMessage('getData', (await state.saveData()).exportAsBytes());
+      }
+    });
+    getViewStateListener ??= onEmbedMessage('getViewState', (message) {
+      if (bloc.state is! DocumentLoadSuccess) return;
+      sendEmbedMessage(
+        'getViewState',
+        EmbedViewState.fromTransform(transformCubit.state).toJson(),
+      );
+    });
+    setViewStateListener ??= onEmbedMessage('setViewState', (message) {
+      if (bloc.state is! DocumentLoadSuccess) return;
+      final viewState = EmbedViewState.tryParse(_messageToMap(message));
+      if (viewState == null) {
+        sendEmbedMessage('error', {
+          'method': 'setViewState',
+          'message': 'Invalid view state',
+        });
+        return;
+      }
+      viewState.apply(transformCubit);
+    });
+    getThumbnailListener ??= onEmbedMessage('getThumbnail', (message) {
+      final state = bloc.state;
+      if (state is! DocumentLoadSuccess) {
+        sendEmbedMessage('getThumbnail', null);
+        return;
+      }
+      final options = _messageToMap(message);
+      final format =
+          (options == null ? message : options['format'])
+              ?.toString()
+              .toLowerCase() ??
+          'png';
+      if (format != 'png' && format != 'svg') {
+        sendEmbedMessage('error', {
+          'method': 'getThumbnail',
+          'message': 'Unsupported thumbnail format: $format',
+        });
+        return;
+      }
+      final bytes = state.data.getThumbnail();
+      if (bytes == null || bytes.isEmpty) {
+        sendEmbedMessage('getThumbnail', null);
+        return;
+      }
+      final png = base64.encode(bytes);
+      sendEmbedMessage(
+        'getThumbnail',
+        format == 'svg'
+            ? '<svg xmlns="http://www.w3.org/2000/svg" '
+                  'width="$kThumbnailWidth" height="$kThumbnailHeight" '
+                  'viewBox="0 0 $kThumbnailWidth $kThumbnailHeight">'
+                  '<image width="$kThumbnailWidth" height="$kThumbnailHeight" '
+                  'href="data:image/png;base64,$png"/></svg>'
+            : png,
+      );
+    });
+    setDataListener ??= onEmbedMessage('setData', (message) async {
+      if (message == null) {
+        _resetDocument(context, bloc);
+        return;
+      }
+      final options = _messageToMap(message);
+      EmbedViewState? viewState;
+      Object? data = message;
+      if (options != null) {
+        data = options['data'];
+        if (options.containsKey('viewState')) {
+          viewState = EmbedViewState.tryParse(options['viewState']);
+          if (viewState == null) {
+            sendEmbedMessage('error', {
+              'method': 'setData',
+              'message': 'Invalid view state',
+            });
+            return;
+          }
+        }
+      }
+      final bytes = _messageToBytes(data);
+      if (bytes == null) {
+        sendEmbedMessage('error', {
+          'method': 'setData',
+          'message': 'Invalid Butterfly document data',
+        });
+        return;
+      }
+      if (!_isValidDocumentData(bytes)) {
+        sendEmbedMessage('error', {
+          'method': 'setData',
+          'message': 'Invalid Butterfly document data',
+        });
+        return;
+      }
+      _replaceDocument(context, bloc, bytes, viewState);
+    });
+    resetListener ??= onEmbedMessage('reset', (message) {
+      _resetDocument(context, bloc);
+    });
+    renderListener ??= onEmbedMessage('render', (message) async {
+      final state = bloc.state;
+      if (state is DocumentLoadSuccess) {
+        final controller = bloc.editorController;
+        final transform = controller.transformCubit.state;
+        final viewportSize = _renderViewportSize(context, controller);
+        double x = transform.position.dx, y = transform.position.dy;
+        double scale = transform.size, rotation = transform.rotation;
+        ExportPadding padding = const .new();
+        double width = viewportSize.width, height = viewportSize.height;
+        bool renderBackground = true;
+        final map = _messageToMap(message);
+        if (map != null) {
+          x = _mapDouble(map, 'x', x);
+          y = _mapDouble(map, 'y', y);
+          width = _mapDouble(map, 'width', width);
+          height = _mapDouble(map, 'height', height);
+          scale = _mapDouble(map, 'scale', scale);
+          rotation = _mapDouble(map, 'rotation', rotation);
+          padding = _mapPadding(map);
+          renderBackground = _mapBool(map, 'renderBackground', true);
+        }
+        try {
+          final data = await controller.rendererCubit.render(
+            controller,
+            state.data,
+            state.page,
+            state.info,
+            ImageExportOptions(
+              width: width,
+              height: height,
+              x: x,
+              y: y,
+              scale: scale,
+              rotation: rotation,
+              padding: padding,
+              renderBackground: renderBackground,
+            ),
+            invisibleLayers: state.invisibleLayers,
+            docState: state,
+          );
+          if (data == null) {
+            sendEmbedMessage('error', {
+              'method': 'render',
+              'message': 'Could not render the PNG image.',
+            });
+            return;
+          }
+          final bytes = data.buffer.asUint8List(
+            data.offsetInBytes,
+            data.lengthInBytes,
+          );
+          sendEmbedMessage('render', base64.encode(bytes));
+        } catch (error) {
+          sendEmbedMessage('error', {
+            'method': 'render',
+            'message': error.toString(),
+          });
+        }
+      }
+    });
+    renderSVGListener ??= onEmbedMessage('renderSVG', (message) async {
+      final state = bloc.state;
+      if (state is DocumentLoadSuccess) {
+        final controller = bloc.editorController;
+        final transform = controller.transformCubit.state;
+        final viewportSize = _renderViewportSize(context, controller);
+        double x = transform.position.dx, y = transform.position.dy;
+        double scale = transform.size, rotation = transform.rotation;
+        ExportPadding padding = const .new();
+        double width = viewportSize.width, height = viewportSize.height;
+        bool renderBackground = true;
+        final map = _messageToMap(message);
+        if (map != null) {
+          x = _mapDouble(map, 'x', x);
+          y = _mapDouble(map, 'y', y);
+          width = _mapDouble(map, 'width', width);
+          height = _mapDouble(map, 'height', height);
+          scale = _mapDouble(map, 'scale', scale);
+          rotation = _mapDouble(map, 'rotation', rotation);
+          padding = _mapPadding(map);
+          renderBackground = _mapBool(map, 'renderBackground', true);
+        }
+        sendEmbedMessage(
+          'renderSVG',
+          controller.rendererCubit
+              .renderSVG(
+                state.data,
+                state.page,
+                SvgExportOptions(
+                  width: width,
+                  height: height,
+                  x: x,
+                  y: y,
+                  scale: scale,
+                  rotation: rotation,
+                  padding: padding,
+                  renderBackground: renderBackground,
+                ),
+                invisibleLayers: state.invisibleLayers,
+              )
+              .toXmlString(),
+        );
+      }
+    });
+  }
+
+  void unregister() {
+    _blocSubscription?.cancel();
+    _blocSubscription = null;
+    _transformSubscription?.cancel();
+    _transformSubscription = null;
+    _changeDebounceTimer?.cancel();
+    _changeDebounceTimer = null;
+    _viewChangeDebounceTimer?.cancel();
+    _viewChangeDebounceTimer = null;
+    if (getDataListener != null) {
+      removeEmbedMessageListener(getDataListener!);
+      getDataListener = null;
+    }
+    if (getViewStateListener != null) {
+      removeEmbedMessageListener(getViewStateListener!);
+      getViewStateListener = null;
+    }
+    if (setViewStateListener != null) {
+      removeEmbedMessageListener(setViewStateListener!);
+      setViewStateListener = null;
+    }
+    if (getThumbnailListener != null) {
+      removeEmbedMessageListener(getThumbnailListener!);
+      getThumbnailListener = null;
+    }
+    if (setDataListener != null) {
+      removeEmbedMessageListener(setDataListener!);
+      setDataListener = null;
+    }
+    if (resetListener != null) {
+      removeEmbedMessageListener(resetListener!);
+      resetListener = null;
+    }
+    if (renderListener != null) {
+      removeEmbedMessageListener(renderListener!);
+      renderListener = null;
+    }
+    if (renderSVGListener != null) {
+      removeEmbedMessageListener(renderSVGListener!);
+      renderSVGListener = null;
+    }
+  }
+}

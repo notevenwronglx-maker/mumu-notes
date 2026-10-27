@@ -1,0 +1,148 @@
+part of 'handler.dart';
+
+class AssetHandler extends Handler<AssetTool> {
+  AssetHandler(super.data);
+
+  @override
+  void onTapUp(TapUpDetails details, EventContext context) {
+    final globalPos = context.getCameraTransform().localToGlobal(
+      details.localPosition,
+    );
+    showImportAssetWizard(
+      data.importType,
+      context.buildContext,
+      context.getDocumentBloc(),
+      context.getImportService(),
+      position: globalPos,
+      advanced: data.advanced,
+    );
+  }
+}
+
+Future<void> showImportAssetWizard(
+  ImportType type,
+  BuildContext context,
+  DocumentBloc bloc,
+  ImportService service, {
+  Offset? position,
+  bool advanced = true,
+}) async {
+  Future<void> importAsset(
+    AssetFileType type,
+    Uint8List bytes, {
+    String? name,
+  }) async {
+    final state = bloc.state;
+    if (state is! DocumentLoaded) return;
+    await service
+        .import(
+          type,
+          bytes,
+          document: state.data,
+          position: position,
+          advanced: advanced,
+          name: name,
+        )
+        .then((e) => e?.submit());
+  }
+
+  Future<void> importWithDialog(
+    List<AssetFileType> type, {
+    bool multiple = false,
+  }) async {
+    final files = await importFiles(context, types: type, multiple: multiple);
+    final state = bloc.state;
+    if (state is! DocumentLoaded || files.isEmpty) return;
+    final result = await service.importBatch(
+      files.map(
+        (file) => (
+          AssetFileTypeHelper.fromFileExtension(file.$2) ?? AssetFileType.note,
+          file.$1,
+          file.$3,
+        ),
+      ),
+      document: state.data,
+      position: position,
+      advanced: advanced,
+    );
+    result?.submit();
+  }
+
+  if (!await type.isAvailable()) return;
+
+  switch (type) {
+    case .file:
+      return importWithDialog(AssetFileType.values, multiple: true);
+    case .oneNote:
+      return importWithDialog([
+        AssetFileType.oneNote,
+        AssetFileType.oneNotePackage,
+      ]);
+    case .image:
+      return importWithDialog([AssetFileType.image], multiple: true);
+    case .camera:
+      final content = await showDialog<Uint8List>(
+        context: context,
+        builder: (context) => const CameraDialog(),
+      );
+      if (content == null) return;
+      return importAsset(AssetFileType.image, content);
+    case .svg:
+      return importWithDialog([AssetFileType.svg]);
+    case .svgText:
+      final controller = TextEditingController();
+      final result = await showDialog<bool>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(AppLocalizations.of(context).import),
+          scrollable: true,
+          content: TextField(
+            maxLines: null,
+            minLines: 3,
+            controller: controller,
+            autocorrect: false,
+            autofocus: true,
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context).svgText,
+              border: OutlineInputBorder(),
+              suffixIcon: IconButton(
+                icon: const Icon(PhosphorIconsLight.clipboard),
+                onPressed: () async {
+                  final clipboard = await Clipboard.getData(
+                    Clipboard.kTextPlain,
+                  );
+                  final data = clipboard?.text;
+                  if (data != null) controller.text = data;
+                },
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: Text(AppLocalizations.of(context).import),
+            ),
+          ],
+        ),
+      );
+      if (result != true) return;
+      return importAsset(AssetFileType.svg, utf8.encode(controller.text));
+    case .pdf:
+      return importWithDialog([AssetFileType.pdf]);
+    case .document:
+      return importWithDialog([
+        AssetFileType.note,
+        AssetFileType.textNote,
+        AssetFileType.oneNote,
+        AssetFileType.oneNotePackage,
+      ]);
+    case .markdown:
+      return importWithDialog([AssetFileType.markdown]);
+    case .xopp:
+      return importWithDialog([AssetFileType.xopp]);
+  }
+}

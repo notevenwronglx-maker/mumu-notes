@@ -1,0 +1,57 @@
+import 'package:butterfly/dialogs/packs/styles/text.dart';
+import 'package:butterfly_api/butterfly_text.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+
+class ParagraphStyleView extends StatelessWidget {
+  final DefinedParagraphProperty value;
+  final ValueChanged<DefinedParagraphProperty> onChanged;
+  const ParagraphStyleView({
+    super.key,
+    required this.value,
+    required this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const SizedBox(height: 16),
+        ToggleButtons(
+          isSelected: [
+            value.alignment == .left,
+            value.alignment == .center,
+            value.alignment == .right,
+            value.alignment == .justify,
+          ],
+          onPressed: (index) {
+            var alignments = [
+              HorizontalAlignment.left,
+              HorizontalAlignment.center,
+              HorizontalAlignment.right,
+              HorizontalAlignment.justify,
+            ];
+            onChanged(value.copyWith(alignment: alignments[index]));
+          },
+          children: const [
+            PhosphorIcon(PhosphorIconsLight.textAlignLeft, textDirection: .ltr),
+            PhosphorIcon(PhosphorIconsLight.textAlignCenter),
+            PhosphorIcon(
+              PhosphorIconsLight.textAlignRight,
+              textDirection: .ltr,
+            ),
+            PhosphorIcon(
+              PhosphorIconsLight.textAlignJustify,
+              textDirection: .ltr,
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        TextStyleView(
+          value: value.span,
+          onChanged: (span) => onChanged(value.copyWith(span: span)),
+        ),
+      ],
+    );
+  }
+}

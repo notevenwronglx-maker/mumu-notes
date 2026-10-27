@@ -1,0 +1,192 @@
+import 'dart:async';
+import 'dart:io';
+
+import 'package:butterfly/main.dart';
+import 'package:butterfly/services/logger.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:go_router/go_router.dart';
+import 'package:lw_file_system/lw_file_system.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+const kLaunchHost = 'launch.butterfly.linwood.dev';
+
+Uri getLaunchUri({
+  String? path,
+  List<String>? pathSegments,
+  String? fragment,
+  String? query,
+  Map<String, dynamic>? queryParameters,
+  String? userInfo,
+}) => Uri(
+  scheme: 'https',
+  host: kLaunchHost,
+  path: path,
+  pathSegments: pathSegments,
+  fragment: fragment,
+  query: query,
+  queryParameters: queryParameters,
+  userInfo: userInfo,
+);
+
+Uri getConnectUri(String url, [String? type]) => getLaunchUri(
+  pathSegments: ['connect'],
+  queryParameters: {'url': url, 'type': ?type},
+);
+
+String parseConnectUri(Uri uri) {
+  if (uri.host != kLaunchHost) {
+    return uri.toString();
+  }
+  return uri.queryParameters['url'] ?? uri.toString();
+}
+
+Future<bool> openReleaseNotes() {
+  talker.info('Opening release notes');
+  return launchUrl(
+    Uri(
+      scheme: 'https',
+      host: 'linwood.dev',
+      pathSegments: ['butterfly', applicationMinorVersion],
+    ),
+  );
+}
+
+Future<bool> openHelp(List<String> pageLocation, [String? fragment]) {
+  return launchUrl(
+    Uri(
+      scheme: 'https',
+      host: 'butterfly.linwood.dev',
+      fragment: fragment,
+      pathSegments: ['docs', 'v2', ...pageLocation],
+    ),
+  );
+}
+
+Future<(Uint8List, String, String)> _readPlatformFile(PlatformFile file) async {
+  final data = await file.readAsBytes();
+  final fileName = file.name;
+  final hasDot = fileName.contains('.');
+  final nameWithoutExtension = hasDot
+      ? fileName.substring(0, fileName.lastIndexOf('.'))
+      : fileName;
+  final ext = hasDot
+      ? fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase()
+      : '';
+  return (data, ext, nameWithoutExtension);
+}
+
+(FileType, List<String>?) _getImportPickerOptions(Iterable<String> extensions) {
+  // Android's system picker filters by MIME type, not extension. The picker
+  // plugin drops unknown extensions such as bfly and tbfly while converting
+  // them to MIME types, making Butterfly files unselectable when known file
+  // types are requested alongside them.
+  if (!kIsWeb && Platform.isAndroid) {
+    return (FileType.any, null);
+  }
+  return (FileType.custom, extensions.toList());
+}
+
+Future<(Uint8List?, String?, String?)> importFile(
+  BuildContext context, [
+  List<AssetFileType>? types,
+]) async {
+  final files = await importFiles(context, types: types, multiple: false);
+  return files.firstOrNull ?? (null, null, null);
+}
+
+Future<List<(Uint8List, String, String)>> importFiles(
+  BuildContext context, {
+  List<AssetFileType>? types,
+  bool multiple = true,
+}) => importFilesWithExtensions(
+  (types ?? AssetFileType.values).expand((e) => e.getFileExtensions()).toList(),
+  multiple: multiple,
+);
+
+Future<List<(Uint8List, String, String)>> importFilesWithExtensions(
+  List<String> extensions, {
+  bool multiple = true,
+}) async {
+  final (fileType, allowedExtensions) = _getImportPickerOptions(extensions);
+  final List<PlatformFile> result;
+  if (multiple) {
+    result = await FilePicker.pickFiles(
+      allowedExtensions: allowedExtensions,
+      type: fileType,
+    );
+  } else {
+    final file = await FilePicker.pickFile(
+      allowedExtensions: allowedExtensions,
+      type: fileType,
+    );
+    result = [?file];
+  }
+  final files = <(Uint8List, String, String)>[];
+  for (final file in result) {
+    files.add(await _readPlatformFile(file));
+  }
+  return files;
+}
+
+Future<void> openFile(
+  BuildContext context,
+  bool replace,
+  AssetLocation location, [
+  Object? data,
+]) {
+  final fileType = location.fileType?.name;
+  if (location.absolute) {
+    final queryParams = {'path': location.path, 'type': ?fileType};
+    if (replace) {
+      GoRouter.of(context)
+          .goNamed('native', queryParameters: queryParams, extra: data);
+      return Future.value();
+    }
+    return GoRouter.of(context)
+        .pushNamed('native', queryParameters: queryParams, extra: data);
+  }
+  if (location.isRemote) {
+    final pathParams = {
+      'remote': location.remote,
+      'path': location.pathWithoutLeadingSlash,
+    };
+    final queryParams = <String, String>{'type': ?fileType};
+    if (replace) {
+      GoRouter.of(context).goNamed(
+        'remote',
+        pathParameters: pathParams,
+        queryParameters: queryParams,
+        extra: data,
+      );
+      return Future.value();
+    } else {
+      return GoRouter.of(context).pushNamed(
+        'remote',
+        pathParameters: pathParams,
+        queryParameters: queryParams,
+        extra: data,
+      );
+    }
+  }
+  final pathParams = {'path': location.pathWithoutLeadingSlash};
+  final queryParams = <String, String>{'type': ?fileType};
+  if (replace) {
+    GoRouter.of(context).goNamed(
+      'local',
+      pathParameters: pathParams,
+      queryParameters: queryParams,
+      extra: data,
+    );
+    return Future.value();
+  } else {
+    return GoRouter.of(context).pushNamed(
+      'local',
+      pathParameters: pathParams,
+      queryParameters: queryParams,
+      extra: data,
+    );
+  }
+}

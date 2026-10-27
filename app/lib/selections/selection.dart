@@ -1,0 +1,144 @@
+import 'dart:math';
+
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:butterfly/cubits/editor_controller.dart';
+import 'package:butterfly/cubits/editor_session.dart';
+import 'package:butterfly/cubits/settings.dart';
+import 'package:butterfly/cubits/transform.dart';
+import 'package:butterfly/dialogs/constraints.dart';
+import 'package:butterfly/dialogs/password.dart';
+import 'package:butterfly/dialogs/texture.dart';
+import 'package:butterfly/dialogs/export/thumbnail.dart';
+import 'package:butterfly/helpers/point.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:butterfly/renderers/renderer.dart';
+import 'package:butterfly/visualizer/tool.dart';
+import 'package:butterfly/visualizer/preset.dart';
+import 'package:butterfly/visualizer/property.dart';
+import 'package:butterfly/widgets/area_size_picker.dart';
+import 'package:butterfly/widgets/aspect_ratio_input.dart';
+import 'package:butterfly/widgets/color_field.dart';
+import 'package:butterfly/widgets/texture_paint_field.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_leap/material_leap.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+
+import 'toolbars.dart';
+
+part 'elements/element.dart';
+part 'elements/image.dart';
+part 'elements/text.dart';
+part 'elements/pdf.dart';
+part 'elements/pen.dart';
+part 'elements/polygon.dart';
+part 'elements/shape.dart';
+part 'elements/table.dart';
+part 'elements/svg.dart';
+
+part 'tools/barcode.dart';
+part 'tools/asset.dart';
+part 'tools/tool.dart';
+part 'tools/hand.dart';
+part 'tools/area.dart';
+part 'tools/eraser.dart';
+part 'tools/grid.dart';
+part 'tools/label.dart';
+part 'tools/laser.dart';
+part 'tools/select.dart';
+part 'tools/pen.dart';
+part 'tools/polygon.dart';
+part 'tools/ruler.dart';
+part 'tools/shape.dart';
+part 'tools/table.dart';
+part 'tools/stamp.dart';
+part 'tools/texture.dart';
+part 'tools/spacer.dart';
+
+part 'properties/property.dart';
+part 'properties/pen.dart';
+part 'properties/polygon.dart';
+
+part 'area.dart';
+part 'document.dart';
+
+abstract class Selection<T> {
+  List<T> _selected;
+
+  List<T> get selected => List.unmodifiable(_selected);
+
+  Selection(this._selected);
+
+  factory Selection.from(T selected) {
+    if (selected is Renderer<PadElement>) {
+      return ElementSelection<PadElement>.from(selected) as Selection<T>;
+    }
+    if (selected is Tool) {
+      return ToolSelection<Tool>.from(selected) as Selection<T>;
+    }
+    if (selected is Area) {
+      return AreaSelection([selected]) as Selection<T>;
+    }
+    if (selected is EditorController) {
+      return DocumentSelection(selected) as Selection<T>;
+    }
+    throw UnsupportedError('Unsupported selection type: $T');
+  }
+
+  static Selection? fromList(List? selected) {
+    if (selected == null || selected.isEmpty) {
+      return null;
+    }
+    var current = Selection.from(selected.first);
+    for (final element in selected.sublist(1)) {
+      current = current.insert(element);
+    }
+    return current;
+  }
+
+  Selection? replaceSelected(List<T>? selected) => .fromList(selected);
+
+  String getLocalizedName(BuildContext context);
+
+  bool isNameEditable(BuildContext context) => false;
+
+  void setName(BuildContext context, String name) {}
+
+  String getLocalizedCaption(BuildContext context) => '';
+
+  PhosphorIconData icon({bool filled = false});
+
+  List<Widget> buildProperties(BuildContext context) => [];
+
+  @mustCallSuper
+  void update(BuildContext context, List<T> selected) {
+    _selected = selected;
+  }
+
+  bool get showDeleteButton => false;
+  void onDelete(BuildContext context) {}
+  Selection insert(dynamic element) {
+    if (element is T) {
+      return Selection.from([...selected, element]);
+    }
+    return Selection.from(element);
+  }
+
+  List<String> get help => <String>[];
+
+  Selection? remove(dynamic selected) {
+    final selections = List.from(this.selected);
+    var success = selections.remove(selected);
+    if (!success) return this;
+    if (selections.isEmpty) return null;
+    var selection = Selection.from(selections.first);
+    for (int i = 1; i < selections.length; i++) {
+      selection = selection.insert(selections[i]);
+    }
+    return selection;
+  }
+
+  String nameFormatter(BuildContext context, String name) => name;
+}

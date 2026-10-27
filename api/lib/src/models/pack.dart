@@ -1,0 +1,144 @@
+import 'dart:typed_data';
+
+import 'package:dart_leap/dart_leap.dart';
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../converter/color.dart';
+import '../converter/core.dart';
+import 'data.dart';
+import 'element.dart';
+import 'tool.dart';
+
+part 'pack.g.dart';
+part 'pack.freezed.dart';
+
+@freezed
+abstract class PackAsset with _$PackAsset {
+  const PackAsset();
+}
+
+@freezed
+sealed class ColorPalette extends PackAsset with _$ColorPalette {
+  const ColorPalette._();
+
+  const factory ColorPalette({
+    @Default([]) @ColorJsonConverter() List<SRGBColor> colors,
+  }) = _ColorPalette;
+  factory ColorPalette.fromJson(Map<String, dynamic> json) =>
+      _$ColorPaletteFromJson(json);
+}
+
+@freezed
+sealed class ButterflyComponent extends PackAsset with _$ButterflyComponent {
+  const ButterflyComponent._();
+
+  const factory ButterflyComponent({
+    @Uint8ListJsonConverter() Uint8List? thumbnail,
+    @Default(<PadElement>[]) List<PadElement> elements,
+  }) = _ButterflyComponent;
+
+  factory ButterflyComponent.fromJson(Map<String, dynamic> json) =>
+      _$ButterflyComponentFromJson(json);
+}
+
+@Freezed(equal: false)
+sealed class ButterflyParameter with _$ButterflyParameter {
+  const factory ButterflyParameter.text({
+    required int child,
+    required String name,
+    required String value,
+  }) = TextParameter;
+
+  const factory ButterflyParameter.color({
+    required int child,
+    required String name,
+    required int value,
+  }) = ColorParameter;
+
+  const factory ButterflyParameter.bool({
+    required int child,
+    required String name,
+    required bool value,
+  }) = BoolParameter;
+
+  const factory ButterflyParameter.int({
+    required int child,
+    required String name,
+    required int value,
+  }) = IntParameter;
+
+  const factory ButterflyParameter.double({
+    required int child,
+    required String name,
+    required double value,
+  }) = DoubleParameter;
+
+  factory ButterflyParameter.fromJson(Map<String, dynamic> json) =>
+      _$ButterflyParameterFromJson(json);
+}
+
+@freezed
+sealed class Toolbar extends PackAsset with _$Toolbar {
+  const Toolbar._();
+
+  const factory Toolbar({@Default([]) List<Tool> tools}) = _Toolbar;
+
+  factory Toolbar.fromJson(Map<String, dynamic> json) =>
+      _$ToolbarFromJson(json);
+}
+
+@freezed
+@JsonSerializable()
+class const PackAssetLocation(final String namespace, final String key)
+    with _$PackAssetLocation {
+  static PackAssetLocation fromJson(Map json) =>
+      _$PackAssetLocationFromJson(Map<String, dynamic>.from(json));
+
+  Map<String, dynamic> toJson() => _$PackAssetLocationToJson(this);
+}
+
+@Freezed(genericArgumentFactories: true)
+sealed class NamedItem<T extends PackAsset> with _$NamedItem<T> {
+  const NamedItem._();
+
+  const factory NamedItem({required String name, required T item}) =
+      _NamedItem<T>;
+
+  factory NamedItem.fromJson(
+    Map<String, dynamic> json,
+    T Function(Object? json) fromJsonT,
+  ) => _$NamedItemFromJson(json, fromJsonT);
+
+  @override
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
+      throw UnimplementedError(
+        'toJson is not implemented for NamedItem<T>. Use NamedItem.fromJson instead.',
+      );
+
+  PackItem<T> toPack(NoteData pack, String namespace) =>
+      PackItem<T>(PackAssetLocation(namespace, name), pack, item);
+}
+
+final class const PackItem<T extends PackAsset>(
+  final PackAssetLocation location,
+  final NoteData pack,
+  final T item,
+) implements PackAssetLocation {
+  factory build(String namespace, String key, NoteData pack, T item) =>
+      .new(PackAssetLocation(namespace, key), pack, item);
+
+  @override
+  String get namespace => location.namespace;
+  @override
+  String get key => location.key;
+
+  NamedItem<T> toNamed() => NamedItem(name: key, item: item);
+
+  @override
+  $PackAssetLocationCopyWith<PackAssetLocation> get copyWith =>
+      location.copyWith;
+
+  @override
+  Map<String, dynamic> toJson() => location.toJson();
+}

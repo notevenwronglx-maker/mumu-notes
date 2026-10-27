@@ -1,0 +1,692 @@
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:butterfly/cubits/editor_controller.dart';
+import 'package:butterfly/cubits/settings.dart';
+import 'package:butterfly/dialogs/area/context.dart';
+import 'package:butterfly/dialogs/area/init.dart';
+import 'package:butterfly/handlers/handler.dart';
+import 'package:butterfly/helpers/page.dart';
+import 'package:butterfly/helpers/rect.dart';
+import 'package:butterfly/models/viewport.dart';
+import 'package:butterfly/widgets/context_menu.dart';
+import 'package:butterfly/widgets/document_page_preview.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_leap/material_leap.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+
+import '../../cubits/transform.dart';
+import '../../dialogs/delete.dart';
+import '../../widgets/multi_select.dart';
+import '../../widgets/editable_list_tile.dart';
+
+typedef _AreaEntry = ({
+  Area area,
+  DocumentPage page,
+  String pageName,
+  String pageDisplayName,
+  bool isCurrentPage,
+});
+
+class AreasView extends StatefulWidget {
+  const AreasView({super.key});
+
+  @override
+  State<AreasView> createState() => _AreasViewState();
+}
+
+class _AreasViewState extends State<AreasView> {
+  String _currentGroup = '';
+  final TextEditingController _searchController = .new();
+  bool _showAllPages = false;
+
+  List<Area> _getAreasInGroup(List<Area> areas) {
+    return areas.where((area) => area.group == _currentGroup).toList();
+  }
+
+  List<String> _getSubgroups(List<Area> areas) {
+    final groups = areas
+        .map((area) => area.group)
+        .where((group) => group.startsWith(_currentGroup))
+        .map((group) => group.substring(_currentGroup.length))
+        .where((sub) => sub.isNotEmpty && !sub.contains('/'))
+        .toSet()
+        .toList();
+    groups.sort();
+    return groups;
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _createArea(AreaConfig config) async {
+    final bloc = context.read<DocumentBloc>();
+    final state = bloc.state;
+    if (state is! DocumentLoadSuccess) return;
+    final width = config.width;
+    final height = config.height;
+    final name = config.name;
+    if (name.isEmpty) return;
+    Offset position;
+    if (config.positionMode == .currentCenter) {
+      final center = context
+          .read<EditorController>()
+          .rendererCubit
+          .state
+          .cameraViewport
+          .toRect()
+          .center;
+      position = center - Offset(width / 2, height / 2);
+    } else {
+      position = Offset.zero;
+    }
+
+    bloc
+      ..add(
+        AreasCreated([
+          AreaPreset(
+            area: Area(
+              name: name,
+              width: width,
+              height: height,
+              position: position.toPoint(),
+              isInitial: config.areaAsInitial,
+            ),
+          ),
+        ]),
+      )
+      ..add(CurrentAreaChanged(name));
+  }
+
+  Widget buildAreaTile(
+    DocumentBloc bloc,
+    CameraViewport viewport,
+    DocumentLoadSuccess state,
+    Rect viewportRect,
+    Area? current,
+    _AreaEntry entry, {
+    required MultiSelectController<AreaPreset> controller,
+    List<String> folderPath = const [],
+  }) {
+    final area = entry.area;
+    final selectionId = AreaPreset(page: entry.pageName, name: area.name);
+    final selected = entry.isCurrentPage && current?.name == area.name;
+    final isSelectionMode = controller.selectionMode;
+    final isSelected = isSelectionMode
+        ? controller.selectedIds.contains(selectionId)
+        : selected;
+
+    void navigateToArea() {
+      if (!entry.isCurrentPage) {
+        bloc.add(PageChanged(entry.pageName));
+      }
+      context.read<TransformCubit>().teleportToArea(
+        area,
+        viewport.toSize(),
+        viewport.resolution,
+      );
+      bloc.add(CurrentAreaChanged(area.name));
+    }
+
+    return EditableListTile(
+      initialValue: area.shortName,
+      key: ValueKey(selectionId),
+      showEditIcon: !isSelectionMode,
+      leading: isSelectionMode
+          ? Checkbox(
+              value: isSelected,
+              onChanged: (value) => controller.toggle(selectionId),
+            )
+          : BlocSelector<SettingsCubit, ButterflySettings, bool>(
+              selector: (settings) => settings.showNavigatorPreviews,
+              builder: (context, showPreview) {
+                final tooltip = selected
+                    ? AppLocalizations.of(context).exitArea
+                    : AppLocalizations.of(context).enterArea;
+                if (showPreview) {
+                  return Tooltip(
+                    message: tooltip,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(6),
+                      onTap: () {
+                        if (selected) {
+                          bloc.add(CurrentAreaChanged(''));
+                        } else {
+                          navigateToArea();
+                        }
+                      },
+                      child: DocumentPagePreview(
+                        state: state,
+                        pageName: entry.pageName,
+                        page: entry.page,
+                        area: area,
+                      ),
+                    ),
+                  );
+                }
+                return IconButton(
+                  icon: PhosphorIcon(
+                    selected
+                        ? PhosphorIconsLight.signOut
+                        : PhosphorIconsLight.signIn,
+                  ),
+                  onPressed: () {
+                    if (selected) {
+                      bloc.add(CurrentAreaChanged(''));
+                      return;
+                    }
+                    navigateToArea();
+                  },
+                  tooltip: tooltip,
+                );
+              },
+            ),
+      onTap: () {
+        if (isSelectionMode) {
+          controller.toggle(selectionId);
+          return;
+        }
+        navigateToArea();
+      },
+      onLongPress: () {
+        if (!isSelectionMode) {
+          controller.enableSelectionMode();
+          controller.select(selectionId);
+        }
+      },
+      onSaved: (value) {
+        final trimmed = value.trim();
+        if (trimmed.isEmpty) return;
+        if (!entry.isCurrentPage) {
+          bloc.add(PageChanged(entry.pageName));
+        }
+        final nextName = trimmed.contains('/')
+            ? trimmed
+            : folderPath.isEmpty
+            ? trimmed
+            : '${folderPath.join('/')}/$trimmed';
+        context.read<DocumentBloc>().add(
+          AreaChanged(area.name, area.copyWith(name: nextName)),
+        );
+      },
+      selected: entry.isCurrentPage && current == null && !isSelectionMode
+          ? area.rect.overlaps(viewportRect)
+          : isSelected,
+      subtitle: _showAllPages ? Text(entry.pageDisplayName) : null,
+      actions: isSelectionMode
+          ? null
+          : [
+              ...buildAreaContextMenu(
+                bloc,
+                state,
+                area,
+                context.read<SettingsCubit>(),
+                pop: false,
+                includeRenameAndEnterArea: false,
+                pageName: entry.pageName,
+              )(context).map((e) => buildMenuItem(context, e, false, false)),
+            ],
+    );
+  }
+
+  Widget buildAreaFolder(String name, String path) {
+    return ListTile(
+      title: Text(name),
+      leading: const PhosphorIcon(
+        PhosphorIconsLight.folder,
+        textDirection: .ltr,
+      ),
+      onTap: () {
+        setState(() {
+          _currentGroup = path;
+        });
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bloc = context.read<DocumentBloc>();
+    return BlocBuilder<RendererCubit, RendererRuntimeState>(
+      buildWhen: (previous, current) =>
+          previous.cameraViewport != current.cameraViewport,
+      builder: (context, rendererState) {
+        final viewState = context.watch<EditorViewCubit>().state;
+        final viewport = rendererState.cameraViewport;
+        final viewportRect = viewport.toRect();
+        return BlocBuilder<DocumentBloc, DocumentState>(
+          buildWhen: (previous, current) =>
+              previous.page?.areas != current.page?.areas ||
+              previous.currentArea != current.currentArea ||
+              (_showAllPages &&
+                  previous is DocumentLoadSuccess &&
+                  current is DocumentLoadSuccess &&
+                  previous.data != current.data),
+          builder: (context, state) {
+            if (state is! DocumentLoadSuccess) {
+              return const SizedBox.shrink();
+            }
+            final current = state.currentArea;
+            final pagesWithNames = state.data.getPagesWithNames();
+            final currentPageDisplayName = pagesWithNames
+                .where((page) => page.$2 == state.pageName)
+                .map((page) => page.$1)
+                .firstOrNull;
+            final allPageEntries = _showAllPages
+                ? pagesWithNames.expand((pageNames) {
+                    final realPageName = pageNames.$2;
+                    final page = realPageName == state.pageName
+                        ? state.page
+                        : state.data.getPage(realPageName);
+                    if (page == null) return const <_AreaEntry>[];
+                    final displayName = pageNames.$1.isEmpty
+                        ? AppLocalizations.of(context).page
+                        : pageNames.$1;
+                    return page.areas.map(
+                      (area) => (
+                        area: area,
+                        page: page,
+                        pageName: realPageName,
+                        pageDisplayName: displayName,
+                        isCurrentPage: realPageName == state.pageName,
+                      ),
+                    );
+                  }).toList()
+                : const <_AreaEntry>[];
+
+            final editorController = context.read<EditorController>();
+
+            bool enableButton(int dx, int dy) {
+              if (current == null) return false;
+              return viewState.areaNavigatorCreate ||
+                  editorController.transformCubit.getRelativeArea(
+                        docState: state,
+                        viewCubit: editorController.viewCubit,
+                        currentArea: current,
+                        dx: dx,
+                        dy: dy,
+                      ) !=
+                      null;
+            }
+
+            bool selectedButton(int dx, int dy) {
+              if (current == null) return false;
+              return editorController.transformCubit.getRelativeArea(
+                    docState: state,
+                    viewCubit: editorController.viewCubit,
+                    currentArea: current,
+                    dx: dx,
+                    dy: dy,
+                    exact: true,
+                  ) !=
+                  null;
+            }
+
+            Future<void> navigateToRelativeArea(int dx, int dy) async {
+              await editorController.transformCubit.navigateToRelativeArea(
+                bloc: context.read<DocumentBloc>(),
+                runtime: editorController,
+                dx: dx,
+                dy: dy,
+                createAreaName: () => createAreaName(
+                  context,
+                  state.page,
+                  viewState.areaNavigatorAsk,
+                ),
+              );
+            }
+
+            if (!_showAllPages && state.page.areas.isEmpty) {
+              return AreasInitializationView(
+                onCreate: _createArea,
+                insideDocument: true,
+                initialName: state.page.createAreaName(context),
+              );
+            }
+
+            final allSubgroups = _showAllPages
+                ? const <String>[]
+                : _getSubgroups(state.page.areas);
+            final areasInGroup = _getAreasInGroup(state.page.areas);
+
+            return Column(
+              crossAxisAlignment: .stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SearchBar(
+                    controller: _searchController,
+                    hintText: AppLocalizations.of(context).search,
+                    leading: const PhosphorIcon(
+                      PhosphorIconsLight.magnifyingGlass,
+                    ),
+                    trailing: [
+                      IconButton(
+                        icon: const PhosphorIcon(
+                          PhosphorIconsLight.files,
+                          textDirection: .ltr,
+                        ),
+                        isSelected: _showAllPages,
+                        tooltip: AppLocalizations.of(context).pages,
+                        onPressed: () => setState(() {
+                          _showAllPages = !_showAllPages;
+                          if (_showAllPages) _currentGroup = '';
+                        }),
+                      ),
+                    ],
+                  ),
+                ),
+                const Divider(),
+                if (!_showAllPages && _currentGroup.isNotEmpty) ...[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 4,
+                      vertical: 2,
+                    ),
+                    child: Row(
+                      spacing: 8,
+                      children: [
+                        IconButton(
+                          icon: const PhosphorIcon(
+                            PhosphorIconsLight.arrowLeft,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              final lastSlash = _currentGroup.lastIndexOf('/');
+                              if (lastSlash == -1) {
+                                _currentGroup = '';
+                              } else {
+                                _currentGroup = _currentGroup.substring(
+                                  0,
+                                  lastSlash,
+                                );
+                              }
+                            });
+                          },
+                          tooltip: AppLocalizations.of(context).back,
+                        ),
+                        Text(
+                          _currentGroup,
+                          style: TextTheme.of(context).titleMedium,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Divider(),
+                ],
+                Expanded(
+                  child: Material(
+                    type: .transparency,
+                    child: MultiSelectRegion<AreaPreset>(
+                      toolbarBuilder: (context, controller) => Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0,
+                          vertical: 4.0,
+                        ),
+                        child: OverflowBar(
+                          spacing: 8,
+                          children: [
+                            ActionChip(
+                              label: Text(AppLocalizations.of(context).delete),
+                              avatar: const PhosphorIcon(
+                                PhosphorIconsLight.trash,
+                              ),
+                              onPressed: () async {
+                                if (controller.selectedIds.isEmpty) return;
+                                final result = await showDialog<bool>(
+                                  context: context,
+                                  builder: (context) => const DeleteDialog(),
+                                );
+                                if (result != true) return;
+                                if (!context.mounted) return;
+                                context.read<DocumentBloc>().add(
+                                  AreasRemoved(controller.selectedIds.toList()),
+                                );
+                                controller.clear();
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      builder: (context, controller, child) =>
+                          ListenableBuilder(
+                            listenable: _searchController,
+                            builder: (context, child) {
+                              final search = _searchController.text
+                                  .toLowerCase();
+                              final areaEntries = _showAllPages
+                                  ? allPageEntries
+                                  : areasInGroup
+                                        .map(
+                                          (area) => (
+                                            area: area,
+                                            page: state.page,
+                                            pageName: state.pageName,
+                                            pageDisplayName:
+                                                currentPageDisplayName ??
+                                                AppLocalizations.of(context)
+                                                    .page,
+                                            isCurrentPage: true,
+                                          ),
+                                        )
+                                        .toList();
+                              final areas = areaEntries.where((entry) {
+                                final areaName = entry.area.name.toLowerCase();
+                                final pageName = entry.pageDisplayName
+                                    .toLowerCase();
+                                return areaName.contains(search) ||
+                                    (_showAllPages &&
+                                        pageName.contains(search));
+                              }).toList();
+                              final subgroups = allSubgroups
+                                  .where(
+                                    (group) =>
+                                        group.toLowerCase().contains(search),
+                                  )
+                                  .toList();
+                              if (areas.isEmpty && subgroups.isEmpty) {
+                                return Center(
+                                  child: Text(
+                                    AppLocalizations.of(context).none,
+                                  ),
+                                );
+                              }
+                              return ListView.builder(
+                                primary: true,
+                                itemCount: subgroups.length + areas.length,
+                                itemBuilder: (context, index) {
+                                  if (index < subgroups.length) {
+                                    final group = subgroups[index];
+                                    return buildAreaFolder(
+                                      group,
+                                      '$_currentGroup$group',
+                                    );
+                                  }
+                                  return buildAreaTile(
+                                    bloc,
+                                    viewport,
+                                    state,
+                                    viewportRect,
+                                    current,
+                                    areas[index - subgroups.length],
+                                    controller: controller,
+                                    folderPath: _currentGroup.isEmpty
+                                        ? []
+                                        : _currentGroup.split('/'),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                    ),
+                  ),
+                ),
+                if (current != null)
+                  Card.filled(
+                    child: SizedBox(
+                      height: 64,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 4,
+                          vertical: 8,
+                        ),
+                        child: Row(
+                          crossAxisAlignment: .stretch,
+                          children: [
+                            Expanded(
+                              child: MenuAnchor(
+                                menuChildren: [
+                                  CheckboxMenuButton(
+                                    value: viewState.areaNavigatorCreate,
+                                    onChanged: (value) => context
+                                        .read<EditorViewCubit>()
+                                        .setAreaNavigator(
+                                          create: value ?? false,
+                                        ),
+                                    child: Text(
+                                      LeapLocalizations.of(context).create,
+                                    ),
+                                  ),
+                                  CheckboxMenuButton(
+                                    value: viewState.areaNavigatorExact,
+                                    onChanged: (value) => context
+                                        .read<EditorViewCubit>()
+                                        .setAreaNavigator(
+                                          exact: value ?? false,
+                                        ),
+                                    child: Text(
+                                      AppLocalizations.of(context).exact,
+                                    ),
+                                  ),
+                                  CheckboxMenuButton(
+                                    value: viewState.areaNavigatorAsk,
+                                    onChanged: (value) => context
+                                        .read<EditorViewCubit>()
+                                        .setAreaNavigator(ask: value ?? false),
+                                    child: Text(
+                                      AppLocalizations.of(context).askForName,
+                                    ),
+                                  ),
+                                ],
+                                builder: (context, controller, child) =>
+                                    InkWell(
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(8),
+                                      ),
+                                      onTap: controller.toggle,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 8.0,
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: .min,
+                                          spacing: 8,
+                                          children: [
+                                            PhosphorIcon(
+                                              PhosphorIconsLight.compass,
+                                              color: controller.isOpen
+                                                  ? ColorScheme.of(context)
+                                                        .primary
+                                                  : null,
+                                            ),
+                                            Text(
+                                              AppLocalizations.of(context)
+                                                  .navigator,
+                                              style: TextTheme.of(context)
+                                                  .titleMedium
+                                                  ?.copyWith(
+                                                    color: controller.isOpen
+                                                        ? ColorScheme.of(
+                                                            context,
+                                                          ).primary
+                                                        : null,
+                                                  ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                _AreaDirectionButton(
+                                  icon: PhosphorIconsLight.arrowLeft,
+                                  tooltip: AppLocalizations.of(context).left,
+                                  enabled: enableButton(-1, 0),
+                                  selected: selectedButton(-1, 0),
+                                  onPressed: () =>
+                                      navigateToRelativeArea(-1, 0),
+                                ),
+                                const SizedBox(width: 2),
+                                _AreaDirectionButton(
+                                  icon: PhosphorIconsLight.arrowUp,
+                                  tooltip: AppLocalizations.of(context).top,
+                                  enabled: enableButton(0, -1),
+                                  selected: selectedButton(0, -1),
+                                  onPressed: () =>
+                                      navigateToRelativeArea(0, -1),
+                                ),
+                                const SizedBox(width: 2),
+                                _AreaDirectionButton(
+                                  icon: PhosphorIconsLight.arrowDown,
+                                  tooltip: AppLocalizations.of(context).bottom,
+                                  enabled: enableButton(0, 1),
+                                  selected: selectedButton(0, 1),
+                                  onPressed: () => navigateToRelativeArea(0, 1),
+                                ),
+                                const SizedBox(width: 2),
+                                _AreaDirectionButton(
+                                  icon: PhosphorIconsLight.arrowRight,
+                                  tooltip: AppLocalizations.of(context).right,
+                                  enabled: enableButton(1, 0),
+                                  selected: selectedButton(1, 0),
+                                  onPressed: () => navigateToRelativeArea(1, 0),
+                                ),
+                                const SizedBox(width: 8),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+}
+
+class _AreaDirectionButton extends StatelessWidget {
+  final PhosphorIconData icon;
+  final String tooltip;
+  final bool enabled;
+  final bool selected;
+  final VoidCallback onPressed;
+
+  const _AreaDirectionButton({
+    required this.icon,
+    required this.tooltip,
+    required this.enabled,
+    required this.selected,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton.filledTonal(
+      icon: PhosphorIcon(icon),
+      tooltip: tooltip,
+      onPressed: enabled ? onPressed : null,
+      selectedIcon: PhosphorIcon(icon),
+      isSelected: selected,
+    );
+  }
+}

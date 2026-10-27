@@ -1,0 +1,330 @@
+import 'dart:typed_data';
+
+import 'package:butterfly_api/src/converter/color.dart';
+import 'package:dart_leap/dart_leap.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../converter/core.dart';
+import '../converter/id.dart';
+import 'area.dart';
+import 'colors.dart';
+import 'element.dart';
+import 'export.dart';
+import 'pack.dart';
+import 'property.dart';
+import 'text.dart';
+import 'texture.dart';
+
+part 'tool.freezed.dart';
+part 'tool.g.dart';
+
+enum LabelMode { markdown, text }
+
+enum Axis2D { horizontal, vertical }
+
+enum ImportType {
+  file,
+  oneNote,
+  image,
+  camera,
+  svg,
+  svgText,
+  pdf,
+  document,
+  markdown,
+  xopp,
+}
+
+enum SelectMode { rectangle, lasso }
+
+enum LaserAnimation { fade, path }
+
+enum ToolCategory { import, normal, surface, action, view }
+
+enum BarcodeType({final double width = 300, final double height = 300}) {
+  qrCode,
+  dataMatrix,
+  code128(width: 400, height: 160),
+}
+
+enum HitElementMode {
+  none,
+  full,
+  touchEdges,
+  touchAnywhere;
+
+  static List<HitElementMode> eraserValues() {
+    return [
+      HitElementMode.none,
+      HitElementMode.touchEdges,
+      HitElementMode.touchAnywhere,
+    ];
+  }
+
+  static List<HitElementMode> selectorValues() {
+    return [
+      HitElementMode.full,
+      HitElementMode.touchEdges,
+      HitElementMode.touchAnywhere,
+    ];
+  }
+}
+
+enum EraserMode { stroke, path }
+
+@Freezed(equal: false)
+sealed class Tool extends PackAsset with _$Tool {
+  Tool._();
+
+  factory Tool.select({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(SelectMode.rectangle) SelectMode mode,
+    @Default(HitElementMode.touchAnywhere) HitElementMode hitElementMode,
+  }) = SelectTool;
+
+  factory Tool.hand({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+  }) = HandTool;
+
+  factory Tool.import({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    required List<PadElement> elements,
+    required List<Area> areas,
+    @Uint8ListJsonConverter() @Default({}) Map<String, Uint8List> assets,
+  }) = ImportTool;
+
+  factory Tool.undo({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+  }) = UndoTool;
+
+  factory Tool.redo({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+  }) = RedoTool;
+
+  factory Tool.label({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(LabelMode.text) LabelMode mode,
+    @Default(false) bool zoomDependent,
+    @Default(SRGBColor.black) @ColorJsonConverter() SRGBColor foreground,
+    NamedItem<TextStyleSheet>? styleSheet,
+    @Default(2.0) double scale,
+  }) = LabelTool;
+
+  factory Tool.pen({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(false) bool zoomDependent,
+    @Default(0.5) double shapeDetectionTime,
+    @Default(false) bool shapeDetectionEnabled,
+    @Default(false) bool combinePaths,
+    @Default(PenProperty()) PenProperty property,
+  }) = PenTool;
+
+  factory Tool.eraser({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(EraserMode.stroke) EraserMode mode,
+    @Default(5) double strokeWidth,
+    @Default(HitElementMode.touchAnywhere) HitElementMode hitElementMode,
+    @Default(false) bool eraseElements,
+  }) = EraserTool;
+
+  factory Tool.collection({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(5) double strokeWidth,
+  }) = CollectionTool;
+
+  factory Tool.area({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @ColorJsonConverter() SRGBColor? color,
+    @Default(0) double constrainedWidth,
+    @Default(0) double constrainedHeight,
+    @Default(0) double constrainedAspectRatio,
+    @Default(false) bool askForName,
+  }) = AreaTool;
+
+  factory Tool.laser({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(5) double duration,
+    @Default(0.5) double hideDuration,
+    @Default(5) double strokeWidth,
+    @Default(0.4) double thinning,
+    @Default(BasicColors.red) @ColorJsonConverter() SRGBColor color,
+    @Default(LaserAnimation.fade) LaserAnimation animation,
+  }) = LaserTool;
+
+  factory Tool.shape({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(false) bool zoomDependent,
+    @Default(0) double constrainedWidth,
+    @Default(0) double constrainedHeight,
+    @Default(0) double constrainedAspectRatio,
+    @Default(ShapeProperty(shape: RectangleShape())) ShapeProperty property,
+    @Default(false) bool drawFromCenter,
+    @Default(false) bool constrain,
+  }) = ShapeTool;
+
+  factory Tool.table({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(false) bool zoomDependent,
+    @Default(0) double constrainedWidth,
+    @Default(0) double constrainedHeight,
+    @Default(0) double constrainedAspectRatio,
+    @Default(3) int rows,
+    @Default(3) int columns,
+    @Default(TableBorderProperty()) TableBorderProperty border,
+    @Default(SRGBColor.transparent) @ColorJsonConverter() SRGBColor fillColor,
+  }) = TableTool;
+
+  factory Tool.stamp({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    NamedItem<ButterflyComponent>? component,
+  }) = StampTool;
+
+  factory Tool.presentation({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+  }) = PresentationTool;
+
+  factory Tool.spacer({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(Axis2D.horizontal) Axis2D axis,
+  }) = SpacerTool;
+
+  @FreezedUnionValue('fullSceen')
+  factory Tool.fullScreen({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+  }) = FullScreenTool;
+
+  factory Tool.asset({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(ImportType.file) ImportType importType,
+    @Default(true) bool advanced,
+  }) = AssetTool;
+
+  factory Tool.export({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    required ExportOptions options,
+  }) = ExportTool;
+
+  factory Tool.texture({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(false) bool zoomDependent,
+    @Default(0) double constrainedWidth,
+    @Default(0) double constrainedHeight,
+    @Default(0) double constrainedAspectRatio,
+    @Default(SurfaceTexture.pattern()) SurfaceTexture texture,
+  }) = TextureTool;
+
+  factory Tool.ruler({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @ColorJsonConverter() SRGBColor? color,
+    @ColorJsonConverter() SRGBColor? foreground,
+    @Default(100) int size,
+  }) = RulerTool;
+
+  factory Tool.grid({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(SRGBColor.black) @ColorJsonConverter() SRGBColor color,
+    @Default(20) double xSize,
+    @Default(20) double ySize,
+    @Default(0) double xOffset,
+    @Default(0) double yOffset,
+    @Default(false) bool positionDependent,
+    @Default(false) bool zoomDependent,
+    @Default(1) double stroke,
+  }) = GridTool;
+
+  factory Tool.eyeDropper({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+  }) = EyeDropperTool;
+
+  factory Tool.barcode({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(BarcodeType.qrCode) BarcodeType barcodeType,
+    @Default(SRGBColor.black) @ColorJsonConverter() SRGBColor color,
+  }) = BarcodeTool;
+
+  factory Tool.polygon({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(false) bool zoomDependent,
+    @Default(PolygonProperty()) PolygonProperty property,
+  }) = PolygonTool;
+
+  factory Tool.fromJson(Map<String, dynamic> json) => _$ToolFromJson(json);
+
+  ToolCategory get category => switch (this) {
+    SelectTool() => .normal,
+    HandTool() => .view,
+    ImportTool() => .import,
+    UndoTool() => .action,
+    RedoTool() => .action,
+    LabelTool() => .normal,
+    PenTool() => .normal,
+    EraserTool() => .normal,
+    CollectionTool() => .action,
+    AreaTool() => .normal,
+    LaserTool() => .view,
+    ShapeTool() => .surface,
+    TableTool() => .surface,
+    StampTool() => .surface,
+    PresentationTool() => .normal,
+    SpacerTool() => .normal,
+    FullScreenTool() => .action,
+    AssetTool() => .import,
+    ExportTool() => .action,
+    TextureTool() => .surface,
+    RulerTool() => .view,
+    GridTool() => .view,
+    EyeDropperTool() => .action,
+    BarcodeTool() => .surface,
+    PolygonTool() => .surface,
+  };
+}

@@ -1,0 +1,428 @@
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:flutter/foundation.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_leap/l10n/leap_localizations.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+
+import '../../dialogs/delete.dart';
+import '../../widgets/editable_list_tile.dart';
+import '../../widgets/multi_select.dart';
+import '../../widgets/reorderable_list_item.dart';
+
+int _documentLayerIndexFromViewIndex(int index, int layerCount) =>
+    layerCount - index - 1;
+
+class LayersView extends StatefulWidget {
+  const LayersView({super.key});
+
+  @override
+  State<LayersView> createState() => _LayersViewState();
+}
+
+class _LayersViewState extends State<LayersView> {
+  List<DocumentLayer> _layers = const [];
+
+  @override
+  Widget build(BuildContext context) {
+    final contentPadding =
+        ListTileTheme.of(context).contentPadding ?? EdgeInsets.zero;
+    return BlocBuilder<DocumentBloc, DocumentState>(
+      buildWhen: (previous, current) =>
+          previous is DocumentLoadSuccess &&
+          current is DocumentLoadSuccess &&
+          (previous.currentLayer != current.currentLayer ||
+              previous.invisibleLayers != current.invisibleLayers ||
+              previous.page.layers != current.page.layers ||
+              previous.page.content != current.page.content),
+      builder: (context, state) {
+        if (state is! DocumentLoadSuccess) return const SizedBox.shrink();
+        final currentIndex = state.currentLayer;
+        final documentLayers = state.page.layers.reversed.toList();
+        if (!listEquals(_layers, documentLayers)) {
+          _layers = documentLayers;
+        }
+        final layers = _layers;
+        final currentLayer = state.page.getLayer(currentIndex);
+        return MultiSelectRegion<String>(
+          toolbarBuilder: (context, controller) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+            child: OverflowBar(
+              spacing: 8,
+              children: [
+                ActionChip(
+                  label: Text(AppLocalizations.of(context).delete),
+                  avatar: const PhosphorIcon(PhosphorIconsLight.trash),
+                  onPressed: () async {
+                    if (controller.selectedIds.isEmpty) return;
+                    final result = await showDialog<bool>(
+                      context: context,
+                      builder: (context) => const DeleteDialog(),
+                    );
+                    if (result != true) return;
+                    final bloc = context.read<DocumentBloc>();
+                    for (final id in controller.selectedIds) {
+                      bloc.add(LayerRemoved(id));
+                    }
+                    controller.clear();
+                  },
+                ),
+                ActionChip(
+                  label: Text(AppLocalizations.of(context).duplicate),
+                  avatar: const PhosphorIcon(PhosphorIconsLight.copySimple),
+                  onPressed: () {
+                    final selectedIds = controller.selectedIds.toList();
+                    if (selectedIds.isNotEmpty) {
+                      context.read<DocumentBloc>().add(
+                        LayersMerged(selectedIds, true),
+                      );
+                    }
+                    controller.clear();
+                  },
+                ),
+                ActionChip(
+                  label: Text(AppLocalizations.of(context).merge),
+                  avatar: const PhosphorIcon(PhosphorIconsLight.stack),
+                  onPressed: () {
+                    final selectedIds = controller.selectedIds.toList();
+                    if (selectedIds.length > 1) {
+                      context.read<DocumentBloc>().add(
+                        LayersMerged(selectedIds),
+                      );
+                    }
+                    controller.clear();
+                  },
+                ),
+              ],
+            ),
+          ),
+          builder: (context, controller, child) => Stack(
+            children: [
+              ReorderableListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: layers.length,
+                buildDefaultDragHandles: false,
+                // Workaround for https://github.com/flutter/flutter/issues/187162. Remove once the issue is fixed.
+                proxyDecorator: (_, index, animation) {
+                  final layer = layers[index];
+                  final id = layer.id ?? '';
+                  final visible = state.isLayerVisible(id);
+                  final name = layer.name.isEmpty
+                      ? AppLocalizations.of(context).layer
+                      : layer.name;
+
+                  return AnimatedBuilder(
+                    animation: animation,
+                    child: ListTile(
+                      selected: controller.selectionMode
+                          ? controller.selectedIds.contains(id)
+                          : id == state.currentLayer,
+                      contentPadding: contentPadding.add(
+                        const EdgeInsetsDirectional.only(end: 32),
+                      ),
+                      leading: PhosphorIcon(
+                        visible
+                            ? PhosphorIconsLight.eye
+                            : PhosphorIconsLight.eyeSlash,
+                      ),
+                      title: Text(name, overflow: .ellipsis),
+                      subtitle: Text(
+                        AppLocalizations.of(context)
+                            .countElements(layer.content.length),
+                      ),
+                    ),
+                    builder: (context, child) {
+                      final value = Curves.easeInOut.transform(animation.value);
+
+                      return Material(
+                        elevation: 6 * value,
+                        color: ColorScheme.of(context).surface,
+                        child: child,
+                      );
+                    },
+                  );
+                },
+                itemBuilder: (BuildContext context, int index) {
+                  final layer = layers[index];
+                  final id = layer.id ?? '';
+                  final visible = state.isLayerVisible(id);
+                  return ReorderableListItem(
+                    key: ValueKey(id),
+                    index: index,
+                    child: EditableListTile(
+                      initialValue: layer.name,
+                      selected: controller.selectionMode
+                          ? controller.selectedIds.contains(id)
+                          : (id == state.currentLayer),
+                      onTap: () {
+                        if (controller.selectionMode) {
+                          controller.toggle(id);
+                        } else {
+                          context.read<DocumentBloc>().add(
+                            CurrentLayerChanged(id),
+                          );
+                        }
+                      },
+                      onLongPress: () {
+                        if (!controller.selectionMode) {
+                          controller.enableSelectionMode();
+                          controller.select(id);
+                        }
+                      },
+                      subtitle: Text(
+                        AppLocalizations.of(context)
+                            .countElements(layer.content.length),
+                      ),
+                      leading: controller.selectionMode
+                          ? Checkbox(
+                              value: controller.selectedIds.contains(id),
+                              onChanged: (value) => controller.toggle(id),
+                            )
+                          : IconButton(
+                              icon: PhosphorIcon(
+                                visible
+                                    ? PhosphorIconsLight.eye
+                                    : PhosphorIconsLight.eyeSlash,
+                              ),
+                              tooltip: visible
+                                  ? AppLocalizations.of(context).hide
+                                  : AppLocalizations.of(context).show,
+                              onPressed: () {
+                                context.read<DocumentBloc>().add(
+                                  LayerVisibilityChanged(id, !visible),
+                                );
+                              },
+                            ),
+                      textFormatter: (e) =>
+                          e.isEmpty ? AppLocalizations.of(context).layer : e,
+                      onSaved: (value) => context.read<DocumentBloc>().add(
+                        LayerChanged(id, name: value),
+                      ),
+                      actions: [
+                        if (layers.length > 1)
+                          SubmenuButton(
+                            leadingIcon: const PhosphorIcon(
+                              PhosphorIconsLight.stack,
+                            ),
+                            menuChildren: [
+                              MenuItemButton(
+                                leadingIcon: const PhosphorIcon(
+                                  PhosphorIconsLight.arrowUp,
+                                ),
+                                onPressed: index <= 0
+                                    ? null
+                                    : () => context.read<DocumentBloc>().add(
+                                        LayersMerged(
+                                          [
+                                            layers[index - 1].id,
+                                            id,
+                                          ].nonNulls.toList(),
+                                        ),
+                                      ),
+                                child: Text(AppLocalizations.of(context).up),
+                              ),
+                              MenuItemButton(
+                                leadingIcon: const PhosphorIcon(
+                                  PhosphorIconsLight.arrowDown,
+                                ),
+                                onPressed: index >= layers.length - 1
+                                    ? null
+                                    : () => context.read<DocumentBloc>().add(
+                                        LayersMerged(
+                                          [
+                                            id,
+                                            layers[index + 1].id,
+                                          ].nonNulls.toList(),
+                                        ),
+                                      ),
+                                child: Text(AppLocalizations.of(context).down),
+                              ),
+                              MenuItemButton(
+                                leadingIcon: const PhosphorIcon(
+                                  PhosphorIconsLight.dotsNine,
+                                ),
+                                onPressed: () {
+                                  final bloc = context.read<DocumentBloc>();
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) => BlocProvider.value(
+                                      value: bloc,
+                                      child: _LayerMergeDialog(main: id),
+                                    ),
+                                  );
+                                },
+                                child: Text(AppLocalizations.of(context).other),
+                              ),
+                            ],
+                            child: Text(AppLocalizations.of(context).merge),
+                          ),
+                        MenuItemButton(
+                          leadingIcon: const PhosphorIcon(
+                            PhosphorIconsLight.copySimple,
+                          ),
+                          onPressed: () => context.read<DocumentBloc>().add(
+                            LayersMerged([id], true),
+                          ),
+                          child: Text(AppLocalizations.of(context).duplicate),
+                        ),
+                        MenuItemButton(
+                          leadingIcon: const PhosphorIcon(
+                            PhosphorIconsLight.trash,
+                          ),
+                          onPressed: currentLayer == layer
+                              ? null
+                              : () async {
+                                  final result = await showDialog<bool>(
+                                    context: context,
+                                    builder: (context) => const DeleteDialog(),
+                                  );
+                                  if (result != true) return;
+                                  context.read<DocumentBloc>().add(
+                                    LayerRemoved(id),
+                                  );
+                                },
+                          child: Text(AppLocalizations.of(context).delete),
+                        ),
+                      ],
+                      contentPadding: contentPadding.add(
+                        const EdgeInsetsDirectional.only(end: 32),
+                      ),
+                    ),
+                  );
+                },
+                onReorderItem: (int oldIndex, int newIndex) {
+                  if (oldIndex == newIndex) return;
+                  final layer = layers[oldIndex];
+                  layers
+                    ..removeAt(oldIndex)
+                    ..insert(newIndex, layer);
+                  context.read<DocumentBloc>().add(
+                    LayerOrderChanged(
+                      layer.id ?? '',
+                      _documentLayerIndexFromViewIndex(newIndex, layers.length),
+                    ),
+                  );
+                },
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: FloatingActionButton.extended(
+                    label: Text(LeapLocalizations.of(context).create),
+                    icon: const PhosphorIcon(PhosphorIconsLight.plus),
+                    backgroundColor: ColorScheme.of(context).secondary,
+                    foregroundColor: ColorScheme.of(context).onSecondary,
+                    onPressed: () async {
+                      final bloc = context.read<DocumentBloc>();
+                      final state = bloc.state;
+                      if (state is! DocumentLoadSuccess) return;
+                      final id = createUniqueId();
+                      bloc
+                        ..add(LayerCreated(id: id))
+                        ..add(CurrentLayerChanged(id));
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _LayerMergeDialog extends StatefulWidget {
+  final String? main;
+
+  const _LayerMergeDialog({this.main});
+
+  @override
+  State<_LayerMergeDialog> createState() => _LayerMergeDialogState();
+}
+
+class _LayerMergeDialogState extends State<_LayerMergeDialog> {
+  final List<String> _selected = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text(AppLocalizations.of(context).merge),
+      content: BlocBuilder<DocumentBloc, DocumentState>(
+        builder: (context, state) {
+          if (state is! DocumentLoadSuccess) return const SizedBox.shrink();
+          final layers = state.page.layers;
+          final mainLayer = widget.main == null
+              ? null
+              : state.page.getLayer(widget.main!);
+          return Column(
+            mainAxisSize: .min,
+            children: [
+              if (mainLayer != null) ...[
+                ListTile(
+                  title: Text(
+                    mainLayer.name.isEmpty
+                        ? AppLocalizations.of(context).layer
+                        : mainLayer.name,
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)
+                        .countElements(mainLayer.content.length),
+                  ),
+                ),
+                const Divider(),
+              ],
+              ...layers
+                  .where((e) => e.id != widget.main)
+                  .map(
+                    (e) => CheckboxListTile(
+                      value: _selected.contains(e.id),
+                      onChanged: (value) {
+                        setState(() {
+                          if (value == true) {
+                            _selected.add(e.id ?? '');
+                          } else {
+                            _selected.remove(e.id);
+                          }
+                        });
+                      },
+                      title: Text(
+                        e.name.isEmpty
+                            ? AppLocalizations.of(context).layer
+                            : e.name,
+                      ),
+                      subtitle: Text(
+                        AppLocalizations.of(context)
+                            .countElements(e.content.length),
+                      ),
+                    ),
+                  ),
+            ],
+          );
+        },
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            context.read<DocumentBloc>().add(
+              LayersMerged([
+                if (widget.main != null) widget.main!,
+                ..._selected,
+              ]),
+            );
+            Navigator.of(context).pop();
+          },
+          child: Text(AppLocalizations.of(context).merge),
+        ),
+      ],
+    );
+  }
+}

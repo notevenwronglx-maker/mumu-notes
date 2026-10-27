@@ -1,0 +1,1693 @@
+{
+  "open": "فتح",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "فتح في متصفح الملفات",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "الإعدادات",
+  "personalization": "التخصيص",
+  "theme": "السمة",
+  "darkTheme": "المظهر الداكن",
+  "lightTheme": "المظهر الفاتح",
+  "systemTheme": "استخدام سمة النظام الافتراضية",
+  "view": "العرض",
+  "contentViewport": "نافذة عرض المحتوى",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "قيِّد نافذة العرض بالإحداثيات الإيجابية",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "معطل",
+  "canvas": "اللوحة",
+  "interface": "الواجهة",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "تعديل",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "تصدير",
+  "save": "حفظ",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "تكبير",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "تقريب",
+  "zoomOut": "تصغير",
+  "resetZoom": "إعادة ضبط التكبير",
+  "strokeWidth": "عرض الخط",
+  "strokeStyle": "نمط الخط",
+  "dashLength": "طول الشَّرْطة",
+  "gapLength": "طول الفجوة",
+  "includeEraser": "هل تريد تضمين الممحاة؟",
+  "thinning": "الترقيق",
+  "pen": "القلم",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "قلم معكوس",
+  "eraser": "الممحاة",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "جرة",
+  "label": "التسمية",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "حذف",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "هل أنت متأكد؟",
+  "reallyDelete": "هل تريد حقًّا حذف هذا العنصر؟",
+  "no": "لا",
+  "yes": "نعم",
+  "undo": "تراجُع",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "إعادة",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "إعدادات عامة",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "نسخ إلى الحافظة",
+  "loading": "جاري التحميل...",
+  "enterText": "أدخل النص",
+  "size": "الحجم",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "العرض",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "الارتفاع",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "العد",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "المساحة",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "الخلفية",
+  "applyBackground": "تطبيق الخلفية",
+  "applyAreas": "تطبيق المناطق",
+  "currentPage": "الصفحة الحالية",
+  "allPages": "جميع الصفحات",
+  "box": "مربع",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "اللُّغَة",
+  "systemLocale": "لغة النظام",
+  "information": "معلومات",
+  "license": "الترخيص",
+  "imprint": "علامة الناشر",
+  "privacypolicy": "سياسة الخصوصية",
+  "sourceCode": "الكود المصدري",
+  "documentation": "إرشادات الإستخدام",
+  "changelog": "سِجل التغييرات",
+  "source": "المصدر",
+  "existOverride": "هذا العنصر موجود فعلًا. أأستبدله؟",
+  "description": "الوصف",
+  "fill": "تعبئة",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "اللوحة الافتراضية",
+  "highlighter": "قلم تظليل",
+  "combinePaths": "دمج المسارات",
+  "add": "إضافة",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "إزالة",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "هل تريد حقاً إزالة هذا؟",
+  "resetPalette": "إعادة تعيين لوحة الألوان",
+  "custom": "مخصص",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "زخرفة",
+  "underline": "أسفل",
+  "overline": "خط علوي",
+  "strikethrough": "مشطوب",
+  "thickness": "السماكة",
+  "style": "النمط",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "صلب",
+  "solidColor": "لون معتم",
+  "gradient": "متدرج",
+  "gradientType": "نوع التدرج",
+  "linear": "خطي",
+  "radial": "تدرّج شعاعي",
+  "tint": "تلوين",
+  "blur": "تمويه",
+  "double": "مزدوج",
+  "dotted": "منقط",
+  "dottedDark": "منقط داكن",
+  "dashed": "متقطع",
+  "wavy": "مموج",
+  "fontWeight": "وزن الخط",
+  "normal": "عادي",
+  "bold": "عريض",
+  "italic": "مائل",
+  "clipboard": "الحافظة",
+  "file": "ملف",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "البيانات",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "مشاركة",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "تباعد",
+  "padding": "مساحة إضافية",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "صورة",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "أدخل عنوان URL",
+  "scale": "مقاس",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "مساعدة",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "هل تريد حقاً إعادة تعيينه؟",
+  "whatToDo": "ماذا تريد أن تفعل؟",
+  "ignore": "تجاهل",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "النسخ الاحتياطي",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "اتصال النسخ الاحتياطي",
+  "automaticBackups": "النسخ الاحتياطي التلقائي",
+  "automaticBackupsDescription": "يقوم بإنشاء نُسخ احتياطية بينما يعمل Butterfly.",
+  "backupInterval": "الفاصل الزمني للنسخ الاحتياطي",
+  "backupNow": "نسخ احتياطي الآن",
+  "lastBackup": "آخر نسخة احتياطية",
+  "backupCreated": "تم إنشاء نسخة احتياطية",
+  "hour": "ساعة",
+  "hours": "ساعات",
+  "day": "يوم",
+  "days": "أيام",
+  "week": "أسبوع",
+  "weeks": "أسابيع",
+  "createdInNewerVersion": "تم إنشاء الملف {fileName} في إصدار أحدث ({fileVersion}). ما الذي ينبغي فعله مع هذا الملف؟",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "نُقَط مرجعيه",
+  "origin": "الأصل",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "استيراد",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "جديد",
+  "selectElement": "حدد العنصر",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Shift",
+  "altKey": "Alt",
+  "copyVersion": "نسخ الإصدار",
+  "input": "الإدخال",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "السلوكيات",
+  "dataDirectory": "مجلد البيانات",
+  "warning": "تحذير",
+  "platformExperimentalWarning": "تحذير: هذا الإعداد تجريبي وقد يتسبب بفقدان بيانتك.",
+  "changeDataDirectoryWarningContent": "هل أنت متيقِّن من أنك تريد تغيير مجلد البيانات؟ يجب عليك إجراء نسخة احتياطية من بياناتك قبل المتابعة.",
+  "defaultPath": "المجلد الافتراضي",
+  "dateFormat": "تنسيق التاريخ",
+  "updatedAt": "حُدّث في: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "أُنشئ في: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "إعادة تسمية",
+  "duplicate": "استنساخ",
+  "hand": "اليد",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "مجلد",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "نقل",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "نسخ",
+  "openContextMenu": "فتح قائمة السياق",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "رجوع",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "للأمام",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "يتغير حسب التكبير",
+  "shapeDetection": "اكتشاف الشكل",
+  "delay": "مؤخر",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "الطبقة الافتراضية",
+  "layer": "طبقة",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "طبقات",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "غير محدد",
+  "enterLayer": "أدخل اسم الطبقة",
+  "eraseShapes": "مسح الأشكال",
+  "eraseShapeModeNone": "لا تمح الأشكال",
+  "eraseShapeModeTouchEdges": "محو عند لمس الحواف",
+  "eraseShapeModeTouchAnywhere": "محو عند لمس أي مكان",
+  "selectElementModeTouchEdges": "حدد عند لمس الحواف",
+  "selectElementModeTouchAnywhere": "حدد عند اللمس في أي مكان",
+  "selectElements": "حدد العناصر",
+  "deleteElements": "حذف العناصر",
+  "eraseAllElements": "مسح جميع العناصر",
+  "deleteElementsConfirm": "هل تريد حقاً حذف العناصر المحددة؟",
+  "selectCustomCollection": "حدد مجموعة مخصصة",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "الحساسية",
+  "selectionTolerance": "تحمّل الاختيار",
+  "selectionToleranceDescription": "مدى اقتراب المؤشر من عنصر أو منطقة لاختياره. القيم الأعلى تجعل الاختيار أسهل.",
+  "selectionHandleSensitivity": "تحديد منطقة تصفح المعالج",
+  "selectionHandleSensitivityDescription": "حجم المنطقة المصطنعة حول الاختيار ومناطق المناولة لجميع أنواع المؤشرات.",
+  "panGestureSensitivity": "حساسية إيماءة عموم",
+  "panGestureSensitivityDescription": "حركة الكانفاس من لفتات اللمس أو اللمس. القيم العليا تحرك الكانفاس أبعد من ذلك.",
+  "zoomGestureSensitivity": "حساسية التكبير المستمرة",
+  "zoomGestureSensitivityDescription": "التكبير من القمامة و إيماءات لوحة المسار، و Ctrl+scroll. تكبر القيم الأعلى أكثر من ذلك.",
+  "rotationGestureSensitivity": "حساسية إيماءة الدوران",
+  "rotationGestureSensitivityDescription": "دوران الكانفاس من الإيماءات. تدور القيم العليا أكثر من ذلك.",
+  "scrollPanSensitivity": "حساسية التمرير",
+  "scrollPanSensitivityDescription": "حركة الكانفاس من عجلة الماوس وتمرير لوحة المسارات. القيم الأعلى تذهب إلى أبعد من ذلك.",
+  "horizontal": "أفقي",
+  "vertical": "عمودي",
+  "plain": "سادة",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "فاتح",
+  "ruled": "مخطط",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "مربعات",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "موسيقى",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "داكن",
+  "plainDark": "منقط عادي",
+  "ruledDark": "مخطط داكن",
+  "quadDark": "مربعات داكن",
+  "musicDark": "موسيقى داكن",
+  "templates": "قوالب",
+  "untitled": "بلا عنوان",
+  "createTemplate": "إنشاء قالب",
+  "createTemplateContent": "هل تريد حقاً إنشاء قالب من هذا المستند؟ سيتم حذف المستند الأصلي.",
+  "fileName": "اسم الملف",
+  "defaultFileName": "اسم الملف الافتراضي",
+  "templateFileNameDescription": "يتم حفظ المستندات التي يتم فتحها من أداة اختيار القوالب تلقائيًا بهذا الاسم. أما القوالب التي لا تحمل اسمًا، فتستخدم الاسم الافتراضي المُعد في إعدادات البيانات. ادمج النص الخاص بك مع {dateExample} و{timeExample}. سيتم رفض الأحرف غير المسموح بها في أسماء الملفات.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "معاينة",
+  "replace": "استبدل",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "هل تريد حقاً استبدال القالب؟ هذه العملية لا يمكن التراجع عنها!",
+  "defaultTemplate": "القالب الافتراضي",
+  "insert": "إدخال",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "مستند",
+  "documentStates": "حالة المستند",
+  "camera": "كاميرا",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "طباعة",
+  "selectCamera": "اختر كاميرا",
+  "changeDocumentPath": "تغيير مكان المستند",
+  "deleteWholeStroke": "حذف الخط بأكمله",
+  "alpha": "الشفافية",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "المنطقة",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "حدد منطقة",
+  "aspectRatio": "نسبة الجوانب",
+  "presets": "الإعدادات المسبقة",
+  "pagePortrait": "صفحه عموديه",
+  "pageLandscape": "صفحة أفقيه",
+  "square": "مربع",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "المناطق",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "أدخل المنطقة",
+  "exitArea": "الخروج من المنطقة",
+  "currentArea": "المنطقة الحالي",
+  "design": "تصميم",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "نص",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "مرحباً، هذه Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "مساحة رسم مجانية ومفتوحة المصدر!",
+  "updated": "تم تحديث التطبيق إلى الإصدار {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "ملاحظات الإصدار",
+  "constraints": "القيود",
+  "scaled": "مُكبر",
+  "fixed": "ثابت",
+  "dynamicContent": "ديناميكية",
+  "none": "لا شَيْء",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "تضمين المنطقة",
+  "verticalAlignment": "محاذاة عمودية",
+  "horizontalAlignment": "محاذاة أفقية",
+  "top": "أعلى",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "الوسط",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "أسفل",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "يسار",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "يمين",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "محاذاة الكلمات",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "التقييد",
+  "length": "طول",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "تصدير SVG",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "حدد صفحات",
+  "recentFiles": "الملفات الأخيرة",
+  "start": "ابدأ",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "لا توجد ملفات حديثة",
+  "countPages": "{count,plural, =0{لا توجد صفحات} =1{صفحة 1} other{{count} صفحات}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "الصفحة {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "الخروج",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "لا توجد عناصر",
+  "invertSelection": "إعكس التحديد",
+  "errorWhileImporting": "حدث خطأ أثناء الاستيراد",
+  "errorWhileImportingContent": "حدث خطأ أثناء استيراد الملف",
+  "showDetails": "إظهار التفاصيل",
+  "hideDetails": "إخفاء التفاصيل",
+  "error": "خطأ",
+  "stackTrace": "تتبع المكدس",
+  "laser": "ليزر",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "المدة",
+  "quality": "الجودة",
+  "exportPdf": "تصدير PDF",
+  "local": "محلي",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "إضافة اتصال",
+  "connections": "اتصالات",
+  "noConnections": "لا توجد اتصالات",
+  "url": "عنوان URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "رابط WebDAV الكامل المقدم من مزود التخزين الخاص بك",
+  "connect": "توصيل",
+  "username": "اسم المستخدم",
+  "password": "كلمة المرور",
+  "authenticationPassword": "كلمة مرور المصادقة",
+  "documentEncryptionPassword": "كلمة مرور تشفير المستند",
+  "documentEncryptionPasswordDescription": "يقوم بتشفير المستندات المخزنة في هذا الاتصال. اتركه فارغًا لإبقائها غير مشفرة",
+  "documentEncryptionEnabled": "تم تمكين تشفير المستند",
+  "reauthenticate": "إعادة التوثيق",
+  "addDocumentEncryptionPassword": "إضافة كلمة مرور تشفير المستند",
+  "changeDocumentEncryptionPassword": "تغيير كلمة مرور تشفير المستند",
+  "webNotSupported": "نسخة الويب غير مدعومه",
+  "advanced": "خيارات متقدمة",
+  "symmetric": "متماثل",
+  "perSide": "لكل جانب",
+  "directory": "المُجلد",
+  "connectionNameDescription": "اسمٌ يستخدم فقط لتمييز هذا الاتصال",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "مجلد المستندات",
+  "templatesDirectory": "مجلد القوالب",
+  "errorWhileCreatingConnection": "حدث خطأ أثناء إنشاء الاتصال",
+  "cannotConnect": "تعذر الاتصال",
+  "urlNotValid": "عنوان URL غير صحيح",
+  "icon": "أيقونة",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "رابط URL اختياري لصورة يتم استخدامها كرمز للاتصال",
+  "update": "تحديث",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "التحديث متاح",
+  "stable": "الإصدار المستقر",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "الإصدار الليلي",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "تحقق من التحديثات",
+  "checkForUpdatesWarning": "للتحقق من التحديثات، سيتصل التطبيق بموقع المطور للحصول على المعلومات.",
+  "usingLatestStable": "أنت تستخدم أحدث إصدار مستقر",
+  "usingLatestNightly": "أنت تستخدم أحدث إصدار تجريبي",
+  "currentVersion": "الإصدار الحالي",
+  "updateNow": "التحديث الآن",
+  "shape": "شكل",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "جدول",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "صفوف",
+  "columns": "أعمدة",
+  "row": "صف",
+  "column": "عمود",
+  "insertRowBefore": "إدراج صف قبل",
+  "insertRowAfter": "إدراج صف بعد",
+  "insertColumnBefore": "إدراج العمود قبل",
+  "insertColumnAfter": "إدراج العمود بعد",
+  "deleteRow": "حذف الصف",
+  "deleteColumn": "حذف العمود",
+  "cellColor": "لون الخلية",
+  "cellBorders": "إطارات الخلية",
+  "cellBorder": "إطار الخلية",
+  "horizontalBorder": "الإطار الأفقي",
+  "verticalBorder": "الإطار العمودي",
+  "rowHeight": "ارتفاع الصف",
+  "columnWidth": "عرض العمود",
+  "border": "إطار",
+  "circle": "دائرة",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "مستطيل",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "مثلث",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "سطر",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "انحناء الزاوية",
+  "topLeft": "أعلى اليسار",
+  "topRight": "أعلى اليمين",
+  "bottomLeft": "أسفل اليسار",
+  "bottomRight": "أسفل اليمين",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "المخبآت",
+  "manage": "إدارة",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "مسح المخبآت",
+  "createCache": "إنشاء مخبئ",
+  "thirdPartyLicenses": "تراخيص الطرف الثالث",
+  "syncing": "مزامنة...",
+  "synced": "متزامن",
+  "notSynced": "غير متزامن",
+  "conflict": "تعارض",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "احتفظ بالمحلي",
+  "keepConnection": "احتفظ بالاتصال",
+  "keepBoth": "الاحتفاظ بكليهما",
+  "forAll": "للجميع",
+  "fileConflict": "{file} في {connection} لديه تعارض",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "غير متصل",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "الأحدث",
+  "connectionLatest": "أحدث اتصال",
+  "path": "المسار",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "تمت مزامنة المجلد",
+  "syncRootDirectory": "مزامنة مجلد الجذر",
+  "stylus": "قلم الشاشه",
+  "penOnlyInput": "وضع \"القلم فقط\"",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "شغّل وضع \"الإدخال بالقلم فقط\" عند رصد القلم.\nهذا الإعداد لن يحفظ و سيتغير في الجَلسة القادمة.",
+  "penOnlyInputOnDescription": "تجاهل دائمًا الإدخال باللمس والفأرة، واسمح فقط بالكتابة بالقلم.",
+  "penOnlyInputOffDescription": "اقبل جميع أنواع الإدخال بما في ذلك اللمس والفأرة و القلم.",
+  "automatic": "تلقائي",
+  "alwaysOn": "مفعل",
+  "alwaysOff": "معطل",
+  "showPenOnlyToggle": "إظهار زر الإدخال بالقلم فقط",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "إيماءات الإدخال",
+  "inputGesturesDescription": "يتيح لك تحريك وتكبيير القماش بإيماءات اللمس، حتى عندما يتم اختيار أداة الرسم.",
+  "nativeTitleBar": "استخدم شريط عنوان النظام",
+  "mode": "Mode",
+  "syncMode": "وضع المزامنة",
+  "connection": "اتصال",
+  "always": "دائما",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "لا تستخدم الاتصال الخلوي",
+  "syncModeAlwaysDescription": "مزامنة الملفات البعيدة تلقائياً كلما تغيرت.",
+  "syncModeNoMobileDescription": "المزامنة تلقائياً باستثناء الأجهزة المحمولة، التي يمكن أن تقلل من استخدام بيانات الجوال.",
+  "manual": "يدوي",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "فقط المزامنة عند بدئها بنفسك.",
+  "search": "البحث",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "الخصائص",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "تثبيت",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "إزالة التثبيت",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "العنصر",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "رسام",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "الموضع",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "ملاحظة",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "حزم",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "حُزْمَة",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "المزيد",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "اسأل عن الاسم",
+  "areaIndex": "المنطقة {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "البدء في ملء الشاشة",
+  "inputs": "الإدخال",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "الفأرة",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "اللمس",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "لوحة المفاتيح",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "الاختصارات",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "وسط",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "الأول",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "الثاني",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "الأداة المفعلة",
+  "activeToolDescription": "استخدام الأداة المحددة حاليًا على شريط الأدوات",
+  "handTool": "أداة اليد",
+  "handToolDescription": "اسحب للتحريك اللوحة",
+  "toolOnToolbar": "أداة محددة على شريط الأدوات",
+  "toolOnToolbarDescription": "استخدام الأداة في الموضع المحدد على شريط الأدوات، بدءاً من اليسار",
+  "toolOnToolbarShort": "موضع شريط الأدوات: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "أدوات",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "إظهار الشبكة",
+  "grid": "الشبكة",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "مسطرة",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "الزاوية",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "إبلاغ",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "مجلد جديد",
+  "createPack": "إنشاء حُزْمَة",
+  "editPack": "تحرير حُزْمَة",
+  "packsDirectory": "مجلد الحُزم",
+  "stamp": "ختم",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "إضافة إلى حُزْمَة",
+  "sureImportPack": "هل أنت متأكد من أنك تريد استيراد الحُزْمَة؟",
+  "byAuthor": "من قِبل {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "المؤلف",
+  "addAsset": "إضافة عنصر",
+  "editAsset": "تحرير عنصر",
+  "scope": "النطاق",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "لا توجد حُزم متوفرة حاليا",
+  "components": "المكونات",
+  "waypoint": "نقطة مرجعيه",
+  "actions": "الإجراءات",
+  "painters": "المؤمنون",
+  "breakingChangesTitle": "تغييرات مخالفه",
+  "breakingChangesMessage": "هناك تغييرات في هذا الإصدار. الرجاء قراءة سجل التغييرات قبل التحديث. الإصدار الحالي للملف هو {version}، الإصدار الجديد هو {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "الأنماط",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "الفقرة",
+  "fontFamily": "عائلة الخط",
+  "smoothing": "التنعيم",
+  "streamline": "التبسيط",
+  "presentation": "عرض تقديمي",
+  "simple": "بسيط",
+  "createPresentation": "Create presentation",
+  "addSlide": "إضافة شريحة جديدة",
+  "updateSlide": "تحديث الشريحة",
+  "deleteSlide": "حذف الشريحة",
+  "transitionDuration": "مدة الانتقال",
+  "transitionDurationDescription": "كم من الوقت تستغرقه الكاميرا للانتقال إلى الشريحة التالية. في الشريحة الأخيرة، يستخدم هذا عند إضافة الشريحة الجديدة.",
+  "transitionDurationValue": "المرحلة الانتقالية {seconds}",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "أضف الإطار المفاتيح هنا",
+  "updateKeyframe": "تحديث من الكاميرا الحالية",
+  "deleteKeyframe": "حذف إطار المفاتيح",
+  "markAsSlide": "وضع علامة الشريحة",
+  "removeSlideMarker": "إزالة علامة الشريحة",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "انزلاق {slide} · الإطار {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "انزلاق {current} من {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "حدد العنصر",
+  "clearStyle": "مسح النمط",
+  "unknownImportType": "استيراد مجهول النوعية",
+  "sureImportTemplate": "هل أنت متأكد من أنك تريد استيراد القالب؟",
+  "frame": "إطار",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "تشغيل",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "فيديو",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "إطار في الثانية",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "نقطة توقف",
+  "presentationControls": "إعدادات العرض",
+  "nextSlide": "الشريحة التالية",
+  "nextSlideDescription": "اسحب إلى اليمين أو اضغط على مفتاح السهم الأيمن للذهاب إلى الشريحة التالية",
+  "previousSlide": "الشريحة السابقة",
+  "previousSlideDescription": "اسحب إلى اليسار أو اضغط على مفتاح السهم الأيسر للذهاب إلى الشريحة السابقة",
+  "exitPresentation": "الخروج من العرض التقديمي",
+  "exitPresentationDescription": "اضغط على المفتاح Escape أو مرر لأسفل للخروج من العرض",
+  "pausePresentation": "الإيقاف المؤقت للعرض",
+  "pausePresentationDescription": "اضغط على الشاشة أو اضغط على زر المسافة لإيقاف أو استئناف العرض التقديمي",
+  "keyframe": "مفتاح الإطار",
+  "endOfPresentation": "لقد وصلت إلى نهاية العرض التقديمي",
+  "startOfPresentation": "لقد وصلت إلى بداية العرض التقديمي",
+  "palettes": "ألواح الألوان",
+  "headline": "العنوان {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "رمز برمجي",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "اقتباس",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "رابط",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "خانة",
+  "deleted": "محذوف",
+  "emphasis": "إبراز",
+  "listBullet": "قائمه نقطية",
+  "strong": "قوي",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "المنزل",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "الملفات",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "الترتيب حسب",
+  "location": "الموقع",
+  "whatsNew": "ما الجديد؟",
+  "unstar": "إلغاء التمييز",
+  "star": "تمييز",
+  "goUp": "اذهب للأعلى",
+  "created": "الإنشاء",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "معدّل",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "البداية السريعة",
+  "noTemplates": "لا توجد حاليا قوالب متاحة",
+  "importCorePack": "استيراد الحُزْمَة الأساسية",
+  "importCorePackDescription": "استورد الحُزْمَة الأساسية التي تحتوي على جميع الموارد البدائية. سيؤدي ذلك إلى استبدال الحُزْمَة الأساسية الحالية.",
+  "never": "مطلقًا",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "فقط عند التحديثات",
+  "visibility": "الظهور",
+  "captureThumbnail": "التقط صورة مصغرة",
+  "autoThumbnail": "تحديث الصورة المصغرة عند الإغلاق",
+  "autoThumbnailDescription": "التقاط طريقة العرض الحالية عند إغلاق هذا المستند. التقاط صورة مصغرة يدوياً يؤدي إلى إيقاف تشغيلها.",
+  "capturedThumbnail": "تم التقاط صورة مصغرة بنجاح",
+  "chooseLabelMode": "اختر وضع التسمية",
+  "foreground": "الأمامي",
+  "version": "الإصدار",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "المستودع",
+  "pages": "الصفحات",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "مستكشف",
+  "arrange": "ترتيب",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "إلى الأمام",
+  "sendToBack": "إلى الخلف",
+  "bringForward": "خطوة إلى الأمام",
+  "sendBackward": "خطوة إلى الخلف",
+  "rotation": "دوران",
+  "rotationStep": "خطوة التدوير",
+  "zoomStep": "خطوة التكبير",
+  "zoomStepDescription": "المبلغ المستخدم من قبل التكبير وتكييف اختصارات لوحة المفاتيح. إيماءات التكبير المستمرة تستخدم إعدادات حساسيتها الخاصة.",
+  "direction": "الاتجاه",
+  "onlyAvailableLargerScreen": "متوفر فقط على شاشات أكبر",
+  "toolbarPosition": "موضع شريط الأدوات",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "تدوير",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "تدوير لليسار",
+  "rotateRight": "تدوير لليمين",
+  "spacer": "المساحة",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "سكة التوجيه",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "قصّ",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "أدخل قبل",
+  "insertAfter": "أدخل بعد",
+  "insertFirst": "أدخل أولاً",
+  "insertLast": "أدخل أخراً",
+  "paste": "لصق",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "تصاعدي",
+  "descending": "تنازلي",
+  "imageScale": "حجم الصورة",
+  "svgScale": "مقاس SVG",
+  "noImageSelected": "لم يتم تحديد صورة",
+  "noSvgSelected": "لم يتم تحديد SVG",
+  "select": "حدد",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "أداة",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "نسيج",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "مظهر النظام",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "سطح المكتب",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "الجوال",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "السطح",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "النمط",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "هل أنت متأكد من إغلاق المستند؟",
+  "thereAreUnsavedChanges": "هناك تغييرات غير محفوظة",
+  "page": "الصفحة",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "خوادم ICE",
+  "collaboration": "التعاون",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "مقبس الويب",
+  "iceServer": "خادم ICE",
+  "port": "المنفذ",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "نوع",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "جانب",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "العميل",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "خادم",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "تبديل طريقة العرض",
+  "lasso": "تحديد الحبل",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "إخفاء الواجهة",
+  "density": "الكثافة",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "مضغوط",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "مريح",
+  "standard": "قياسي",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "إقفال",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "إضافة عنصر",
+  "notDefaultConnection": "ليس الإتصال الافتراضي",
+  "defaultConnection": "الاتصال الافتراضي",
+  "hide": "إخفاء",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "إظهار",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "إيقاف",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "توقف",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "تحديث",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "طباعة",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "قطّارة",
+  "users": "المستخدمون",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "التجارب",
+  "experimentsWarning": "هذه الميزات تجريبية وقد تتغير أو لا تعمل أو تختفي في أي وقت. تمكينهم قد يتسبب في أخطاء أو فقدان البيانات. تابع بحذر. الرجاء الإبلاغ عن أي أخطاء.",
+  "address": "العنوان",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "النشر إلى صفحات",
+  "rootDirectorySpecifiedDescription": "تم تحديد مجلد الجذر. ستكون جميع المجلدات المتقدمة نسبية لهذا المجلد. اتركه فارغًا لتعطيل هذا النوع من المجلدات.",
+  "rootDirectoryNotSpecifiedDescription": "لم يتم تحديد المجلد الجذر. يجب إدخال اسم. ستكون جميع مسارات المجلدات المتقدمة مُطلقة. اتركه فارغًا لتعطيل هذا النوع من المجلدات.",
+  "unsecureConnectionTitle": "اتصال غير آمن",
+  "unsecureConnectionMessage": "الاتصال غير آمن. قد يؤدي ذلك إلى مخاطر أمنية. يرجى المتابعة فقط إذا كنت تثق في الاتصال. بصمة sha1 هي {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "المتابعة على أي حال",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "عرض الصور المُصغّرة",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "إظهار معاينات التنقل",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "إظهار صور مصغرة مخزنة مؤقتاً في المناطق والصفحات",
+  "highContrast": "تباين عالي",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "يجب أن تكون هذه القيمة رقماً صحيحاً",
+  "createAreas": "إنشاء مناطق",
+  "autosave": "حفظ تلقائي",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "عكس",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "العمليات",
+  "medium": "متوسط",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "كبير",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "حجم شريط الأدوات",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "إضافة الكل",
+  "onlyCurrentPage": "الصفحة الحالية فقط",
+  "smoothNavigation": "التنقل السلس",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "تبديل منطقة الشريط",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "استخدام أندرويد SAF",
+  "exact": "بالضبط",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "مضمن",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "صفوف شريط الأدوات",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "اختبار المؤشر",
+  "pressure": "الضغط",
+  "small": "صغير",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "صغير جدًا",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "حدد الكل",
+  "overrideTools": "استبدال اﻷدوات",
+  "hideCursorWhileDrawing": "إخفاء المؤشر أثناء الرسم",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "مثبت",
+  "install": "تثبيت",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "إلغاء التحديد",
+  "changeCollection": "تغيير المجموعة",
+  "collections": "مجموعات",
+  "fullSelection": "التحديد الكامل",
+  "collection": "مجموعة",
+  "defaultCollection": "المجموعة الافتراضية",
+  "scroll": "تمرير",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "عند بدء التشغيل",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "الشاشة الرئيسة",
+  "lastNote": "الملاحظة الأخيرة",
+  "newNote": "ملاحظة جديدة",
+  "moveToLayer": "نقل إلى طبقة",
+  "createLayer": "إنشاء طبقة",
+  "merge": "دمج",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "أعلى",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "أسفل",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "أخرى",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{بدون عنصر} =1{عنصر 1} other{{count} عناصر}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "لون شريط الأدوات",
+  "yesButShowButtons": "نعم، لكن أظهر الأزرار",
+  "optionsPanelPosition": "موضع لوحة الخيارات",
+  "hideDuration": "مدة الإخفاء",
+  "animation": "الحركة",
+  "performance": "السرعة",
+  "performanceDescription": "محسن للسرعة واستخدام الذاكرة. يُحمّل فقط الجزء المرئي من الملاحظة.",
+  "normalDescription": "يوازن بين الجودة والأداء. يحمّل صورة تغطي 1.5 ضعف المساحة المرئية، مما يوفر انتقالات أكثر سلاسة عند التمرير.",
+  "high": "مرتفع",
+  "highDescription": "يزيد الجودة إلى أقصى حد على حساب الأداء. يعطي صورة تغطي ضعف المساحة المرئية، لضمان السلاسة في أثناء التمرير أو التكبير السريع. لكنه يتطلب جهازًا قويًا.",
+  "renderResolution": " دقة العرض",
+  "translate": "ترجم",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "غير مشفرة",
+  "encrypted": "مشفرة",
+  "encryptDocumentMessage": "انقر لتشفير المستند",
+  "unencryptDocumentMessage": "انقر لإلغاء تشفير المستند",
+  "unencrypt": "إلغاء التشفير",
+  "encrypt": "تشفير",
+  "encryptWarning": "أأنت متأكد من تشفير المستند؟ ستحتاج إلى تذكر كلمة المرور لفك تشفيرها.",
+  "unencryptWarning": "هل تريد إلغاء تشفير المستند؟ سيتم إزالة كلمة المرور وسيتمكن كل من لديه حق الوصول من فتحها.",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "passwordMismatch": "كلمات المرور لا تتطابق",
+  "action": "إجراء",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "نص SVG",
+  "offset": "إزاحة",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "نهاية",
+  "radius": "نصف القطر",
+  "focalPoint": "نقطة التركيز",
+  "useOffCenterStartPoint": "استخدم نقطة بداية مغايرة للمركز",
+  "focal": "البؤرة",
+  "focalRadius": "نصف القطر البؤري",
+  "colorStops": "نقاط الألوان",
+  "addStop": "إضافة نقطة",
+  "positionDependent": "يعتمد على الموقع",
+  "flipHorizontal": "قلب أفقي",
+  "flipVertical": "قلب عمودي",
+  "grayscale": "تدرّج الرمادي",
+  "moveOnGesture": "إيماءة التحريك",
+  "exportAllFiles": "تصدير جميع الملفات",
+  "restoreSettingsFromFile": "استعادة الإعدادات من ملف",
+  "resetAllSettings": "إعادة تعيين جميع الإعدادات",
+  "exportSettingsToFile": "تصدير الإعدادات إلى ملف",
+  "barcode": "الرمز الشريطي (الباركود)",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "نوع الرمز الشريطي (الباركود)",
+  "qrCode": "رمز الاستجابة السريعة",
+  "dataMatrix": "مصفوفة البيانات",
+  "code128": "رمز 128",
+  "defaultUserName": "المستخدم {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "تحريك لليسار",
+  "moveRight": "تحريك لليمين",
+  "bundledPacks": "الحُزم المجمعة",
+  "component": "المكون",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "حدد المكون",
+  "bundlePackInDocument": "اجمع الحُزْمَة في المستند",
+  "bundledPacksDescription": "يتم تضمين الحُزم في المستند ولا يمكن استخدامها إلا للمشاركة مع المستند. لا يمكن استخدام الموارد في المستند إلا إذا تم تثبيت الحُزْمَة. يمكن تثبيت الحُزم بالنقر عليها.",
+  "fillAlpha": "شفافية التعبئة",
+  "packagedFile": "ملف مضغوط",
+  "rawFile": "ملف خام",
+  "webSocketDescription": "يقوم جهازك باستضافة الخادم، لذا لا يمكن للمتعاونين الانضمام إلا من الشبكة نفسها أو من أيّ مكان آخر إذا قمت بتوجيه المنفذ على جهاز التوجيه الخاص بك.",
+  "swampDescription": "يتم توجيه رسائلك عبر خادم ترحيل آمن مع تشفير من طرف إلى طرف. يلزم وجود عنوان خادم swamp لإنشاء جلسة.",
+  "createRawNote": "إنشاء ملاحظة خامّة",
+  "polygon": "مضلع",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "إنهاء الشكل",
+  "submit": "إرسال",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "الرياضيات",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "تجاهل الضغط",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "يتجاهل أول قراءة للضغط، والتي ربما تكون غير دقيقة في بعض الأقلام.",
+  "ignorePressureNeverDescription": "يستخدم كل قراءة ضغط من القلم.",
+  "ignorePressureAlwaysDescription": "يتجاهل ضغط القلم ويعتبره مضغوطًا بالكامل.",
+  "temporary": "مؤقت",
+  "simpleToolbarVisibility": "عرض شريط الأدوات البسيط",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "تأخر الحفظ التلقائي",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "محفوظ",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "يُحفَظ...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "قراءة فقط",
+  "saveDelayed": "الحفظ مؤجل",
+  "unsaved": "غير محفوظة",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "لا توجد حالياً أي مناطق للتصدير. يرجى تحديد منطقة واحدة على الأقل باستخدام زر الإضافة في الزاوية العلوية اليمنى أو إضافة جميع المناطق من الصفحة الحالية أو من المستند بأكمله أدناه.",
+  "densityMaximize": "مضغوط جداً",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "تغيير الاختصارات",
+  "clickToSave": "اضغط للحفظ",
+  "toolbars": "شرائط الأدوات",
+  "logs": "السجلات",
+  "ruledSimple": "مخطط عادي",
+  "ruledSimpleDark": "مخطط عادي داكن",
+  "quadSimple": "مربعات عادي",
+  "quadSimpleDark": "مربعات داكنه",
+  "redLinedRuled": "مخطط بفاصل أحمر",
+  "redLinedRuledDark": "مخطط داكن بفاصل أحمر",
+  "redLinedQuad": "مربعات بفاصل أحمر",
+  "redLinedQuadDark": "مربعات داكنه بفاصل أحمر",
+  "noItemSelected": "لا توجد عناصر محددة",
+  "areaAsInitial": "افتح المنطقة كعرض أولي",
+  "swap": "بدّل",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "إخفاء ملحق الملفات",
+  "aspectRatioHint": "مثال. 1.5 أو 16:9",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "إنشاء من قالب",
+  "exportAsTextShortcut": "تصدير كنص",
+  "exportAsImageShortcut": "تصدير كصورة",
+  "exportAsPdfShortcut": "تصدير كملف PDF",
+  "exportAsSvgShortcut": "تصدير كـ SVG",
+  "changePathShortcut": "غيّر المسار",
+  "fullScreenShortcut": "ملء الشاشة",
+  "doublePressAction": "إجراء الضغط المزدوج",
+  "triplePressAction": "إجراء الضغط الثلاثي",
+  "twoFingerTap": "النقر باصبعين",
+  "threeFingerTap": "النقر بثلاث أصابع",
+  "longPress": "ضغط مطوّل",
+  "toolNumber": "الأداة {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "الاختصارات المؤقتة",
+  "holdShortcutsDescription": "\"الاختصار المؤقت\" يُفعّل الأداة المحددة خلال الضغط عليه، ويعود إلى الأداة السابقة عند تركه.",
+  "key": "المفتاح",
+  "bringMovedElementsToFront": "إحضار العناصر المنقولة إلى المقدمة",
+  "addTool": "إضافة أداة",
+  "nextPage": "الصفحة التالية",
+  "previousPage": "الصفحة السابقة",
+  "persistenceDocumentStates": "استمرار حالة المستند",
+  "persistentStatesEnabled": "تمكين حالات المستندات المستمرة",
+  "persistentStateCurrentPage": "الصفحة الحالية",
+  "persistentStateViewport": "عرض الموضع وتكبيره",
+  "persistentStateSelectedTool": "أداة مختارة",
+  "persistentStateMaxRecords": "الحد الأقصى للسجلات المخزونة",
+  "persistentStateDeleteOlderThanDays": "حذف السجلات الأقدم من الأيام",
+  "persistentStateCleanup": "تنظيف الحالات المخزنة",
+  "persistentStateCleanupDescription": "حذف السجلات الأقدم من الحدود أعلاه",
+  "persistentStateCleanupInProgress": "تنظيف...",
+  "persistentStateDefaultLocks": "الأقفال الافتراضية",
+  "persistentStateDefaultLocksDescription": "طبق هذه الأقفال عندما لا يحتوي المستند أي حاله محفوظه",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{تم تنظيف موقع تخزين واحد} other{تم تنظيف {locations} مواقع تخزين}}; {records, plural, =1{حُذف سجل واحد} other{حُذفت {records} سجلات}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "حفظ التغييرات تلقائيًا أثناء عملك.",
+  "autosaveDelayedDescription": "حفظ التغييرات تلقائياً بعد التأخير المحدد.",
+  "autosaveShowButtonDescription": "يحفظ تلقائيًا ويبقي زر الحفظ مرئيًا.",
+  "autosaveDisabledDescription": "يحفظ فقط عند استخدام أمر الحفظ.",
+  "hideCursorWhileDrawingDescription": "يخفي مؤشر الفأرة أثناء الرسم، لذلك فإنه لا يغطي جرة القلم الخاصة بك.",
+  "onStartupHomeScreenDescription": "يفتح الشاشة الرئيسية عند بدء الفراشة.",
+  "onStartupLastNoteDescription": "إعادة فتح ملاحظتك المستخدمة مؤخرا عند بدء تشغيل الفراشة.",
+  "onStartupNewNoteDescription": "ينشئ ملاحظة جديدة عند بدء تشغيل الفراشة.",
+  "smoothNavigationDescription": "يجعل الإنحناء والتصوير يشعران بالسلاسة من خلال تبسيط الكانفا أثناء تحركه.",
+  "edgePanAreaSwitchingDescription": "التبديل إلى منطقة مجاورة عندما تقرب من حافة الكانفاس.",
+  "collaborationDescription": "يسمح لأشخاص متعددين بتحرير نفس الملاحظة معا في الوقت الحقيقي.",
+  "verbose": "مُفصّل",
+  "showVerboseLogsDescription": "يتضمن رسائل تشخيصية مفصلة في طريقة عرض السجل و وحدة التحكم. يمكن أن تساعد هذه الرسائل عند اكتشاف مشكلة ما.",
+  "bringMovedElementsToFrontDescription": "يضع عنصرا فوق العناصر المتداخلة بعد نقله.",
+  "persistenceDocumentStatesDescription": "يتحكم في أجزاء من مساحة العمل الخاصة بك تتذكر الفراشة لكل ملاحظة، مثل الصفحة الحالية، وتكبير، والأداة المحددة.",
+  "persistentStatesEnabledDescription": "تخزين معلومات حالة المستند بين جلسات التطبيق",
+  "persistentStateCurrentPageDescription": "تذكر الصفحة الحالية عند إعادة فتح ملف",
+  "persistentStateViewportDescription": "تذكر موضع إطار العرض ومستوى التكبير والدوران لكل صفحة",
+  "persistentStateSelectedToolDescription": "تذكر الأداة المحددة عند إعادة فتح ملف",
+  "persistentStateLocksDescription": "تذكر الأقفال عند إعادة فتح الملف",
+  "persistentStateNavigatorDescription": "تذكر حالة التنقل عند إعادة فتح الملف",
+  "persistentStateLayersDescription": "تذكر حالة لوحة الطبقة عند إعادة فتح الملف",
+  "persistentStateAreasDescription": "تذكر حالة لوحة المنطقة عند إعادة فتح الملف",
+  "persistentStateAutoThumbnail": "الصور المصغرة التلقائية",
+  "persistentStateAutoThumbnailDescription": "إظهار مفتاح التبديل لكل وثيقة والسماح للمصغرات بالتحديث عند إغلاق الوثائق",
+  "persistentStateMaxRecordsDescription": "الاحتفاظ على الأكثر بهذه العديد من الحالات المخزنة لكل ملف",
+  "persistentStateDeleteOlderThanDaysDescription": "حذف الدول المخزنة الأقدم من هذه الأيام العديدة",
+  "contentViewportDescription": "يحد من المدى الذي يمكنك أن تبتعد عنه من محتوى ملاحظتك.",
+  "limitViewportPositiveDescription": "يُبقي اللوحة ضمن المنطقة الواقعة إلى يمين نقطة البداية وأسفلها.",
+  "startInFullScreenDescription": "فتح Butterfly في وضع ملء الشاشة إذا أمكن.",
+  "designDescription": "يغير نمط الألوان مستقلًا عن الوضع الفاتح أو الداكن المحدد.",
+  "platformThemeDescription": "استخدم تخطيط سطح المكتب أو الجوال بدلاً من التخطيط الافتراضي لجهازك.",
+  "densityDescription": "يغير المسافة وحجم عناصر الواجهة. لا يغير حجم محتوى ملاحظتك.",
+  "highContrastDescription": "يستخدم تباينات لونية أكثر وضوحًا ليسهل تمييز عناصر التحكم والنصوص.",
+  "nativeTitleBarDescription": "يستخدم شريط عنوان النظام بدلاً من شريط العنوان الخاص بـ Butterfly.",
+  "propertiesDescription": "يحدد مكان لوحة تعديل الأداة أو العنصر المحدد.",
+  "navigationRailDescription": "يعرض شريط تنقل دائم على الشاشات الواسعة للوصول السريع إلى أقسام التطبيقات.",
+  "optionsPanelPositionDescription": "يحدد ما إذا كانت خيارات الأداة تظهر أعلى أو أسفل اللوحة.",
+  "simpleToolbarVisibilityDescription": "يحدد متى يظهر شريط الأدوات الأصغر حجمًا والمبسط أثناء تحرير الملاحظة.",
+  "penOnlyInputDescription": "يمنع ظهور علامات غير مقصودة ناتجة عن يدك أو الفأرة من خلال تحديد متى يمّكن وضع \"القلم فقط\".",
+  "showPenOnlyToggleDescription": "يعرض تبديلاً سريعاً إلى وضع  ”القلم فقط“ في المحرر عندما يكتشف Butterfly وجود قلم.",
+  "ignorePressureDescription": "يحدد ما إذا كان لضغط القلم تأثير على شكل الخط، كما يقلل من تأثير قراءات الضغط الغير الدقيقة التي تنتج من بعض الأقلام.",
+  "moveOnGestureDescription": "يتيح لإيماءات اللمس تحريك اللوحة بدلاً من التفاعل مع محتوى الملاحظة.",
+  "spreadPagesDescription": "يقوم بتقسيم عمليات الاستيراد المكونة من عدة صفحات إلى صفحات منفصلة بدلاً من وضع كل شيء في صفحة واحدة.",
+  "shear": "قَصه",
+  "resetRotation": "إعادة تعيين التدوير",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "اختر عناصر التحكم للتكبير والتدوير . تبقى أزرار إعادة التعيين متاحة في كل تخطيط.",
+  "zoomPanelFull": "كامل (شريط التمرير وحقل النص والأزرار)",
+  "zoomPanelSliderInput": "شريط التمرير وحقل النص",
+  "zoomPanelSlider": "شريط",
+  "zoomPanelInputButtons": "حقل النص والأزرار",
+  "zoomPanelInput": "حقل النص",
+  "rotationDisplay": "عرض التدوير",
+  "rotationDisplayDescription": "اختر عندما يظهر صف الدوران فوق التصغير. هذا لا يغير إيماءات الدوران أو الاختصار.",
+  "whenRotated": "عند الدوران",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "تدوير القماش عن طريق السحب"
+}

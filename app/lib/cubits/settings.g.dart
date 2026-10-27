@@ -1,0 +1,558 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'settings.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_FavoriteLocation _$FavoriteLocationFromJson(Map json) => _FavoriteLocation(
+  remote: json['remote'] as String?,
+  path: json['path'] as String,
+);
+
+Map<String, dynamic> _$FavoriteLocationToJson(_FavoriteLocation instance) =>
+    <String, dynamic>{'remote': instance.remote, 'path': instance.path};
+
+_HoldShortcut _$HoldShortcutFromJson(Map json) => _HoldShortcut(
+  keyId: (json['keyId'] as num).toInt(),
+  mapping: InputMapping.fromJson((json['mapping'] as num).toInt()),
+);
+
+Map<String, dynamic> _$HoldShortcutToJson(_HoldShortcut instance) =>
+    <String, dynamic>{
+      'keyId': instance.keyId,
+      'mapping': instance.mapping.toJson(),
+    };
+
+_InputConfiguration _$InputConfigurationFromJson(
+  Map json,
+) => _InputConfiguration(
+  leftMouse: json['leftMouse'] == null
+      ? InputMappingDefault.leftMouse
+      : InputMapping.fromJson((json['leftMouse'] as num).toInt()),
+  middleMouse: json['middleMouse'] == null
+      ? InputMappingDefault.middleMouse
+      : InputMapping.fromJson((json['middleMouse'] as num).toInt()),
+  rightMouse: json['rightMouse'] == null
+      ? InputMappingDefault.rightMouse
+      : InputMapping.fromJson((json['rightMouse'] as num).toInt()),
+  backMouse: json['backMouse'] == null
+      ? null
+      : InputMapping.fromJson((json['backMouse'] as num).toInt()),
+  forwardMouse: json['forwardMouse'] == null
+      ? null
+      : InputMapping.fromJson((json['forwardMouse'] as num).toInt()),
+  pen: json['pen'] == null
+      ? InputMappingDefault.pen
+      : InputMapping.fromJson((json['pen'] as num).toInt()),
+  invertedPen: json['invertedPen'] == null
+      ? InputMappingDefault.invertedPen
+      : InputMapping.fromJson((json['invertedPen'] as num).toInt()),
+  firstPenButton: json['firstPenButton'] == null
+      ? InputMappingDefault.firstPenButton
+      : InputMapping.fromJson((json['firstPenButton'] as num).toInt()),
+  secondPenButton: json['secondPenButton'] == null
+      ? InputMappingDefault.secondPenButton
+      : InputMapping.fromJson((json['secondPenButton'] as num).toInt()),
+  touch: json['touch'] == null
+      ? InputMappingDefault.touch
+      : InputMapping.fromJson((json['touch'] as num).toInt()),
+  holdShortcuts:
+      (json['holdShortcuts'] as List<dynamic>?)
+          ?.map(
+            (e) => HoldShortcut.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList() ??
+      const [],
+  doubleLeftMouseShortcut: json['doubleLeftMouseShortcut'] as String?,
+  tripleLeftMouseShortcut: json['tripleLeftMouseShortcut'] as String?,
+  doubleMiddleMouseShortcut: json['doubleMiddleMouseShortcut'] as String?,
+  tripleMiddleMouseShortcut: json['tripleMiddleMouseShortcut'] as String?,
+  doubleRightMouseShortcut: json['doubleRightMouseShortcut'] as String?,
+  tripleRightMouseShortcut: json['tripleRightMouseShortcut'] as String?,
+  doubleBackMouseShortcut: json['doubleBackMouseShortcut'] as String?,
+  tripleBackMouseShortcut: json['tripleBackMouseShortcut'] as String?,
+  doubleForwardMouseShortcut: json['doubleForwardMouseShortcut'] as String?,
+  tripleForwardMouseShortcut: json['tripleForwardMouseShortcut'] as String?,
+  doublePenShortcut: json['doublePenShortcut'] as String?,
+  triplePenShortcut: json['triplePenShortcut'] as String?,
+  doubleInvertedPenShortcut: json['doubleInvertedPenShortcut'] as String?,
+  tripleInvertedPenShortcut: json['tripleInvertedPenShortcut'] as String?,
+  doubleFirstPenButtonShortcut: json['doubleFirstPenButtonShortcut'] as String?,
+  tripleFirstPenButtonShortcut: json['tripleFirstPenButtonShortcut'] as String?,
+  doubleSecondPenButtonShortcut:
+      json['doubleSecondPenButtonShortcut'] as String?,
+  tripleSecondPenButtonShortcut:
+      json['tripleSecondPenButtonShortcut'] as String?,
+  doubleTouchShortcut: json['doubleTouchShortcut'] as String?,
+  tripleTouchShortcut: json['tripleTouchShortcut'] as String?,
+  twoFingerTouchShortcut: json['twoFingerTouchShortcut'] as String?,
+  threeFingerTouchShortcut: json['threeFingerTouchShortcut'] as String?,
+);
+
+Map<String, dynamic> _$InputConfigurationToJson(_InputConfiguration instance) =>
+    <String, dynamic>{
+      'leftMouse': instance.leftMouse.toJson(),
+      'middleMouse': instance.middleMouse.toJson(),
+      'rightMouse': instance.rightMouse.toJson(),
+      'backMouse': instance.backMouse?.toJson(),
+      'forwardMouse': instance.forwardMouse?.toJson(),
+      'pen': instance.pen.toJson(),
+      'invertedPen': instance.invertedPen.toJson(),
+      'firstPenButton': instance.firstPenButton.toJson(),
+      'secondPenButton': instance.secondPenButton.toJson(),
+      'touch': instance.touch.toJson(),
+      'holdShortcuts': instance.holdShortcuts.map((e) => e.toJson()).toList(),
+      'doubleLeftMouseShortcut': instance.doubleLeftMouseShortcut,
+      'tripleLeftMouseShortcut': instance.tripleLeftMouseShortcut,
+      'doubleMiddleMouseShortcut': instance.doubleMiddleMouseShortcut,
+      'tripleMiddleMouseShortcut': instance.tripleMiddleMouseShortcut,
+      'doubleRightMouseShortcut': instance.doubleRightMouseShortcut,
+      'tripleRightMouseShortcut': instance.tripleRightMouseShortcut,
+      'doubleBackMouseShortcut': instance.doubleBackMouseShortcut,
+      'tripleBackMouseShortcut': instance.tripleBackMouseShortcut,
+      'doubleForwardMouseShortcut': instance.doubleForwardMouseShortcut,
+      'tripleForwardMouseShortcut': instance.tripleForwardMouseShortcut,
+      'doublePenShortcut': instance.doublePenShortcut,
+      'triplePenShortcut': instance.triplePenShortcut,
+      'doubleInvertedPenShortcut': instance.doubleInvertedPenShortcut,
+      'tripleInvertedPenShortcut': instance.tripleInvertedPenShortcut,
+      'doubleFirstPenButtonShortcut': instance.doubleFirstPenButtonShortcut,
+      'tripleFirstPenButtonShortcut': instance.tripleFirstPenButtonShortcut,
+      'doubleSecondPenButtonShortcut': instance.doubleSecondPenButtonShortcut,
+      'tripleSecondPenButtonShortcut': instance.tripleSecondPenButtonShortcut,
+      'doubleTouchShortcut': instance.doubleTouchShortcut,
+      'tripleTouchShortcut': instance.tripleTouchShortcut,
+      'twoFingerTouchShortcut': instance.twoFingerTouchShortcut,
+      'threeFingerTouchShortcut': instance.threeFingerTouchShortcut,
+    };
+
+_DocumentStatePersistenceSettings _$DocumentStatePersistenceSettingsFromJson(
+  Map json,
+) => _DocumentStatePersistenceSettings(
+  enabled: json['enabled'] as bool? ?? true,
+  page: json['page'] as bool? ?? true,
+  camera: json['camera'] as bool? ?? true,
+  locks: json['locks'] as bool? ?? true,
+  tool: json['tool'] as bool? ?? true,
+  navigator: json['navigator'] as bool? ?? true,
+  layers: json['layers'] as bool? ?? true,
+  areas: json['areas'] as bool? ?? true,
+  autoThumbnail: json['autoThumbnail'] as bool? ?? true,
+  defaultLocks: json['defaultLocks'] == null
+      ? const PersistentLockState()
+      : PersistentLockState.fromJson(json['defaultLocks'] as Map),
+  maxEntries: (json['maxEntries'] as num?)?.toInt() ?? 400,
+  maxAgeDays: (json['maxAgeDays'] as num?)?.toInt() ?? 180,
+);
+
+Map<String, dynamic> _$DocumentStatePersistenceSettingsToJson(
+  _DocumentStatePersistenceSettings instance,
+) => <String, dynamic>{
+  'enabled': instance.enabled,
+  'page': instance.page,
+  'camera': instance.camera,
+  'locks': instance.locks,
+  'tool': instance.tool,
+  'navigator': instance.navigator,
+  'layers': instance.layers,
+  'areas': instance.areas,
+  'autoThumbnail': instance.autoThumbnail,
+  'defaultLocks': instance.defaultLocks.toJson(),
+  'maxEntries': instance.maxEntries,
+  'maxAgeDays': instance.maxAgeDays,
+};
+
+_ButterflySettings _$ButterflySettingsFromJson(Map json) => _ButterflySettings(
+  theme:
+      $enumDecodeNullable(_$ThemeModeEnumMap, json['theme']) ??
+      ThemeMode.system,
+  density:
+      $enumDecodeNullable(_$ThemeDensityEnumMap, json['density']) ??
+      ThemeDensity.system,
+  limitViewportMultiplier: (json['limitViewportMultiplier'] as num?)
+      ?.toDouble(),
+  limitViewportPositive: json['limitViewportPositive'] as bool? ?? false,
+  localeTag: json['localeTag'] as String? ?? '',
+  documentPath: json['documentPath'] as String? ?? '',
+  panGestureSensitivity:
+      (json['panGestureSensitivity'] as num?)?.toDouble() ?? 1,
+  zoomGestureSensitivity:
+      (json['zoomGestureSensitivity'] as num?)?.toDouble() ?? 1,
+  rotationGestureSensitivity:
+      (json['rotationGestureSensitivity'] as num?)?.toDouble() ?? 1,
+  touchSensitivity: (json['touchSensitivity'] as num?)?.toDouble() ?? 1,
+  selectSensitivity: (json['selectSensitivity'] as num?)?.toDouble() ?? 1,
+  scrollPanSensitivity: (json['scrollPanSensitivity'] as num?)?.toDouble() ?? 1,
+  rotationStep:
+      (json['rotationStep'] as num?)?.toDouble() ?? kDefaultRotationStep,
+  zoomStep: (json['zoomStep'] as num?)?.toDouble() ?? kDefaultZoomStep,
+  penOnlyInput: json['penOnlyInput'] as bool?,
+  showPenOnlyToggle: json['showPenOnlyToggle'] as bool? ?? true,
+  inputGestures: json['inputGestures'] as bool? ?? true,
+  design: json['design'] as String? ?? '',
+  bannerVisibility:
+      $enumDecodeNullable(
+        _$BannerVisibilityEnumMap,
+        json['bannerVisibility'],
+      ) ??
+      BannerVisibility.always,
+  cameraControlsVisibility:
+      $enumDecodeNullable(
+        _$CameraControlsVisibilityEnumMap,
+        json['cameraControlsVisibility'],
+        unknownValue: CameraControlsVisibility.mobile,
+      ) ??
+      CameraControlsVisibility.mobile,
+  rotationDisplay:
+      $enumDecodeNullable(
+        _$RotationDisplayEnumMap,
+        json['rotationDisplay'],
+        unknownValue: RotationDisplay.whenRotated,
+      ) ??
+      RotationDisplay.whenRotated,
+  zoomPanelControls:
+      $enumDecodeNullable(
+        _$ZoomPanelControlsEnumMap,
+        json['zoomPanelControls'],
+        unknownValue: ZoomPanelControls.full,
+      ) ??
+      ZoomPanelControls.full,
+  zoomPosition:
+      $enumDecodeNullable(_$ZoomPositionEnumMap, json['zoomPosition']) ??
+      ZoomPosition.bottomRight,
+  propertyPosition:
+      $enumDecodeNullable(_$ZoomPositionEnumMap, json['propertyPosition']) ??
+      ZoomPosition.topRight,
+  lastVersion: json['lastVersion'] as String?,
+  defaultRemote: json['defaultRemote'] as String? ?? '',
+  nativeTitleBar: json['nativeTitleBar'] as bool? ?? false,
+  startInFullScreen: json['startInFullScreen'] as bool? ?? false,
+  navigationRail: json['navigationRail'] as bool? ?? true,
+  ignorePressure:
+      $enumDecodeNullable(_$IgnorePressureEnumMap, json['ignorePressure']) ??
+      IgnorePressure.first,
+  syncMode:
+      $enumDecodeNullable(_$SyncModeEnumMap, json['syncMode']) ??
+      SyncMode.noMobile,
+  automaticBackup: json['automaticBackup'] as bool? ?? false,
+  backupRemote: json['backupRemote'] as String? ?? '',
+  backupIntervalMinutes:
+      (json['backupIntervalMinutes'] as num?)?.toInt() ??
+      kDefaultBackupIntervalMinutes,
+  lastBackup: json['lastBackup'] == null
+      ? null
+      : DateTime.parse(json['lastBackup'] as String),
+  inputConfiguration: json['inputConfiguration'] == null
+      ? const InputConfiguration()
+      : InputConfiguration.fromJson(
+          Map<String, dynamic>.from(json['inputConfiguration'] as Map),
+        ),
+  fallbackPack: json['fallbackPack'] as String? ?? '',
+  starred:
+      (json['starred'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+  favoriteTemplates:
+      (json['favoriteTemplates'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FavoriteLocation.fromJson(Map<String, dynamic>.from(e as Map)),
+          )
+          .toList() ??
+      const [],
+  defaultTemplate: json['defaultTemplate'] as String? ?? '',
+  defaultFileName: json['defaultFileName'] as String? ?? kDefaultFileName,
+  navigatorPosition:
+      $enumDecodeNullable(
+        _$NavigatorPositionEnumMap,
+        json['navigatorPosition'],
+      ) ??
+      NavigatorPosition.left,
+  toolbarPosition:
+      $enumDecodeNullable(_$ToolbarPositionEnumMap, json['toolbarPosition']) ??
+      ToolbarPosition.inline,
+  toolbarSize:
+      $enumDecodeNullable(_$ToolbarSizeEnumMap, json['toolbarSize']) ??
+      ToolbarSize.normal,
+  sortBy:
+      $enumDecodeNullable(_$SortByEnumMap, json['sortBy']) ?? SortBy.modified,
+  sortOrder:
+      $enumDecodeNullable(_$SortOrderEnumMap, json['sortOrder']) ??
+      SortOrder.descending,
+  imageScale: (json['imageScale'] as num?)?.toDouble() ?? 0.5,
+  platformTheme:
+      $enumDecodeNullable(_$PlatformThemeEnumMap, json['platformTheme']) ??
+      PlatformTheme.system,
+  recentColors:
+      (json['recentColors'] as List<dynamic>?)
+          ?.map((e) => const SRGBConverter().fromJson((e as num).toInt()))
+          .toList() ??
+      const [],
+  flags:
+      (json['flags'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+  spreadPages: json['spreadPages'] as bool? ?? false,
+  highContrast: json['highContrast'] as bool? ?? false,
+  gridView: json['gridView'] as bool? ?? false,
+  hideExtension: json['hideExtension'] as bool? ?? true,
+  autosave: json['autosave'] as bool? ?? true,
+  showSaveButton: json['showSaveButton'] as bool? ?? true,
+  toolbarRows: (json['toolbarRows'] as num?)?.toInt() ?? 1,
+  delayedAutosave: json['delayedAutosave'] as bool? ?? true,
+  autosaveDelaySeconds: (json['autosaveDelaySeconds'] as num?)?.toInt() ?? 3,
+  hideCursorWhileDrawing: json['hideCursorWhileDrawing'] as bool? ?? false,
+  onStartup:
+      $enumDecodeNullable(_$StartupBehaviorEnumMap, json['onStartup']) ??
+      StartupBehavior.openHomeScreen,
+  documentStatePersistence: json['documentStatePersistence'] == null
+      ? const DocumentStatePersistenceSettings()
+      : DocumentStatePersistenceSettings.fromJson(
+          Map<String, dynamic>.from(json['documentStatePersistence'] as Map),
+        ),
+  simpleToolbarVisibility:
+      $enumDecodeNullable(
+        _$SimpleToolbarVisibilityEnumMap,
+        json['simpleToolbarVisibility'],
+      ) ??
+      SimpleToolbarVisibility.show,
+  optionsPanelPosition:
+      $enumDecodeNullable(
+        _$OptionsPanelPositionEnumMap,
+        json['optionsPanelPosition'],
+      ) ??
+      OptionsPanelPosition.top,
+  renderResolution:
+      $enumDecodeNullable(
+        _$RenderResolutionEnumMap,
+        json['renderResolution'],
+      ) ??
+      RenderResolution.normal,
+  moveOnGesture: json['moveOnGesture'] as bool? ?? true,
+  rotateOnGesture: json['rotateOnGesture'] as bool? ?? true,
+  swamps:
+      (json['swamps'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+  selectedPalette: json['selectedPalette'] == null
+      ? null
+      : PackAssetLocation.fromJson(json['selectedPalette'] as Map),
+  showVerboseLogs: json['showVerboseLogs'] as bool? ?? false,
+  showThumbnails: json['showThumbnails'] as bool? ?? true,
+  showNavigatorPreviews: json['showNavigatorPreviews'] as bool? ?? true,
+  bringMovedElementsToFront:
+      json['bringMovedElementsToFront'] as bool? ?? false,
+  favoriteTools:
+      (json['favoriteTools'] as List<dynamic>?)
+          ?.map((e) => PackAssetLocation.fromJson(e as Map))
+          .toList() ??
+      const [],
+);
+
+Map<String, dynamic> _$ButterflySettingsToJson(
+  _ButterflySettings instance,
+) => <String, dynamic>{
+  'theme': _$ThemeModeEnumMap[instance.theme]!,
+  'density': _$ThemeDensityEnumMap[instance.density]!,
+  'limitViewportMultiplier': instance.limitViewportMultiplier,
+  'limitViewportPositive': instance.limitViewportPositive,
+  'localeTag': instance.localeTag,
+  'documentPath': instance.documentPath,
+  'panGestureSensitivity': instance.panGestureSensitivity,
+  'zoomGestureSensitivity': instance.zoomGestureSensitivity,
+  'rotationGestureSensitivity': instance.rotationGestureSensitivity,
+  'touchSensitivity': instance.touchSensitivity,
+  'selectSensitivity': instance.selectSensitivity,
+  'scrollPanSensitivity': instance.scrollPanSensitivity,
+  'rotationStep': instance.rotationStep,
+  'zoomStep': instance.zoomStep,
+  'penOnlyInput': instance.penOnlyInput,
+  'showPenOnlyToggle': instance.showPenOnlyToggle,
+  'inputGestures': instance.inputGestures,
+  'design': instance.design,
+  'bannerVisibility': _$BannerVisibilityEnumMap[instance.bannerVisibility]!,
+  'cameraControlsVisibility':
+      _$CameraControlsVisibilityEnumMap[instance.cameraControlsVisibility]!,
+  'rotationDisplay': _$RotationDisplayEnumMap[instance.rotationDisplay]!,
+  'zoomPanelControls': _$ZoomPanelControlsEnumMap[instance.zoomPanelControls]!,
+  'zoomPosition': _$ZoomPositionEnumMap[instance.zoomPosition]!,
+  'propertyPosition': _$ZoomPositionEnumMap[instance.propertyPosition]!,
+  'lastVersion': instance.lastVersion,
+  'defaultRemote': instance.defaultRemote,
+  'nativeTitleBar': instance.nativeTitleBar,
+  'startInFullScreen': instance.startInFullScreen,
+  'navigationRail': instance.navigationRail,
+  'ignorePressure': _$IgnorePressureEnumMap[instance.ignorePressure]!,
+  'syncMode': _$SyncModeEnumMap[instance.syncMode]!,
+  'automaticBackup': instance.automaticBackup,
+  'backupRemote': instance.backupRemote,
+  'backupIntervalMinutes': instance.backupIntervalMinutes,
+  'lastBackup': instance.lastBackup?.toIso8601String(),
+  'inputConfiguration': instance.inputConfiguration.toJson(),
+  'fallbackPack': instance.fallbackPack,
+  'starred': instance.starred,
+  'favoriteTemplates': instance.favoriteTemplates
+      .map((e) => e.toJson())
+      .toList(),
+  'defaultTemplate': instance.defaultTemplate,
+  'defaultFileName': instance.defaultFileName,
+  'navigatorPosition': _$NavigatorPositionEnumMap[instance.navigatorPosition]!,
+  'toolbarPosition': _$ToolbarPositionEnumMap[instance.toolbarPosition]!,
+  'toolbarSize': _$ToolbarSizeEnumMap[instance.toolbarSize]!,
+  'sortBy': _$SortByEnumMap[instance.sortBy]!,
+  'sortOrder': _$SortOrderEnumMap[instance.sortOrder]!,
+  'imageScale': instance.imageScale,
+  'platformTheme': _$PlatformThemeEnumMap[instance.platformTheme]!,
+  'recentColors': instance.recentColors
+      .map(const SRGBConverter().toJson)
+      .toList(),
+  'flags': instance.flags,
+  'spreadPages': instance.spreadPages,
+  'highContrast': instance.highContrast,
+  'gridView': instance.gridView,
+  'hideExtension': instance.hideExtension,
+  'autosave': instance.autosave,
+  'showSaveButton': instance.showSaveButton,
+  'toolbarRows': instance.toolbarRows,
+  'delayedAutosave': instance.delayedAutosave,
+  'autosaveDelaySeconds': instance.autosaveDelaySeconds,
+  'hideCursorWhileDrawing': instance.hideCursorWhileDrawing,
+  'onStartup': _$StartupBehaviorEnumMap[instance.onStartup]!,
+  'documentStatePersistence': instance.documentStatePersistence.toJson(),
+  'simpleToolbarVisibility':
+      _$SimpleToolbarVisibilityEnumMap[instance.simpleToolbarVisibility]!,
+  'optionsPanelPosition':
+      _$OptionsPanelPositionEnumMap[instance.optionsPanelPosition]!,
+  'renderResolution': _$RenderResolutionEnumMap[instance.renderResolution]!,
+  'moveOnGesture': instance.moveOnGesture,
+  'rotateOnGesture': instance.rotateOnGesture,
+  'swamps': instance.swamps,
+  'selectedPalette': instance.selectedPalette?.toJson(),
+  'showVerboseLogs': instance.showVerboseLogs,
+  'showThumbnails': instance.showThumbnails,
+  'showNavigatorPreviews': instance.showNavigatorPreviews,
+  'bringMovedElementsToFront': instance.bringMovedElementsToFront,
+  'favoriteTools': instance.favoriteTools.map((e) => e.toJson()).toList(),
+};
+
+const _$ThemeModeEnumMap = {
+  ThemeMode.system: 'system',
+  ThemeMode.light: 'light',
+  ThemeMode.dark: 'dark',
+};
+
+const _$ThemeDensityEnumMap = {
+  ThemeDensity.system: 'system',
+  ThemeDensity.maximize: 'maximize',
+  ThemeDensity.desktop: 'desktop',
+  ThemeDensity.compact: 'compact',
+  ThemeDensity.comfortable: 'comfortable',
+  ThemeDensity.standard: 'standard',
+};
+
+const _$BannerVisibilityEnumMap = {
+  BannerVisibility.always: 'always',
+  BannerVisibility.never: 'never',
+  BannerVisibility.onlyOnUpdates: 'onlyOnUpdates',
+};
+
+const _$CameraControlsVisibilityEnumMap = {
+  CameraControlsVisibility.mobile: 'mobile',
+  CameraControlsVisibility.hidden: 'hidden',
+  CameraControlsVisibility.temporary: 'temporary',
+  CameraControlsVisibility.always: 'always',
+};
+
+const _$RotationDisplayEnumMap = {
+  RotationDisplay.always: 'always',
+  RotationDisplay.whenRotated: 'whenRotated',
+  RotationDisplay.hidden: 'hidden',
+};
+
+const _$ZoomPanelControlsEnumMap = {
+  ZoomPanelControls.full: 'full',
+  ZoomPanelControls.sliderAndInput: 'sliderAndInput',
+  ZoomPanelControls.slider: 'slider',
+  ZoomPanelControls.inputAndButtons: 'inputAndButtons',
+  ZoomPanelControls.input: 'input',
+};
+
+const _$ZoomPositionEnumMap = {
+  ZoomPosition.topRight: 'topRight',
+  ZoomPosition.topLeft: 'topLeft',
+  ZoomPosition.bottomRight: 'bottomRight',
+  ZoomPosition.bottomLeft: 'bottomLeft',
+};
+
+const _$IgnorePressureEnumMap = {
+  IgnorePressure.never: 'never',
+  IgnorePressure.first: 'first',
+  IgnorePressure.always: 'always',
+};
+
+const _$SyncModeEnumMap = {
+  SyncMode.always: 'always',
+  SyncMode.noMobile: 'noMobile',
+  SyncMode.manual: 'manual',
+};
+
+const _$NavigatorPositionEnumMap = {
+  NavigatorPosition.left: 'left',
+  NavigatorPosition.right: 'right',
+};
+
+const _$ToolbarPositionEnumMap = {
+  ToolbarPosition.inline: 'inline',
+  ToolbarPosition.top: 'top',
+  ToolbarPosition.bottom: 'bottom',
+  ToolbarPosition.left: 'left',
+  ToolbarPosition.right: 'right',
+};
+
+const _$ToolbarSizeEnumMap = {
+  ToolbarSize.tiny: 'tiny',
+  ToolbarSize.small: 'small',
+  ToolbarSize.compact: 'compact',
+  ToolbarSize.normal: 'normal',
+  ToolbarSize.medium: 'medium',
+  ToolbarSize.large: 'large',
+};
+
+const _$SortByEnumMap = {
+  SortBy.name: 'name',
+  SortBy.created: 'created',
+  SortBy.modified: 'modified',
+};
+
+const _$SortOrderEnumMap = {
+  SortOrder.ascending: 'ascending',
+  SortOrder.descending: 'descending',
+};
+
+const _$PlatformThemeEnumMap = {
+  PlatformTheme.system: 'system',
+  PlatformTheme.mobile: 'mobile',
+  PlatformTheme.desktop: 'desktop',
+};
+
+const _$StartupBehaviorEnumMap = {
+  StartupBehavior.openHomeScreen: 'openHomeScreen',
+  StartupBehavior.openLastNote: 'openLastNote',
+  StartupBehavior.openNewNote: 'openNewNote',
+};
+
+const _$SimpleToolbarVisibilityEnumMap = {
+  SimpleToolbarVisibility.show: 'show',
+  SimpleToolbarVisibility.temporary: 'temporary',
+  SimpleToolbarVisibility.hide: 'hide',
+};
+
+const _$OptionsPanelPositionEnumMap = {
+  OptionsPanelPosition.top: 'top',
+  OptionsPanelPosition.bottom: 'bottom',
+};
+
+const _$RenderResolutionEnumMap = {
+  RenderResolution.performance: 'performance',
+  RenderResolution.normal: 'normal',
+  RenderResolution.high: 'high',
+};

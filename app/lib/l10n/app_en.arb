@@ -1,0 +1,1679 @@
+{
+  "open": "Open",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Reveal in file explorer",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Settings",
+  "personalization": "Personalization",
+  "theme": "Theme",
+  "darkTheme": "Dark theme",
+  "lightTheme": "Light theme",
+  "systemTheme": "Use default system theme",
+  "view": "View",
+  "contentViewport": "Content Viewport",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Limit Viewport to positive coordinates",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Off",
+  "canvas": "Canvas",
+  "interface": "Interface",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Export",
+  "save": "Save",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Zoom",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Zoom in",
+  "zoomOut": "Zoom out",
+  "resetZoom": "Reset zoom",
+  "strokeWidth": "Stroke width",
+  "strokeStyle": "Stroke style",
+  "dashLength": "Dash length",
+  "gapLength": "Gap length",
+  "includeEraser": "Include eraser?",
+  "thinning": "Thinning",
+  "pen": "Pen",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Inverted Stylus",
+  "eraser": "Eraser",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Stroke",
+  "label": "Label",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Are you sure?",
+  "reallyDelete": "Do you really want to delete this item?",
+  "no": "No",
+  "yes": "Yes",
+  "undo": "Undo",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Redo",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "General",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Copied to clipboard",
+  "loading": "Loading...",
+  "enterText": "Enter the text",
+  "size": "Size",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Width",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Height",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Count",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Space",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Background",
+  "applyBackground": "Apply background",
+  "applyAreas": "Apply areas",
+  "currentPage": "Current page",
+  "allPages": "All pages",
+  "box": "Box",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "Locale",
+  "systemLocale": "System locale",
+  "information": "Information",
+  "license": "License",
+  "imprint": "Imprint",
+  "privacypolicy": "Privacy policy",
+  "sourceCode": "Source code",
+  "documentation": "Documentation",
+  "changelog": "Changelog",
+  "source": "Source",
+  "existOverride": "This element already exist. Overwrite?",
+  "description": "Description",
+  "fill": "Fill",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Default palette",
+  "highlighter": "Highlighter",
+  "combinePaths": "Combine paths",
+  "add": "Add",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Remove",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Do you really want to remove this?",
+  "resetPalette": "Reset palette",
+  "custom": "Custom",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Decoration",
+  "underline": "Underline",
+  "overline": "Overline",
+  "strikethrough": "Strikethrough",
+  "thickness": "Thickness",
+  "style": "Style",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Solid",
+  "solidColor": "Solid color",
+  "gradient": "Gradient",
+  "gradientType": "Gradient type",
+  "linear": "Linear",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Double",
+  "dotted": "Dotted",
+  "dottedDark": "Dotted dark",
+  "dashed": "Dashed",
+  "wavy": "Wavy",
+  "fontWeight": "Font weight",
+  "normal": "Normal",
+  "bold": "Bold",
+  "italic": "Italic",
+  "clipboard": "Clipboard",
+  "file": "File",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Data",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Share",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Spacing",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Image",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Enter the url",
+  "scale": "Scale",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Help",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Do you really want to reset it?",
+  "whatToDo": "What do you want to do?",
+  "ignore": "Ignore",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Backup",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Backup connection",
+  "automaticBackups": "Automatic backups",
+  "automaticBackupsDescription": "Creates backups while Butterfly is running.",
+  "backupInterval": "Backup interval",
+  "backupNow": "Back up now",
+  "lastBackup": "Last backup",
+  "backupCreated": "Backup created",
+  "hour": "hour",
+  "hours": "hours",
+  "day": "day",
+  "days": "days",
+  "week": "week",
+  "weeks": "weeks",
+  "createdInNewerVersion": "The file {fileName} was created in a newer version ({fileVersion}). What should be done with this file?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Waypoints",
+  "origin": "Origin",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "Import",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "New",
+  "selectElement": "Select element",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Shift",
+  "altKey": "Alt",
+  "copyVersion": "Copy version",
+  "input": "Input",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Behaviors",
+  "dataDirectory": "Data directory",
+  "warning": "Warning",
+  "platformExperimentalWarning": "Warning: This setting is experimental and can have problems on this platform.",
+  "changeDataDirectoryWarningContent": "Are you sure you want to change the data folder? You should make a backup of your data before proceeding.",
+  "defaultPath": "Default path",
+  "dateFormat": "Date format",
+  "updatedAt": "Updated at: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Created at: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Rename",
+  "duplicate": "Duplicate",
+  "hand": "Hand",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Folder",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Move",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Copy",
+  "openContextMenu": "Open context menu",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Back",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Forward",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Zoom dependent",
+  "shapeDetection": "Shape Detection",
+  "delay": "Delay",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Default layer",
+  "layer": "Layer",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Layers",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "Not set",
+  "enterLayer": "Enter the layer name",
+  "eraseShapes": "Erase shapes",
+  "eraseShapeModeNone": "Don't erase shapes",
+  "eraseShapeModeTouchEdges": "Erase when touching edges",
+  "eraseShapeModeTouchAnywhere": "Erase when touching anywhere",
+  "selectElementModeTouchEdges": "Select when touching edges",
+  "selectElementModeTouchAnywhere": "Select when touching anywhere",
+  "selectElements": "Select elements",
+  "deleteElements": "Delete elements",
+  "eraseAllElements": "Erase all elements",
+  "deleteElementsConfirm": "Do you really want to delete the selected elements?",
+  "selectCustomCollection": "Select a custom collection",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Sensitivity",
+  "selectionTolerance": "Selection tolerance",
+  "selectionToleranceDescription": "How close a pointer must be to an element or area to select it. Higher values make selection easier.",
+  "selectionHandleSensitivity": "Selection handle hit area",
+  "selectionHandleSensitivityDescription": "Size of the hit area around selection and area handles for all pointer types.",
+  "panGestureSensitivity": "Pan gesture sensitivity",
+  "panGestureSensitivityDescription": "Canvas movement from touch or trackpad gestures. Higher values move the canvas farther.",
+  "zoomGestureSensitivity": "Continuous zoom sensitivity",
+  "zoomGestureSensitivityDescription": "Zoom from pinching, trackpad gestures, and Ctrl+scroll. Higher values zoom farther.",
+  "rotationGestureSensitivity": "Rotation gesture sensitivity",
+  "rotationGestureSensitivityDescription": "Canvas rotation from gestures. Higher values rotate farther.",
+  "scrollPanSensitivity": "Scroll pan sensitivity",
+  "scrollPanSensitivityDescription": "Canvas movement from mouse wheel and trackpad scrolling. Higher values pan farther.",
+  "horizontal": "Horizontal",
+  "vertical": "Vertical",
+  "plain": "Plain",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Light",
+  "ruled": "Ruled",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Quad",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Music",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Dark",
+  "plainDark": "Plain dark",
+  "ruledDark": "Ruled dark",
+  "quadDark": "Quad dark",
+  "musicDark": "Music dark",
+  "templates": "Templates",
+  "untitled": "Untitled",
+  "createTemplate": "Create template",
+  "createTemplateContent": "Do you really want to create a template from this document? The original document will get deleted.",
+  "fileName": "File name",
+  "defaultFileName": "Default file name",
+  "templateFileNameDescription": "Documents opened from the template picker are saved automatically with this name. Templates without a name use the default configured in Data settings. Combine your own text with {dateExample} and {timeExample}. Characters that are not allowed in file names will be rejected.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Preview",
+  "replace": "Replace",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Do you really want to replace the template? This operation can be not undone!",
+  "defaultTemplate": "Default template",
+  "insert": "Insert",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Document",
+  "documentStates": "Document states",
+  "camera": "Camera",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Printout",
+  "selectCamera": "Select a camera",
+  "changeDocumentPath": "Change document path",
+  "deleteWholeStroke": "Delete whole stroke",
+  "alpha": "Alpha",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Area",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Select an area",
+  "aspectRatio": "Aspect ratio",
+  "presets": "Presets",
+  "pagePortrait": "Page portrait",
+  "pageLandscape": "Page landscape",
+  "square": "Square",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Areas",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Enter the area",
+  "exitArea": "Exit the area",
+  "currentArea": "Current area",
+  "design": "Design",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Text",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Hey, this is Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "A free and open-source drawing space!",
+  "updated": "App updated to version {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Release notes",
+  "constraints": "Constraints",
+  "scaled": "Scaled",
+  "fixed": "Fixed",
+  "dynamicContent": "Dynamic",
+  "none": "None",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Include area",
+  "verticalAlignment": "Vertical alignment",
+  "horizontalAlignment": "Horizontal alignment",
+  "top": "Top",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Center",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Bottom",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Left",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Right",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Justify",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Constraint",
+  "length": "Length",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "Export SVG",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Select pages",
+  "recentFiles": "Recent files",
+  "start": "Start",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "No recent files",
+  "countPages": "{count,plural, =0{No pages} =1{1 page} other{{count} pages}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Page {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Exit",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "No elements",
+  "invertSelection": "Invert selection",
+  "errorWhileImporting": "Error while importing",
+  "errorWhileImportingContent": "An error occurred while importing the file",
+  "showDetails": "Show details",
+  "hideDetails": "Hide details",
+  "error": "Error",
+  "stackTrace": "Stack trace",
+  "laser": "Laser",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Duration",
+  "quality": "Quality",
+  "exportPdf": "Export PDF",
+  "local": "Local",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Add connection",
+  "connections": "Connections",
+  "noConnections": "No connections",
+  "url": "URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "The full WebDAV URL provided by your storage provider",
+  "connect": "Connect",
+  "username": "Username",
+  "password": "Password",
+  "authenticationPassword": "Authentication password",
+  "documentEncryptionPassword": "Document encryption password",
+  "documentEncryptionPasswordDescription": "Encrypts documents stored in this connection. Leave empty to keep them unencrypted",
+  "documentEncryptionEnabled": "Document encryption enabled",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Add document encryption password",
+  "changeDocumentEncryptionPassword": "Change document encryption password",
+  "webNotSupported": "Web not supported",
+  "advanced": "Advanced",
+  "symmetric": "Symmetric",
+  "perSide": "Per side",
+  "directory": "Directory",
+  "connectionNameDescription": "Only used to identify this connection in Butterfly",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Documents directory",
+  "templatesDirectory": "Templates directory",
+  "errorWhileCreatingConnection": "Error while creating connection",
+  "cannotConnect": "Cannot connect",
+  "urlNotValid": "URL not valid",
+  "icon": "Icon",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Optional URL of an image to use as the connection icon",
+  "update": "Update",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Update available",
+  "stable": "Stable",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Nightly",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Check for updates",
+  "checkForUpdatesWarning": "Performing a check for updates will connect to the Butterfly website to get the information.",
+  "usingLatestStable": "You are using the latest stable version",
+  "usingLatestNightly": "You are using the latest nightly version",
+  "currentVersion": "Current version",
+  "updateNow": "Update now",
+  "shape": "Shape",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Table",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "row": "Row",
+  "column": "Column",
+  "insertRowBefore": "Insert row before",
+  "insertRowAfter": "Insert row after",
+  "insertColumnBefore": "Insert column before",
+  "insertColumnAfter": "Insert column after",
+  "deleteRow": "Delete row",
+  "deleteColumn": "Delete column",
+  "cellColor": "Cell color",
+  "cellBorders": "Cell borders",
+  "cellBorder": "Cell border",
+  "horizontalBorder": "Horizontal border",
+  "verticalBorder": "Vertical border",
+  "rowHeight": "Row height",
+  "columnWidth": "Column width",
+  "border": "Border",
+  "circle": "Circle",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Rectangle",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Triangle",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Line",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Corner radius",
+  "topLeft": "Top left",
+  "topRight": "Top right",
+  "bottomLeft": "Bottom left",
+  "bottomRight": "Bottom right",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Caches",
+  "manage": "Manage",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Clear caches",
+  "createCache": "Create cache",
+  "thirdPartyLicenses": "Third party licenses",
+  "syncing": "Syncing...",
+  "synced": "Synced",
+  "notSynced": "Not synced",
+  "conflict": "Conflict",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Keep local",
+  "keepConnection": "Keep connection",
+  "keepBoth": "Keep both",
+  "forAll": "For all",
+  "fileConflict": "{file} in {connection} has a conflict",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Offline",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "Local latest",
+  "connectionLatest": "Connection latest",
+  "path": "Path",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Folder synced",
+  "syncRootDirectory": "Sync root directory",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Automatically enables stylus-only mode when a stylus is detected. This setting only lasts for the current session.",
+  "penOnlyInputOnDescription": "Always reject touch and mouse input, only accept stylus input.",
+  "penOnlyInputOffDescription": "Accept all input types including touch, mouse, and stylus.",
+  "automatic": "Automatic",
+  "alwaysOn": "Always on",
+  "alwaysOff": "Always off",
+  "showPenOnlyToggle": "Show stylus only toggle",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Input gestures",
+  "inputGesturesDescription": "Lets you move and zoom the canvas with touch gestures, even while a drawing tool is selected.",
+  "nativeTitleBar": "Native title bar",
+  "mode": "Mode",
+  "syncMode": "Sync mode",
+  "connection": "Connection",
+  "always": "Always",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "No mobile",
+  "syncModeAlwaysDescription": "Syncs remote files automatically whenever they change.",
+  "syncModeNoMobileDescription": "Syncs automatically except on mobile devices, which can reduce mobile data usage.",
+  "manual": "Manual",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Only syncs when you start it yourself.",
+  "search": "Search",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Properties",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Pin",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Unpin",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Element",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Painter",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Position",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Note",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Packs",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Pack",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "More",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Ask for name",
+  "areaIndex": "Area {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Start in full screen",
+  "inputs": "Inputs",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Mouse",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Touch",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Keyboard",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Shortcuts",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Middle",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "First",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "Second",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Active Tool",
+  "activeToolDescription": "Use the currently selected tool on the toolbar",
+  "handTool": "Hand Tool",
+  "handToolDescription": "Drag to move around the canvas",
+  "toolOnToolbar": "Specific Tool on Toolbar",
+  "toolOnToolbarDescription": "Use the tool at the specified position on the toolbar, starting from the left",
+  "toolOnToolbarShort": "Toolbar Position: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Tools",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Show grid",
+  "grid": "Grid",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Ruler",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Angle",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Report",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "New folder",
+  "createPack": "Create pack",
+  "editPack": "Edit pack",
+  "packsDirectory": "Packs directory",
+  "stamp": "Stamp",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Add to pack",
+  "sureImportPack": "Are you sure you want to import the pack?",
+  "byAuthor": "by {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Author",
+  "addAsset": "Add asset",
+  "editAsset": "Edit asset",
+  "scope": "Scope",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "There are currently no packs available",
+  "components": "Components",
+  "waypoint": "Waypoint",
+  "actions": "Actions",
+  "painters": "Painters",
+  "breakingChangesTitle": "Breaking changes",
+  "breakingChangesMessage": "There are breaking changes in this version. Please read the changelog before updating. The current file version is {version}, the new version is {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Styles",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Paragraph",
+  "fontFamily": "Font family",
+  "smoothing": "Smoothing",
+  "streamline": "Streamline",
+  "presentation": "Presentation",
+  "simple": "Simple",
+  "createPresentation": "Create presentation",
+  "addSlide": "Add new slide",
+  "updateSlide": "Update slide",
+  "deleteSlide": "Delete slide",
+  "transitionDuration": "Transition duration",
+  "transitionDurationDescription": "How long the camera takes to move to the next slide. On the last slide, this is used when you add a new one.",
+  "transitionDurationValue": "{seconds}s transition",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {"type": "String"}
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Add keyframe here",
+  "updateKeyframe": "Update from current camera",
+  "deleteKeyframe": "Delete keyframe",
+  "markAsSlide": "Mark as slide",
+  "removeSlideMarker": "Remove slide marker",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {"type": "int"}
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {"type": "int"}
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {"type": "int"},
+      "frame": {"type": "int"}
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "selectAsset": "Select asset",
+  "clearStyle": "Clear style",
+  "unknownImportType": "Unknown import type",
+  "sureImportTemplate": "Are you sure you want to import the template?",
+  "frame": "Frame",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Play",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Breakpoint",
+  "presentationControls": "Presentation controls",
+  "nextSlide": "Next slide",
+  "nextSlideDescription": "Swipe to the right or press the right arrow key to go to the next slide",
+  "previousSlide": "Previous slide",
+  "previousSlideDescription": "Swipe to the left or press the left arrow key to go to the previous slide",
+  "exitPresentation": "Exit presentation",
+  "exitPresentationDescription": "Press the escape key or swipe down to exit the presentation",
+  "pausePresentation": "Pause presentation",
+  "pausePresentationDescription": "Tap the screen or press the space bar to pause or resume the presentation",
+  "keyframe": "Keyframe",
+  "endOfPresentation": "You have reached the end of the presentation",
+  "startOfPresentation": "You have reached the start of the presentation",
+  "palettes": "Palettes",
+  "headline": "Headline {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Code",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Quote",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Link",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Checkbox",
+  "deleted": "Deleted",
+  "emphasis": "Emphasis",
+  "listBullet": "List bullet",
+  "strong": "Strong",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Home",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Files",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Sort by",
+  "location": "Location",
+  "whatsNew": "What's new?",
+  "unstar": "Unstar",
+  "star": "Star",
+  "goUp": "Go up",
+  "created": "Created",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Modified",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Quickstart",
+  "noTemplates": "There are currently no templates available",
+  "importCorePack": "Import core pack",
+  "importCorePackDescription": "Import the core pack that contains all basic assets to get started. This will override the current core pack.",
+  "never": "Never",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Only on updates",
+  "visibility": "Visibility",
+  "captureThumbnail": "Capture thumbnail",
+  "autoThumbnail": "Update thumbnail on close",
+  "autoThumbnailDescription": "Capture the current view when you close this document. Manually capturing a thumbnail turns this off.",
+  "capturedThumbnail": "Successfully captured thumbnail",
+  "chooseLabelMode": "Choose label mode",
+  "foreground": "Foreground",
+  "version": "Version",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Repository",
+  "pages": "Pages",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Navigator",
+  "arrange": "Arrange",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Bring to front",
+  "sendToBack": "Send to back",
+  "bringForward": "Bring forward",
+  "sendBackward": "Send backward",
+  "rotation": "Rotation",
+  "rotationStep": "Rotation step",
+  "zoomStep": "Zoom step",
+  "zoomStepDescription": "Amount used by the zoom in and zoom out keyboard shortcuts. Continuous zoom gestures use their own sensitivity setting.",
+  "direction": "Direction",
+  "onlyAvailableLargerScreen": "Only available on larger screens",
+  "toolbarPosition": "Toolbar position",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Rotate",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Rotate left",
+  "rotateRight": "Rotate right",
+  "spacer": "Spacer",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Navigation rail",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Cut",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Insert before",
+  "insertAfter": "Insert after",
+  "insertFirst": "Insert first",
+  "insertLast": "Insert last",
+  "paste": "Paste",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Ascending",
+  "descending": "Descending",
+  "imageScale": "Image scale",
+  "svgScale": "SVG scale",
+  "noImageSelected": "No image selected",
+  "noSvgSelected": "No SVG selected",
+  "select": "Select",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Tool",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Texture",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Platform theme",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Desktop",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Mobile",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Surface",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Pattern",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Are you sure you want to close the document?",
+  "thereAreUnsavedChanges": "There are unsaved changes",
+  "page": "Page",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "ICE Servers",
+  "collaboration": "Collaboration",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Socket",
+  "iceServer": "ICE Server",
+  "port": "Port",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Type",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Side",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "Client",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Server",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Switch View",
+  "lasso": "Lasso",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Hide UI",
+  "density": "Density",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Compact",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Comfortable",
+  "standard": "Standard",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Lock",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Add element",
+  "notDefaultConnection": "Not default connection",
+  "defaultConnection": "Default connection",
+  "hide": "Hide",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Show",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "Pause",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Stop",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Refresh",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "Print",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Eye dropper",
+  "users": "Users",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Experiments",
+  "experimentsWarning": "These features are experimental and may change, break, or disappear at any time. Enabling them may cause instability or data loss. Proceed with caution. Please report any bugs.",
+  "address": "Address",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Spread to pages",
+  "rootDirectorySpecifiedDescription": "The root directory is specified. All advanced directory paths will be relative to this directory. Keep it empty to disable this directory type.",
+  "rootDirectoryNotSpecifiedDescription": "The root directory is not specified. A name is required. All advanced directory paths will be absolute. Keep it empty to disable this directory type.",
+  "unsecureConnectionTitle": "Unsecure connection",
+  "unsecureConnectionMessage": "The connection is not secure. This can be a security risk. Please only continue if you trust the connection. The sha1 fingerprint is {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Continue anyway",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Show navigator previews",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Show cached preview thumbnails in the areas and pages navigators",
+  "highContrast": "High contrast",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "This value should be valid number",
+  "createAreas": "Create areas",
+  "autosave": "Autosave",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Invert",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "Operations",
+  "medium": "Medium",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "Large",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Toolbar size",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Add all",
+  "onlyCurrentPage": "Only current page",
+  "smoothNavigation": "Smooth navigation",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Edge pan area switching",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Use Android SAF",
+  "exact": "Exact",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "Inline",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Toolbar rows",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "Pointer test",
+  "pressure": "Pressure",
+  "small": "Small",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Tiny",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Select all",
+  "overrideTools": "Override tools",
+  "hideCursorWhileDrawing": "Hide cursor while drawing",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Installed",
+  "install": "Install",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Deselect",
+  "changeCollection": "Change collection",
+  "collections": "Collections",
+  "fullSelection": "Full selection",
+  "collection": "Collection",
+  "defaultCollection": "Default collection",
+  "scroll": "Scroll",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "On startup",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Home screen",
+  "lastNote": "Last note",
+  "newNote": "New note",
+  "moveToLayer": "Move to layer",
+  "createLayer": "Create layer",
+  "merge": "Merge",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Up",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Down",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "Other",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{No elements} =1{1 element} other{{count} elements}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Color toolbar",
+  "yesButShowButtons": "Yes, but show buttons",
+  "optionsPanelPosition": "Options panel position",
+  "hideDuration": "Hide duration",
+  "animation": "Animation",
+  "performance": "Performance",
+  "performanceDescription": "Optimized for speed and memory usage. Only the visible portion of the note is baked into the image.",
+  "normalDescription": "Balances quality and performance. Bakes an image covering 1.5 times the visible area, providing smoother transitions when scrolling.",
+  "high": "High",
+  "highDescription": "Maximizes quality at the cost of performance. Bakes an image covering 2 times the visible area, ensuring seamless rendering even during rapid scrolling or zooming.",
+  "renderResolution": "Render resolution",
+  "translate": "Translate",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Unencrypted",
+  "encrypted": "Encrypted",
+  "encryptDocumentMessage": "Click to encrypt the document",
+  "unencryptDocumentMessage": "Click to unencrypt the document",
+  "unencrypt": "Unencrypt",
+  "encrypt": "Encrypt",
+  "encryptWarning": "This will encrypt the document. You will need to remember the password to decrypt it.",
+  "unencryptWarning": "This will unencrypt the document. The password will be removed and everyone with access will be able to open it.",
+  "confirmPassword": "Confirm password",
+  "passwordMismatch": "The passwords do not match",
+  "action": "Action",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "SVG Text",
+  "offset": "Offset",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "End",
+  "radius": "Radius",
+  "focalPoint": "Focal point",
+  "useOffCenterStartPoint": "Use an off-center start point",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Color stops",
+  "addStop": "Add stop",
+  "positionDependent": "Position dependent",
+  "flipHorizontal": "Flip horizontal",
+  "flipVertical": "Flip vertical",
+  "grayscale": "Grayscale",
+  "moveOnGesture": "Move on gesture",
+  "exportAllFiles": "Export all files",
+  "restoreSettingsFromFile": "Restore settings from file",
+  "resetAllSettings": "Reset all settings",
+  "exportSettingsToFile": "Export settings to file",
+  "barcode": "Barcode",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Barcode type",
+  "qrCode": "QR Code",
+  "dataMatrix": "Data Matrix",
+  "code128": "Code 128",
+  "defaultUserName": "User {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Move left",
+  "moveRight": "Move right",
+  "bundledPacks": "Bundled packs",
+  "component": "Component",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Select component",
+  "bundlePackInDocument": "Bundle pack in document",
+  "bundledPacksDescription": "Bundled packs are included in the document and only be used to share with the document. Assets can only be used in the document if the pack is installed. Packs can be installed with clicking on them.",
+  "fillAlpha": "Fill alpha",
+  "packagedFile": "Packaged file",
+  "rawFile": "Raw file",
+  "webSocketDescription": "Your device hosts the server, so collaborators can only join over the same network or from anywhere if you forward the port on your router.",
+  "swampDescription": "Your messages are routed through a secure relay server with end-to-end encryption. A swamp server address is required to create a session.",
+  "createRawNote": "Create raw note",
+  "polygon": "Polygon",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Finish shape",
+  "submit": "Submit",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Math",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ignore pressure",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignores the first pressure reading, which can be inaccurate on some styluses.",
+  "ignorePressureNeverDescription": "Uses every pressure reading from the stylus.",
+  "ignorePressureAlwaysDescription": "Ignores pressure and treats the stylus as fully pressed.",
+  "temporary": "Temporary",
+  "simpleToolbarVisibility": "Simple toolbar visibility",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Autosave delay",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Saved",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Saving...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Read only",
+  "saveDelayed": "Save delayed",
+  "unsaved": "Unsaved",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "There are currently no areas to export. Please select at least one area using the plus button in the top right corner or add all areas from the current page or from the whole document below.",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Customize shortcuts",
+  "clickToSave": "Click to save",
+  "toolbars": "Toolbars",
+  "logs": "Logs",
+  "ruledSimple": "Ruled simple",
+  "ruledSimpleDark": "Ruled simple dark",
+  "quadSimple": "Quad simple",
+  "quadSimpleDark": "Quad simple dark",
+  "redLinedRuled": "Red lined ruled",
+  "redLinedRuledDark": "Red lined ruled dark",
+  "redLinedQuad": "Red lined quad",
+  "redLinedQuadDark": "Red lined quad dark",
+  "noItemSelected": "No item selected",
+  "areaAsInitial": "Open area as initial view",
+  "swap": "Swap",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Hide file extension",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "New from template",
+  "exportAsTextShortcut": "Export as text",
+  "exportAsImageShortcut": "Export as image",
+  "exportAsPdfShortcut": "Export as PDF",
+  "exportAsSvgShortcut": "Export as SVG",
+  "changePathShortcut": "Change path",
+  "fullScreenShortcut": "Full screen",
+  "doublePressAction": "Double press action",
+  "triplePressAction": "Triple press action",
+  "twoFingerTap": "Two-finger tap",
+  "threeFingerTap": "Three-finger tap",
+  "longPress": "Long press",
+  "toolNumber": "Tool {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Hold Shortcuts",
+  "holdShortcutsDescription": "Hold a key to temporarily switch to another tool. Releasing the key switches back to the previous tool.",
+  "key": "Key",
+  "bringMovedElementsToFront": "Bring moved elements to front",
+  "addTool": "Add tool",
+  "nextPage": "Next page",
+  "previousPage": "Previous page",
+  "persistenceDocumentStates": "Persistent document states",
+  "persistentStatesEnabled": "Enable persistent document states",
+  "persistentStateCurrentPage": "Current page",
+  "persistentStateViewport": "Viewport position and zoom",
+  "persistentStateSelectedTool": "Selected tool",
+  "persistentStateMaxRecords": "Maximum stored records",
+  "persistentStateDeleteOlderThanDays": "Delete records older than days",
+  "persistentStateCleanup": "Clean up stored states",
+  "persistentStateCleanupDescription": "Delete records older than the limits above",
+  "persistentStateCleanupInProgress": "Cleaning up...",
+  "persistentStateDefaultLocks": "Default locks",
+  "persistentStateDefaultLocksDescription": "Apply these locks when a document has no saved state",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Cleaned up 1 storage location} other{Cleaned up {locations} storage locations}}; {records, plural, =1{removed 1 record} other{removed {records} records}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Saves changes automatically as you work.",
+  "autosaveDelayedDescription": "Saves changes automatically after the selected delay.",
+  "autosaveShowButtonDescription": "Saves automatically and also keeps the save button visible.",
+  "autosaveDisabledDescription": "Only saves when you use the save command.",
+  "hideCursorWhileDrawingDescription": "Hides the mouse pointer while you draw, so it does not cover your stroke.",
+  "onStartupHomeScreenDescription": "Opens the home screen when Butterfly starts.",
+  "onStartupLastNoteDescription": "Reopens your most recently used note when Butterfly starts.",
+  "onStartupNewNoteDescription": "Creates a new note when Butterfly starts.",
+  "smoothNavigationDescription": "Makes panning and zooming feel smoother by simplifying the canvas while it is moving.",
+  "edgePanAreaSwitchingDescription": "Switches to a neighboring area when you pan near the edge of the canvas.",
+  "collaborationDescription": "Allows multiple people to edit the same note together in real time.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Includes detailed diagnostic messages in the log view and console. These messages can help when troubleshooting a problem.",
+  "bringMovedElementsToFrontDescription": "Places an element above overlapping elements after you move it.",
+  "persistenceDocumentStatesDescription": "Controls which parts of your workspace Butterfly remembers for each note, such as the current page, zoom, and selected tool.",
+  "persistentStatesEnabledDescription": "Store document state information between app sessions",
+  "persistentStateCurrentPageDescription": "Remember the current page when reopening a file",
+  "persistentStateViewportDescription": "Remember the viewport position, zoom and rotation for each page",
+  "persistentStateSelectedToolDescription": "Remember the selected tool when reopening a file",
+  "persistentStateLocksDescription": "Remember lock settings when reopening a file",
+  "persistentStateNavigatorDescription": "Remember the navigator state when reopening a file",
+  "persistentStateLayersDescription": "Remember the layer panel state when reopening a file",
+  "persistentStateAreasDescription": "Remember the area panel state when reopening a file",
+  "persistentStateAutoThumbnail": "Automatic thumbnails",
+  "persistentStateAutoThumbnailDescription": "Show the per-document switch and allow thumbnails to update when documents close",
+  "persistentStateMaxRecordsDescription": "Keep at most this many stored states per file",
+  "persistentStateDeleteOlderThanDaysDescription": "Delete stored states older than this many days",
+  "contentViewportDescription": "Limits how far you can pan away from the content of your note.",
+  "limitViewportPositiveDescription": "Keeps the canvas within the area to the right and below its starting point.",
+  "startInFullScreenDescription": "Opens Butterfly in full-screen mode when supported.",
+  "designDescription": "Changes the overall visual style of Butterfly without changing whether the app uses light or dark colors.",
+  "platformThemeDescription": "Lets you use the desktop or mobile layout instead of the layout Butterfly normally chooses for your device.",
+  "densityDescription": "Changes the spacing and size of interface elements. It does not change the size of your note content.",
+  "highContrastDescription": "Uses stronger color differences to make controls and text easier to distinguish.",
+  "nativeTitleBarDescription": "Uses your operating system's standard window title bar instead of Butterfly's custom title bar.",
+  "propertiesDescription": "Chooses where the panel for editing the selected tool or element appears.",
+  "navigationRailDescription": "Shows a permanent navigation bar on wide screens for quicker access to app sections.",
+  "optionsPanelPositionDescription": "Chooses whether tool options appear above or below the canvas.",
+  "simpleToolbarVisibilityDescription": "Controls when the smaller, simplified toolbar appears while editing a note.",
+  "penOnlyInputDescription": "Prevents accidental marks from your hand or mouse by choosing when only stylus input can draw.",
+  "showPenOnlyToggleDescription": "Shows a quick stylus-only switch in the editor after Butterfly detects a stylus.",
+  "ignorePressureDescription": "Controls whether stylus pressure changes the stroke and works around inaccurate pressure readings from some styluses.",
+  "moveOnGestureDescription": "Lets multi-touch gestures move the canvas instead of interacting with note content.",
+  "spreadPagesDescription": "Splits multi-page imports across separate note pages instead of placing everything on one page.",
+  "shear": "Shear",
+  "resetRotation": "Reset rotation",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Choose the controls for zoom and rotation. Reset buttons remain available in every layout.",
+  "zoomPanelFull": "Full (slider, text field and buttons)",
+  "zoomPanelSliderInput": "Slider and text field",
+  "zoomPanelSlider": "Slider",
+  "zoomPanelInputButtons": "Text field and buttons",
+  "zoomPanelInput": "Text field",
+  "rotationDisplay": "Rotation display",
+  "rotationDisplayDescription": "Choose when the rotation row appears above zoom. This does not change rotation gestures or shortcuts.",
+  "whenRotated": "When rotated",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Rotate canvas by dragging"
+}

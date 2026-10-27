@@ -1,0 +1,1388 @@
+part of 'editor_runtime.dart';
+
+@Freezed(equal: false)
+sealed class RendererRuntimeState with _$RendererRuntimeState {
+  const RendererRuntimeState._();
+
+  const factory RendererRuntimeState({
+    @Default(CameraViewport.unbaked()) CameraViewport cameraViewport,
+    @Default({}) Map<String, RendererState> rendererStates,
+    @Default({}) Map<String, RendererState>? temporaryRendererStates,
+  }) = _RendererRuntimeState;
+
+  Map<String, RendererState> get allRendererStates => {
+    ...rendererStates,
+    ...(temporaryRendererStates ?? const <String, RendererState>{}),
+  };
+}
+
+class _RendererSpatialIndex(List<Renderer<PadElement>> renderers) {
+  final List<Rect?> _bounds = .filled(renderers.length, null);
+
+  this {
+    for (var index = 0; index < renderers.length; index++) {
+      final bounds = renderers[index].expandedRect;
+      _bounds[index] = bounds;
+      if (bounds == null) {
+        _unbounded.add(index);
+        continue;
+      }
+      final left = (bounds.left / _cellSize).floor();
+      final top = (bounds.top / _cellSize).floor();
+      final right = (bounds.right / _cellSize).floor();
+      final bottom = (bounds.bottom / _cellSize).floor();
+      final cellCount = (right - left + 1) * (bottom - top + 1);
+      if (cellCount > _maxCellsPerRenderer) {
+        _large.add(index);
+        continue;
+      }
+      for (var x = left; x <= right; x++) {
+        for (var y = top; y <= bottom; y++) {
+          (_cells[(x, y)] ??= <int>[]).add(index);
+        }
+      }
+    }
+  }
+
+  static const double _cellSize = 1024;
+  static const int _maxCellsPerRenderer = 64;
+  static const int _maxQueryCells = 4096;
+  final Map<(int, int), List<int>> _cells = {};
+  final List<int> _large = [];
+  final List<int> _unbounded = [];
+  bool _isVisible(int index, Rect rect) =>
+      _bounds[index]?.overlaps(rect) ?? true;
+
+  List<Renderer<PadElement>> query(
+    List<Renderer<PadElement>> renderers,
+    Rect rect,
+  ) {
+    final indices = <int>{..._large, ..._unbounded};
+    final left = (rect.left / _cellSize).floor();
+    final top = (rect.top / _cellSize).floor();
+    final right = (rect.right / _cellSize).floor();
+    final bottom = (rect.bottom / _cellSize).floor();
+    final queryCellCount = (right - left + 1) * (bottom - top + 1);
+    if (queryCellCount > _maxQueryCells) {
+      return [
+        for (var index = 0; index < renderers.length; index++)
+          if (_isVisible(index, rect)) renderers[index],
+      ];
+    }
+    for (var x = left; x <= right; x++) {
+      for (var y = top; y <= bottom; y++) {
+        final cell = _cells[(x, y)];
+        if (cell != null) indices.addAll(cell);
+      }
+    }
+    final ordered = indices.toList()..sort();
+    return ordered
+        .where((index) => _isVisible(index, rect))
+        .map((index) => renderers[index])
+        .toList(growable: false);
+  }
+}
+
+class _RendererRepaint extends ChangeNotifier {
+  void refresh() => notifyListeners();
+}
+
+ByteData _cropOversizedPng(ByteData png, ui.Image image) {
+  if (png.lengthInBytes < 24 ||
+      (png.getUint32(16) <= image.width && png.getUint32(20) <= image.height)) {
+    return png;
+  }
+
+  // Chromium can encode at the browser canvas size, leaving the requested
+  // image in the top-left corner.
+  final decoded = img.decodePng(Uint8List.sublistView(png));
+  if (decoded == null ||
+      decoded.width < image.width ||
+      decoded.height < image.height) {
+    return png;
+  }
+  return ByteData.sublistView(
+    img.encodePng(
+      img.copyCrop(
+        decoded,
+        x: 0,
+        y: 0,
+        width: image.width,
+        height: image.height,
+      ),
+    ),
+  );
+}
+
+class RendererCubit(
+  final SettingsCubit settingsCubit, [
+  super.initial = const RendererRuntimeState(),
+]) extends Cubit<RendererRuntimeState> {
+  final initializedElements = <Renderer<PadElement>>{};
+  final bakeLock = Lock();
+  final _repaint = _RendererRepaint();
+  Listenable get repaint => _repaint;
+
+  final delayedBakeRunner = CoalescedAsyncRunner(
+    delay: const Duration(milliseconds: 100),
+  );
+  EditorController? _controller;
+  StreamSubscription<CameraTransform>? _transformSubscription;
+  Timer? _transformDebounceTimer;
+  _RendererSpatialIndex? _spatialIndex;
+  List<Renderer<PadElement>>? _indexedRenderers;
+  Set<Renderer<PadElement>>? _indexedUnbaked;
+  bool _useDirectRendering = kIsWeb && !kIsWasm;
+
+  @visibleForTesting
+  void enableDirectRendering() => _useDirectRendering = true;
+
+  void bindController(EditorController controller) {
+    _controller = controller;
+    _transformSubscription?.cancel();
+    _transformSubscription = controller.transformCubit.stream.listen((_) {
+      _transformDebounceTimer?.cancel();
+      _transformDebounceTimer = Timer(const Duration(milliseconds: 16), () {
+        if (!controller.isClosed) {
+          updateVisibleElements(controller, controller.activeDocumentBloc);
+        }
+      });
+    });
+  }
+
+  @override
+  void onChange(Change<RendererRuntimeState> change) {
+    super.onChange(change);
+    final controller = _controller;
+    if (controller == null || controller.isClosed) return;
+    final currentViewport = change.currentState.cameraViewport;
+    final newViewport = change.nextState.cameraViewport;
+
+    if (!identical(currentViewport, newViewport) &&
+        currentViewport != newViewport) {
+      controller.toolCubit.state.handler.onViewportUpdated(
+        currentViewport,
+        newViewport,
+      );
+      controller.toolCubit.state.temporaryHandler?.onViewportUpdated(
+        currentViewport,
+        newViewport,
+      );
+    }
+
+    currentViewport.disposeImages(except: newViewport);
+  }
+
+  void cancelDelayedBake() {
+    delayedBakeRunner.cancel();
+  }
+
+  void replace(RendererRuntimeState state) => emit(state);
+
+  void setViewport(CameraViewport cameraViewport) =>
+      emit(state.copyWith(cameraViewport: cameraViewport));
+
+  void setRendererStates({
+    Map<String, RendererState>? rendererStates,
+    Map<String, RendererState>? temporaryRendererStates,
+  }) {
+    final nextRendererStates = rendererStates ?? state.rendererStates;
+    final nextTemporaryRendererStates =
+        temporaryRendererStates ?? state.temporaryRendererStates;
+    const equality = MapEquality<String, RendererState>();
+    if (equality.equals(state.rendererStates, nextRendererStates) &&
+        equality.equals(
+          state.temporaryRendererStates,
+          nextTemporaryRendererStates,
+        )) {
+      return;
+    }
+    emit(
+      state.copyWith(
+        rendererStates: nextRendererStates,
+        temporaryRendererStates: nextTemporaryRendererStates,
+      ),
+    );
+  }
+
+  List<Renderer<PadElement>> get renderers =>
+      List<Renderer<PadElement>>.from(state.cameraViewport.bakedElements)
+        ..addAll(state.cameraViewport.unbakedElements);
+
+  void _invalidateSpatialIndex() {
+    _spatialIndex = null;
+    _indexedRenderers = null;
+    _indexedUnbaked = null;
+  }
+
+  void _retainSpatialIndex(
+    List<Renderer<PadElement>> renderers,
+    Iterable<Renderer<PadElement>> unbaked,
+  ) {
+    final indexed = _indexedRenderers;
+    if (indexed == null || !sameRendererList(indexed, renderers)) {
+      _invalidateSpatialIndex();
+      return;
+    }
+    _indexedUnbaked = unbaked.toSet();
+  }
+
+  List<Renderer<PadElement>> visibleRenderers(Rect rect) {
+    var all = _indexedRenderers;
+    if (all == null) {
+      all = renderers;
+      _indexedRenderers = all;
+      _indexedUnbaked = state.cameraViewport.unbakedElements.toSet();
+      _spatialIndex = _RendererSpatialIndex(all);
+    }
+    return _spatialIndex!.query(all, rect);
+  }
+
+  Renderer? getRenderer(PadElement element) =>
+      renderers.firstWhereOrNull((renderer) => renderer.element == element);
+
+  bool sameRendererList(
+    List<Renderer<PadElement>> a,
+    List<Renderer<PadElement>> b,
+  ) {
+    if (identical(a, b)) return true;
+    if (a.length != b.length) return false;
+    for (var i = 0; i < a.length; i++) {
+      if (!identical(a[i], b[i])) return false;
+    }
+    return true;
+  }
+
+  void invalidateRenderers(Iterable<Renderer<PadElement>> renderers) {
+    initializedElements.removeAll(renderers);
+  }
+
+  bool rendererStateChangesAffectBaked(
+    Map<String, RendererState> current,
+    Map<String, RendererState> next,
+  ) {
+    final changedIds = {
+      ...current.keys,
+      ...next.keys,
+    }.where((id) => current[id] != next[id]);
+    if (changedIds.isEmpty) return false;
+    final bakedIds = state.cameraViewport.bakedElements
+        .map((renderer) => renderer.id)
+        .toSet();
+    return changedIds.any(bakedIds.contains);
+  }
+
+  Rect getViewportRect(TransformCubit transformCubit, {Size? viewportSize}) {
+    final viewport = state.cameraViewport;
+    var size = viewportSize ?? viewport.viewportSize ?? viewport.toRealSize();
+    final transform = transformCubit.state;
+    final resolution = settingsCubit.state.renderResolution;
+    final friction = transform.friction;
+    Rect rect = transform.localToGlobalRect(Offset.zero & size);
+    if (friction != null) {
+      final beginPosition = transform.position - friction.beginOffset;
+      rect = rect.expandToInclude(
+        transform
+            .withPosition(beginPosition)
+            .localToGlobalRect(Offset.zero & size),
+      );
+    }
+    return _snapViewportRect(rect, size, transform, resolution);
+  }
+
+  Rect _snapViewportRect(
+    Rect rect,
+    Size size,
+    CameraTransform transform,
+    RenderResolution resolution,
+  ) {
+    final position = transform.position;
+    final scale = transform.size;
+    final scaledRect = Rect.fromLTRB(
+      (rect.left - position.dx) * scale,
+      (rect.top - position.dy) * scale,
+      (rect.right - position.dx) * scale,
+      (rect.bottom - position.dy) * scale,
+    );
+    final snappedRect = _expandScreenRect(
+      Rect.fromLTRB(
+        scaledRect.left.floorToDouble(),
+        scaledRect.top.floorToDouble(),
+        scaledRect.right.ceilToDouble(),
+        scaledRect.bottom.ceilToDouble(),
+      ),
+      Size(
+        (size.width * resolution.multiplier).ceilToDouble(),
+        (size.height * resolution.multiplier).ceilToDouble(),
+      ),
+    );
+    return Rect.fromLTRB(
+      snappedRect.left / scale + position.dx,
+      snappedRect.top / scale + position.dy,
+      snappedRect.right / scale + position.dx,
+      snappedRect.bottom / scale + position.dy,
+    );
+  }
+
+  Rect _expandScreenRect(Rect rect, Size minimumSize) {
+    final dx = max(0.0, minimumSize.width - rect.width);
+    final dy = max(0.0, minimumSize.height - rect.height);
+    return Rect.fromLTRB(
+      rect.left - (dx / 2).floorToDouble(),
+      rect.top - (dy / 2).floorToDouble(),
+      rect.right + (dx / 2).ceilToDouble(),
+      rect.bottom + (dy / 2).ceilToDouble(),
+    );
+  }
+
+  bool rectContains(Rect outer, Rect inner) {
+    const tolerance = precisionErrorTolerance;
+    return outer.left <= inner.left + tolerance &&
+        outer.top <= inner.top + tolerance &&
+        outer.right >= inner.right - tolerance &&
+        outer.bottom >= inner.bottom - tolerance;
+  }
+
+  Rect getPageRect({Set<String>? invisibleLayers}) {
+    Rect? rect;
+    for (final renderer in renderers) {
+      final rendererRect = renderer.expandedRect;
+      if (rendererRect == null) continue;
+      if (invisibleLayers?.contains(renderer.layer) ?? false) continue;
+      rect = rect?.expandToInclude(rendererRect) ?? rendererRect;
+    }
+    return rect ?? Rect.zero;
+  }
+
+  Future<void> updateVisibleElements(
+    EditorController controller,
+    DocumentBloc? bloc,
+  ) async {
+    if (controller.isClosed) return;
+    final unbaked = state.cameraViewport.unbakedElements;
+
+    final rect = getViewportRect(controller.transformCubit);
+    final currentVisible = state.cameraViewport.visibleElements;
+    final currentVisibleUnbaked = state.cameraViewport.visibleUnbakedElements;
+
+    final visible = visibleRenderers(rect);
+    final visibleUnbaked = visible.where(_indexedUnbaked!.contains).toList();
+
+    if (sameRendererList(visible, currentVisible) &&
+        sameRendererList(visibleUnbaked, currentVisibleUnbaked)) {
+      return;
+    }
+
+    final newViewport = state.cameraViewport.withUnbaked(
+      unbaked,
+      visibleElements: visible,
+      visibleUnbakedElements: visibleUnbaked,
+    );
+
+    setViewport(newViewport);
+
+    final docState = bloc?.state;
+    if (docState is DocumentLoaded) {
+      await updateOnVisible(controller, newViewport, docState);
+      if (!controller.isClosed && bloc != null && !bloc.isClosed) {
+        bloc.delayedBake();
+      }
+    }
+  }
+
+  Future<void> updateOnVisible(
+    EditorController controller,
+    CameraViewport newViewport,
+    DocumentLoaded blocState, {
+    CameraTransform? renderTransform,
+    ui.Size? targetSize,
+  }) async {
+    final newVisibleList = newViewport.visibleElements;
+    final nextVisibleSet = newVisibleList.toSet();
+
+    final newVisible = newVisibleList
+        .where((e) => !initializedElements.contains(e))
+        .toList();
+
+    final newlyHidden = initializedElements
+        .where((e) => !nextVisibleSet.contains(e))
+        .toList();
+
+    if (newVisible.isEmpty && newlyHidden.isEmpty) return;
+
+    final transform = renderTransform ?? controller.transformCubit.state;
+    final size = targetSize ?? newViewport.toSize();
+
+    initializedElements.removeAll(newlyHidden);
+
+    if (newVisible.isNotEmpty) {
+      talker.verbose('Updating visible elements: ${newVisible.length} new');
+      final initialized = await Future.wait(
+        newVisible.map((element) async {
+          try {
+            await Future.sync(
+              () => element.onVisible(controller, blocState, transform, size),
+            );
+            return element;
+          } catch (error, stackTrace) {
+            talker.error(
+              'Failed to initialize visible renderer $element',
+              error,
+              stackTrace,
+            );
+          }
+          return null;
+        }),
+      );
+      if (controller.isClosed || isClosed) return;
+      initializedElements.addAll(initialized.nonNulls);
+      // The initial viewport is already visible. Repaint once after the entire
+      // visible batch is ready, rather than once for every loaded element.
+      _repaint.refresh();
+    }
+
+    if (newlyHidden.isNotEmpty) {
+      await Future.wait(
+        newlyHidden.map(
+          (element) async =>
+              await element.onHidden(controller, blocState, transform, size),
+        ),
+      );
+    }
+  }
+
+  Future<void> delayedBake(
+    EditorController controller,
+    DocumentLoaded blocState, {
+    ui.Size? viewportSize,
+    double? pixelRatio,
+    bool reset = false,
+    bool testTransform = false,
+  }) => delayedBakeRunner.schedule(() async {
+    final newTransform = controller.transformCubit.state;
+    final viewport = state.cameraViewport;
+
+    if (testTransform &&
+        newTransform.size == viewport.scale &&
+        newTransform.position == viewport.toOffset()) {
+      return;
+    }
+
+    await controller.rendererCubit.bake(
+      controller,
+      blocState,
+      viewportSize: viewportSize,
+      pixelRatio: pixelRatio,
+      reset: reset,
+    );
+  });
+
+  Future<void> bake(
+    EditorController controller,
+    DocumentLoaded blocState, {
+    Size? viewportSize,
+    double? pixelRatio,
+    bool reset = false,
+    bool resetAllLayers = false,
+  }) => bakeLock.synchronized(() async {
+    final rendererCubit = this;
+    final transformCubit = controller.transformCubit;
+    final settingsCubit = controller.settingsCubit;
+    if (controller.isClosed) return;
+    var cameraViewport = rendererCubit.state.cameraViewport;
+    final startTransform = transformCubit.state;
+    var startViewport = cameraViewport;
+    final resolution = settingsCubit.state.renderResolution;
+    final measuredViewportSize = viewportSize ?? cameraViewport.viewportSize;
+    var size = measuredViewportSize ?? cameraViewport.toSize();
+    final ratio = pixelRatio ?? cameraViewport.pixelRatio;
+    if (size.height <= 0 || size.width <= 0) {
+      return;
+    }
+    if (measuredViewportSize == null) {
+      size /= resolution.multiplier;
+    }
+    var transform = transformCubit.state;
+    final rect = rendererCubit.getViewportRect(
+      transformCubit,
+      viewportSize: size,
+    );
+    size = rect.size * transform.size;
+    final renderTransform = transform.improve(resolution, rect);
+    final document = blocState.data;
+    final page = blocState.page;
+    final info = blocState.info;
+    final imageWidth = (size.width * ratio).ceil();
+    final imageHeight = (size.height * ratio).ceil();
+    var allRendererStates = rendererCubit.state.allRendererStates;
+    final rendererStatesChanged = !mapEquals(
+      allRendererStates,
+      cameraViewport.rendererStates,
+    );
+    if (!rendererStatesChanged) {
+      allRendererStates = cameraViewport.rendererStates;
+    }
+    final invisibleLayers = blocState.invisibleLayers;
+    final viewportAlreadyCoversRect =
+        cameraViewport.image != null &&
+        cameraViewport.scale == transform.size &&
+        cameraViewport.resolution == resolution &&
+        cameraViewport.pixelRatio == ratio &&
+        !rendererStatesChanged &&
+        setEquals(cameraViewport.invisibleLayers, invisibleLayers) &&
+        rendererCubit.rectContains(cameraViewport.toRect(), rect);
+    final viewChanged =
+        !viewportAlreadyCoversRect &&
+        (cameraViewport.width != size.width ||
+            cameraViewport.height != size.height ||
+            cameraViewport.pixelRatio != ratio ||
+            cameraViewport.resolution != resolution ||
+            cameraViewport.x != renderTransform.position.dx ||
+            cameraViewport.y != renderTransform.position.dy ||
+            cameraViewport.scale != transform.size ||
+            rendererStatesChanged ||
+            !setEquals(cameraViewport.invisibleLayers, invisibleLayers));
+    reset = reset || viewChanged;
+    resetAllLayers = resetAllLayers || viewChanged;
+    final cachedImage = cameraViewport.image;
+    final cachedRect = cameraViewport.toRect();
+    final cacheMatchesBakeTarget =
+        cachedImage != null &&
+        cachedImage.width == imageWidth &&
+        cachedImage.height == imageHeight &&
+        rendererCubit.rectContains(cachedRect, rect) &&
+        rendererCubit.rectContains(rect, cachedRect);
+    if (!reset && !cacheMatchesBakeTarget) {
+      reset = true;
+      resetAllLayers = true;
+    }
+    final renderers = rendererCubit.renderers;
+
+    void useDirectRendering(List<Renderer<PadElement>> visibleElements) {
+      if (controller.isClosed ||
+          !identical(rendererCubit.state.cameraViewport, startViewport) ||
+          transformCubit.state != startTransform) {
+        return;
+      }
+      rendererCubit._retainSpatialIndex(renderers, renderers);
+      rendererCubit.setViewport(
+        cameraViewport
+            .unbake(
+              unbakedElements: renderers,
+              visibleElements: visibleElements,
+              visibleUnbakedElements: visibleElements,
+              rendererStates: allRendererStates,
+            )
+            .copyWith(
+              width: size.width,
+              height: size.height,
+              viewportSize: measuredViewportSize,
+              pixelRatio: ratio,
+              resolution: resolution,
+              scale: transform.size,
+              x: renderTransform.position.dx,
+              y: renderTransform.position.dy,
+              invisibleLayers: invisibleLayers,
+            ),
+      );
+    }
+
+    // JavaScript web builds paint the live renderer list. Do not feed them
+    // through the cache-specific visibility pass: during initial layout that
+    // pass can temporarily be empty and replace an already correct document
+    // with a blank viewport.
+    if (_useDirectRendering || renderers.isEmpty) {
+      useDirectRendering(cameraViewport.visibleElements);
+      return;
+    }
+
+    if (cameraViewport.unbakedElements.isEmpty && !reset) return;
+    final currentLayer = blocState.currentLayer;
+    List<Renderer<PadElement>> visibleElements;
+    final oldVisible = cameraViewport.visibleElements;
+    if (reset) {
+      visibleElements = rendererCubit.visibleRenderers(rect);
+    } else {
+      final oldVisibleSet = oldVisible.toSet();
+      visibleElements = List.from(oldVisible)
+        ..addAll(
+          cameraViewport.unbakedElements.where(
+            (renderer) =>
+                !oldVisibleSet.contains(renderer) && renderer.isVisible(rect),
+          ),
+        );
+    }
+
+    // Initial layout has no cache to display while PDFs rasterize. Publish
+    // measured visibility first so strokes and ready pages can paint directly.
+    if (cameraViewport.image == null && !cameraViewport.baked) {
+      cameraViewport = cameraViewport.copyWith(
+        viewportSize: measuredViewportSize,
+        visibleElements: visibleElements,
+        visibleUnbakedElements: visibleElements,
+      );
+      rendererCubit.setViewport(cameraViewport);
+      startViewport = cameraViewport;
+    }
+
+    await rendererCubit.updateOnVisible(
+      controller,
+      cameraViewport.unbake(visibleElements: visibleElements),
+      blocState,
+      renderTransform: renderTransform,
+      targetSize: size,
+    );
+
+    if (viewChanged && visibleElements.isNotEmpty) {
+      await Future.wait(
+        visibleElements.map(
+          (e) async =>
+              await e.updateView(controller, blocState, renderTransform, size),
+        ),
+      );
+    }
+
+    // Wait one frame
+    await Future.delayed(const Duration(milliseconds: 1));
+
+    talker.verbose(
+      'Baking viewport (reset: $reset, viewChanged: $viewChanged, '
+      'rendererStatesChanged: $rendererStatesChanged)',
+    );
+
+    final currentLayerElements = reset
+        ? visibleElements.where((e) => currentLayer == e.layer).toList()
+        : visibleElements;
+    ui.Image? newImage;
+    if (!reset || currentLayerElements.isNotEmpty) {
+      final recorder = ui.PictureRecorder();
+      final canvas = ui.Canvas(
+        recorder,
+        ui.Offset.zero & ui.Size(imageWidth.toDouble(), imageHeight.toDouble()),
+      );
+      if (!reset) {
+        // Preserve already baked pixels exactly. Routing this image through
+        // ViewPainter would transform and resample the full cache on every
+        // incremental bake, which visibly distorts wide high-DPI viewports.
+        canvas.drawImage(cachedImage!, ui.Offset.zero, ui.Paint());
+      }
+      canvas.scale(ratio);
+
+      ViewPainter(
+        document,
+        page,
+        info,
+        transform: renderTransform,
+        cameraViewport: reset
+            ? cameraViewport.unbake(
+                rendererStates: allRendererStates,
+                unbakedElements: currentLayerElements,
+                visibleElements: visibleElements,
+              )
+            : cameraViewport,
+        renderBackground: false,
+        renderBaked: false,
+        renderBakedLayers: false,
+        invisibleLayers: invisibleLayers,
+      ).paint(canvas, size);
+
+      final picture = recorder.endRecording();
+      try {
+        newImage = await picture.toImage(imageWidth, imageHeight);
+      } catch (error, stackTrace) {
+        _useDirectRendering = true;
+        talker.warning(
+          'Viewport image baking failed; using direct rendering',
+          error,
+          stackTrace,
+        );
+        useDirectRendering(visibleElements);
+        return;
+      } finally {
+        picture.dispose();
+      }
+    }
+
+    var belowLayerImage = cameraViewport.belowLayerImage;
+    var aboveLayerImage = cameraViewport.aboveLayerImage;
+
+    if (resetAllLayers) {
+      final belowLayers = <String>{}, aboveLayers = <String>{};
+      bool above = false;
+      for (final layer in page.layers) {
+        if (layer.id == currentLayer) {
+          above = true;
+          continue;
+        }
+        final layerId = layer.id;
+        if (layerId == null) continue;
+        if (above) {
+          aboveLayers.add(layerId);
+        } else {
+          belowLayers.add(layerId);
+        }
+      }
+
+      Future<ui.Image?> rasterizeLayer(
+        List<Renderer<PadElement>> elements,
+      ) async {
+        if (elements.isEmpty) return null;
+        final recorder = ui.PictureRecorder();
+        final canvas = ui.Canvas(
+          recorder,
+          ui.Offset.zero &
+              ui.Size(imageWidth.toDouble(), imageHeight.toDouble()),
+        )..scale(ratio);
+        ViewPainter(
+          document,
+          page,
+          info,
+          transform: renderTransform,
+          cameraViewport: cameraViewport.unbake(
+            rendererStates: allRendererStates,
+            unbakedElements: elements,
+            visibleElements: visibleElements,
+          ),
+          renderBackground: false,
+          renderBaked: false,
+          invisibleLayers: invisibleLayers,
+        ).paint(canvas, size);
+        final picture = recorder.endRecording();
+        try {
+          return await picture.toImage(imageWidth, imageHeight);
+        } finally {
+          picture.dispose();
+        }
+      }
+
+      final result = await Future.wait([
+        rasterizeLayer(
+          visibleElements
+              .where((e) => e.layer != null && belowLayers.contains(e.layer))
+              .toList(),
+        ),
+        rasterizeLayer(
+          visibleElements
+              .where((e) => e.layer != null && aboveLayers.contains(e.layer))
+              .toList(),
+        ),
+      ]);
+      belowLayerImage = result[0];
+      aboveLayerImage = result[1];
+    }
+
+    if (controller.isClosed) return;
+
+    // If state changed while baking (e.g. fast move submitted a newer viewport),
+    // this bake output is stale and must not overwrite the latest viewport.
+    final currentViewport = rendererCubit.state.cameraViewport;
+    final currentTransform = transformCubit.state;
+    if (!identical(currentViewport, startViewport) ||
+        currentTransform != startTransform) {
+      newImage?.dispose();
+      final oldBelow = startViewport.belowLayerImage;
+      final oldAbove = startViewport.aboveLayerImage;
+      if (!identical(belowLayerImage, oldBelow)) {
+        belowLayerImage?.dispose();
+      }
+      if (!identical(aboveLayerImage, oldAbove)) {
+        aboveLayerImage?.dispose();
+      }
+      Future.microtask(() async {
+        final latestState = controller.activeDocumentState;
+        if (latestState == null) return;
+        await bake(
+          controller,
+          latestState,
+          viewportSize: viewportSize,
+          pixelRatio: pixelRatio,
+          reset: reset,
+          resetAllLayers: resetAllLayers,
+        );
+      });
+      return;
+    }
+
+    final newViewport = cameraViewport.bake(
+      height: size.height,
+      width: size.width,
+      viewportSize: measuredViewportSize,
+      pixelRatio: ratio,
+      resolution: resolution,
+      scale: transform.size,
+      x: renderTransform.position.dx,
+      y: renderTransform.position.dy,
+      image: newImage,
+      bakedElements: renderers,
+      unbakedElements: const [],
+      visibleElements: visibleElements,
+      visibleUnbakedElements: const [],
+      belowLayerImage: belowLayerImage,
+      aboveLayerImage: aboveLayerImage,
+      rendererStates: allRendererStates,
+      invisibleLayers: invisibleLayers,
+    );
+    rendererCubit._retainSpatialIndex(renderers, const []);
+    rendererCubit.setViewport(newViewport);
+  });
+
+  Future<ui.Image?> renderImage(
+    EditorController controller,
+    NoteData document,
+    DocumentPage page,
+    DocumentInfo info,
+    ImageExportOptions options, {
+    CameraViewport? cameraViewport,
+    Set<String>? invisibleLayers,
+    DocumentLoaded? docState,
+    @visibleForTesting
+    Future<ui.Image> Function(ui.Picture picture, int width, int height)?
+    pictureToImage,
+  }) async {
+    final rendererCubit = this;
+    final exportSize = _exportSize(options);
+    final realWidth = (exportSize.width * options.quality).ceil();
+    final realHeight = (exportSize.height * options.quality).ceil();
+    if (options.width <= 0 || options.height <= 0) {
+      return null;
+    }
+    if (realWidth <= 0 || realHeight <= 0) {
+      return null;
+    }
+    var rasterQuality = options.quality;
+    var rasterWidth = realWidth;
+    var rasterHeight = realHeight;
+    var transform = _exportTransform(options, pixelRatio: rasterQuality);
+    final viewport = cameraViewport != null
+        ? cameraViewport.unbake(rendererStates: const {})
+        : rendererCubit.state.cameraViewport.unbake(
+            unbakedElements: rendererCubit.renderers,
+            rendererStates: const {},
+          );
+    final hiddenRenderers = <Renderer<PadElement>>[];
+    final updatedRenderers = <Renderer<PadElement>>[];
+    final visibleRenderers = <Renderer<PadElement>>[];
+    if (docState != null) {
+      final exportRect = transform.localToGlobalRect(Offset.zero & exportSize);
+      for (final renderer in viewport.unbakedElements) {
+        if (renderer.isVisible(exportRect)) {
+          visibleRenderers.add(renderer);
+          final wasInitialized = rendererCubit.initializedElements.contains(
+            renderer,
+          );
+          if (!wasInitialized) {
+            await renderer.onVisible(
+              controller,
+              docState,
+              transform,
+              exportSize,
+            );
+            hiddenRenderers.add(renderer);
+          } else {
+            await renderer.updateView(
+              controller,
+              docState,
+              transform,
+              exportSize,
+            );
+            updatedRenderers.add(renderer);
+          }
+        }
+      }
+    }
+
+    Future<ui.Image> rasterize() async {
+      final recorder = ui.PictureRecorder();
+      final canvas = Canvas(
+        recorder,
+        Offset.zero & Size(rasterWidth.toDouble(), rasterHeight.toDouble()),
+      )..scale(rasterQuality);
+      ViewPainter(
+        document,
+        page,
+        info,
+        renderBackground: options.renderBackground,
+        invisibleLayers: invisibleLayers,
+        cameraViewport: viewport,
+        transform: transform,
+      ).paint(canvas, exportSize);
+      final picture = recorder.endRecording();
+      try {
+        return await (pictureToImage?.call(
+              picture,
+              rasterWidth,
+              rasterHeight,
+            ) ??
+            picture.toImage(rasterWidth, rasterHeight));
+      } finally {
+        picture.dispose();
+      }
+    }
+
+    ui.Image? image;
+    try {
+      image = await rasterize();
+      if (image.width != rasterWidth || image.height != rasterHeight) {
+        // Impeller scales oversized snapshots down to the GPU's maximum
+        // texture size without scaling the recorded display list with it. Use
+        // the returned dimensions to record again at the supported quality so
+        // the whole export is fitted instead of clipping its right and bottom.
+        final supportedQuality = min(
+          image.width / exportSize.width,
+          image.height / exportSize.height,
+        );
+        if (supportedQuality > 0 && supportedQuality < rasterQuality) {
+          image.dispose();
+          image = null;
+          rasterQuality = supportedQuality;
+          rasterWidth = max(1, (exportSize.width * rasterQuality).floor());
+          rasterHeight = max(1, (exportSize.height * rasterQuality).floor());
+          transform = _exportTransform(options, pixelRatio: rasterQuality);
+          if (docState != null) {
+            await Future.wait(
+              visibleRenderers.map(
+                (renderer) => Future.sync(
+                  () => renderer.updateView(
+                    controller,
+                    docState,
+                    transform,
+                    exportSize,
+                  ),
+                ),
+              ),
+            );
+          }
+          image = await rasterize();
+        }
+      }
+    } finally {
+      if (docState != null) {
+        await Future.wait([
+          ...hiddenRenderers.map(
+            (renderer) => Future.sync(
+              () => renderer.onHidden(
+                controller,
+                docState,
+                transform,
+                exportSize,
+              ),
+            ),
+          ),
+          ...updatedRenderers.map(
+            (renderer) => Future.sync(
+              () => renderer.updateView(
+                controller,
+                docState,
+                controller.transformCubit.state,
+                rendererCubit.state.cameraViewport.toSize(),
+              ),
+            ),
+          ),
+        ]);
+      }
+    }
+    return image;
+  }
+
+  Future<ByteData?> render(
+    EditorController controller,
+    NoteData document,
+    DocumentPage page,
+    DocumentInfo info,
+    ImageExportOptions options, {
+    CameraViewport? cameraViewport,
+    Set<String>? invisibleLayers,
+    DocumentLoaded? docState,
+    @visibleForTesting
+    Future<ui.Image> Function(ui.Picture picture, int width, int height)?
+    pictureToImage,
+    @visibleForTesting
+    Future<ByteData?> Function(ui.Image image)? imageToByteData,
+  }) async {
+    final image = await renderImage(
+      controller,
+      document,
+      page,
+      info,
+      options,
+      cameraViewport: cameraViewport,
+      invisibleLayers: invisibleLayers,
+      docState: docState,
+      pictureToImage: pictureToImage,
+    );
+    if (image == null) return null;
+    try {
+      final png =
+          await (imageToByteData?.call(image) ??
+              image.toByteData(format: ui.ImageByteFormat.png));
+      return png == null ? null : _cropOversizedPng(png, image);
+    } finally {
+      image.dispose();
+    }
+  }
+
+  XmlDocument renderSVG(
+    NoteData document,
+    DocumentPage page,
+    SvgExportOptions options, {
+    Set<String>? invisibleLayers,
+  }) {
+    final rendererCubit = this;
+    final xml = XmlDocument();
+    final exportSize = _exportSize(options);
+    final svg = xml.createElement(
+      'svg',
+      attributes: {
+        'xmlns': 'http://www.w3.org/2000/svg',
+        'xmlns:xlink': 'http://www.w3.org/1999/xlink',
+        'version': '1.1',
+        'width': '${exportSize.width}px',
+        'height': '${exportSize.height}px',
+        'viewBox': '0 0 ${exportSize.width} ${exportSize.height}',
+      },
+    );
+
+    final transform = _exportTransform(options, pixelRatio: 1);
+    final rect = transform.localToGlobalRect(Offset.zero & exportSize);
+    if (options.renderBackground) {
+      for (final e in rendererCubit.state.cameraViewport.backgrounds) {
+        e.buildSvg(xml, document, page, rect);
+      }
+    }
+    for (var e in rendererCubit.renderers) {
+      if ((invisibleLayers?.contains(e.layer) ?? false) || !e.isVisible(rect)) {
+        continue;
+      }
+      final firstChild = svg.children.length;
+      // Visibility is handled against the transformed viewport above. Passing
+      // the largest rect prevents individual renderers from rejecting rotated
+      // elements whose untransformed bounds sit just outside the viewport.
+      e.buildSvg(xml, document, page, Rect.largest);
+      final center = e.rect?.center;
+      if (center != null && (e.rotation != 0 || e.shear != 0)) {
+        final elementTransform = StringBuffer(
+          'translate(${center.dx} ${center.dy})',
+        );
+        if (e.rotation != 0) {
+          elementTransform.write(' rotate(${e.rotation})');
+        }
+        if (e.shear != 0) {
+          elementTransform.write(' matrix(1 0 ${e.shear} 1 0 0)');
+        }
+        elementTransform.write(' translate(${-center.dx} ${-center.dy})');
+        _wrapSvgChildren(svg, firstChild, elementTransform.toString());
+      }
+    }
+    _wrapSvgChildren(svg, 0, _svgCameraTransform(transform));
+    return xml;
+  }
+
+  Size _exportSize(ExportOptions options) {
+    final padding = options.padding;
+    final horizontal = max(0.0, padding.left) + max(0.0, padding.right);
+    final vertical = max(0.0, padding.top) + max(0.0, padding.bottom);
+    return Size(options.width + horizontal, options.height + vertical);
+  }
+
+  CameraTransform _exportTransform(
+    ExportOptions options, {
+    double pixelRatio = 1,
+  }) {
+    final baseTransform = CameraTransform(
+      pixelRatio,
+      Offset(options.x, options.y),
+      options.scale,
+      options.rotation,
+    );
+    final left = max(0.0, options.padding.left);
+    final top = max(0.0, options.padding.top);
+    if (left == 0 && top == 0) return baseTransform;
+    final paddedPosition = baseTransform.localToGlobal(Offset(-left, -top));
+    return baseTransform.withPosition(paddedPosition);
+  }
+
+  String _svgCameraTransform(CameraTransform transform) {
+    final zero = transform.globalToLocal(Offset.zero);
+    final horizontal = transform.globalToLocal(const Offset(1, 0)) - zero;
+    final vertical = transform.globalToLocal(const Offset(0, 1)) - zero;
+    return 'matrix(${horizontal.dx} ${horizontal.dy} '
+        '${vertical.dx} ${vertical.dy} ${zero.dx} ${zero.dy})';
+  }
+
+  void _wrapSvgChildren(XmlElement parent, int start, String transform) {
+    final children = parent.children.skip(start).toList(growable: false);
+    if (children.isEmpty) return;
+    final group = XmlElement(XmlName.parts('g'))
+      ..setAttribute('transform', transform);
+    group.children.addAll(children);
+    parent.children.insert(start, group);
+  }
+
+  Future<void> unbake(
+    EditorController controller,
+    DocumentLoaded blocState, {
+    List<Renderer<Background>>? backgrounds,
+    List<Renderer<PadElement>>? unbakedElements,
+  }) async {
+    final rendererCubit = this;
+    final transformCubit = controller.transformCubit;
+    rendererCubit._invalidateSpatialIndex();
+    final elementsToCheck = unbakedElements ?? rendererCubit.renderers;
+    final oldViewport = rendererCubit.state.cameraViewport;
+    final newViewport = oldViewport.unbake(
+      unbakedElements: unbakedElements,
+      visibleElements: elementsToCheck
+          .where(
+            (e) => e.isVisible(rendererCubit.getViewportRect(transformCubit)),
+          )
+          .toList(),
+      backgrounds: backgrounds,
+    );
+    rendererCubit.setViewport(newViewport);
+    await rendererCubit.updateOnVisible(controller, newViewport, blocState);
+  }
+
+  Future<void> replaceUnbaked(
+    EditorController controller,
+    DocumentLoaded blocState,
+    List<Renderer<PadElement>> unbakedElements, {
+    List<Renderer<Background>>? backgrounds,
+  }) async {
+    final rendererCubit = this;
+    rendererCubit._invalidateSpatialIndex();
+    final transformCubit = controller.transformCubit;
+    final visibleElements = unbakedElements
+        .where(
+          (e) => e.isVisible(rendererCubit.getViewportRect(transformCubit)),
+        )
+        .toList();
+    final newViewport = rendererCubit.state.cameraViewport.replaceUnbaked(
+      unbakedElements,
+      visibleElements: visibleElements,
+      visibleUnbakedElements: visibleElements,
+      backgrounds: backgrounds,
+    );
+    rendererCubit.setViewport(newViewport);
+    await rendererCubit.updateOnVisible(controller, newViewport, blocState);
+  }
+
+  Future<void> loadElements(
+    EditorController controller,
+    DocumentState docState, {
+    bool reset = false,
+  }) async {
+    final rendererCubit = this;
+    rendererCubit._invalidateSpatialIndex();
+    final transformCubit = controller.transformCubit;
+    if (docState is! DocumentLoaded) return;
+    final document = docState.data;
+    final assetService = docState.assetService;
+    final page = docState.page;
+    var existing = rendererCubit.renderers;
+    if (reset) {
+      for (var e in existing) {
+        rendererCubit.initializedElements.remove(e);
+        e.dispose();
+      }
+      existing = [];
+    }
+    final elements = page.layers
+        .where((e) => !docState.invisibleLayers.contains(e.id))
+        .expand((l) => l.content.map((e) => (e, l.id)))
+        .toList();
+
+    // PadElement uses structural equality. Hashing it can walk every point of a
+    // pen stroke, so ordinary map/set keys make refreshes proportional to the
+    // total point count. An unchanged element retains its identity, which is
+    // exactly when its initialized renderer is safe to reuse.
+    final existingByElement =
+        Map<PadElement, Map<String?, Renderer<PadElement>>>.identity();
+    for (final renderer in existing) {
+      (existingByElement[renderer.element] ??= {})[renderer.layer] = renderer;
+    }
+    final reused = Set<Renderer<PadElement>>.identity();
+    final newRenderers = <Renderer<PadElement>>[];
+    final combined = <Renderer<PadElement>>[];
+    for (final (element, layer) in elements) {
+      final reusable = existingByElement[element]?[layer];
+      if (reusable != null && reused.add(reusable)) {
+        combined.add(reusable);
+      } else {
+        final renderer = Renderer<PadElement>.fromInstance(element, layer);
+        newRenderers.add(renderer);
+        combined.add(renderer);
+      }
+    }
+    final dropped = existing.where((renderer) => !reused.contains(renderer));
+    for (final e in dropped) {
+      rendererCubit.initializedElements.remove(e);
+      e.dispose();
+    }
+    await Future.wait(
+      newRenderers.map(
+        (e) async =>
+            await e.setup(transformCubit, document, assetService, page),
+      ),
+    );
+    final backgrounds = page.backgrounds.map(Renderer.fromInstance).toList();
+    await Future.wait(
+      backgrounds.map(
+        (e) async =>
+            await e.setup(transformCubit, document, assetService, page),
+      ),
+    );
+    final rect = rendererCubit.getViewportRect(transformCubit);
+    final visibleElements = combined.where((e) => e.isVisible(rect)).toList();
+    final oldViewport = rendererCubit.state.cameraViewport;
+    final newViewport = oldViewport.unbake(
+      unbakedElements: combined,
+      visibleElements: visibleElements,
+      backgrounds: backgrounds,
+    );
+    rendererCubit.setViewport(newViewport);
+    await rendererCubit.updateOnVisible(controller, newViewport, docState);
+    controller.saveCubit.setSaveState(
+      location:
+          controller.saveCubit.state.embedding?.location ??
+          controller.saveCubit.state.location,
+    );
+  }
+
+  Future<void> addUnbaked(
+    EditorController controller,
+    DocumentLoaded blocState,
+    List<Renderer<PadElement>> unbakedElements, [
+    List<Renderer<PadElement>>? visibleElements,
+  ]) async {
+    final rendererCubit = this;
+    rendererCubit._invalidateSpatialIndex();
+    final transformCubit = controller.transformCubit;
+    final rect = rendererCubit.getViewportRect(transformCubit);
+    visibleElements ??= unbakedElements
+        .where((e) => e.isVisible(rect))
+        .toList();
+    final nextUnbaked = [
+      ...rendererCubit.state.cameraViewport.unbakedElements,
+      ...unbakedElements,
+    ];
+    final newViewport = rendererCubit.state.cameraViewport.withUnbaked(
+      nextUnbaked,
+      visibleElements: [
+        ...rendererCubit.state.cameraViewport.visibleElements,
+        ...visibleElements,
+      ],
+      visibleUnbakedElements: [
+        ...rendererCubit.state.cameraViewport.visibleUnbakedElements,
+        ...visibleElements,
+      ],
+    );
+    rendererCubit.setViewport(newViewport);
+    await rendererCubit.updateOnVisible(controller, newViewport, blocState);
+  }
+
+  Future<Uint8List?> renderPDF(
+    EditorController controller,
+    DocumentLoaded docState, {
+    required List<AreaPreset> areas,
+    bool renderBackground = true,
+    void Function(double progress)? onProgress,
+    Set<String>? invisibleLayers,
+  }) async {
+    final transformCubit = controller.transformCubit;
+    var name = docState.metadata.name;
+    if (name.isEmpty) {
+      name = 'document';
+    }
+    final pdf = await PdfDocument.createNew(sourceName: '$name.pdf');
+    final document = docState.data;
+    final info = docState.info;
+    final pages = <PdfPage>[];
+    final documents = <PdfDocument>[];
+    for (var i = 0; i < areas.length; i++) {
+      onProgress?.call(i / areas.length);
+      final preset = areas[i];
+      final areaName = preset.name;
+      final quality = preset.quality;
+      final currentOpened = docState.pageName == preset.page;
+      final page = currentOpened
+          ? docState.page
+          : document.getPage(preset.page);
+      final area = preset.area ?? page?.getAreaByName(areaName);
+      if (area == null || page == null) {
+        continue;
+      }
+      final image = await renderImage(
+        controller,
+        document,
+        page,
+        info,
+        ImageExportOptions(
+          width: area.width,
+          height: area.height,
+          x: area.position.x,
+          y: area.position.y,
+          quality: quality,
+          renderBackground: renderBackground,
+        ),
+        cameraViewport: await CameraViewport.build(
+          transformCubit,
+          document,
+          docState.assetService,
+          page,
+        ),
+        docState: docState,
+        invisibleLayers: invisibleLayers ?? docState.invisibleLayers,
+      );
+      if (image == null) continue;
+      final imgImage = await convertFlutterUiToImage(image);
+      final pdfImage = await compute(
+        (image) => img.JpegEncoder().encode(image),
+        imgImage,
+      );
+      final imageDoc = await PdfDocument.createFromJpegData(
+        pdfImage,
+        width: area.width,
+        height: area.height,
+        sourceName: '$name-$areaName.jpg',
+      );
+      pages.addAll(imageDoc.pages);
+      image.dispose();
+      documents.add(imageDoc);
+    }
+    onProgress?.call(1.0);
+    pdf.pages = pages;
+    final bytes = await pdf.encodePdf();
+    pdf.dispose();
+    for (final doc in documents) {
+      doc.dispose();
+    }
+    return bytes;
+  }
+
+  Future<void> disposeRuntime() async {
+    await _transformSubscription?.cancel();
+    _transformSubscription = null;
+    _transformDebounceTimer?.cancel();
+    _transformDebounceTimer = null;
+    _controller = null;
+    delayedBakeRunner.cancel();
+    await delayedBakeRunner.disposeAndWait();
+    initializedElements.clear();
+    _invalidateSpatialIndex();
+    state.cameraViewport.disposeImages();
+    for (final renderer in renderers) {
+      renderer.dispose();
+    }
+  }
+
+  @override
+  Future<void> close() async {
+    await _transformSubscription?.cancel();
+    _transformSubscription = null;
+    _transformDebounceTimer?.cancel();
+    _transformDebounceTimer = null;
+    _controller = null;
+    _repaint.dispose();
+    return super.close();
+  }
+}

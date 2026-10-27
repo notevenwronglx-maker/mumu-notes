@@ -1,0 +1,164 @@
+part of '../selection.dart';
+
+class ShapeElementSelection extends ElementSelection<ShapeElement> {
+  ShapeElementSelection(super.selected);
+
+  @override
+  List<Widget> buildProperties(BuildContext context) {
+    final element = selected.first.element;
+    return [
+      ...super.buildProperties(context),
+      TexturePaintField(
+        title: Text(LeapLocalizations.of(context).color),
+        value: element.property.paint,
+        onChanged: (paint) => updateElements(
+          context,
+          elements
+              .map(
+                (e) => e.copyWith(property: e.property.copyWith(paint: paint)),
+              )
+              .toList(),
+        ),
+      ),
+      ExactSlider(
+        header: Text(AppLocalizations.of(context).strokeWidth),
+        value: element.property.strokeWidth,
+        min: 0,
+        max: 70,
+        sliderStep: 1,
+        defaultValue: 5,
+        onChangeEnd: (value) => updateElements(
+          context,
+          elements
+              .map(
+                (e) => e.copyWith(
+                  property: e.property.copyWith(strokeWidth: value),
+                ),
+              )
+              .toList(),
+        ),
+      ),
+      _ShapeElementStrokeStyleSection(
+        property: element.property,
+        onPropertyChanged: (property) => updateElements(
+          context,
+          elements.map((e) => e.copyWith(property: property)).toList(),
+        ),
+      ),
+      ShapeView(
+        shape: element.property.shape,
+        onChanged: (value) => updateElements(
+          context,
+          elements
+              .map(
+                (e) => e.copyWith(property: e.property.copyWith(shape: value)),
+              )
+              .toList(),
+        ),
+      ),
+    ];
+  }
+
+  @override
+  Selection insert(element) {
+    if (element is Renderer<ShapeElement>) {
+      return ShapeElementSelection([...selected, element]);
+    }
+    return super.insert(element);
+  }
+
+  @override
+  PhosphorIconData icon({bool filled = false}) =>
+      selected.first.element.property.shape.icon(filled: filled);
+
+  @override
+  String getLocalizedName(BuildContext context) =>
+      AppLocalizations.of(context).shape;
+}
+
+class _ShapeElementStrokeStyleSection extends StatefulWidget {
+  final ShapeProperty property;
+  final ValueChanged<ShapeProperty> onPropertyChanged;
+
+  const _ShapeElementStrokeStyleSection({
+    required this.property,
+    required this.onPropertyChanged,
+  });
+
+  @override
+  State<_ShapeElementStrokeStyleSection> createState() =>
+      _ShapeElementStrokeStyleSectionState();
+}
+
+class _ShapeElementStrokeStyleSectionState
+    extends State<_ShapeElementStrokeStyleSection> {
+  bool _advancedExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final property = widget.property;
+    final isStyled = property.strokeStyle != .solid;
+
+    return ExpansionPanelList(
+      expansionCallback: (index, isExpanded) {
+        setState(() {
+          _advancedExpanded = isExpanded;
+        });
+      },
+      children: [
+        ExpansionPanel(
+          canTapOnHeader: true,
+          isExpanded: _advancedExpanded,
+          headerBuilder: (context, isExpanded) => ListTile(
+            title: Text(AppLocalizations.of(context).strokeStyle),
+            trailing: DropdownMenu<StrokeStyle>(
+              initialSelection: property.strokeStyle,
+              dropdownMenuEntries: StrokeStyle.values
+                  .map(
+                    (e) => DropdownMenuEntry(
+                      label: e.getLocalizedName(context),
+                      value: e,
+                      leadingIcon: Icon(e.icon()),
+                    ),
+                  )
+                  .toList(),
+              onSelected: (value) => widget.onPropertyChanged(
+                property.copyWith(strokeStyle: value ?? StrokeStyle.solid),
+              ),
+            ),
+          ),
+          body: Column(
+            children: [
+              ExactSlider(
+                header: Text(AppLocalizations.of(context).dashLength),
+                value: property.dashMultiplier,
+                min: 0.1,
+                max: 5,
+                sliderStep: 0.1,
+                defaultValue: 1,
+                onChangeEnd: isStyled
+                    ? (value) => widget.onPropertyChanged(
+                        property.copyWith(dashMultiplier: value),
+                      )
+                    : null,
+              ),
+              ExactSlider(
+                header: Text(AppLocalizations.of(context).gapLength),
+                value: property.gapMultiplier,
+                min: 0.1,
+                max: 5,
+                sliderStep: 0.1,
+                defaultValue: 1,
+                onChangeEnd: isStyled
+                    ? (value) => widget.onPropertyChanged(
+                        property.copyWith(gapMultiplier: value),
+                      )
+                    : null,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}

@@ -1,0 +1,1693 @@
+{
+  "open": "Open",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Onthullen in bestandsverkenner",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Instellingen",
+  "personalization": "Personalisatie",
+  "theme": "Thema",
+  "darkTheme": "Donker thema",
+  "lightTheme": "Licht thema",
+  "systemTheme": "Gebruik standaard systeemthema",
+  "view": "Bekijken",
+  "contentViewport": "Weergave inhoud",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Beperk Viewport tot positieve coördinaten",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "UIT",
+  "canvas": "Canvas",
+  "interface": "Interface",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Bewerken",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Exporteren",
+  "save": "Opslaan",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Inzoomen",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Zoom in",
+  "zoomOut": "Zoom uit",
+  "resetZoom": "Reset zoom",
+  "strokeWidth": "Stroke breedte",
+  "strokeStyle": "Stroke stijl",
+  "dashLength": "Dash lengte",
+  "gapLength": "Lengte afstand",
+  "includeEraser": "Inclusief gum",
+  "thinning": "Duiken",
+  "pen": "pennen",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Omgekeerde Stylus",
+  "eraser": "Eraser",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Stijl",
+  "label": "Omschrijving",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Verwijderen",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Weet je het zeker?",
+  "reallyDelete": "Weet u zeker dat u dit artikel wilt verwijderen?",
+  "no": "Neen",
+  "yes": "ja",
+  "undo": "Herstel",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Opnieuw",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "Algemeen",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Gekopieerd naar klembord",
+  "loading": "Laden...",
+  "enterText": "Voer de tekst in",
+  "size": "Grootte",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Width",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Højde",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Tel",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Spatiebalk",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Achtergrond",
+  "applyBackground": "Achtergrond toepassen",
+  "applyAreas": "Pas gebieden toe",
+  "currentPage": "Huidige pagina",
+  "allPages": "Alle pagina's",
+  "box": "Vierkant",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "Lokalisatie",
+  "systemLocale": "Systeem lokalisatie",
+  "information": "Informatie",
+  "license": "Licentie",
+  "imprint": "Impressum",
+  "privacypolicy": "Privacy Beleid",
+  "sourceCode": "Bron code",
+  "documentation": "Documentatie",
+  "changelog": "Wijzigingslogboek",
+  "source": "Bron",
+  "existOverride": "Dit element bestaat al. Overschrijven?",
+  "description": "Beschrijving",
+  "fill": "Invullen",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Standaard palet",
+  "highlighter": "Markeerstift",
+  "combinePaths": "Combineer paden",
+  "add": "Toevoegen",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Verwijderen",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Weet je zeker dat je dit wilt verwijderen?",
+  "resetPalette": "Reset palette",
+  "custom": "Aangepaste",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Decoratie",
+  "underline": "Onderstrepen",
+  "overline": "Overlijn",
+  "strikethrough": "Doorhalen",
+  "thickness": "Dikte",
+  "style": "CSS",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Solid",
+  "solidColor": "Effen kleur",
+  "gradient": "Kleurovergang",
+  "gradientType": "Kleurovergang type",
+  "linear": "Lineaire",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Dubbel",
+  "dotted": "Gestippeld",
+  "dottedDark": "Gestippelde donker",
+  "dashed": "Onderbroken",
+  "wavy": "Golf",
+  "fontWeight": "Lettertype gewicht",
+  "normal": "normaal",
+  "bold": "Bold",
+  "italic": "Italic",
+  "clipboard": "Klembord",
+  "file": "Bestand",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Gegevens",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Delen",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Afstand",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Afbeelding",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Voer de URL in",
+  "scale": "Schaal",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Hulp",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Weet u zeker dat u het wilt resetten?",
+  "whatToDo": "Wat wil je doen?",
+  "ignore": "Negeren",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Back-up",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Back-up verbinding",
+  "automaticBackups": "Automatische back-ups",
+  "automaticBackupsDescription": "Maakt backups terwijl Vlinder wordt uitgevoerd.",
+  "backupInterval": "Back-up interval",
+  "backupNow": "Nu een back-up maken",
+  "lastBackup": "Laatste back-up",
+  "backupCreated": "Back-up gemaakt",
+  "hour": "uur",
+  "hours": "Uren",
+  "day": "Dag",
+  "days": "Dagen",
+  "week": "Week",
+  "weeks": "Weken",
+  "createdInNewerVersion": "Het bestand {fileName} is gemaakt in een nieuwere versie ({fileVersion}). Wat moet er met dit bestand worden gedaan?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Routepunten",
+  "origin": "Oorsprong",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "Importeren",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "Nieuw",
+  "selectElement": "Element selecteren",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Verschuiving",
+  "altKey": "Alt",
+  "copyVersion": "Versie kopiëren",
+  "input": "Input",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Gedrag",
+  "dataDirectory": "Data map",
+  "warning": "Waarschuwing",
+  "platformExperimentalWarning": "Waarschuwing: Deze instelling is experimenteel en kan problemen hebben op dit platform.",
+  "changeDataDirectoryWarningContent": "Weet u zeker dat u de gegevensmap wilt wijzigen? U moet een back-up maken van uw gegevens voordat u verder gaat.",
+  "defaultPath": "Standaard pad",
+  "dateFormat": "Datum formaat",
+  "updatedAt": "Bijgewerkt op: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Aangemaakt op: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Hernoem",
+  "duplicate": "Duplicate",
+  "hand": "Hand",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Map",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Verplaatsen",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Kopiëren",
+  "openContextMenu": "Context menu openen",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Achterzijde",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Doorsturen",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Afhankelijk zoomen",
+  "shapeDetection": "Vorm Detectie",
+  "delay": "Vertraging",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Standaard laag",
+  "layer": "Laag",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Lagen",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "Niet ingesteld",
+  "enterLayer": "Voer de naam van de laag in",
+  "eraseShapes": "Wis vormen",
+  "eraseShapeModeNone": "Vormen niet wissen",
+  "eraseShapeModeTouchEdges": "Wissen bij aanraken randen",
+  "eraseShapeModeTouchAnywhere": "Wissen bij aanraken overal",
+  "selectElementModeTouchEdges": "Selecteer bij het aanraken van randen",
+  "selectElementModeTouchAnywhere": "Selecteer bij aanraken overal",
+  "selectElements": "Elementen selecteren",
+  "deleteElements": "Elementen verwijderen",
+  "eraseAllElements": "Alle elementen wissen",
+  "deleteElementsConfirm": "Weet u zeker dat u de geselecteerde elementen wilt verwijderen?",
+  "selectCustomCollection": "Selecteer een aangepaste collectie",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Gevoeligheid",
+  "selectionTolerance": "Selectie tolerantie",
+  "selectionToleranceDescription": "Hoe dicht een aanwijzer moet zijn naar een element of gebied om het te selecteren. Hogere waarden maken de selectie makkelijker.",
+  "selectionHandleSensitivity": "Selectie handvat hit gebied",
+  "selectionHandleSensitivityDescription": "Grootte van het hit gebied rond de selectie en gebied handelt voor alle aanwijzertypen.",
+  "panGestureSensitivity": "Pan gebaar gevoeligheid",
+  "panGestureSensitivityDescription": "Canvas beweging van aanraking of trackpad gebaren. Hogere waarden verplaatsen het canvas verder.",
+  "zoomGestureSensitivity": "Doorlopende zoomgevoeligheid",
+  "zoomGestureSensitivityDescription": "Zoom door pinnen, trackpad gebaren en Ctrl+scroll. Hogere waarden zoomen verder te zoeken.",
+  "rotationGestureSensitivity": "Rotatie gebaar gevoeligheid",
+  "rotationGestureSensitivityDescription": "Canvas rotatie van gebaren. Hogere waarden draaien verder op.",
+  "scrollPanSensitivity": "Scroll pan gevoeligheid",
+  "scrollPanSensitivityDescription": "Canvas bewegen van muiswiel en trackpad scrollen. Hogere waarden pan verderop.",
+  "horizontal": "Horizontaal",
+  "vertical": "Verticaal",
+  "plain": "Eenvoudig",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Licht",
+  "ruled": "Gerecht",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Quad",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Muziek",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Donker",
+  "plainDark": "Eenvoudig donker",
+  "ruledDark": "Geruïneerd donker",
+  "quadDark": "Quad donker",
+  "musicDark": "Muziek donker",
+  "templates": "Sjablonen",
+  "untitled": "Naamloos",
+  "createTemplate": "Sjabloon aanmaken",
+  "createTemplateContent": "Wilt u echt een template van dit document aanmaken? Het oorspronkelijke document zal worden verwijderd.",
+  "fileName": "Bestandsnaam is vereist",
+  "defaultFileName": "Standaard bestandsnaam",
+  "templateFileNameDescription": "Documenten die worden geopend vanuit de sjabloonkiezer worden automatisch opgeslagen met deze naam. Sjablonen zonder een naam gebruiken de standaard geconfigureerde in gegevensinstellingen. Combineer je eigen tekst met {dateExample} en {timeExample}. Karakters die niet zijn toegestaan in bestandsnamen worden afgewezen.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Voorvertoning",
+  "replace": "Vervangen",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Wilt u echt de template vervangen? Deze actie kan niet ongedaan worden gemaakt!",
+  "defaultTemplate": "Standaard sjabloon",
+  "insert": "Insert",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Document",
+  "documentStates": "Document statussen",
+  "camera": "camera",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Afdrukken",
+  "selectCamera": "Selecteer een camera",
+  "changeDocumentPath": "Documentpad wijzigen",
+  "deleteWholeStroke": "Verwijder hele streek",
+  "alpha": "Transparantie",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Oppervlak",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Selecteer een gebied",
+  "aspectRatio": "Aspect verhouding",
+  "presets": "Voorkeursinstellingen",
+  "pagePortrait": "Pagina portret",
+  "pageLandscape": "Pagina liggend",
+  "square": "Vierkant",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Gebieden",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Voer het gebied in",
+  "exitArea": "Verlaat het gebied",
+  "currentArea": "Huidig gebied",
+  "design": "Ontwerp",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Tekstveld",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Hé, dit is Linwood Vlinder {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "Een vrije en open source tekenruimte!",
+  "updated": "App bijgewerkt naar versie {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Release notities",
+  "constraints": "beperkingen",
+  "scaled": "Geschaald",
+  "fixed": "Opgelost",
+  "dynamicContent": "Dynamisch",
+  "none": "geen",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Opnemen van gebied",
+  "verticalAlignment": "Verticale uitlijning",
+  "horizontalAlignment": "Horizontale uitlijning",
+  "top": "Bovenkant",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Gecentreerd",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Onderaan",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Linkerkant",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Rechterkant",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Uitlijnen",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Beperking",
+  "length": "longueur",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "SVG exporteren",
+  "pdf": "PDF-bestand",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Pagina's selecteren",
+  "recentFiles": "Recente bestanden",
+  "start": "Beginnen",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "Geen recente bestanden",
+  "countPages": "{count,plural, =0{No pages} =1{1 page} other{{count} pages}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Pagina {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Afsluiten",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "Geen elementen",
+  "invertSelection": "Selectie omkeren",
+  "errorWhileImporting": "Fout tijdens importeren",
+  "errorWhileImportingContent": "Er is een fout opgetreden tijdens het importeren van het bestand",
+  "showDetails": "Details weergeven",
+  "hideDetails": "Details verbergen",
+  "error": "Foutmelding",
+  "stackTrace": "Stapel traceren",
+  "laser": "Laser",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Duur",
+  "quality": "Kwaliteit",
+  "exportPdf": "Exporteren als PDF",
+  "local": "lokaal",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Contact toevoegen",
+  "connections": "Verbindingen",
+  "noConnections": "Geen verbindingen",
+  "url": "URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "De volledige WebDAV URL van uw opslagprovider",
+  "connect": "Verbinden",
+  "username": "Gebruikersnaam",
+  "password": "Wachtwoord",
+  "authenticationPassword": "Authenticatie wachtwoord",
+  "documentEncryptionPassword": "Wachtwoord voor versleuteling van document",
+  "documentEncryptionPasswordDescription": "Codeert documenten die zijn opgeslagen in dit verband. Laat leeg om ze onversleuteld te houden",
+  "documentEncryptionEnabled": "Documentversleuteling ingeschakeld",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Wachtwoord voor versleuteling van documenten toevoegen",
+  "changeDocumentEncryptionPassword": "Wachtwoord voor versleuteling van documenten wijzigen",
+  "webNotSupported": "Web niet ondersteund",
+  "advanced": "Geavanceerd",
+  "symmetric": "Symmetrisch",
+  "perSide": "Per zijde",
+  "directory": "Catalogus",
+  "connectionNameDescription": "Alleen gebruikt om deze verbinding te identificeren in Vlinder",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Documenten map",
+  "templatesDirectory": "Templates map",
+  "errorWhileCreatingConnection": "Fout tijdens het maken van de verbinding",
+  "cannotConnect": "Kan niet verbinden",
+  "urlNotValid": "URL niet geldig",
+  "icon": "Pictogram",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Optionele URL van een afbeelding die gebruikt wordt als verbindingsicoon",
+  "update": "Vernieuwen",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Update beschikbaar",
+  "stable": "Stabiel",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Nachtelijk",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Op updates controleren",
+  "checkForUpdatesWarning": "Bij het uitvoeren van een controle op updates wordt verbinding gemaakt met de website Butterfly om de informatie te krijgen.",
+  "usingLatestStable": "U gebruikt de laatste stabiele versie",
+  "usingLatestNightly": "U gebruikt de laatste nightly versie",
+  "currentVersion": "Huidige versie",
+  "updateNow": "Nu bijwerken",
+  "shape": "Vorm",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Tabel",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rijen",
+  "columns": "Kolommen",
+  "row": "Rij",
+  "column": "Kolom",
+  "insertRowBefore": "Rij invoegen vóór",
+  "insertRowAfter": "Rij invoegen na",
+  "insertColumnBefore": "Kolom invoegen voor",
+  "insertColumnAfter": "Kolom invoegen na",
+  "deleteRow": "Rij verwijderen",
+  "deleteColumn": "Kolom verwijderen",
+  "cellColor": "Gel kleur",
+  "cellBorders": "Cel randen",
+  "cellBorder": "Cel rand",
+  "horizontalBorder": "Horizontale rand",
+  "verticalBorder": "Verticale rand",
+  "rowHeight": "Rij hoogte",
+  "columnWidth": "Kolom breedte",
+  "border": "Border",
+  "circle": "Cirkel",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Rechthoek",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Driehoek",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Lijn",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Corner radius",
+  "topLeft": "Boven links",
+  "topRight": "Boven rechts",
+  "bottomLeft": "Links onder",
+  "bottomRight": "Onder rechts",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Caches",
+  "manage": "Beheren",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Caches wissen",
+  "createCache": "Maak cache",
+  "thirdPartyLicenses": "Licenties van derden",
+  "syncing": "Synchroniseren...",
+  "synced": "Gesynchroniseerd",
+  "notSynced": "Niet gesynchroniseerd",
+  "conflict": "Conflict",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Lokaal behouden",
+  "keepConnection": "Connectie behouden",
+  "keepBoth": "Houd beide",
+  "forAll": "Voor alle",
+  "fileConflict": "{file} in {connection} heeft een conflict",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Offline",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "Lokale nieuwste",
+  "connectionLatest": "Laatste verbinding",
+  "path": "Pad",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Map gesynchroniseerd",
+  "syncRootDirectory": "Synchroniseer hoofdmap",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Stelt stylus-only modus automatisch in wanneer een stylus wordt gedetecteerd. Deze instelling werkt alleen voor de huidige sessie.",
+  "penOnlyInputOnDescription": "Aanraken en muisaanvoer altijd weigeren, alleen stylus invoeren.",
+  "penOnlyInputOffDescription": "Accepteer alle invoertypes zoals aanraken, muis en stijlus.",
+  "automatic": "Automatisch",
+  "alwaysOn": "Altijd aan",
+  "alwaysOff": "Altijd uitgeschakeld",
+  "showPenOnlyToggle": "Laat stylus alleen schakelen",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Input gestures",
+  "inputGesturesDescription": "Laat je het canvas verplaatsen en zoomen met aanraakgebaren, zelfs wanneer een tekst-tool is geselecteerd.",
+  "nativeTitleBar": "Oorspronkelijke titelbalk",
+  "mode": "Mode",
+  "syncMode": "Synchronisatie modus",
+  "connection": "Verbindingsinstellingen",
+  "always": "altijd",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "Geen mobiel",
+  "syncModeAlwaysDescription": "Synchroniseert externe bestanden automatisch wanneer ze veranderen.",
+  "syncModeNoMobileDescription": "Synchroniseert automatisch behalve op mobiele apparaten, wat het mobiele gegevensgebruik kan verminderen.",
+  "manual": "Handleiding",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Synchroniseert alleen wanneer u het zelf start.",
+  "search": "Zoeken",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Eigenschappen",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Vastzetten",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Unpin",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Element",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Schilder",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Positie",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Notitie",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Pakketten",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Pakket",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "Meer",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Vraag om naam",
+  "areaIndex": "Gebied {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Start op volledig scherm",
+  "inputs": "Inputs",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Muis",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Aanraking",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Keyboard",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Snelkoppelingen",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Midden",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "Eerste",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "Tweede",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Actieve functie",
+  "activeToolDescription": "Gebruik de huidige geselecteerde tool op de werkbalk",
+  "handTool": "Handleiding Gereedschap",
+  "handToolDescription": "Sleep om rond het canvas te bewegen",
+  "toolOnToolbar": "Specifieke tool op werkbalk",
+  "toolOnToolbarDescription": "Gebruik de tool op de opgegeven positie in de werkbalk, vanaf links",
+  "toolOnToolbarShort": "Werkbalk positie: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Hulpmiddelen",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Raster weergeven",
+  "grid": "Rooster",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Liniaal",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Hoek",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Rapporteren",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "Nieuwe map",
+  "createPack": "Pakket aanmaken",
+  "editPack": "Pakket bewerken",
+  "packsDirectory": "Pakketten map",
+  "stamp": "Zegel",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Voeg toe aan pakket",
+  "sureImportPack": "Weet u zeker dat u het pakket wilt importeren?",
+  "byAuthor": "door {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Auteur",
+  "addAsset": "Bestand toevoegen",
+  "editAsset": "Bestand bewerken",
+  "scope": "Bereik",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "Er zijn momenteel geen pakketten beschikbaar",
+  "components": "Onderdelen",
+  "waypoint": "Routepunt",
+  "actions": "acties",
+  "painters": "Schilders",
+  "breakingChangesTitle": "Wijzigingen breken",
+  "breakingChangesMessage": "Er zijn onvolledige wijzigingen in deze versie. Lees alstublieft de changelog voordat u het update. De huidige bestandsversie is {version}, de nieuwe versie is {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Styles",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Paragraaf",
+  "fontFamily": "Lettertype familie",
+  "smoothing": "Vloeiend",
+  "streamline": "Stroomlijn",
+  "presentation": "Presentatie",
+  "simple": "Eenvoudig",
+  "createPresentation": "Create presentation",
+  "addSlide": "Voeg nieuwe slide toe",
+  "updateSlide": "Dia bijwerken",
+  "deleteSlide": "Dia verwijderen",
+  "transitionDuration": "Tijdsduur overgang",
+  "transitionDurationDescription": "Hoe lang het duurt voordat de camera naar de volgende slide gaat. Bij de laatste slide wordt dit gebruikt wanneer u een nieuwe plaatje toevoegt.",
+  "transitionDurationValue": "{seconds}s transitie",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Sleutelframe hier toevoegen",
+  "updateKeyframe": "Update van huidige camera",
+  "deleteKeyframe": "Sleutelframe verwijderen",
+  "markAsSlide": "Markeren als dia",
+  "removeSlideMarker": "Verwijder slide marker",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} van {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "Selecteer een asset",
+  "clearStyle": "Opmaak wissen",
+  "unknownImportType": "Onbekend importtype",
+  "sureImportTemplate": "Weet u zeker dat u de template wilt importeren?",
+  "frame": "Frame",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Afspelen",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Breekpunt",
+  "presentationControls": "Presentatie besturing",
+  "nextSlide": "Volgende slide",
+  "nextSlideDescription": "Swipe naar rechts of druk op de rechter pijltjestoets om naar de volgende slide te gaan",
+  "previousSlide": "Vorige slide",
+  "previousSlideDescription": "Swipe naar links of druk op de linker pijltjestoets om naar de vorige slide te gaan",
+  "exitPresentation": "Aanbieding afsluiten",
+  "exitPresentationDescription": "Druk op de ontsnappingsknop of veeg naar beneden om de presentatie te verlaten",
+  "pausePresentation": "Presentatie pauzeren",
+  "pausePresentationDescription": "Tik op het scherm of druk op de spatiebalk om de presentatie te pauzeren of te hervatten",
+  "keyframe": "Keyframe",
+  "endOfPresentation": "Je bent aan het einde van de presentatie gekomen",
+  "startOfPresentation": "U bent aan het begin van de presentatie gekomen",
+  "palettes": "Palettes",
+  "headline": "Kop {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Code",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Offerte",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Koppeling",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Selectievakje",
+  "deleted": "Verwijderd",
+  "emphasis": "Nadruk",
+  "listBullet": "Lijst opsommingsteken",
+  "strong": "Sterk",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Startpagina",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Bestanden",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Sorteren op",
+  "location": "Locatie",
+  "whatsNew": "Wat is nieuw?",
+  "unstar": "Ontster",
+  "star": "Ster",
+  "goUp": "Ga omhoog",
+  "created": "Aangemaakt",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Gewijzigd",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Snelstart",
+  "noTemplates": "Er zijn momenteel geen sjablonen beschikbaar",
+  "importCorePack": "Importeer core pakket",
+  "importCorePackDescription": "Importeer het core pakket dat alle basisassets bevat om aan de slag te gaan. Dit zal het huidige core pakket overschrijven.",
+  "never": "Nooit",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Alleen op updates",
+  "visibility": "Zichtbaarheid",
+  "captureThumbnail": "Thumbnail opnemen",
+  "autoThumbnail": "Miniatuurweergave bijwerken bij sluiten",
+  "autoThumbnailDescription": "Leg de huidige weergave vast wanneer u dit document sluit. Handmatig opnemen van een miniatuur schakelt dit uit.",
+  "capturedThumbnail": "Miniatuurweergave succesvol vastgelegd",
+  "chooseLabelMode": "Kies labelmodus",
+  "foreground": "Voorgrond",
+  "version": "Versie",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Bewaarplaats",
+  "pages": "Pagina's",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Navigator",
+  "arrange": "Ordenen",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Naar voren brengen",
+  "sendToBack": "Stuur naar achterkant",
+  "bringForward": "Breng naar voren",
+  "sendBackward": "Stuur achteruit",
+  "rotation": "Rotatie",
+  "rotationStep": "Rotatie stap",
+  "zoomStep": "Zoom stap",
+  "zoomStepDescription": "Hoeveelheid gebruikt door inzoomen en uitzoomen sneltoetsen. Doorlopende zoomgebaren gebruiken hun eigen gevoeligheidsinstelling.",
+  "direction": "Richting",
+  "onlyAvailableLargerScreen": "Alleen beschikbaar op grotere schermen",
+  "toolbarPosition": "Werkbalk positie",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Draaien",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Linksom draaien",
+  "rotateRight": "Rechts draaien",
+  "spacer": "Afstandshouder",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Navigatie spoor",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Knippen",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Voordat invoegen",
+  "insertAfter": "Voeg toe na",
+  "insertFirst": "Eerst invoegen",
+  "insertLast": "Insert last",
+  "paste": "Plakken",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Oplopend",
+  "descending": "Aflopend",
+  "imageScale": "Afbeelding schaal",
+  "svgScale": "SVG schaal",
+  "noImageSelected": "Geen afbeelding geselecteerd",
+  "noSvgSelected": "Geen SVG geselecteerd",
+  "select": "Selecteren",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Gereedschap",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Textuur",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Platform thema",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Startscherm",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Mobiel",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Oppervlak",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Patroon",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Weet u zeker dat u het document wilt sluiten?",
+  "thereAreUnsavedChanges": "Er zijn niet-opgeslagen wijzigingen",
+  "page": "Pagina",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "ICE servers",
+  "collaboration": "Samenwerken",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Socket",
+  "iceServer": "ICE server",
+  "port": "Poort",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Type",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Zijde",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "Klant",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Server",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Wissel weergave",
+  "lasso": "Lasso",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Verberg UI",
+  "density": "Dichtheid",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Compacte",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Comfortabel",
+  "standard": "Standaard",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Vergrendelen",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Element toevoegen",
+  "notDefaultConnection": "Niet standaard verbinding",
+  "defaultConnection": "Standaard connectie",
+  "hide": "Verbergen",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Weergeven",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "Onderbreken",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Stoppen",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Vernieuwen",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "Afdrukken",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Oog dropper",
+  "users": "Gebruikers",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Experimenten",
+  "experimentsWarning": "Deze functies zijn experimenteel en kunnen veranderen, vastlopen of op elk moment verdwijnen. Het inschakelen ervan kan leiden tot instabiliteit of gegevensverlies. Ga voorzichtig te werk. Rapporteer eventuele bugs.",
+  "address": "Adres:",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Verspreid naar pagina's",
+  "rootDirectorySpecifiedDescription": "De hoofdmap is opgegeven. Alle geavanceerde mappen zullen relatief zijn ten opzichte van deze map. Laat het leeg om dit maptype uit te schakelen.",
+  "rootDirectoryNotSpecifiedDescription": "De hoofdmap is niet opgegeven. Een naam is vereist. Alle geavanceerde directory paden zullen absoluut zijn. Leeg houden om dit type map uit te schakelen.",
+  "unsecureConnectionTitle": "Onveilige verbinding",
+  "unsecureConnectionMessage": "De verbinding is niet beveiligd. Dit kan een beveiligingsrisico zijn. Ga alleen verder als je de verbinding vertrouwt. De sha1 vingerafdruk is {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Toch doorgaan",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Navigator voorvertoningen weergeven",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Toon miniaturen in cache en pagina navigators",
+  "highContrast": "Hoog contrast",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "Deze waarde moet een geldig nummer zijn",
+  "createAreas": "Maak gebieden",
+  "autosave": "Autosave",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Invert",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "Bewerkingen",
+  "medium": "Middelgroot",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "groot",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Werkbalk grootte",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Alles toevoegen",
+  "onlyCurrentPage": "Alleen huidige pagina",
+  "smoothNavigation": "Vloeiende navigatie",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Edge pan gebied wisselen",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Gebruik Android SAF",
+  "exact": "Exacte",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "Inline",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Werkbalk rijen",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "Testen van aanwijzer",
+  "pressure": "Drukdruk",
+  "small": "Klein",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Klein",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Alles selecteren",
+  "overrideTools": "Hulpmiddelen vervangen",
+  "hideCursorWhileDrawing": "Verberg cursor tijdens tekenen",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Geinstalleerd",
+  "install": "Installeren",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Deselecteer",
+  "changeCollection": "Verzameling wijzigen",
+  "collections": "Collecties",
+  "fullSelection": "Volledige selectie",
+  "collection": "Collectie",
+  "defaultCollection": "Standaard collectie",
+  "scroll": "Scrollen",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "Bij het opstarten",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Startscherm",
+  "lastNote": "Laatste opmerking",
+  "newNote": "Nieuwe notitie",
+  "moveToLayer": "Verplaats naar laag",
+  "createLayer": "Laag aanmaken",
+  "merge": "Samenvoegen",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Omhoog",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Omlaag",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "anders",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{Geen elementen} =1{1 element} other{{count} elementen}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Kleur werkbalk",
+  "yesButShowButtons": "Ja, maar toon knoppen",
+  "optionsPanelPosition": "Opties paneel positie",
+  "hideDuration": "Duur verbergen",
+  "animation": "Animatie",
+  "performance": "Prestaties",
+  "performanceDescription": "Geoptimaliseerd voor snelheid en geheugengebruik. Alleen het zichtbare deel van de notitie wordt in de afbeelding gebakken.",
+  "normalDescription": "Geeft een balans van kwaliteit en prestaties. Maakt een afbeelding die 1,5 keer het zichtbare gebied beslaat en biedt betere overgangen bij het scrollen.",
+  "high": "hoog",
+  "highDescription": "Vergroot kwaliteit ten koste van prestaties. Maakt een afbeelding die 2 keer het zichtbare gebied beslaat en zorgt voor naadloze weergave zelfs tijdens snel scrollen of zoomen",
+  "renderResolution": "Resolutie weergeven",
+  "translate": "Vertalen",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Onversleuteld",
+  "encrypted": "Versleuteld",
+  "encryptDocumentMessage": "Klik om het document te coderen",
+  "unencryptDocumentMessage": "Klik om het document te ontsleutelen",
+  "unencrypt": "Onversleutelen",
+  "encrypt": "Versleutelen",
+  "encryptWarning": "Dit zal het document versleutelen. U moet het wachtwoord onthouden om het te ontsleutelen.",
+  "unencryptWarning": "Dit zal het document decoderen. Het wachtwoord zal worden verwijderd en iedereen met toegang zal het kunnen openen.",
+  "confirmPassword": "Bevestig wachtwoord",
+  "passwordMismatch": "De wachtwoorden komen niet overeen",
+  "action": "actie",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "SVG tekst",
+  "offset": "Verschuiving",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "Beëindigen",
+  "radius": "Radius",
+  "focalPoint": "Focal point",
+  "useOffCenterStartPoint": "Gebruik een off-center startpunt",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Kleur stops",
+  "addStop": "Stoppen toevoegen",
+  "positionDependent": "Afhankelijke positie",
+  "flipHorizontal": "Horizontaal spiegelen",
+  "flipVertical": "Spiegel verticaal",
+  "grayscale": "Grayscale",
+  "moveOnGesture": "Verplaats naar gebaar",
+  "exportAllFiles": "Alle bestanden exporteren",
+  "restoreSettingsFromFile": "Instellingen herstellen vanuit bestand",
+  "resetAllSettings": "Reset alle instellingen",
+  "exportSettingsToFile": "Instellingen exporteren naar bestand",
+  "barcode": "Barcode",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Streepjescode type",
+  "qrCode": "QR Code",
+  "dataMatrix": "Data Matrix",
+  "code128": "Code 128",
+  "defaultUserName": "Gebruiker {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Verplaats naar links",
+  "moveRight": "Beweeg rechts",
+  "bundledPacks": "Gebundelde pakketten",
+  "component": "Onderdeel",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Selecteer component",
+  "bundlePackInDocument": "Bundelpakket in document",
+  "bundledPacksDescription": "Gebundelde pakketten zijn opgenomen in het document en worden alleen gebruikt om met het document te delen. Assets kunnen alleen in het document worden gebruikt als het pakket is geïnstalleerd. Pakketten kunnen worden geïnstalleerd door erop te klikken.",
+  "fillAlpha": "Vul alpha",
+  "packagedFile": "Verpakt bestand",
+  "rawFile": "Raw bestand",
+  "webSocketDescription": "Uw apparaat organiseert de server, zodat collaborateurs zich alleen via hetzelfde netwerk of vanaf waar dan ook kunnen aanmelden als u de poort op uw router doorstuurt.",
+  "swampDescription": "Je berichten worden doorgestuurd via een beveiligde relaisserver met end-to-end versleuteling. Een wamp serveradres is vereist om een sessie te maken.",
+  "createRawNote": "Ruw notitie maken",
+  "polygon": "Veelhoek",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Vorm voltooien",
+  "submit": "Bevestigen",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Wiskunde",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Negeer druk",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Negeert de eerste druklezing, die onjuist kan zijn op sommige stijlen.",
+  "ignorePressureNeverDescription": "Maakt gebruik van elke drukmeting van de stijl.",
+  "ignorePressureAlwaysDescription": "Negeert druk en behandelt de stylus als volledig ingedrukt.",
+  "temporary": "Tijdelijk",
+  "simpleToolbarVisibility": "Eenvoudige werkbalk zichtbaarheid",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Automatisch opslaan vertraging",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Opgeslagen",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Opslaan...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Alleen lezen",
+  "saveDelayed": "Vertraagd opslaan",
+  "unsaved": "Niet-opgeslagen",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "Er zijn momenteel geen gebieden om te exporteren. Selecteer ten minste één gebied met behulp van de plusknop in de rechterbovenhoek of voeg alle gebieden toe uit de huidige pagina of uit het hele document hieronder.",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Sneltoetsen aanpassen",
+  "clickToSave": "Klik om op te slaan",
+  "toolbars": "Werkbalken",
+  "logs": "Logboeken",
+  "ruledSimple": "Gerecht simpel",
+  "ruledSimpleDark": "Geroegeld simpel donker",
+  "quadSimple": "Quad eenvoudig",
+  "quadSimpleDark": "Quad simpel donker",
+  "redLinedRuled": "Rood lijn geregeerd",
+  "redLinedRuledDark": "Rood lijnd geregeerd donker",
+  "redLinedQuad": "Rode krijt quad",
+  "redLinedQuadDark": "Rode gelederen quad donker",
+  "noItemSelected": "Geen item geselecteerd",
+  "areaAsInitial": "Open gebied als eerste weergave",
+  "swap": "Wisselen",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Bestandsextensie verbergen",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "Nieuw van template",
+  "exportAsTextShortcut": "Exporteer als tekst",
+  "exportAsImageShortcut": "Exporteren als afbeelding",
+  "exportAsPdfShortcut": "Exporteren als PDF",
+  "exportAsSvgShortcut": "Exporteren als SVG",
+  "changePathShortcut": "Pad wijzigen",
+  "fullScreenShortcut": "Volledig scherm",
+  "doublePressAction": "Dubbel-klik actie",
+  "triplePressAction": "Drievoudig indrukken actie",
+  "twoFingerTap": "Tikken met twee vinger",
+  "threeFingerTap": "Drie-vinger kraan",
+  "longPress": "Lang indrukken",
+  "toolNumber": "Gereedschap {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Snelkoppelingen vasthouden",
+  "holdShortcutsDescription": "Houd een sleutel ingedrukt om tijdelijk naar een andere tool over te schakelen. Laat de toetsschakelaars terug naar de vorige tool.",
+  "key": "Sleutel",
+  "bringMovedElementsToFront": "Breng verplaatste elementen naar voren",
+  "addTool": "Functie toevoegen",
+  "nextPage": "Volgende pagina",
+  "previousPage": "Vorige pagina",
+  "persistenceDocumentStates": "Persisterende documentstatussen",
+  "persistentStatesEnabled": "Aanhoudende documentstatussen inschakelen",
+  "persistentStateCurrentPage": "Huidige pagina",
+  "persistentStateViewport": "Weergave positie en zoom",
+  "persistentStateSelectedTool": "Geselecteerde tool",
+  "persistentStateMaxRecords": "Maximum opgeslagen records",
+  "persistentStateDeleteOlderThanDays": "Verwijder records ouder dan dagen",
+  "persistentStateCleanup": "Opgeslagen staten opschonen",
+  "persistentStateCleanupDescription": "Verwijder records ouder dan de limieten hierboven",
+  "persistentStateCleanupInProgress": "Aan het opschonen...",
+  "persistentStateDefaultLocks": "Standaard vergrendelingen",
+  "persistentStateDefaultLocksDescription": "Pas deze vergrendelingen toe wanneer een document geen opgeslagen status heeft",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{1 opslaglocatie werd opgeschoond} other{Opgeschoond {locations} opslaglocaties}}; {records, plural, =1{verwijderde 1 record} other{verwijderd {records} records}}",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Slaat wijzigingen automatisch op als u werkt.",
+  "autosaveDelayedDescription": "Slaat wijzigingen automatisch op na de geselecteerde vertraging.",
+  "autosaveShowButtonDescription": "Opslaat automatisch en houdt ook de opslagknop zichtbaar.",
+  "autosaveDisabledDescription": "Bespaart alleen wanneer je de opslagopdracht gebruikt.",
+  "hideCursorWhileDrawingDescription": "Verbergt de muisaanwijzer terwijl je tekent, dus dekt deze niet je beroerte.",
+  "onStartupHomeScreenDescription": "Opent het startscherm wanneer Vlinder start.",
+  "onStartupLastNoteDescription": "Herstart je laatst gebruikte notitie wanneer Vlinder start.",
+  "onStartupNewNoteDescription": "Maakt een nieuwe notitie wanneer Vlinder start.",
+  "smoothNavigationDescription": "Maakt het gieten en zoomen soepeler door het doek te vereenvoudigen terwijl het beweegt.",
+  "edgePanAreaSwitchingDescription": "Schakelt over naar een buurgebied als je vlakbij de rand van het doek.",
+  "collaborationDescription": "Laat meerdere mensen toe om dezelfde notitie in real time te bewerken.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Bevat gedetailleerde diagnostische berichten in de logweergave en console. Deze berichten kunnen helpen bij het oplossen van een probleem.",
+  "bringMovedElementsToFrontDescription": "Plaatst een element boven overlappende elementen nadat je het verplaatst.",
+  "persistenceDocumentStatesDescription": "Bepaalt welke delen van de werkruimte zich voor elk bericht heronthouden, zoals de huidige pagina, zoom en de geselecteerde tool.",
+  "persistentStatesEnabledDescription": "Documentgegevens tussen app-sessies opslaan",
+  "persistentStateCurrentPageDescription": "Huidige pagina onthouden bij heropenen van een bestand",
+  "persistentStateViewportDescription": "De positie van de viewport en zoom en rotatie voor elke pagina onthouden",
+  "persistentStateSelectedToolDescription": "Onthoud het geselecteerde gereedschap bij het heropenen van een bestand",
+  "persistentStateLocksDescription": "Vergrendelingsinstellingen onthouden bij het heropenen van een bestand",
+  "persistentStateNavigatorDescription": "Onthoud de navigator status bij het heropenen van een bestand",
+  "persistentStateLayersDescription": "Onthoud de status van het paneel bij het heropenen van een bestand",
+  "persistentStateAreasDescription": "Onthoud de status van het gebied paneel bij het heropenen van een bestand",
+  "persistentStateAutoThumbnail": "Automatische miniaturen",
+  "persistentStateAutoThumbnailDescription": "Toon de per-document schakelaar en laat miniaturen bijwerken wanneer documenten sluiten",
+  "persistentStateMaxRecordsDescription": "Houd hooguit zoveel opgeslagen staten per bestand",
+  "persistentStateDeleteOlderThanDaysDescription": "Verwijder opgeslagen staten ouder dan dit aantal dagen",
+  "contentViewportDescription": "Beperkt hoe ver je de inhoud van je notitie kunt verwijderen.",
+  "limitViewportPositiveDescription": "Houdt het canvas binnen het gebied naar rechts en onder het beginpunt.",
+  "startInFullScreenDescription": "Opent Butterfly in full-screen modus wanneer ondersteund.",
+  "designDescription": "Verandert de algehele visuele stijl van Vlinder zonder aan te geven of de app lichte of donkere kleuren gebruikt.",
+  "platformThemeDescription": "Laat je de desktop of mobiele lay-out gebruiken in plaats van de lay-out Butterfly die normaal wordt gekozen voor je apparaat.",
+  "densityDescription": "Verandert de afstand en grootte van de interface elementen. Het verandert niet de grootte van uw notitie inhoud.",
+  "highContrastDescription": "Gebruikt sterkere kleurverschillen om controle en tekst gemakkelijker te onderscheiden.",
+  "nativeTitleBarDescription": "Gebruikt uw besturingssysteem de standaard venstertitelbalk in plaats van de aangepaste titelbalk van Butterfly.",
+  "propertiesDescription": "Kiest waar het paneel voor het bewerken van de geselecteerde tool of element verschijnt.",
+  "navigationRailDescription": "Toont een permanente navigatiebalk op brede schermen voor snellere toegang tot app secties.",
+  "optionsPanelPositionDescription": "Kiest of hulpopties boven of onder het canvas verschijnen.",
+  "simpleToolbarVisibilityDescription": "Bepaalt wanneer de kleinere, vereenvoudigde werkbalk verschijnt tijdens het bewerken van een notitie.",
+  "penOnlyInputDescription": "Voorkomt onbedoelde markeringen van je hand of muis door te kiezen wanneer alleen een stylus invoer kan tekenen.",
+  "showPenOnlyToggleDescription": "Toont een snelle stylus-only schakelaar in de editor nadat Butterfly een stijl detecteert.",
+  "ignorePressureDescription": "Bepaalt of de stylus druk de beroerte verandert en werkt rond onnauwkeurige drukmetingen van sommige stijlen.",
+  "moveOnGestureDescription": "Laat multi-touch gebaren het canvas verplaatsen in plaats van interactie met notitie-inhoud.",
+  "spreadPagesDescription": "Splitst meervoudige pagina's door aparte notitiepagina's in plaats van alles op één pagina te plaatsen.",
+  "shear": "Afschuiving",
+  "resetRotation": "Reset rotatie",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Kies de besturingselementen voor zoom en rotatie. Reset knoppen blijven beschikbaar in elke lay-out.",
+  "zoomPanelFull": "Volledig (schuif, tekstveld en knoppen)",
+  "zoomPanelSliderInput": "Schuifregelaar en tekstveld",
+  "zoomPanelSlider": "Schuifbalk",
+  "zoomPanelInputButtons": "Tekstveld en knoppen",
+  "zoomPanelInput": "Tekst veld",
+  "rotationDisplay": "Weergave rotatie",
+  "rotationDisplayDescription": "Kies wanneer de rotatie rij boven de zoom verschijnt. Dit verandert geen rotatie gebaren of snelkoppelingen.",
+  "whenRotated": "Wanneer gedraaid",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Canvas draaien door te slepen"
+}

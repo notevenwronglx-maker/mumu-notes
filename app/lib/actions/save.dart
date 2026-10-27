@@ -1,0 +1,37 @@
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:keybinder/keybinder.dart';
+
+import '../bloc/document_bloc.dart';
+import '../cubits/editor_controller.dart';
+import '../embed/action.dart';
+
+class SaveIntent extends Intent {
+  const SaveIntent();
+}
+
+const saveShortcut = ShortcutDefinition(
+  id: 'save',
+  intent: SaveIntent(),
+  defaultActivator: SingleActivator(LogicalKeyboardKey.keyS, control: true),
+);
+
+class SaveAction extends Action<SaveIntent> {
+  final BuildContext context;
+
+  SaveAction(this.context);
+
+  @override
+  Future<void> invoke(SaveIntent intent) async {
+    final bloc = context.read<DocumentBloc>();
+    final state = bloc.state;
+    if (state is! DocumentLoadSuccess) return;
+    if (bloc.editorController.saveCubit.state.embedding?.save ?? false) {
+      sendEmbedMessage('save', (await state.saveData()).exportAsBytes());
+      bloc.editorController.saveCubit.setSaveState(saved: SaveState.saved);
+    } else {
+      await bloc.save(force: true);
+    }
+  }
+}

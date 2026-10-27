@@ -1,0 +1,31 @@
+import 'dart:async';
+
+import 'package:butterfly/api/close.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:web/web.dart';
+
+CloseSubscription onPreventClose(
+  BuildContext context,
+  OnCloseCallback onClose,
+) {
+  return WebCloseSubscription(onClose);
+}
+
+class WebCloseSubscription extends CloseSubscription {
+  final StreamSubscription _subscription;
+
+  WebCloseSubscription(OnCloseCallback onClose)
+    : _subscription =
+          const EventStreamProvider<BeforeUnloadEvent>('onbeforeunload')
+              .forTarget(window)
+              .listen((event) {
+                final request = onClose();
+                if (request is! CloseRequest) return;
+                event.returnValue = request.message;
+              });
+
+  @override
+  void dispose() {
+    _subscription.cancel();
+  }
+}

@@ -1,0 +1,704 @@
+import 'dart:async';
+
+import 'package:butterfly/api/file_system.dart';
+import 'package:butterfly/services/logger.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/foundation.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:lw_file_system/lw_file_system.dart';
+import 'package:rxdart/rxdart.dart';
+
+import '../cubits/settings.dart';
+
+/// Represents a file system type that can be synced.
+///
+/// Each type corresponds to a different data category in the application:
+/// - [documents]: User-created documents and notes
+/// - [documentStates]: Persisted editor state cached for offline use
+/// - [templates]: Reusable document templates
+/// - [packs]: Asset packs and resources
+enum SyncFileSystemType { documents, documentStates, templates, packs }
+
+extension SyncFileSystemTypeHelper on SyncFileSystemType {
+  String get cacheVariant => switch (this) {
+    .documents => 'documents',
+    .documentStates => 'documentstates',
+    .templates => 'templates',
+    .packs => 'packs',
+  };
+}
+
+/// Aggregate status for all sync operations.
+///
+/// Used to indicate the overall state of synchronization across
+/// one or more remote connections.
+enum SyncStatus {
+  /// All file systems are synced and up to date.
+  synced,
+
+  /// At least one file system is currently syncing.
+  syncing,
+
+  /// At least one file system encountered an error during sync.
+  error,
+}
+
+/// Represents the sync state for a single remote connection.
+///
+/// This immutable class holds all state related to synchronization
+/// including progress, pending files, conflicts, and error information.
+@immutable
+class const RemoteSyncState({
+  /// The remote storage configuration this state belongs to.
+  required final ExternalStorage storage,
+
+  /// Current sync progress for each file system type.
+  final Map<SyncFileSystemType, SyncProgress> progress = const {},
+
+  /// Files pending synchronization for each file system type.
+  final Map<SyncFileSystemType, List<SyncFile>> files = const {},
+
+  /// Unresolved conflicts for each file system type.
+  final Map<SyncFileSystemType, List<SyncConflict>> conflicts = const {},
+
+  /// Whether any sync operation is currently in progress.
+  final bool isSyncing = false,
+
+  /// The last error message, if any sync operation failed.
+  final String? lastError,
+}) {
+  /// Creates a copy of this state with the given fields replaced.
+  ///
+  /// Note: [lastError] is always replaced (not merged) to allow clearing errors.
+  RemoteSyncState copyWith({
+    ExternalStorage? storage,
+    Map<SyncFileSystemType, SyncProgress>? progress,
+    Map<SyncFileSystemType, List<SyncFile>>? files,
+    Map<SyncFileSystemType, List<SyncConflict>>? conflicts,
+    bool? isSyncing,
+    String? lastError,
+  }) {
+    return .new(
+      storage: storage ?? this.storage,
+      progress: progress ?? this.progress,
+      files: files ?? this.files,
+      conflicts: conflicts ?? this.conflicts,
+      isSyncing: isSyncing ?? this.isSyncing,
+      lastError: lastError,
+    );
+  }
+
+  /// Computes the aggregate sync status based on current state.
+  SyncStatus get status => switch (lastError) {
+    != null => .error,
+    _ when isSyncing => .syncing,
+    _ => .synced,
+  };
+
+  /// Returns `true` if there are any unresolved conflicts.
+  bool get hasConflicts => conflicts.values.any((c) => c.isNotEmpty);
+
+  /// Returns the total number of files pending synchronization.
+  int get totalPendingFiles => visibleFiles.values.fold(
+    0,
+    (sum, list) => sum + list.where((file) => file.needsSync).length,
+  );
+
+  Map<SyncFileSystemType, List<SyncFile>> get visibleFiles => files.map(
+    (type, typeFiles) => MapEntry(
+      type,
+      typeFiles.where((file) => _isVisibleSyncFile(type, file)).toList(),
+    ),
+  );
+
+  bool _isVisibleSyncFile(SyncFileSystemType type, SyncFile file) {
+    if (type == .documents) return true;
+    final path = file.location.path;
+    return path.isNotEmpty && path != '/' && path != '.';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RemoteSyncState &&
+          runtimeType == other.runtimeType &&
+          storage.identifier == other.storage.identifier &&
+          isSyncing == other.isSyncing &&
+          lastError == other.lastError;
+
+  @override
+  int get hashCode => Object.hash(storage.identifier, isSyncing, lastError);
+}
+
+@immutable
+class const SyncOverview({
+  required final SyncStatus status,
+  required final int pendingFiles,
+  required final int cachedFiles,
+}) {}
+
+/// Manages synchronization for a single remote storage.
+///
+/// This class handles all sync operations for a specific remote connection,
+/// including:
+/// - Monitoring sync progress across document, template, and pack file systems
+/// - Detecting and tracking conflicts
+/// - Providing streams for UI updates
+/// - Managing online/offline status
+class RemoteSync(
+  final ButterflyFileSystem fileSystem,
+  final ExternalStorage storage,
+) {
+  final BehaviorSubject<RemoteSyncState> _stateSubject = .seeded(
+    RemoteSyncState(storage: storage),
+  );
+  final List<StreamSubscription<dynamic>> _subscriptions = [];
+  Future<Map<SyncFileSystemType, FullSyncResult?>>? _activeSync;
+
+  final DocumentFileSystem documentSystem = fileSystem.buildDocumentSystem(
+    storage,
+  );
+  final TemplateFileSystem templateSystem = fileSystem.buildTemplateSystem(
+    storage,
+  );
+  final PackFileSystem packSystem = fileSystem.buildPackSystem(storage);
+  final DocumentStateFileSystem documentStateSystem = fileSystem
+      .buildDocumentStateSystem(storage);
+
+  this {
+    _initFileSystems();
+    unawaited(refreshFiles());
+  }
+
+  void _initFileSystems() {
+    // Subscribe to progress streams from remote file systems
+    _subscribeToRemoteSystem(SyncFileSystemType.documents);
+    _subscribeToRemoteSystem(SyncFileSystemType.documentStates);
+    _subscribeToRemoteSystem(SyncFileSystemType.templates);
+    _subscribeToRemoteSystem(SyncFileSystemType.packs);
+  }
+
+  void _subscribeToRemoteSystem(SyncFileSystemType type) {
+    final remoteSystem = _getRemoteSystem(type);
+    if (remoteSystem == null) return;
+
+    _subscriptions.add(
+      remoteSystem.progressStream.listen((progress) {
+        final currentState = _stateSubject.value;
+        _stateSubject.add(
+          currentState.copyWith(
+            progress: {...currentState.progress, type: progress},
+            isSyncing: progress.isRunning || _isAnySyncing(exclude: type),
+          ),
+        );
+      }),
+    );
+
+    _subscriptions.add(
+      remoteSystem.conflictStream.listen((conflict) {
+        final currentState = _stateSubject.value;
+        final currentConflicts = List<SyncConflict>.from(
+          currentState.conflicts[type] ?? [],
+        );
+        if (!currentConflicts.any((c) => c.path == conflict.path)) {
+          currentConflicts.add(conflict);
+          _stateSubject.add(
+            currentState.copyWith(
+              conflicts: {...currentState.conflicts, type: currentConflicts},
+            ),
+          );
+        }
+      }),
+    );
+  }
+
+  bool _isAnySyncing({SyncFileSystemType? exclude}) {
+    return SyncFileSystemType.values
+        .where((type) => type != exclude)
+        .any((type) => _stateSubject.value.progress[type]?.isRunning ?? false);
+  }
+
+  RemoteFileSystem? _getRemoteSystem(SyncFileSystemType type) {
+    final system = switch (type) {
+      .documents => documentSystem.remoteSystem,
+      .documentStates => documentStateSystem.remoteSystem,
+      .templates => templateSystem.remoteSystem,
+      .packs => packSystem.remoteSystem,
+    };
+    return system;
+  }
+
+  /// Stream of sync state changes
+  Stream<RemoteSyncState> get stateStream => _stateSubject.stream;
+
+  /// Current sync state
+  RemoteSyncState get state => _stateSubject.value;
+
+  /// Current sync status
+  SyncStatus get status => state.status;
+
+  /// Stream of sync status changes (for backward compatibility)
+  Stream<SyncStatus> get statusStream =>
+      stateStream.map((state) => state.status).distinct();
+
+  /// Stream of all sync files across all file systems
+  Stream<List<SyncFile>> get filesStream => stateStream.map(
+    (state) => state.visibleFiles.values.expand((files) => files).toList(),
+  );
+
+  /// Synchronizes all file systems with the remote storage.
+  ///
+  /// Returns a map of results for each [SyncFileSystemType].
+  /// Individual file system failures are caught and logged, allowing
+  /// other file systems to continue syncing.
+  ///
+  /// [conflictResolution] determines how conflicts are handled.
+  Future<Map<SyncFileSystemType, FullSyncResult?>> sync({
+    ConflictResolution conflictResolution = .skip,
+  }) {
+    return _activeSync ??= _runSync(conflictResolution);
+  }
+
+  Future<Map<SyncFileSystemType, FullSyncResult?>> _runSync(
+    ConflictResolution conflictResolution,
+  ) async {
+    try {
+      return await _performSync(conflictResolution);
+    } finally {
+      _activeSync = null;
+    }
+  }
+
+  Future<Map<SyncFileSystemType, FullSyncResult?>> _performSync(
+    ConflictResolution conflictResolution,
+  ) async {
+    talker.info('Syncing remote: ${storage.identifier}');
+
+    _stateSubject.add(state.copyWith(isSyncing: true, lastError: null));
+
+    final results = <SyncFileSystemType, FullSyncResult?>{};
+    String? firstError;
+
+    for (final type in SyncFileSystemType.values) {
+      try {
+        results[type] = await syncFileSystem(
+          type,
+          conflictResolution: conflictResolution,
+        );
+      } catch (e, stackTrace) {
+        talker.error(
+          'Failed to sync $type for ${storage.identifier}',
+          e,
+          stackTrace,
+        );
+        firstError ??= e.toString();
+        results[type] = null;
+      }
+    }
+
+    await refreshFiles();
+    _stateSubject.add(state.copyWith(isSyncing: false, lastError: firstError));
+
+    if (firstError == null) {
+      if (storage is RemoteStorage) {
+        await fileSystem.settingsCubit.updateLastSynced(storage.identifier);
+      }
+      talker.info('Sync completed for remote: ${storage.identifier}');
+    } else {
+      talker.warning(
+        'Sync completed with errors for remote: ${storage.identifier}',
+      );
+    }
+
+    return results;
+  }
+
+  /// Synchronizes a specific file system type with the remote storage.
+  ///
+  /// Returns `null` if no remote system is configured for the given [type].
+  /// Throws if the sync operation fails.
+  Future<FullSyncResult?> syncFileSystem(
+    SyncFileSystemType type, {
+    ConflictResolution conflictResolution = .skip,
+  }) async {
+    final remoteSystem = _getRemoteSystem(type);
+    if (remoteSystem == null) {
+      talker.warning('No remote system for type: $type');
+      return null;
+    }
+
+    return remoteSystem.fullSync(conflictResolution: conflictResolution);
+  }
+
+  /// Gets all files pending synchronization for a specific file system type.
+  ///
+  /// Returns an empty list if no remote system is configured for [type].
+  Future<List<SyncFile>> getSyncFiles(SyncFileSystemType type) async {
+    return _getRemoteSystem(type)?.getAllSyncFiles() ?? [];
+  }
+
+  /// Refreshes the list of files needing synchronization.
+  ///
+  /// Errors for individual file system types are logged but do not
+  /// prevent other types from being refreshed.
+  Future<void> refreshFiles() async {
+    final files = <SyncFileSystemType, List<SyncFile>>{};
+
+    await Future.wait(
+      SyncFileSystemType.values.map((type) async {
+        try {
+          files[type] = await getSyncFiles(type);
+        } catch (e, stackTrace) {
+          talker.warning('Failed to get sync files for $type', e, stackTrace);
+          files[type] = [];
+        }
+      }),
+    );
+
+    _stateSubject.add(state.copyWith(files: files));
+  }
+
+  /// Resolves a conflict for a specific path and file system type.
+  ///
+  /// Throws [StateError] if no remote system is configured for [type].
+  Future<SyncResult> resolveConflict(
+    SyncFileSystemType type,
+    String path,
+    ConflictResolution resolution,
+  ) async {
+    final remoteSystem = _getRemoteSystem(type);
+    if (remoteSystem == null) {
+      throw StateError('No remote system for type: $type');
+    }
+
+    final result = await remoteSystem.resolveConflict(path, resolution);
+
+    // Remove resolved conflict from state
+    final updatedConflicts = (state.conflicts[type] ?? [])
+        .where((c) => c.path != path)
+        .toList();
+
+    _stateSubject.add(
+      state.copyWith(conflicts: {...state.conflicts, type: updatedConflicts}),
+    );
+
+    return result;
+  }
+
+  /// Updates the online status for all file systems.
+  ///
+  /// When [online] is `false`, sync operations will be paused.
+  void setOnlineStatus(bool online) {
+    for (final type in SyncFileSystemType.values) {
+      _getRemoteSystem(type)?.setOnlineStatus(online);
+    }
+  }
+
+  /// Performs automatic synchronization based on the given [mode].
+  ///
+  /// Behavior:
+  /// - [SyncMode.manual]: No automatic sync is performed.
+  /// - [SyncMode.noMobile]: Sync is skipped when on mobile data.
+  /// - Other modes: Sync is performed immediately.
+  Future<void> autoSync(SyncMode mode) async {
+    if (mode == .manual) return;
+    if (SyncFileSystemType.values.every(
+      (type) => _getRemoteSystem(type)?.getPinnedPaths().isEmpty ?? true,
+    )) {
+      return;
+    }
+
+    if (mode == .noMobile) {
+      final connectivity = await Connectivity().checkConnectivity();
+      final isMobile = connectivity.contains(ConnectivityResult.mobile);
+
+      if (isMobile) {
+        talker.info('Skipping auto-sync on mobile for: ${storage.identifier}');
+        return;
+      }
+    }
+
+    await sync();
+  }
+
+  bool _isDisposed = false;
+
+  /// Whether this sync manager has been disposed.
+  bool get isDisposed => _isDisposed;
+
+  /// Disposes of all resources.
+  ///
+  /// After calling this method, the sync manager should not be used.
+  void dispose() {
+    if (_isDisposed) return;
+    _isDisposed = true;
+
+    for (final subscription in _subscriptions) {
+      subscription.cancel();
+    }
+    _subscriptions.clear();
+    _stateSubject.close();
+  }
+}
+
+/// Service that manages synchronization across all remote connections.
+///
+/// This is the main entry point for sync functionality in the application.
+/// It automatically:
+/// - Creates sync managers for each configured remote storage
+/// - Monitors connectivity changes and updates online status
+/// - Aggregates sync status from all remotes
+/// - Handles settings changes (adding/removing remotes)
+class SyncService(
+  final BuildContext context,
+  final ButterflyFileSystem fileSystem,
+) {
+  final Map<String, RemoteSync> _syncs = {};
+  final BehaviorSubject<SyncStatus> _statusSubject = .seeded(.synced);
+  final BehaviorSubject<SyncOverview> _overviewSubject = .seeded(
+    const .new(status: .synced, pendingFiles: 0, cachedFiles: 0),
+  );
+  final List<StreamSubscription<dynamic>> _subscriptions = [];
+  StreamSubscription<List<ConnectivityResult>>? _connectivitySubscription;
+  Timer? _autoSyncTimer;
+  bool _isOnline = true;
+  bool _autoSyncInProgress = false;
+
+  static const autoSyncInterval = Duration(minutes: 5);
+
+  this {
+    _init();
+  }
+
+  SettingsCubit get settingsCubit => fileSystem.settingsCubit;
+
+  void _init() {
+    // Listen to settings changes
+    _subscriptions.add(settingsCubit.stream.listen(_loadSettings));
+    _loadSettings(settingsCubit.state);
+
+    // Listen to connectivity changes
+    _connectivitySubscription = Connectivity().onConnectivityChanged.listen(
+      _onConnectivityChanged,
+    );
+    _autoSyncTimer = Timer.periodic(
+      autoSyncInterval,
+      (_) => unawaited(_autoSyncAll()),
+    );
+  }
+
+  void _onConnectivityChanged(List<ConnectivityResult> results) {
+    final isOnline =
+        results.isNotEmpty && !results.contains(ConnectivityResult.none);
+    final wasOnline = _isOnline;
+    _isOnline = isOnline;
+
+    for (var sync in _syncs.values) {
+      sync.setOnlineStatus(isOnline);
+    }
+    if (!wasOnline && isOnline) unawaited(_autoSyncAll());
+  }
+
+  Future<void> _autoSyncAll() async {
+    if (_isDisposed || !_isOnline || _autoSyncInProgress) return;
+    _autoSyncInProgress = true;
+    try {
+      final mode = settingsCubit.state.syncMode;
+      for (final sync in _syncs.values.toList()) {
+        if (sync.isDisposed) continue;
+        try {
+          await sync.autoSync(mode);
+        } catch (error, stackTrace) {
+          talker.warning(
+            'Failed to auto-sync ${sync.storage.identifier}',
+            error,
+            stackTrace,
+          );
+        }
+      }
+    } finally {
+      _autoSyncInProgress = false;
+    }
+  }
+
+  /// Stream of overall sync status
+  Stream<SyncStatus> get statusStream => _statusSubject.stream;
+
+  Stream<SyncOverview> get overviewStream => _overviewSubject.stream;
+
+  /// Current overall sync status
+  SyncStatus get status => _statusSubject.value;
+
+  /// Get sync manager for a specific remote
+  RemoteSync? getSync(String remote) {
+    if (kIsWeb) return null;
+    return _syncs[remote] ?? _createSync(remote);
+  }
+
+  RemoteSync? _createSync(String remote, {bool autoSync = true}) {
+    final storage = settingsCubit.getRemote(remote);
+    if (storage == null) {
+      talker.warning('Remote storage not found: $remote');
+      return null;
+    }
+
+    talker.info('Creating sync for remote: $remote');
+    final sync = RemoteSync(fileSystem, storage);
+
+    _subscriptions.add(sync.stateStream.listen((_) => _refreshStatus()));
+    _syncs[remote] = sync;
+
+    // Trigger auto-sync based on settings
+    if (autoSync) {
+      unawaited(sync.autoSync(settingsCubit.state.syncMode));
+    }
+
+    return sync;
+  }
+
+  void _removeSync(String remote) {
+    final sync = _syncs.remove(remote);
+    sync?.dispose();
+  }
+
+  /// Sync all remotes
+  Future<void> sync({ConflictResolution conflictResolution = .skip}) async {
+    talker.info('Syncing all remotes');
+    if (kIsWeb) return;
+
+    for (final sync in _syncs.values) {
+      await sync.sync(conflictResolution: conflictResolution);
+    }
+  }
+
+  /// Sync a specific remote
+  Future<void> syncRemote(
+    String remote, {
+    ConflictResolution conflictResolution = .skip,
+  }) async {
+    final sync = getSync(remote);
+    if (sync != null) {
+      await sync.sync(conflictResolution: conflictResolution);
+    }
+  }
+
+  void _loadSettings(ButterflySettings settings) {
+    if (kIsWeb) return;
+
+    final currentRemotes = _syncs.keys.toSet();
+    final newRemotes = settings.connections
+        .whereType<RemoteStorage>()
+        .map((c) => c.identifier)
+        .toSet();
+
+    // Remove syncs for removed remotes
+    for (final remote in currentRemotes.difference(newRemotes)) {
+      _removeSync(remote);
+    }
+
+    // Create syncs for new remotes
+    for (final remote in newRemotes.difference(currentRemotes)) {
+      _createSync(remote);
+    }
+
+    // Recreate existing syncs when settings such as pinned cache paths changed.
+    for (final storage in settings.connections.whereType<RemoteStorage>()) {
+      final sync = _syncs[storage.identifier];
+      if (sync != null && _shouldRecreateSync(sync.storage, storage)) {
+        _removeSync(storage.identifier);
+        _createSync(storage.identifier, autoSync: false);
+      }
+    }
+
+    _refreshStatus();
+  }
+
+  bool _shouldRecreateSync(ExternalStorage oldStorage, RemoteStorage storage) {
+    if (oldStorage is! RemoteStorage) return true;
+    return oldStorage.url != storage.url ||
+        oldStorage.username != storage.username ||
+        oldStorage.certificateSha1 != storage.certificateSha1 ||
+        oldStorage.lastSynced != storage.lastSynced ||
+        !mapEquals(oldStorage.paths, storage.paths) ||
+        !_mapListEquals(oldStorage.pinnedPaths, storage.pinnedPaths);
+  }
+
+  bool _mapListEquals(
+    Map<String, List<String>> first,
+    Map<String, List<String>> second,
+  ) {
+    if (first.length != second.length) return false;
+    for (final entry in first.entries) {
+      final other = second[entry.key];
+      if (other == null || !listEquals(entry.value, other)) return false;
+    }
+    return true;
+  }
+
+  void _refreshStatus() {
+    if (kIsWeb) return;
+
+    final statuses = _syncs.values.map((s) => s.status);
+
+    final syncStatus = statuses.contains(SyncStatus.error)
+        ? SyncStatus.error
+        : statuses.contains(SyncStatus.syncing)
+        ? SyncStatus.syncing
+        : SyncStatus.synced;
+
+    _statusSubject.add(syncStatus);
+    _overviewSubject.add(
+      SyncOverview(
+        status: syncStatus,
+        pendingFiles: _syncs.values.fold(
+          0,
+          (sum, sync) =>
+              sum +
+              sync.state.visibleFiles.values
+                  .expand((files) => files)
+                  .where((file) => file.needsSync)
+                  .length,
+        ),
+        cachedFiles: _syncs.values.fold(
+          0,
+          (sum, sync) =>
+              sum +
+              sync.state.visibleFiles.values.expand((files) => files).length,
+        ),
+      ),
+    );
+  }
+
+  /// Gets all active sync managers.
+  List<RemoteSync> get syncs => List.unmodifiable(_syncs.values);
+
+  bool _isDisposed = false;
+
+  /// Whether this service has been disposed.
+  bool get isDisposed => _isDisposed;
+
+  /// Disposes of all resources.
+  ///
+  /// After calling this method, the service should not be used.
+  void dispose() {
+    if (_isDisposed) return;
+    _isDisposed = true;
+    _autoSyncTimer?.cancel();
+    _autoSyncTimer = null;
+
+    for (var sync in _syncs.values) {
+      sync.dispose();
+    }
+    _syncs.clear();
+
+    for (final subscription in _subscriptions) {
+      subscription.cancel();
+    }
+    _subscriptions.clear();
+
+    _connectivitySubscription?.cancel();
+    _connectivitySubscription = null;
+    _overviewSubject.close();
+    _statusSubject.close();
+  }
+}

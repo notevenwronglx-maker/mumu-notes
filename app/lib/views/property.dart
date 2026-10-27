@@ -1,0 +1,378 @@
+import 'dart:math';
+
+import 'package:butterfly/api/file_system.dart';
+import 'package:butterfly/api/open.dart';
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:butterfly/cubits/editor_controller.dart';
+import 'package:butterfly/cubits/settings.dart';
+import 'package:butterfly/dialogs/packs/asset.dart';
+import 'package:butterfly/widgets/editable_list_tile.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:material_leap/material_leap.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+
+import '../selections/selection.dart';
+import '../visualizer/icon.dart';
+import '../visualizer/tool.dart';
+
+class PropertyView extends StatefulWidget {
+  final ZoomPosition position;
+
+  const PropertyView({super.key, required this.position});
+
+  @override
+  State<PropertyView> createState() => _PropertyViewState();
+}
+
+const minSize = 480.0;
+
+class _PropertyViewState extends State<PropertyView>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller = .new(
+    duration: const Duration(milliseconds: 200),
+    vsync: this,
+  );
+  late final Animation<double> _fadeAnimation = Tween<double>(
+    begin: 1.0,
+    end: 0.0,
+  ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOutCubic));
+  final _scrollController = ScrollController();
+  Selection? _lastSelection;
+
+  double _size = 500;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ToolCubit, ToolRuntimeState>(
+      buildWhen: (previous, current) =>
+          previous.selection?.selected != current.selection?.selected ||
+          previous.pinned != current.pinned,
+      builder: (context, state) {
+        var selection = state.selection;
+        if (selection == null) {
+          _controller.forward();
+        } else {
+          _controller.reverse();
+        }
+        final showing = selection ?? _lastSelection;
+        _lastSelection = selection;
+        if (showing == null) {
+          return Container();
+        }
+        return LayoutBuilder(
+          builder: (context, constraints) {
+            final isMobile =
+                constraints.maxWidth < minSize || constraints.maxHeight < 400;
+            return Container(
+              constraints: BoxConstraints(maxWidth: _size, maxHeight: 500),
+              child: RepaintBoundary(
+                child: AnimatedBuilder(
+                  animation: _offsetAnimation,
+                  builder: (context, child) {
+                    final offset = _offsetAnimation.value * _size;
+                    return Transform.translate(offset: offset, child: child);
+                  },
+                  child: FadeTransition(
+                    opacity: _fadeAnimation,
+                    child: _PropertyCard(
+                      isMobile: isMobile,
+                      selection: showing,
+                      size: _size,
+                      onSizeDeltaChanged: (delta) =>
+                          setState(() => _size = max(_size - delta, minSize)),
+                      closeView: _closeView,
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  void _closeView() {
+    context.read<ToolCubit>().resetSelection(force: true);
+  }
+
+  Animation<Offset> get _offsetAnimation => Tween<Offset>(
+    begin: .zero,
+    end: switch (widget.position) {
+      .topRight || .bottomRight => const Offset(1.5, 0.0),
+      .topLeft || .bottomLeft => const Offset(-1.5, 0.0),
+    },
+  ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOutCubic));
+}
+
+class _PropertyCard extends StatefulWidget {
+  final bool isMobile;
+  final Selection<dynamic> selection;
+  final double size;
+  final ValueChanged<double> onSizeDeltaChanged;
+  final VoidCallback closeView;
+
+  const _PropertyCard({
+    required this.isMobile,
+    required this.selection,
+    required this.size,
+    required this.onSizeDeltaChanged,
+    required this.closeView,
+  });
+
+  @override
+  State<_PropertyCard> createState() => _PropertyCardState();
+}
+
+class _PropertyCardState extends State<_PropertyCard> {
+  final MenuController _menuController = .new();
+  final TextEditingController _nameController = .new();
+
+  @override
+  void dispose() {
+    _menuController.close();
+    _nameController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _saveToolPreset(BuildContext context, Tool tool) async {
+    final packSystem = context
+        .read<ButterflyFileSystem>()
+        .buildDefaultPackSystem();
+    final bloc = context.read<DocumentBloc>();
+    final result = await showDialog<PackAssetLocation>(
+      context: context,
+      builder: (context) => BlocProvider.value(
+        value: bloc,
+        child: AssetDialog(initialName: tool.getDisplay(context)),
+      ),
+    );
+    if (result == null) return;
+    var pack = await packSystem.getFile(result.namespace);
+    if (pack == null) return;
+    pack = pack.setToolPreset(result.key, tool.copyWith(id: null));
+    await packSystem.updateFile(result.namespace, pack);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final selection = widget.selection;
+    final caption = selection.getLocalizedCaption(context);
+    final help = selection.help;
+    final multi = selection.selected.length != 1;
+    final selected = selection.selected.first;
+    final icon = selection.icon(filled: multi);
+    final menuChildren = multi
+        ? <Widget>[]
+        : DisplayIcons.recommended(selected)
+              .map(
+                (e) => IconButton(
+                  icon: PhosphorIcon(e.icon(), textDirection: .ltr),
+                  iconSize: 26,
+                  onPressed: selected is! Tool
+                      ? null
+                      : () {
+                          final bloc = context.read<DocumentBloc>();
+                          final state = bloc.state;
+                          if (state is! DocumentLoadSuccess) {
+                            return;
+                          }
+                          bloc.add(
+                            ToolsChanged([
+                              selected.copyWith(displayIcon: e.name),
+                            ]),
+                          );
+                          _menuController.close();
+                        },
+                ),
+              )
+              .toList();
+    final name = selection.getLocalizedName(context);
+    if (_nameController.text != name) {
+      _nameController.text = name;
+    }
+    final textStyle = TextTheme.of(context).headlineSmall;
+    final leading = SizedBox.square(
+      dimension: 60,
+      child: menuChildren.length <= 1
+          ? PhosphorIcon(
+              icon,
+              color: Theme.of(context).iconTheme.color,
+              textDirection: .ltr,
+            )
+          : Center(
+              child: MenuAnchor(
+                controller: _menuController,
+                builder: defaultFilledMenuButton(
+                  iconBuilder: (context, controller, child) => Row(
+                    children: [
+                      PhosphorIcon(
+                        icon,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        textDirection: .ltr,
+                      ),
+                      const SizedBox(width: 8),
+                      PhosphorIcon(
+                        controller.isOpen
+                            ? PhosphorIconsLight.caretUp
+                            : PhosphorIconsLight.caretDown,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        size: 12,
+                      ),
+                    ],
+                  ),
+                  tooltip: AppLocalizations.of(context).icon,
+                ),
+                menuChildren: menuChildren,
+              ),
+            ),
+    );
+    final titleEditable = selection.isNameEditable(context);
+    final title = titleEditable
+        ? EditableListTile(
+            controller: _nameController,
+            textStyle: textStyle,
+            contentPadding: .only(left: 4),
+            subtitle: caption.isEmpty ? SizedBox() : Text(caption),
+            onSaved: (value) => selection.setName(context, value),
+            textFormatter: (value) => selection.nameFormatter(context, value),
+            showEditIcon: false,
+          )
+        : SizedBox(
+            height: 60,
+            child: Column(
+              crossAxisAlignment: .stretch,
+              mainAxisAlignment: .center,
+              children: [
+                Flexible(child: Text(name, style: textStyle)),
+                if (caption.isNotEmpty)
+                  Text(caption, style: TextTheme.of(context).labelLarge),
+              ],
+            ),
+          );
+    return Card(
+      elevation: 6,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
+        child: AnimatedSize(
+          alignment: Alignment.topCenter,
+          curve: Curves.easeInOut,
+          duration: const Duration(milliseconds: 200),
+          child: Row(
+            textDirection: .ltr,
+            children: [
+              if (!widget.isMobile)
+                MouseRegion(
+                  cursor: SystemMouseCursors.resizeLeftRight,
+                  child: GestureDetector(
+                    child: const PhosphorIcon(
+                      PhosphorIconsLight.dotsSixVertical,
+                    ),
+                    onPanUpdate: (details) {
+                      final delta = details.delta.dx;
+                      widget.onSizeDeltaChanged(delta);
+                    },
+                  ),
+                ),
+              Expanded(
+                child: Column(
+                  mainAxisSize: .min,
+                  crossAxisAlignment: .stretch,
+                  children: [
+                    Row(
+                      crossAxisAlignment: .start,
+                      children: [
+                        leading,
+                        const SizedBox(width: 8),
+                        Expanded(child: title),
+                        const SizedBox(width: 4),
+                        if (!multi && selected is Tool)
+                          IconButton(
+                            icon: const PhosphorIcon(
+                              PhosphorIconsLight.floppyDisk,
+                            ),
+                            tooltip:
+                                '${AppLocalizations.of(context).save} ${AppLocalizations.of(context).presets}',
+                            onPressed: () => _saveToolPreset(context, selected),
+                          ),
+                        if (selection.showDeleteButton)
+                          IconButton(
+                            icon: const PhosphorIcon(PhosphorIconsLight.trash),
+                            tooltip: AppLocalizations.of(context).delete,
+                            onPressed: () {
+                              selection.onDelete(context);
+                              context.read<ToolCubit>().resetSelection(
+                                force: true,
+                              );
+                            },
+                          ),
+                        if (help.isNotEmpty)
+                          IconButton(
+                            tooltip: AppLocalizations.of(context).help,
+                            icon: const PhosphorIcon(
+                              PhosphorIconsLight.sealQuestion,
+                            ),
+                            onPressed: () => openHelp(help),
+                          ),
+                        const SizedBox(height: 42, child: VerticalDivider()),
+                        if (!widget.isMobile)
+                          BlocBuilder<ToolCubit, ToolRuntimeState>(
+                            buildWhen: (previous, current) =>
+                                previous.pinned != current.pinned,
+                            builder: (context, state) => IconButton(
+                              tooltip: state.pinned
+                                  ? AppLocalizations.of(context).unpin
+                                  : AppLocalizations.of(context).pin,
+                              icon: state.pinned
+                                  ? const PhosphorIcon(
+                                      PhosphorIconsFill.pushPin,
+                                    )
+                                  : const PhosphorIcon(
+                                      PhosphorIconsLight.pushPin,
+                                    ),
+                              onPressed: () =>
+                                  context.read<ToolCubit>().togglePin(),
+                            ),
+                          ),
+                        const SizedBox(width: 8),
+                        IconButton.outlined(
+                          tooltip: MaterialLocalizations.of(context)
+                              .closeButtonTooltip,
+                          icon: const PhosphorIcon(PhosphorIconsLight.x),
+                          onPressed: widget.closeView,
+                        ),
+                      ],
+                    ),
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 16,
+                        ),
+                        child: ListView(
+                          shrinkWrap: true,
+                          primary: true,
+                          children: selection.buildProperties(context),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

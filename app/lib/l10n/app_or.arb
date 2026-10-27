@@ -1,0 +1,1693 @@
+{
+  "open": "ଖୋଲନ୍ତୁ",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Reveal in file explorer",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "ସେଟିଂସ୍",
+  "personalization": "ବ୍ୟକ୍ତିଗତୀକରଣ",
+  "theme": "ଥୀମ୍",
+  "darkTheme": "ହଳୁଦ ଅନ୍ଧକାର ଥୀମ୍",
+  "lightTheme": "ହଳୁଦ ଆଲୋକିତ ଥୀମ୍",
+  "systemTheme": "ଡିଫଲ୍ଟ ସିଷ୍ଟମ୍ ଥୀମ୍ ବ୍ୟବହାର କରନ୍ତୁ",
+  "view": "ଦେଖନ୍ତୁ",
+  "contentViewport": "Content Viewport",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Limit Viewport to positive coordinates",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Off",
+  "canvas": "Canvas",
+  "interface": "Interface",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "ସମ୍ପାଦନା",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "ନିର୍ୟାତ",
+  "save": "ସଞ୍ଚୟ",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "ଜୁମ୍",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "ଜୁମ୍ ଏବଂ ବଡ କରନ୍ତୁ",
+  "zoomOut": "ଜୁମ୍ ଛୋଟ କରନ୍ତୁ",
+  "resetZoom": "ଜୁମ୍ ପୁନଃସ୍ଥାପନ",
+  "strokeWidth": "ଲାଇନ୍ ପ୍ରସ୍ଥ",
+  "strokeStyle": "Stroke style",
+  "dashLength": "Dash length",
+  "gapLength": "Gap length",
+  "includeEraser": "ଇରେଜର୍ ସମ୍ମିଳିତ କରିବେ?",
+  "thinning": "ଚିରକରଣ",
+  "pen": "କଳମ",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Inverted Stylus",
+  "eraser": "ଇରେଜର୍",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Stroke",
+  "label": "ଲେବେଲ୍",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "ମୁଚାନ୍ତୁ",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "ତୁମେ ନିଶ୍ଚିତ?",
+  "reallyDelete": "ତୁମେ ଏହି ଆଇଟମ୍‌ଟି ବାସ୍ତବରେ ଡିଲିଟ୍ କରିବାକୁ ଚାହୁଁଛ?",
+  "no": "ନା",
+  "yes": "ହଁ",
+  "undo": "ପୂର୍ବବତୀ କାର୍ଯ୍ୟ ଫେରାନ୍ତୁ",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "ପୁନଃକ୍ରିୟା କରନ୍ତୁ",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "ସାଧାରଣ",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "କ୍ଲିପବୋର୍ଡକୁ କପି ହେଲା",
+  "loading": "ଲୋଡ୍ ହେଉଛି...",
+  "enterText": "ପାଠ୍ୟ ଲେଖନ୍ତୁ",
+  "size": "ଆକାର",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "ପ୍ରସ୍ଥ",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "ଉଚ୍ଚତା",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "ଗଣନା",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "ଅନ୍ତରାଳ",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "ପୃଷ୍ଠଭୂମି",
+  "applyBackground": "Apply background",
+  "applyAreas": "Apply areas",
+  "currentPage": "Current page",
+  "allPages": "All pages",
+  "box": "ପେଟିକା",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "ଲୋକେଲ୍",
+  "systemLocale": "ସିଷ୍ଟମ୍ ଲୋକେଲ୍",
+  "information": "ତଥ୍ୟ",
+  "license": "ଲାଇସେନ୍ସ",
+  "imprint": "ଇମ୍ପ୍ରିଣ୍ଟ୍",
+  "privacypolicy": "ଗୋପନୀୟତା ନୀତି",
+  "sourceCode": "ସ୍ରୋତ କୋଡ୍",
+  "documentation": "ଡକ୍ୟୁମେଣ୍ଟେସନ୍",
+  "changelog": "ଚେଇଞ୍ଜଲଗ୍",
+  "source": "ସ୍ରୋତ",
+  "existOverride": "ଏହି ଉପାଦାନ ପূର୍ବରୁ ଅବସ୍ଥିତ ଅଛି। ଓଭର୍ରାଇଟ୍ କରିବେ?",
+  "description": "ବିବରଣୀ",
+  "fill": "ପୂରଣ",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "ଡିଫଲ୍ଟ ପ୍ୟାଲେଟ୍",
+  "highlighter": "ହାଇଲାଇଟର୍",
+  "combinePaths": "Combine paths",
+  "add": "ଯୋଗ କରନ୍ତୁ",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "ହଟାନ୍ତୁ",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "ତୁମେ ଏହାକୁ ବାସ୍ତବରେ ହଟାଇବାକୁ ଚାହୁଁଛ?",
+  "resetPalette": "ପ୍ୟାଲେଟ୍ ପୁନଃସ୍ଥାପନ",
+  "custom": "କଷ୍ଟମ୍",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "ସଜାଣ",
+  "underline": "ତଳ ରେଖା",
+  "overline": "ଉପର ରେଖା",
+  "strikethrough": "କଟକଣ୍ଡ ରେଖା",
+  "thickness": "ମୋଟାଇ",
+  "style": "ଶୈଳୀ",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "ଦୃଢ",
+  "solidColor": "Solid color",
+  "gradient": "Gradient",
+  "gradientType": "Gradient type",
+  "linear": "Linear",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "ଦ୍ୱିତୀୟ",
+  "dotted": "ଛିଇଆ",
+  "dottedDark": "Dotted dark",
+  "dashed": "ଲାଇଆ",
+  "wavy": "ତରଙ୍ଗାକାର",
+  "fontWeight": "ଫଣ୍ଟ ଓଜନ",
+  "normal": "ସାଧାରଣ",
+  "bold": "ହେମ୍",
+  "italic": "ଇଟାଲିକ୍",
+  "clipboard": "କ୍ଲିପବୋର୍ଡ",
+  "file": "ଫାଇଲ୍",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "ତଥ୍ୟ",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "ଶେୟାର୍",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "ଅନ୍ତରାଳ",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "ଛବି",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "URL ଦାଖଲ କରନ୍ତୁ",
+  "scale": "ପ୍ରମାଣ",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "ସାହାଯ୍ୟ",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "ତୁମେ ଏହାକୁ ବାସ୍ତବରେ ପୁନଃସ୍ଥାପନ କରିବାକୁ ଚାହୁଁଛ?",
+  "whatToDo": "ତୁମେ କʼଣ କରିବାକୁ ଚାହୁଁଛ?",
+  "ignore": "ଅନଦେଖା କରନ୍ତୁ",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "ବ୍ୟାକଅପ୍",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Backup connection",
+  "automaticBackups": "Automatic backups",
+  "automaticBackupsDescription": "Creates backups while Butterfly is running.",
+  "backupInterval": "Backup interval",
+  "backupNow": "Back up now",
+  "lastBackup": "Last backup",
+  "backupCreated": "Backup created",
+  "hour": "hour",
+  "hours": "hours",
+  "day": "day",
+  "days": "days",
+  "week": "week",
+  "weeks": "weeks",
+  "createdInNewerVersion": "ଫାଇଲ୍ {fileName} ଏକ ନୂତନ ସଂସ୍କରଣ ({fileVersion})ରେ ସୃଷ୍ଟି ହୋଇଛି। ଏହି ଫାଇଲ୍ ସହ କʼଣ କରିବେ?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "ପଥବିଂଦୁ",
+  "origin": "ମୂଳ",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "ଆମଦାନି",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "ନୂତନ",
+  "selectElement": "ଉପାଦାନ ଚୟନ କରନ୍ତୁ",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Shift",
+  "altKey": "Alt",
+  "copyVersion": "ସଂସ୍କରଣ କପି",
+  "input": "ଇନ୍ପୁଟ୍",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "ଆଚରଣ",
+  "dataDirectory": "ଡାଟା ଡିରେକ୍ଟୋରି",
+  "warning": "Warning",
+  "platformExperimentalWarning": "Warning: This setting is experimental and can have problems on this platform.",
+  "changeDataDirectoryWarningContent": "Are you sure you want to change the data folder? You should make a backup of your data before proceeding.",
+  "defaultPath": "ଡିଫଲ୍ଟ ପଥ",
+  "dateFormat": "ତାରିଖ ଫର୍ମାଟ୍",
+  "updatedAt": "ଅଦ୍ୟତିତ: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "ତିଆରି: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "ନାମ ପରିବର୍ତ୍ତନ କରନ୍ତୁ",
+  "duplicate": "ନକଲି କରନ୍ତୁ",
+  "hand": "ହାତ",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "ଫୋଲ୍ଡର୍",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "ସରାନ୍ତୁ",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "ନକଲି",
+  "openContextMenu": "Open context menu",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "ବାକି",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Forward",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "ଜୁମ୍ ନିର୍ଭର",
+  "shapeDetection": "ଆକୃତି ଚିହ୍ନଟ",
+  "delay": "ବିଳମ୍ବ",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "ଡିଫଲ୍ଟ ସ୍ତର",
+  "layer": "ସ୍ତର",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "ସ୍ତରଗୁଡିକ",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "ସଜିତ ନୁହେଁ",
+  "enterLayer": "ସ୍ତରର ନାମ ପ୍ରବେଶ କରନ୍ତୁ",
+  "eraseShapes": "Erase shapes",
+  "eraseShapeModeNone": "Don't erase shapes",
+  "eraseShapeModeTouchEdges": "Erase when touching edges",
+  "eraseShapeModeTouchAnywhere": "Erase when touching anywhere",
+  "selectElementModeTouchEdges": "Select when touching edges",
+  "selectElementModeTouchAnywhere": "Select when touching anywhere",
+  "selectElements": "ଉପାଦାନଗୁଡିକ ଚୟନ କରନ୍ତୁ",
+  "deleteElements": "ଉପାଦାନଗୁଡିକ ମୁଚାନ୍ତୁ",
+  "eraseAllElements": "Erase all elements",
+  "deleteElementsConfirm": "ତୁମେ ଚୟିତ ଉପାଦାନଗୁଡିକ ବାସ୍ତବରେ ଡିଲିଟ୍ କରିବାକୁ ଚାହୁଁଛ?",
+  "selectCustomCollection": "କଷ୍ଟମ୍ ସଂଗ୍ରହ ଚୟନ କରନ୍ତୁ",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "ସଂවේଦନଶୀଳତା",
+  "selectionTolerance": "Selection tolerance",
+  "selectionToleranceDescription": "How close a pointer must be to an element or area to select it. Higher values make selection easier.",
+  "selectionHandleSensitivity": "Selection handle hit area",
+  "selectionHandleSensitivityDescription": "Size of the hit area around selection and area handles for all pointer types.",
+  "panGestureSensitivity": "Pan gesture sensitivity",
+  "panGestureSensitivityDescription": "Canvas movement from touch or trackpad gestures. Higher values move the canvas farther.",
+  "zoomGestureSensitivity": "Continuous zoom sensitivity",
+  "zoomGestureSensitivityDescription": "Zoom from pinching, trackpad gestures, and Ctrl+scroll. Higher values zoom farther.",
+  "rotationGestureSensitivity": "Rotation gesture sensitivity",
+  "rotationGestureSensitivityDescription": "Canvas rotation from gestures. Higher values rotate farther.",
+  "scrollPanSensitivity": "Scroll pan sensitivity",
+  "scrollPanSensitivityDescription": "Canvas movement from mouse wheel and trackpad scrolling. Higher values pan farther.",
+  "horizontal": "ଆଡ଼",
+  "vertical": "ଉର୍ଧ୍ୱା",
+  "plain": "ସାଧାରଣ",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "ହଳୁକା",
+  "ruled": "ରୂଲ୍ଡ",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "ଚତୁର୍ଭୁଜ",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "ସଙ୍ଗୀତ",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "ଅନ୍ଧକାର",
+  "plainDark": "Plain dark",
+  "ruledDark": "ରୂଲ୍ଡ ଅନ୍ଧକାର",
+  "quadDark": "ଚତୁର୍ଭୁଜ ଅନ୍ଧକାର",
+  "musicDark": "ସଙ୍ଗୀତ ଅନ୍ଧକାର",
+  "templates": "ଟେମ୍ପଲେଟ୍",
+  "untitled": "ଶୀର୍ଷକ ନାହିଁ",
+  "createTemplate": "ଟେମ୍ପଲେଟ୍ ତିଆରି କରନ୍ତୁ",
+  "createTemplateContent": "ତୁମେ ବାସ୍ତବରେ ଏହି ଡକ୍ୟୁମେଣ୍ଟରୁ ଟେମ୍ପଲେଟ୍ ତିଆରି କରିବାକୁ ଚାହୁଁଛ? ମୂଳ ଡକ୍ୟୁମେଣ୍ଟ ଡିଲିଟ୍ ହେବ।",
+  "fileName": "File name",
+  "defaultFileName": "Default file name",
+  "templateFileNameDescription": "Documents opened from the template picker are saved automatically with this name. Templates without a name use the default configured in Data settings. Combine your own text with {dateExample} and {timeExample}. Characters that are not allowed in file names will be rejected.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Preview",
+  "replace": "ବଦଳାନ୍ତୁ",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "ତୁମେ ବାସ୍ତବରେ টେମ୍ପଲେଟ୍ ବଦଳାଇବାକୁ ଚାହୁଁଛ? ଏହା ପୁନଃପ୍ରାରମ୍ଭ ହେବା ନାହିଁ!",
+  "defaultTemplate": "ଡିଫଲ୍ଟ ଟେମ୍ପଲେଟ୍",
+  "insert": "ସାମିଲ କରନ୍ତୁ",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "ଡକ୍ୟୁମେଣ୍ଟ",
+  "documentStates": "Document states",
+  "camera": "କ୍ୟାମେରା",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "ପ୍ରିଣ୍ଟ୍ଆଉଟ୍",
+  "selectCamera": "କ୍ୟାମେରା ଚୟନ କରନ୍ତୁ",
+  "changeDocumentPath": "ଡକ୍ୟୁମେଣ୍ଟ ପଥ ପରିବର୍ତ୍ତନ କରନ୍ତୁ",
+  "deleteWholeStroke": "ସମ୍ପୁର୍ଣ୍ଣ ଲାଇନ୍ ଡିଲିଟ୍ କରନ୍ତୁ",
+  "alpha": "ଆଲଫା",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "ଅଞ୍ଚଳ",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "ଅଞ୍ଚଳ ଚୟନ କରନ୍ତୁ",
+  "aspectRatio": "ପ୍ରମାଣୁପାତ",
+  "presets": "ପ୍ରିସେଟ୍",
+  "pagePortrait": "ପେଜ ପୋର୍ଟ୍ରେଟ୍",
+  "pageLandscape": "ପେଜ ଲ୍ୟାଣ୍ଡସ୍କେପ୍",
+  "square": "ବର୍ଗ",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "ଅଞ୍ଚଳଗୁଡିକ",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "ଅଞ୍ଚଳ ଲେଖନ୍ତୁ",
+  "exitArea": "ଅଞ୍ଚଳ ଛାଡ଼ନ୍ତୁ",
+  "currentArea": "ଚଳୁ ଅଞ୍ଚଳ",
+  "design": "ଡିଜାଇନ୍",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "ପାଠ୍ୟ",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "ହେଲୋ, ଏହା Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "ମୁକ୍ତ ଏବଂ ଓପେନ୍-ସୋର୍ସ ଡ୍ରୟିଂ ସ୍ପେସ୍!",
+  "updated": "ଆପ୍ {version} ସଂସ୍କରଣକୁ ଅଦ୍ୟତିତ",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "ରିଲିଜ୍ ନୋଟ୍",
+  "constraints": "ନିବନ୍ଧନ",
+  "scaled": "ମାପିତ",
+  "fixed": "ନିଶ୍ଚିତ",
+  "dynamicContent": "ଗତିଶୀଳ",
+  "none": "କିଛି ନୁହେଁ",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "ଅଞ୍ଚଳ ସମ୍ମିଳିତ କରନ୍ତୁ",
+  "verticalAlignment": "ଉର୍ଧ୍ୱା ସମନ୍ୱୟ",
+  "horizontalAlignment": "ଆଡ଼ ସମନ୍ୱୟ",
+  "top": "ଶୀର୍ଷ",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "ମଧ୍ୟ",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "ତଳ",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "ବାମ",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "ଦକ୍ଷିଣ",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "ସମାନ",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "ନିବନ୍ଧନ",
+  "length": "ଦৈର୍ଘ୍ୟ",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "SVG ନିର୍ୟାତ",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "ପୃଷ୍ଠାଗୁଡିକ ଚୟନ କରନ୍ତୁ",
+  "recentFiles": "ନୂତନ ଫାଇଲ୍",
+  "start": "ଆରମ୍ଭ",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "କୌଣସି ନୂତନ ଫାଇଲ୍ ନାହିଁ",
+  "countPages": "{count,plural, =0{କୌଣସି ପୃଷ୍ଠା ନାହିଁ} =1{1 ପୃଷ୍ଠା} other{{count} ପୃଷ୍ଠା}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "ପୃଷ୍ଠା {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "ବାହାରିବେ",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "କୌଣସି ଉପାଦାନ ନାହିଁ",
+  "invertSelection": "ଚୟନ ବିପରୀତ",
+  "errorWhileImporting": "ଆମଦାନିକାଳୀନ ত্ৰୁଟି",
+  "errorWhileImportingContent": "ଫାଇଲ୍ ଆମଦାନି ସମୟରେ ଏକ ত୍ରୁଟି ଘଟିଛି",
+  "showDetails": "ବିବରଣୀ ଦେଖାନ୍ତୁ",
+  "hideDetails": "ବିବରଣୀ ଲୁଚାନ୍ତୁ",
+  "error": "ତ୍ରୁଟି",
+  "stackTrace": "ସ୍ଟ୍ୟାକ୍ ଟ୍ରେସ୍",
+  "laser": "ଲେଜର୍",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "ଦୀର୍ଘତା",
+  "quality": "ଗୁಣତ୍ତା",
+  "exportPdf": "PDF ନିର୍ୟାତ",
+  "local": "ଲୋକାଲ୍",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "ଯୋଡନ୍ତୁ ସଂଯୋଗ",
+  "connections": "ସଂଯୋଗଗୁଡିକ",
+  "noConnections": "କୌଣସି ସଂଯୋଗ ନାହିଁ",
+  "url": "URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "The full WebDAV URL provided by your storage provider",
+  "connect": "ସଂଯୋଗ କରନ୍ତୁ",
+  "username": "ଉପଯୋଗକର୍ତ୍ତା ନାମ",
+  "password": "ପାସୱାର୍ଡ",
+  "authenticationPassword": "Authentication password",
+  "documentEncryptionPassword": "Document encryption password",
+  "documentEncryptionPasswordDescription": "Encrypts documents stored in this connection. Leave empty to keep them unencrypted",
+  "documentEncryptionEnabled": "Document encryption enabled",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Add document encryption password",
+  "changeDocumentEncryptionPassword": "Change document encryption password",
+  "webNotSupported": "ଓଲଇନ୍ ସମର୍ଥିତ ନୁହେଁ",
+  "advanced": "ଉନ୍ନତ",
+  "symmetric": "Symmetric",
+  "perSide": "Per side",
+  "directory": "ଡିରେକ୍ଟୋରି",
+  "connectionNameDescription": "Only used to identify this connection in Butterfly",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "ଡକ୍ୟୁମେଣ୍ଟ ଡିରେକ୍ଟୋରି",
+  "templatesDirectory": "ଟେମ୍ପଲେଟ୍ ଡିରେକ୍ଟୋରି",
+  "errorWhileCreatingConnection": "ସଂଯୋଗ ତିଆରି କାଳୀନ ত୍ରୁଟି",
+  "cannotConnect": "ସଂଯୋଗ ସମ୍ଭବ ନୁହେଁ",
+  "urlNotValid": "URL ମାନ୍ୟ ନୁହେଁ",
+  "icon": "ଆଇକନ୍",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Optional URL of an image to use as the connection icon",
+  "update": "ଅଦ୍ୟତିତ",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "ଅଦ୍ୟତିତ ଉପଲବ୍ଧ",
+  "stable": "ସ୍ଥିର",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "ନିଶିତଳ",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "ଅଦ୍ୟତନ ପରୀକ୍ଷା କରନ୍ତୁ",
+  "checkForUpdatesWarning": "ଅଦ୍ୟତନ ପରୀକ୍ଷା କରିବା ସମୟରେ Butterfly ୱେବସାଇଟ୍ ସହ ଯୋଗାଯୋଗ କରାଯିବ।",
+  "usingLatestStable": "ତୁମେ ସବୁଠୁ ନୂତନ ସ୍ଥିର ସଂସ୍କରଣ ବ୍ୟବହାର କରୁଛ",
+  "usingLatestNightly": "ତୁମେ ସବୁଠୁ ନୂତନ ନିଶିତଳ ସଂସ୍କରଣ ବ୍ୟବହାର କରୁଛ",
+  "currentVersion": "ଚଲୁ ସଂସ୍କରଣ",
+  "updateNow": "ଭଳିଅବେଲାରେ ଅଦ୍ୟତିତ କରନ୍ତୁ",
+  "shape": "ଆକୃତି",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Table",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rows",
+  "columns": "Columns",
+  "row": "Row",
+  "column": "Column",
+  "insertRowBefore": "Insert row before",
+  "insertRowAfter": "Insert row after",
+  "insertColumnBefore": "Insert column before",
+  "insertColumnAfter": "Insert column after",
+  "deleteRow": "Delete row",
+  "deleteColumn": "Delete column",
+  "cellColor": "Cell color",
+  "cellBorders": "Cell borders",
+  "cellBorder": "Cell border",
+  "horizontalBorder": "Horizontal border",
+  "verticalBorder": "Vertical border",
+  "rowHeight": "Row height",
+  "columnWidth": "Column width",
+  "border": "Border",
+  "circle": "ବୃତ୍ତ",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "ଆୟତ",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "ତିଭୁଜ",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "ରେଖା",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "କୋନ୍ ରୌଦ୍ରତା",
+  "topLeft": "ଉପର ବାମ",
+  "topRight": "ଉପର ଦକ୍ଷିଣ",
+  "bottomLeft": "ତଳ ବାମ",
+  "bottomRight": "ତଳ ଦକ୍ଷିଣ",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "କ୍ୟାଶଗୁଡିକ",
+  "manage": "ପରିଚାଳନା",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "କ୍ୟାଶ ସଫା କରନ୍ତୁ",
+  "createCache": "କ୍ୟାଶ ସୃଷ୍ଟି କରନ୍ତୁ",
+  "thirdPartyLicenses": "ତୃତୀୟ ପକ୍ଷ ଲାଇସେନ୍ସ",
+  "syncing": "ସିଙ୍କ୍ ହେଉଛି...",
+  "synced": "ସିଙ୍କ୍ ହୋଇଛି",
+  "notSynced": "ସିଙ୍କ୍ ହୋଇନାହିଁ",
+  "conflict": "ସଂଘର୍ଷ",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "ଲୋକାଲ୍ ରଖନ୍ତୁ",
+  "keepConnection": "ସଂଯୋଗ ରଖନ୍ତୁ",
+  "keepBoth": "ଦୁହେଁଟି ରଖନ୍ତୁ",
+  "forAll": "ସମସ୍ତଙ୍କ ପାଇଁ",
+  "fileConflict": "{file} ଏବଂ {connection} ମଧ୍ୟରେ ସଂଘର୍ଷ ଅଛି",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "ଅଫ୍ଲାଇନ୍",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "ସ୍ଥାନୀୟ ନୂତମ",
+  "connectionLatest": "ସଂଯୋଗ ନୂତମ",
+  "path": "ପଥ",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "ଫୋଲ୍ଡର୍ ସିଙ୍କ୍ ହୋଇଛି",
+  "syncRootDirectory": "ରୁଟ୍ ସିଙ୍କ୍ ଡିରେକ୍ଟୋରି",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Automatically enables stylus-only mode when a stylus is detected. This setting only lasts for the current session.",
+  "penOnlyInputOnDescription": "Always reject touch and mouse input, only accept stylus input.",
+  "penOnlyInputOffDescription": "Accept all input types including touch, mouse, and stylus.",
+  "automatic": "Automatic",
+  "alwaysOn": "Always on",
+  "alwaysOff": "Always off",
+  "showPenOnlyToggle": "Show stylus only toggle",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "ଇନ୍ପୁଟ୍ ଇଶାରାଗୁଡିକ",
+  "inputGesturesDescription": "Lets you move and zoom the canvas with touch gestures, even while a drawing tool is selected.",
+  "nativeTitleBar": "ନେଟିଭ୍ ଟାଇଟେଲ୍ ବାର୍",
+  "mode": "Mode",
+  "syncMode": "ସିଙ୍କ୍ ମୋଡ୍",
+  "connection": "ସଂଯୋଗ",
+  "always": "ସମୟ ସମୟ",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "ମୋବାଇଲ୍ ନୁହେଁ",
+  "syncModeAlwaysDescription": "Syncs remote files automatically whenever they change.",
+  "syncModeNoMobileDescription": "Syncs automatically except on mobile devices, which can reduce mobile data usage.",
+  "manual": "ମାନୁଆଲ୍",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Only syncs when you start it yourself.",
+  "search": "ଶୋଧନ",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "ଗୁଣ",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "ପିନ୍",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "ଅନପିନ୍",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "ଉପାଦାନ",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "ଚିତ୍ରକାର",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "ସ୍ଥିତି",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "ଟିପ୍ପଣୀ",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "ପ୍ୟାକ୍",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "ପ୍ୟାକ୍",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "ଅଧିକ",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "ନାମ ପଚାରନ୍ତୁ",
+  "areaIndex": "ଅଞ୍ଚଳ {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍ ଆରମ୍ଭ",
+  "inputs": "ଇନ୍ପୁଟ୍ସ୍",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "ମାଉସ୍",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "ଟଚ୍",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "କୀବୋର୍ଡ୍",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "ଶଧାନ୍ତ୍ର",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "ମଧ୍ୟମ",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "ପ୍ରଥମ",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "ଦ୍ୱିତୀୟ",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "ସକ୍ରିୟ ଟୁଲ୍",
+  "activeToolDescription": "ଟୁଲ୍ବାରରେ ଚୟନିତ ଟୁଲ୍ ବ୍ୟବହାର କରନ୍ତୁ",
+  "handTool": "ହାତ ଟୁଲ୍",
+  "handToolDescription": "କ୍ୟାନଭାସ୍ ଘୁମାଇବାକୁ ଡ୍ରାଗ୍ କରନ୍ତୁ",
+  "toolOnToolbar": "ଟୁଲ୍ବାରରେ ନିର୍ଦ୍ଦିଷ୍ଟ ଟୁଲ୍",
+  "toolOnToolbarDescription": "ବାମ ଦିଗରୁ ଗଣନା କରି ଟୁଲ୍ବାରର ସ୍ଥିତି ଅନୁଯାୟୀ ଟୁଲ୍ ବ୍ୟବହାର କରନ୍ତୁ",
+  "toolOnToolbarShort": "ଟୁଲ୍ବାର ସ୍ଥିତି: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "ଟୁଲ୍",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "ଗ୍ରିଡ୍ ଦେଖାନ୍ତୁ",
+  "grid": "ଗ୍ରିଡ୍",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "ରୁଲର୍",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "କୋଣ",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "ରିପୋର୍ଟ",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "ନୂତନ ଫୋଲ୍ଡର୍",
+  "createPack": "ପ୍ୟାକ୍ ତିଆରି କରନ୍ତୁ",
+  "editPack": "ପ୍ୟାକ୍ ସମ୍ପାଦନା",
+  "packsDirectory": "ପ୍ୟାକ୍ ଡିରେକ୍ଟୋରି",
+  "stamp": "ଷ୍ଟାମ୍ପ୍",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "ପ୍ୟାକ୍ ଭିତରକୁ ଯୋଗ କରନ୍ତୁ",
+  "sureImportPack": "ତୁମେ ନିଶ୍ଚିତ ଭାବେ ପ୍ୟାକ୍ ଆମଦାନି କରିବାକୁ ଚାହୁଁଛ?",
+  "byAuthor": "{author}ଙ୍କ ଦ୍ୱାରା",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "ଲେଖକ",
+  "addAsset": "ଏସେଟ୍ ଯୋଡନ୍ତୁ",
+  "editAsset": "ଏସେଟ୍ ସମ୍ପାଦନା",
+  "scope": "ପରିଧି",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "ସାମ୍ପ୍ରତିକ ଭାବରେ କୌଣସି ପ୍ୟାକ୍ ଉପଲବ୍ଧ ନାହିଁ",
+  "components": "ଉପାଦାନ",
+  "waypoint": "ପଥବିଂଦୁ",
+  "actions": "କାର୍ଯ୍ୟ",
+  "painters": "ଚିତ୍ରକାର",
+  "breakingChangesTitle": "ବ୍ରେକିଂ ପରିବର୍ତ୍ତନ",
+  "breakingChangesMessage": "ଏହି ସଂସ୍କରଣରେ ବ୍ରେକିଂ ପରିବର୍ତ୍ତନ ଅଛି। ଅଦ୍ୟତନ ପୂର୍ବରୁ ଚେଇଞ୍ଜଲଗ୍ ପଢ଼ନ୍ତୁ। ଚଳୁ ଫାଇଲ୍ ସଂସ୍କରଣ {version}, ନୂତନ ସଂସ୍କରଣ {newVersion}।",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "ଶୈଳୀ",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "ଅନୁଛେଦ",
+  "fontFamily": "ଫଣ୍ଟ ପରିବାର",
+  "smoothing": "ସ୍ମୂଥିଂ",
+  "streamline": "ସ୍ଟ୍ରିମଲାଇନ୍",
+  "presentation": "ପ୍ରସ୍ତୁତିକରଣ",
+  "simple": "Simple",
+  "createPresentation": "Create presentation",
+  "addSlide": "Add new slide",
+  "updateSlide": "Update slide",
+  "deleteSlide": "Delete slide",
+  "transitionDuration": "Transition duration",
+  "transitionDurationDescription": "How long the camera takes to move to the next slide. On the last slide, this is used when you add a new one.",
+  "transitionDurationValue": "{seconds}s transition",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Add keyframe here",
+  "updateKeyframe": "Update from current camera",
+  "deleteKeyframe": "Delete keyframe",
+  "markAsSlide": "Mark as slide",
+  "removeSlideMarker": "Remove slide marker",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "ଏସେଟ୍ ଚୟନ କରନ୍ତୁ",
+  "clearStyle": "ଶୈଳୀ ସଫା କରନ୍ତୁ",
+  "unknownImportType": "ଅଜଣା ଆମଦାନି ପ୍ରକାର",
+  "sureImportTemplate": "ତୁମେ ନିଶ୍ଚିତ ଭାବେ ଟେମ୍ପଲେଟ୍ ଆମଦାନି କରିବାକୁ ଚାହୁଁଛ?",
+  "frame": "ଫ୍ରେମ୍",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "ଚାଳନା",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "ଭିଡିଓ",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "ବ୍ରେକପଏଣ୍ଟ",
+  "presentationControls": "ପ୍ରସ୍ତୁତିକରଣ ନିୟନ୍ତ୍ରଣ",
+  "nextSlide": "ପରବର୍ତ୍ତୀ ସ୍ଲାଇଡ୍",
+  "nextSlideDescription": "ଡାହାଣ କୋଣକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ କିମ୍ବା ସଜା ବାଣ୍ୟ କୀକୁ ଦାବନ୍ତୁ",
+  "previousSlide": "ପୂର୍ବବର୍ତ୍ତୀ ସ୍ଲାଇଡ୍",
+  "previousSlideDescription": "ବାମ କୋଣକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ କିମ୍ବା ବାମ ଏରୋ କୀକୁ ଦାବନ୍ତୁ",
+  "exitPresentation": "ପ୍ରସ୍ତୁତିକରଣ ଛାଡ଼ନ୍ତୁ",
+  "exitPresentationDescription": "ESC କିକିମ୍ବା ତଳକୁ ସ୍ୱାଇପ୍ କରି ପ୍ରସ୍ତୁତିକରଣ ଛାଡ଼ନ୍ତୁ",
+  "pausePresentation": "ପ୍ରସ୍ତୁତିକରଣ ବିରତି",
+  "pausePresentationDescription": "ତ୍ୟାବ କିମ୍ବା ସ୍ପେସ୍ ବାର୍ ଦାବି ପ୍ରସ୍ତୁତିକରଣ ବିରତି କିମ୍ବା ଚାଳୁ କରନ୍ତୁ",
+  "keyframe": "କୀଫ୍ରେମ୍",
+  "endOfPresentation": "ତୁମେ ପ୍ରସ୍ତୁତିକରଣର ଶେଷକୁ ପହଞ୍ଚିଛ",
+  "startOfPresentation": "ତୁମେ ପ୍ରସ୍ତୁତିକରଣର ଆରମ୍ଭକୁ ପହଞ୍ଚିଛ",
+  "palettes": "ପ୍ୟାଲେଟ୍",
+  "headline": "ଶୀର୍ଷକ {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "କୋଡ୍",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "ଉଦ୍ଧୃତ",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "ଲିଙ୍କ୍",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "ଚେକ୍ବକ୍ସ୍",
+  "deleted": "ଡିଲିଟ୍ ହେଲା",
+  "emphasis": "ଗୁରୁତ୍ୱାକର୍ଷଣ",
+  "listBullet": "ଲିଷ୍ଟ୍ ବୁଲେଟ୍",
+  "strong": "ହେମ୍",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "ହୋମ୍",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "ଫାଇଲ୍ଗୁଡିକ",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "ଦ୍ୱାରା ଛାଣନ୍ତୁ",
+  "location": "ସ୍ଥାନ",
+  "whatsNew": "କ'ଣ ନୂତନ?",
+  "unstar": "ଅନସ୍ଟାର୍",
+  "star": "ସ୍ଟାର୍",
+  "goUp": "ଉପରକୁ ଯାନ୍ତୁ",
+  "created": "ତିଆରି",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "ସଂଶୋଧିତ",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "ଦ୍ରୁତ ଆରମ୍ଭ",
+  "noTemplates": "ସାମ୍ପ୍ରତିକ ଭାବରେ କୌଣସି ଟେମ୍ପଲେଟ୍ ନାହିଁ",
+  "importCorePack": "କୋର୍ ପ୍ୟାକ୍ ଆମଦାନି",
+  "importCorePackDescription": "ସମସ୍ତ ବେସିକ୍ ଏସେଟ୍ ସହ କୋର୍ ପ୍ୟାକ୍ ଆମଦାନି କରନ୍ତୁ। ଏହା ଚଳୁ କୋर୍ ପ୍ୟାକ୍ କୁ ଓଭର୍ରାଇଟ୍ କରିବ।",
+  "never": "କେବେ ନୁହେଁ",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "କେବଳ ଅଦ୍ୟତନରେ",
+  "visibility": "ଦୃଶ୍ୟତା",
+  "captureThumbnail": "ଥମ୍ନେଲ୍ ଧରନ୍ତୁ",
+  "autoThumbnail": "Update thumbnail on close",
+  "autoThumbnailDescription": "Capture the current view when you close this document. Manually capturing a thumbnail turns this off.",
+  "capturedThumbnail": "ଥମ୍ନେଲ୍ ସଫଳତାର ସହିତ ଧରାଗଲା",
+  "chooseLabelMode": "ଲେବେଲ୍ ମୋଡ୍ ଚୟନ କରନ୍ତୁ",
+  "foreground": "ସାମ୍ନା",
+  "version": "ସଂସ୍କରଣ",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "ରିପୋଜିଟୋରି",
+  "pages": "ପୃଷ୍ଠାଗୁଡିକ",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "ନାଭିଗେଟର୍",
+  "arrange": "ସଜାନ୍ତୁ",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "ସାମ୍ନାକୁ ଆଣନ୍ତୁ",
+  "sendToBack": "ପଛକୁ ପଠାନ୍ତୁ",
+  "bringForward": "ଆଗକୁ ଆଣନ୍ତୁ",
+  "sendBackward": "ପଛକୁ ପଠାନ୍ତୁ",
+  "rotation": "ଘୁର୍ଣ୍ଣନ",
+  "rotationStep": "Rotation step",
+  "zoomStep": "Zoom step",
+  "zoomStepDescription": "Amount used by the zoom in and zoom out keyboard shortcuts. Continuous zoom gestures use their own sensitivity setting.",
+  "direction": "Direction",
+  "onlyAvailableLargerScreen": "ମାତ୍ର ବଡ଼ ସ୍କ୍ରିନ୍ ଉପଲବ୍ଧ",
+  "toolbarPosition": "ଟୁଲ୍ବାର ସ୍ଥାନ",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "ଘୁରାନ୍ତୁ",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Rotate left",
+  "rotateRight": "Rotate right",
+  "spacer": "ସ୍ପେସର୍",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "ନାଭିଗେସନ୍ ରେଲ୍",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "କଟ୍",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "ପୂର୍ବରୁ ସଂଯୋଜନ",
+  "insertAfter": "ପରେ ସଂଯୋଜନ",
+  "insertFirst": "ପ୍ରଥମେ ସଂଯୋଜନ",
+  "insertLast": "ଶେଷରେ ସଂଯୋଜନ",
+  "paste": "ପେଷ୍ଟ୍",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "ଉର୍ଦ୍ଧ୍ୱଗତ",
+  "descending": "ଅବରୋହଣ",
+  "imageScale": "ଛବି ପ୍ରମାଣ",
+  "svgScale": "SVG scale",
+  "noImageSelected": "No image selected",
+  "noSvgSelected": "No SVG selected",
+  "select": "ଚୟନ କରନ୍ତୁ",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "ଉପକରଣ",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "ବିତାନା",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "ଛୋଟ",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "ଡେସ୍କଟପ୍",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "ମୋବାଇଲ୍",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "ପୃଷ୍ଠତଳ",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "ନମୁନା",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "ତୁମେ ନିଶ୍ଚିତ ଭାବେ ଡକ୍ୟୁମେଣ୍ଟ ବନ୍ଦ କରିବାକୁ ଚାହୁଁଛ?",
+  "thereAreUnsavedChanges": "ଅସଞ୍ଚିତ ପରିବର୍ତ୍ତନ ଅଛି",
+  "page": "ପୃଷ୍ଠା",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "ICE ସର୍ବର୍ଗୁଡିକ",
+  "collaboration": "ସହଯୋଗ",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Socket",
+  "iceServer": "ICE ସର୍ବର୍",
+  "port": "ପୋର୍ଟ୍",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "ପ୍ରକାର",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "ପାଆର୍ଶ୍ୱ",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "କ୍ଲାୟେଣ୍ଟ୍",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "ସର୍ବର୍",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "ଭିଉ ମାପଂତୁ",
+  "lasso": "ଲାସୋ",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "UI ଲୁଚାନ୍ତୁ",
+  "density": "ଘନତା",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "ସଂକ୍ଷିପ୍ତ",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "आरାମଦାୟକ",
+  "standard": "ମାନ",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "ଲକ୍",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "ଉପାଦାନ ଯୋଡନ୍ତୁ",
+  "notDefaultConnection": "ଡିଫଲ୍ଟ ସଂଯୋଗ ନୁହେଁ",
+  "defaultConnection": "ଡିଫଲ୍ଟ ସଂଯୋଗ",
+  "hide": "ଲୁଚାନ୍ତୁ",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "ଦେଖାନ୍ତୁ",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "ବିରତି",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "ବନ୍ଦ କରନ୍ତୁ",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "ତାଜା କରନ୍ତୁ",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "ମୁଦ୍ରଣ",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "ଆଖିର ଛଡା",
+  "users": "ବ୍ୟବହାରକାରୀ",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "ପ୍ରୟୋଗ",
+  "experimentsWarning": "ଏହି ବୈଶିଷ୍ଟ୍ୟଗୁଡିକ ପ୍ରୟୋଗଶୀଳ ଏବଂ କେବେ ମଧ୍ୟ ଫେରି ଯାଇପାରିବ। ସଚେତନ ଭାବେ ଆଗକୁ ଆଗୁଆ କରନ୍ତୁ। ଦୟାକରି କ bug ଣସି ବଗ୍ ଚିହ୍ନଟ କରନ୍ତୁ।",
+  "address": "ଠିକଣା",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "ପୃଷ୍ଠାଗୁଡିକକୁ ପ୍ରସାରିତ କରନ୍ତୁ",
+  "rootDirectorySpecifiedDescription": "ମୂଳ ଡିରେକ୍ଟୋରି ନିର୍ଦ୍ଦିଷ୍ଟ। ସମସ୍ତ ଉନ୍ନତ ଡିରେକ୍ଟୋରି ପଥ ଏହା ପ୍ରତ୍ୟକ୍ଷ କରିବ। ଏହାକୁ ଖାଲି ରଖିଲେ ଏହି ପ୍ରକାର ବନ୍ଦ ହେବ।",
+  "rootDirectoryNotSpecifiedDescription": "ମୂଳ ଡିରେକ୍ଟୋରି ନିର୍ଦ୍ଦିଷ୍ଟ ନୁହେଁ। ଏକ ନାମ ଆବଶ୍ୟକ। ସମସ୍ତ ଉନ୍ନତ ଡିରେକ୍ଟୋରି ପଥ ସମ୍ପୂର୍ଣ୍ଣ ହେବ। ଏହାକୁ ଖାଲି ରଖିଲେ ଏହି ପ୍ରକାର ବନ୍ଦ ହେବ।",
+  "unsecureConnectionTitle": "ନିରାପଦ ସଂଯୋଗ",
+  "unsecureConnectionMessage": "ସଂଯୋଗ ସୁରକ୍ଷିତ ନୁହେଁ। ଏହା ଏକ ସୁରକ୍ଷା ବିପଦ ହୋଇପାରେ। ମାତ୍ର ଯଦି ତୁମେ ଭରସା କର, ତେବେ ଆଗକୁ ଚାଲନ୍ତୁ। ସha1 ଫିଙ୍ଗରପ୍ରିଣ୍ଟ୍ {fingerprint}।",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "ତଥାପି ଆଗକୁ ବଢ଼ନ୍ତୁ",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Show navigator previews",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Show cached preview thumbnails in the areas and pages navigators",
+  "highContrast": "ଉଚ୍ଚ ବିପରୀତତା",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "ଏହି ମୂଲ୍ୟଟି ବୈଧ ସଂଖ୍ୟା ହେବା ଉଚିତ",
+  "createAreas": "ଅଞ୍ଚଳ ତିଆରି କରନ୍ତୁ",
+  "autosave": "ସ୍ଵୟଂଚାଳିତ ସଞ୍ଚୟ",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "ବିପରୀତ",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "କାର୍ଯ୍ୟାନୁଷ୍ଠାନ",
+  "medium": "ମଧ୍ୟମ",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "ବଡ଼",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "ଟୁଲ୍ବାର ଆକାର",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "ସବୁଯୋଗ କରନ୍ତୁ",
+  "onlyCurrentPage": "କେବଳ ଚଳୁ ପୃଷ୍ଠା",
+  "smoothNavigation": "ସ୍ମୂଥ୍ ନାଭିଗେସନ୍",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Edge pan area switching",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Use Android SAF",
+  "exact": "ଖୋଲ୍",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "ଇନ୍ଲାଇନ୍",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "ଟୁଲ୍ବାର ତାଲିକା",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "ପଏଣ୍ଟର୍ ପରୀକ୍ଷା",
+  "pressure": "ଦବାଇ",
+  "small": "ଛୋଟ",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "ମିନି",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "ସବୁ ଚୟନ କରନ୍ତୁ",
+  "overrideTools": "ଟୁଲ୍ ଓଭର୍ରାଇଟ୍",
+  "hideCursorWhileDrawing": "ଚିତ୍ରାଙ୍କନ କାଳୀନ କର୍ସର୍ ଲୁଚାନ୍ତୁ",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "ଇନ୍‌ସ୍ଟଲ୍ ହେଲା",
+  "install": "ଇନ୍‌ସ୍ଟଲ୍",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "ଚୟନ ହଟାନ୍ତୁ",
+  "changeCollection": "ସଂଗ୍ରହ ପରିବର୍ତ୍ତନ",
+  "collections": "ସଂଗ୍ରହ",
+  "fullSelection": "ସମ୍ପୂର୍ଣ୍ଣ ଚୟନ",
+  "collection": "ସଂଗ୍ରହ",
+  "defaultCollection": "ଡିଫଲ୍ଟ ସଂଗ୍ରହ",
+  "scroll": "ସ୍କ୍ରୋଲ୍",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "ଆରମ୍ଭରେ",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "ହୋମ୍ ସ୍କ୍ରିନ୍",
+  "lastNote": "ଶେଷ ଟିପ୍ପଣୀ",
+  "newNote": "ନୂତନ ଟିପ୍ପଣୀ",
+  "moveToLayer": "Move to layer",
+  "createLayer": "Create layer",
+  "merge": "ମିଶାନ୍ତୁ",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "ଉପରକୁ",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "ନିମ୍ନକୁ",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "ଅନ୍ୟ",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{କୌଣସି ଉପାଦାନ ନାହିଁ} =1{1 ଉପାଦାନ} other{{count} ଉପାଦାନ}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "ରଙ୍ଗ ଟୁଲ୍ବାର",
+  "yesButShowButtons": "ହଁ, କିନ୍ତୁ ବଟନ୍ଗୁଡିକ ଦେଖାନ୍ତୁ",
+  "optionsPanelPosition": "ଓପ୍ସନ୍ ପ୍ୟାନେଲ୍ ସ୍ଥାନ",
+  "hideDuration": "ଦୀର୍ଘତା ଲୁଚାନ୍ତୁ",
+  "animation": "ଅନିମେସନ୍",
+  "performance": "ଦକ୍ଷତା",
+  "performanceDescription": "ଗତି ଏବଂ ସ୍ମୃତି ବ୍ୟବହାର ପାଇଁ ଅପ୍ଟିମାଇଜ୍। କେବଳ ଦେଖାଯାଉଥିବା ଅଞ୍ଚଳ ଇମେଜ୍ ବେକ୍ କରାଯାଏ।",
+  "normalDescription": "ଗୁଣତ୍ତା ଏବଂ ଦକ୍ଷତା ମଧ୍ୟରେ ସମତୁଳନ। ଦৃଶ୍ୟମାନ ଅଞ୍ଚଳର 1.5 ଗୁଣ ଇମେଜ୍ ବେକ୍ କରାଯାଏ, ଯାହା ସ୍କ୍ରୋଲ୍ ସମୟରେ ସ୍ମୂଥ୍ ରୂପରେ ତରଙ୍ଗ ପ୍ରଦାନ କରେ।",
+  "high": "ଉଚ୍ଚ",
+  "highDescription": "Maximizes quality at the cost of performance. Bakes an image covering 2 times the visible area, ensuring seamless rendering even during rapid scrolling or zooming.",
+  "renderResolution": "ରେଣ୍ଡର୍ ରେଜୋଲ୍ୟୁସନ୍",
+  "translate": "ଅନୁବାଦ",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "ଅଏନ୍କ୍ରିପ୍ଟେଡ୍",
+  "encrypted": "ଏନ୍କ୍ରିପ୍ଟେଡ୍",
+  "encryptDocumentMessage": "ଡକ୍ୟୁମେଣ୍ଟ ଏନ୍କ୍ରିପ୍ଟ କରିବାକୁ କ୍ଲିକ୍ କରନ୍ତୁ",
+  "unencryptDocumentMessage": "ଡକ୍ୟୁମେଣ୍ଟ ଅଏନ୍କ୍ରିପ୍ଟ କରିବାକୁ କ୍ଲିକ୍ କରନ୍ତୁ",
+  "unencrypt": "ଅଏନ୍କ୍ରିପ୍ଟ କରନ୍ତୁ",
+  "encrypt": "ଏନ୍କ୍ରିପ୍ଟ କରନ୍ତୁ",
+  "encryptWarning": "ଏହା ଡକ୍ୟୁମେଣ୍ଟ ଏନ୍କ୍ରିପ୍ଟ କରିବ। ଡିକ୍ରିପ୍ଟ କରିବାକୁ ପାସୱାର୍ଡ ସ୍ମରଣ ରଖିବାକୁ ପଡ଼ିବ।",
+  "unencryptWarning": "ଏହା ଡକ୍ୟୁମେଣ୍ଟ ଅଏନ୍କ୍ରିପ୍ଟ କରିବ। ପାସୱାର୍ଡ ହଟିଯିବ ଏବଂ ସମସ୍ତଙ୍କୁ ଖୋଲିବାର ଅଧିକାର ମିଳିବ।",
+  "confirmPassword": "ପାସୱାର୍ଡ ପୁନଃପ୍ରମାଣିତ କରନ୍ତୁ",
+  "passwordMismatch": "ପାସୱାର୍ଡ ମେଳ ଖାଉନାହିଁ",
+  "action": "କାର୍ୟ",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "SVG ଟେକ୍ସ୍ଟ୍",
+  "offset": "ଓଫସେଟ୍",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "End",
+  "radius": "Radius",
+  "focalPoint": "Focal point",
+  "useOffCenterStartPoint": "Use an off-center start point",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Color stops",
+  "addStop": "Add stop",
+  "positionDependent": "ସ୍ଥିତି ନିର୍ଭର",
+  "flipHorizontal": "ଆଡ଼ ଫ୍ଲିପ୍",
+  "flipVertical": "ଉର୍ଧ୍ୱା ଫ୍ଲିପ୍",
+  "grayscale": "ଗ୍ରେସ୍କେଲ୍",
+  "moveOnGesture": "ଇଶାରାରେ ସରାନ୍ତୁ",
+  "exportAllFiles": "ସମସ୍ତ ଫାଇଲ୍ ନିର୍ୟାତ",
+  "restoreSettingsFromFile": "ଫାଇଲ୍ରୁ ସେଟିଂସ୍ ପୁନଃସ୍ଥାପନ",
+  "resetAllSettings": "Reset all settings",
+  "exportSettingsToFile": "ସେଟିଂସ୍ ଫାଇଲ୍ ରେ ନିର୍ୟାତ",
+  "barcode": "ବାର୍କୋଡ୍",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "ବାର୍କୋଡ୍ ପ୍ରକାର",
+  "qrCode": "QR କୋଡ୍",
+  "dataMatrix": "ଡାଟା ମ୍ୟାଟ୍ରିକ୍ସ",
+  "code128": "କୋଡ୍ 128",
+  "defaultUserName": "ଉପଯୋଗକର୍ତ୍ତା {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "ବାମକୁ ସରାନ୍ତୁ",
+  "moveRight": "ଦକ୍ଷିଣକୁ ସରାନ୍ତୁ",
+  "bundledPacks": "ବନ୍ଧା ପ୍ୟାକ୍",
+  "component": "Component",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "ଉପାଦାନ ଚୟନ କରନ୍ତୁ",
+  "bundlePackInDocument": "ଡକ୍ୟୁମେଣ୍ଟରେ ପ୍ୟାକ୍ ବନ୍ଧନ୍ତୁ",
+  "bundledPacksDescription": "ବନ୍ଧା ପ୍ୟାକ୍ ଡକ୍ୟୁମେଣ୍ଟରେ ସହିତ ଥାଏ, ପ୍ରତି ଡକ୍ୟୁମେଣ୍ଟରେ ବାଣ୍ଟିବା ପାଇଁ। ଏପି ପ୍ୟାକ୍ ଇନ୍‌ସ୍ଟଲ୍ କଲେ ଉପାଦାନ ବ୍ୟବହାର ହେବ।",
+  "fillAlpha": "ଆଲଫା ପୂରଣ",
+  "packagedFile": "ପ୍ୟାକେଜ୍ ଫାଇଲ୍",
+  "rawFile": "କଚ୍ଚା ଫାଇଲ୍",
+  "webSocketDescription": "ତୁମର ଡିଭାଇସ୍ ସର୍ବର୍ ହୋଷ୍ଟ୍ କରିଥାଏ, ସହଯୋଗୀମାନେ ଏକେଇ ନେଟୱର୍କ୍ ପାଇଁ କିମ୍ବା ପୋର୍ଟ୍ ଫରୱାର୍ଡ କଲେ ଯେଉଁଠାରୁ ଯୋଡିପାରିବେ।",
+  "swampDescription": "ତୁମର ମେସେଜ୍ ଏକ ସୁରକ୍ଷିତ ମଞ୍ଜିଲ୍ ସର୍ଭର୍ ମାଧ୍ୟମରେ ଗତି କରେ। ସେସନ୍ ସୃଷ୍ଟି ପାଇଁ swamp ସର୍ବର୍ ଠିକଣା ଆବଶ୍ୟକ।",
+  "createRawNote": "କଚ୍ଚା ଟିପ୍ପଣୀ ତିଆରି କରନ୍ତୁ",
+  "polygon": "ବহୁଭୁଜ",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "ଆକୃତି ସମାପ୍ତ",
+  "submit": "ଦାଖଲ କରନ୍ତୁ",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Math",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ignore pressure",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignores the first pressure reading, which can be inaccurate on some styluses.",
+  "ignorePressureNeverDescription": "Uses every pressure reading from the stylus.",
+  "ignorePressureAlwaysDescription": "Ignores pressure and treats the stylus as fully pressed.",
+  "temporary": "Temporary",
+  "simpleToolbarVisibility": "Simple toolbar visibility",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Autosave delay",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Saved",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Saving...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Read only",
+  "saveDelayed": "Save delayed",
+  "unsaved": "Unsaved",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "There are currently no areas to export. Please select at least one area using the plus button in the top right corner or add all areas from the current page or from the whole document below.",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Customize shortcuts",
+  "clickToSave": "Click to save",
+  "toolbars": "Toolbars",
+  "logs": "Logs",
+  "ruledSimple": "Ruled simple",
+  "ruledSimpleDark": "Ruled simple dark",
+  "quadSimple": "Quad simple",
+  "quadSimpleDark": "Quad simple dark",
+  "redLinedRuled": "Red lined ruled",
+  "redLinedRuledDark": "Red lined ruled dark",
+  "redLinedQuad": "Red lined quad",
+  "redLinedQuadDark": "Red lined quad dark",
+  "noItemSelected": "No item selected",
+  "areaAsInitial": "Open area as initial view",
+  "swap": "Swap",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Hide file extension",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "New from template",
+  "exportAsTextShortcut": "Export as text",
+  "exportAsImageShortcut": "Export as image",
+  "exportAsPdfShortcut": "Export as PDF",
+  "exportAsSvgShortcut": "Export as SVG",
+  "changePathShortcut": "Change path",
+  "fullScreenShortcut": "Full screen",
+  "doublePressAction": "Double press action",
+  "triplePressAction": "Triple press action",
+  "twoFingerTap": "Two-finger tap",
+  "threeFingerTap": "Three-finger tap",
+  "longPress": "Long press",
+  "toolNumber": "Tool {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Hold Shortcuts",
+  "holdShortcutsDescription": "Hold a key to temporarily switch to another tool. Releasing the key switches back to the previous tool.",
+  "key": "Key",
+  "bringMovedElementsToFront": "Bring moved elements to front",
+  "addTool": "Add tool",
+  "nextPage": "Next page",
+  "previousPage": "Previous page",
+  "persistenceDocumentStates": "Persistent document states",
+  "persistentStatesEnabled": "Enable persistent document states",
+  "persistentStateCurrentPage": "Current page",
+  "persistentStateViewport": "Viewport position and zoom",
+  "persistentStateSelectedTool": "Selected tool",
+  "persistentStateMaxRecords": "Maximum stored records",
+  "persistentStateDeleteOlderThanDays": "Delete records older than days",
+  "persistentStateCleanup": "Clean up stored states",
+  "persistentStateCleanupDescription": "Delete records older than the limits above",
+  "persistentStateCleanupInProgress": "Cleaning up...",
+  "persistentStateDefaultLocks": "Default locks",
+  "persistentStateDefaultLocksDescription": "Apply these locks when a document has no saved state",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Cleaned up 1 storage location} other{Cleaned up {locations} storage locations}}; {records, plural, =1{removed 1 record} other{removed {records} records}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Saves changes automatically as you work.",
+  "autosaveDelayedDescription": "Saves changes automatically after the selected delay.",
+  "autosaveShowButtonDescription": "Saves automatically and also keeps the save button visible.",
+  "autosaveDisabledDescription": "Only saves when you use the save command.",
+  "hideCursorWhileDrawingDescription": "Hides the mouse pointer while you draw, so it does not cover your stroke.",
+  "onStartupHomeScreenDescription": "Opens the home screen when Butterfly starts.",
+  "onStartupLastNoteDescription": "Reopens your most recently used note when Butterfly starts.",
+  "onStartupNewNoteDescription": "Creates a new note when Butterfly starts.",
+  "smoothNavigationDescription": "Makes panning and zooming feel smoother by simplifying the canvas while it is moving.",
+  "edgePanAreaSwitchingDescription": "Switches to a neighboring area when you pan near the edge of the canvas.",
+  "collaborationDescription": "Allows multiple people to edit the same note together in real time.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Includes detailed diagnostic messages in the log view and console. These messages can help when troubleshooting a problem.",
+  "bringMovedElementsToFrontDescription": "Places an element above overlapping elements after you move it.",
+  "persistenceDocumentStatesDescription": "Controls which parts of your workspace Butterfly remembers for each note, such as the current page, zoom, and selected tool.",
+  "persistentStatesEnabledDescription": "Store document state information between app sessions",
+  "persistentStateCurrentPageDescription": "Remember the current page when reopening a file",
+  "persistentStateViewportDescription": "Remember the viewport position, zoom and rotation for each page",
+  "persistentStateSelectedToolDescription": "Remember the selected tool when reopening a file",
+  "persistentStateLocksDescription": "Remember lock settings when reopening a file",
+  "persistentStateNavigatorDescription": "Remember the navigator state when reopening a file",
+  "persistentStateLayersDescription": "Remember the layer panel state when reopening a file",
+  "persistentStateAreasDescription": "Remember the area panel state when reopening a file",
+  "persistentStateAutoThumbnail": "Automatic thumbnails",
+  "persistentStateAutoThumbnailDescription": "Show the per-document switch and allow thumbnails to update when documents close",
+  "persistentStateMaxRecordsDescription": "Keep at most this many stored states per file",
+  "persistentStateDeleteOlderThanDaysDescription": "Delete stored states older than this many days",
+  "contentViewportDescription": "Limits how far you can pan away from the content of your note.",
+  "limitViewportPositiveDescription": "Keeps the canvas within the area to the right and below its starting point.",
+  "startInFullScreenDescription": "Opens Butterfly in full-screen mode when supported.",
+  "designDescription": "Changes the overall visual style of Butterfly without changing whether the app uses light or dark colors.",
+  "platformThemeDescription": "Lets you use the desktop or mobile layout instead of the layout Butterfly normally chooses for your device.",
+  "densityDescription": "Changes the spacing and size of interface elements. It does not change the size of your note content.",
+  "highContrastDescription": "Uses stronger color differences to make controls and text easier to distinguish.",
+  "nativeTitleBarDescription": "Uses your operating system's standard window title bar instead of Butterfly's custom title bar.",
+  "propertiesDescription": "Chooses where the panel for editing the selected tool or element appears.",
+  "navigationRailDescription": "Shows a permanent navigation bar on wide screens for quicker access to app sections.",
+  "optionsPanelPositionDescription": "Chooses whether tool options appear above or below the canvas.",
+  "simpleToolbarVisibilityDescription": "Controls when the smaller, simplified toolbar appears while editing a note.",
+  "penOnlyInputDescription": "Prevents accidental marks from your hand or mouse by choosing when only stylus input can draw.",
+  "showPenOnlyToggleDescription": "Shows a quick stylus-only switch in the editor after Butterfly detects a stylus.",
+  "ignorePressureDescription": "Controls whether stylus pressure changes the stroke and works around inaccurate pressure readings from some styluses.",
+  "moveOnGestureDescription": "Lets multi-touch gestures move the canvas instead of interacting with note content.",
+  "spreadPagesDescription": "Splits multi-page imports across separate note pages instead of placing everything on one page.",
+  "shear": "Shear",
+  "resetRotation": "Reset rotation",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Choose the controls for zoom and rotation. Reset buttons remain available in every layout.",
+  "zoomPanelFull": "Full (slider, text field and buttons)",
+  "zoomPanelSliderInput": "Slider and text field",
+  "zoomPanelSlider": "Slider",
+  "zoomPanelInputButtons": "Text field and buttons",
+  "zoomPanelInput": "Text field",
+  "rotationDisplay": "Rotation display",
+  "rotationDisplayDescription": "Choose when the rotation row appears above zoom. This does not change rotation gestures or shortcuts.",
+  "whenRotated": "When rotated",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Rotate canvas by dragging"
+}

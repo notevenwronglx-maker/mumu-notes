@@ -1,0 +1,1693 @@
+{
+  "open": "Avaa",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Paljasta tiedostonetsintä",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Asetukset",
+  "personalization": "Mukauttaminen",
+  "theme": "Teema",
+  "darkTheme": "Tumma teema",
+  "lightTheme": "Vaalea teema",
+  "systemTheme": "Käytä järjestelmän oletusteemaa",
+  "view": "Näytä",
+  "contentViewport": "Sisällön Näyttöportti",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Rajoita näkymä positiivisiin koordinaatteihin",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Pois",
+  "canvas": "Kanava",
+  "interface": "Käyttöliittymä",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Muokkaa",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Vie",
+  "save": "Tallenna",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Zoomaus",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Zoomaa sisään",
+  "zoomOut": "Zoomaa ulos",
+  "resetZoom": "Reset zoom",
+  "strokeWidth": "Aivojen leveys",
+  "strokeStyle": "Stroke tyyli",
+  "dashLength": "Dash pituus",
+  "gapLength": "Vaaran pituus",
+  "includeEraser": "Sisällytä tyhjennys?",
+  "thinning": "Hehkuminen",
+  "pen": "Kynä",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Käänteinen Stylus",
+  "eraser": "Eraser",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Aivohalvaus",
+  "label": "Tunniste",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Poista",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Oletko varma?",
+  "reallyDelete": "Haluatko varmasti poistaa tämän kohteen?",
+  "no": "Ei",
+  "yes": "Kyllä",
+  "undo": "Kumoa",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Toista",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "Yleiset",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Kopioitu leikepöydälle",
+  "loading": "Ladataan...",
+  "enterText": "Syötä teksti",
+  "size": "Koko",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Width",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Korkeus",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Lukumäärä",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Tila",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Tausta",
+  "applyBackground": "Käytä taustakuvaa",
+  "applyAreas": "Käytä alueita",
+  "currentPage": "Nykyinen sivu",
+  "allPages": "Kaikki sivut",
+  "box": "Laatikko",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "Lokaatio",
+  "systemLocale": "Järjestelmän kieli",
+  "information": "Tiedot",
+  "license": "Lisenssi",
+  "imprint": "Jälki",
+  "privacypolicy": "Yksityisyyden suoja",
+  "sourceCode": "Lähdekoodi",
+  "documentation": "Dokumentaatio",
+  "changelog": "Muutosloki",
+  "source": "Lähde",
+  "existOverride": "Tämä elementti on jo olemassa. Korvaa?",
+  "description": "Kuvaus",
+  "fill": "Täytä",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Oletus paletti",
+  "highlighter": "Korostus",
+  "combinePaths": "Yhdistä polut",
+  "add": "Lisää",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Poista",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Haluatko todella poistaa tämän?",
+  "resetPalette": "Reset palette",
+  "custom": "Mukautettu",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Koristelu",
+  "underline": "Alleviivaa",
+  "overline": "Yliviiva",
+  "strikethrough": "Yliviivaus",
+  "thickness": "Paksuus",
+  "style": "Tyyli",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Solid",
+  "solidColor": "Kiinteä väri",
+  "gradient": "Gradientti",
+  "gradientType": "Gradientti tyyppi",
+  "linear": "Lineaarinen",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Kaksinkertainen",
+  "dotted": "Pisteytetty",
+  "dottedDark": "Pilkullinen tumma",
+  "dashed": "Katkoviiva",
+  "wavy": "Wavy",
+  "fontWeight": "Kirjasimen paino",
+  "normal": "Normaali",
+  "bold": "Bold",
+  "italic": "Italic",
+  "clipboard": "Leikepöytä",
+  "file": "Tiedosto",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Tiedot",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Jaa",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Väli",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Kuva",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Anna URL-osoite",
+  "scale": "Skaalaa",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Ohje",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Haluatko todella palauttaa sen?",
+  "whatToDo": "Mitä sinä haluat tehdä?",
+  "ignore": "Ohita",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Varmuuskopio",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Varmuuskopioi yhteys",
+  "automaticBackups": "Automaattiset varmuuskopiot",
+  "automaticBackupsDescription": "Luo varmuuskopiot Butterfyn ollessa käynnissä.",
+  "backupInterval": "Varmuuskopioinnin aikaväli",
+  "backupNow": "Varmuuskopioi nyt",
+  "lastBackup": "Viimeisin varmuuskopiointi",
+  "backupCreated": "Varmuuskopio luotu",
+  "hour": "tunti",
+  "hours": "tuntia",
+  "day": "päivä",
+  "days": "päivää",
+  "week": "viikko",
+  "weeks": "viikkoa",
+  "createdInNewerVersion": "Tiedosto {fileName} on luotu uudempaan versioon ({fileVersion}). Mitä pitäisi tehdä tällä tiedostolla?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Reittipisteet",
+  "origin": "Alkuperä",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "Tuo",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "Uusi",
+  "selectElement": "Valitse elementti",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Vaihto",
+  "altKey": "Alt",
+  "copyVersion": "Kopioi versio",
+  "input": "Input",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Käyttäytymiset",
+  "dataDirectory": "Datakansio",
+  "warning": "Varoitus",
+  "platformExperimentalWarning": "Varoitus: Tämä asetus on kokeellinen ja voi olla ongelmia tällä alustalla.",
+  "changeDataDirectoryWarningContent": "Oletko varma, että haluat muuttaa tietokansiota? Sinun pitäisi tehdä varmuuskopio tiedoistasi ennen jatkamista.",
+  "defaultPath": "Oletus polku",
+  "dateFormat": "Päivämäärän muoto",
+  "updatedAt": "Päivitetty: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Luotu {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Uudelleennimeä",
+  "duplicate": "Duplicate",
+  "hand": "Käsi",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Kansio",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Siirrä",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Kopioi",
+  "openContextMenu": "Avaa kontekstivalikko",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Takaisin",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Eteenpäin",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Lähennys riippuvainen",
+  "shapeDetection": "Muodon Tunnistaminen",
+  "delay": "Viive",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Oletus taso",
+  "layer": "Taso",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Kerrokset",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "Ei asetettu",
+  "enterLayer": "Syötä kerroksen nimi",
+  "eraseShapes": "Pyyhi muodot",
+  "eraseShapeModeNone": "Älä poista muotoja",
+  "eraseShapeModeTouchEdges": "Pyyhi kun koskettaa reunoja",
+  "eraseShapeModeTouchAnywhere": "Pyyhi koskettaessa minne tahansa",
+  "selectElementModeTouchEdges": "Valitse kun koskettaa reunoja",
+  "selectElementModeTouchAnywhere": "Valitse koskettaessasi mihin tahansa",
+  "selectElements": "Valitse elementit",
+  "deleteElements": "Poista elementit",
+  "eraseAllElements": "Poista kaikki elementit",
+  "deleteElementsConfirm": "Haluatko varmasti poistaa valitut elementit?",
+  "selectCustomCollection": "Valitse mukautettu kokoelma",
+  "svg": "SVG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Herkkyys",
+  "selectionTolerance": "Valinnan toleranssi",
+  "selectionToleranceDescription": "Osoittimen sulkemisen tulee olla elementti tai alue, jotta se voidaan valita. Korkeammat arvot helpottavat valintaa.",
+  "selectionHandleSensitivity": "Valintakahvan osuma alue",
+  "selectionHandleSensitivityDescription": "Kokoluokka osuma alueen ympärillä valinta ja alue kahvat kaikille osoitin tyyppejä.",
+  "panGestureSensitivity": "Pan eleen herkkyys",
+  "panGestureSensitivityDescription": "Canvas liike kosketuksesta tai ohjauspaneelin eleistä. Korkeammat arvot liikuttavat kanavaa pidemmälle.",
+  "zoomGestureSensitivity": "Jatkuva zoomausherkkyys",
+  "zoomGestureSensitivityDescription": "Zoomaa nipistämisestä, ohjauslevyn eleistä ja Ctrl+scrollista. Korkeammat arvot zoomaavat pidemmälle.",
+  "rotationGestureSensitivity": "Kierto eleen herkkyys",
+  "rotationGestureSensitivityDescription": "Canvas kierto eleistä. Korkeammat arvot kiertävät pidemmälle.",
+  "scrollPanSensitivity": "Vieritä pannuherkkyyttä",
+  "scrollPanSensitivityDescription": "Canvas liike hiiren pyörä ja ohjauslevy vieritys. Korkeampi arvot kauemmin.",
+  "horizontal": "Vaakasuora",
+  "vertical": "Pystysuora",
+  "plain": "Tavallinen",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Vaalea",
+  "ruled": "Kielletty",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Quad",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Musiikki",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Tumma",
+  "plainDark": "Tavallinen tumma",
+  "ruledDark": "Vedetty tumma",
+  "quadDark": "Quad tumma",
+  "musicDark": "Musiikki tumma",
+  "templates": "Mallit",
+  "untitled": "Nimetön",
+  "createTemplate": "Luo malli",
+  "createTemplateContent": "Haluatko varmasti luoda mallin tästä asiakirjasta? Alkuperäinen asiakirja poistetaan.",
+  "fileName": "Tiedoston nimi",
+  "defaultFileName": "Oletustiedoston nimi",
+  "templateFileNameDescription": "Sivupohjan poimijalta avatut asiakirjat tallennetaan automaattisesti tällä nimellä. Mallit ilman nimeä käyttävät oletusasetuksia, jotka on määritetty Data asetuksissa. Yhdistä oma tekstisi {dateExample} ja {timeExample}. Merkkejä, jotka eivät ole sallittuja tiedostojen nimissä, hylätään.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Esikatselu",
+  "replace": "Korvaa",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Haluatko varmasti korvata mallin? Tätä toimintoa ei voi kumota!",
+  "defaultTemplate": "Oletus malli",
+  "insert": "Insert",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Asiakirja",
+  "documentStates": "Asiakirjan tila",
+  "camera": "Kamera",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Tuloste",
+  "selectCamera": "Valitse kamera",
+  "changeDocumentPath": "Muuta asiakirjan polkua",
+  "deleteWholeStroke": "Poista koko aivohalvaus",
+  "alpha": "Alfa",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Alue",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Valitse alue",
+  "aspectRatio": "Kuvasuhde",
+  "presets": "Esiasetukset",
+  "pagePortrait": "Sivun muotokuva",
+  "pageLandscape": "Sivun vaakakuva",
+  "square": "Neliö",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Alueet",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Syötä alue",
+  "exitArea": "Poistu alueesta",
+  "currentArea": "Nykyinen alue",
+  "design": "Ulkoasu",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Teksti",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Hei, tämä on Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "Vapaa ja avoimen lähdekoodin piirtotila!",
+  "updated": "Sovellus päivitetty versioon {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Vapauta muistiinpanot",
+  "constraints": "Rajoitukset",
+  "scaled": "Skaalattu",
+  "fixed": "Kiinteä",
+  "dynamicContent": "Dynaaminen",
+  "none": "Ei Mitään",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Sisällytä alue",
+  "verticalAlignment": "Pystysuuntainen suuntaus",
+  "horizontalAlignment": "Vaakasuora suuntaus",
+  "top": "Ylhäällä",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Keskitetty",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Alhaalla",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Vasen",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Oikea",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Tasaa",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Rajoitus",
+  "length": "Pituus",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "Vie SVG",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Valitse sivut",
+  "recentFiles": "Viimeisimmät tiedostot",
+  "start": "Aloita",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "Ei viimeaikaisia tiedostoja",
+  "countPages": "{count,plural, =0{Ei sivuja} =1{1 sivu} other{{count} sivua}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Sivu {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Poistu",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "Ei elementtejä",
+  "invertSelection": "Käännä valinta",
+  "errorWhileImporting": "Virhe tuotaessa",
+  "errorWhileImportingContent": "Tiedoston tuonnin yhteydessä tapahtui virhe",
+  "showDetails": "Näytä tiedot",
+  "hideDetails": "Piilota tiedot",
+  "error": "Virhe",
+  "stackTrace": "Pino jälki",
+  "laser": "Laser",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Kesto",
+  "quality": "Laatu",
+  "exportPdf": "Vie PDF",
+  "local": "Paikallinen",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Lisää yhteys",
+  "connections": "Yhteydet",
+  "noConnections": "Ei yhteyksiä",
+  "url": "URL-osoite",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "Koko WebDAV URL-osoite tarjoaa oman tallennuspalvelun tarjoaja",
+  "connect": "Yhdistä",
+  "username": "Käyttäjätunnus",
+  "password": "Salasana",
+  "authenticationPassword": "Todennuksen salasana",
+  "documentEncryptionPassword": "Asiakirjan salauksen salasana",
+  "documentEncryptionPasswordDescription": "Salaa tähän yhteyteen tallennetut asiakirjat. Jätä tyhjäksi pitääksesi salaamattomina",
+  "documentEncryptionEnabled": "Asiakirjan salaus käytössä",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Lisää asiakirjan salauksen salasana",
+  "changeDocumentEncryptionPassword": "Vaihda asiakirjan salauksen salasana",
+  "webNotSupported": "Verkkoa ei tueta",
+  "advanced": "Lisäasetukset",
+  "symmetric": "Symmetrinen",
+  "perSide": "Per puoli",
+  "directory": "Hakemisto",
+  "connectionNameDescription": "Käytetään vain tämän yhteyden tunnistamiseen Butterfyssa.",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Asiakirjojen hakemisto",
+  "templatesDirectory": "Mallien hakemisto",
+  "errorWhileCreatingConnection": "Virhe yhteyttä luotaessa",
+  "cannotConnect": "Ei voi yhdistää",
+  "urlNotValid": "URL ei kelpaa",
+  "icon": "Kuvake",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Valinnainen kuvan URL-osoite, jota käytetään yhteyskuvakkeena",
+  "update": "Päivitä",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Päivitys saatavilla",
+  "stable": "Vakaa",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Yöllä",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Tarkista päivitykset",
+  "checkForUpdatesWarning": "Tarkistamalla päivityksiä voit ottaa yhteyttä Butterflen verkkosivuihin saadaksesi tiedot.",
+  "usingLatestStable": "Käytät viimeisintä vakaata versiota",
+  "usingLatestNightly": "Olet käyttämässä uusinta yöllä versiota",
+  "currentVersion": "Nykyinen versio",
+  "updateNow": "Päivitä nyt",
+  "shape": "Muoto",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Taulukko",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rivit",
+  "columns": "Sarakkeet",
+  "row": "Rivi",
+  "column": "Sarake",
+  "insertRowBefore": "Lisää rivi ennen",
+  "insertRowAfter": "Lisää rivi jälkeen",
+  "insertColumnBefore": "Lisää sarake ennen",
+  "insertColumnAfter": "Lisää sarake jälkeen",
+  "deleteRow": "Poista rivi",
+  "deleteColumn": "Poista sarake",
+  "cellColor": "Solun väri",
+  "cellBorders": "Solun rajat",
+  "cellBorder": "Solun raja",
+  "horizontalBorder": "Vaakasuora raja",
+  "verticalBorder": "Pystysuora raja",
+  "rowHeight": "Rivin korkeus",
+  "columnWidth": "Sarakkeen leveys",
+  "border": "Border",
+  "circle": "Ympyrä",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Suorakulmio",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Kolmio",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Viiva",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Corner radius",
+  "topLeft": "Vasen yläreuna",
+  "topRight": "Oikea yläreuna",
+  "bottomLeft": "Vasen alareuna",
+  "bottomRight": "Oikea alareuna",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Kätköt",
+  "manage": "Hallitse",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Tyhjennä kätköt",
+  "createCache": "Luo välimuisti",
+  "thirdPartyLicenses": "Kolmansien osapuolten lisenssit",
+  "syncing": "Synkronoi...",
+  "synced": "Synkronoitu",
+  "notSynced": "Ei synkronoitu",
+  "conflict": "Ristiriita",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Säilytä paikallinen",
+  "keepConnection": "Pidä yhteys",
+  "keepBoth": "Pidä molemmat",
+  "forAll": "Kaikille",
+  "fileConflict": "{file} kohteessa {connection} on ristiriita",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Offline-tilassa",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "Paikallinen viimeisin",
+  "connectionLatest": "Yhteys viimeisin",
+  "path": "Polku",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Kansio synkronoitu",
+  "syncRootDirectory": "Synkronoi juurikansio",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Ota tyyli käyttöön automaattisesti, kun stylus havaitaan. Tämä asetus kestää vain nykyisen istunnon.",
+  "penOnlyInputOnDescription": "Hylkää aina kosketus ja hiiren syöte, vain hyväksy stylus syöte.",
+  "penOnlyInputOffDescription": "Hyväksy kaikki syöttötyypit, mukaan lukien kosketus, hiiri ja tyyli.",
+  "automatic": "Automaattinen",
+  "alwaysOn": "Aina päällä",
+  "alwaysOff": "Aina pois",
+  "showPenOnlyToggle": "Näytä vain tylus",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Input gestures",
+  "inputGesturesDescription": "Antaa sinun siirtää ja zoomata kankaalle kosketuseleitä, vaikka piirustustyökalu on valittu.",
+  "nativeTitleBar": "Alkuperäinen otsikkopalkki",
+  "mode": "Mode",
+  "syncMode": "Synkronoinnin tila",
+  "connection": "Yhteys",
+  "always": "Aina",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "Ei matkapuhelinta",
+  "syncModeAlwaysDescription": "Synkronoi etätiedostot automaattisesti aina kun ne muuttuvat.",
+  "syncModeNoMobileDescription": "Synkronoi automaattisesti paitsi mobiililaitteissa, mikä voi vähentää mobiilidatan käyttöä.",
+  "manual": "Manuaalinen",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Synkronoi vain kun aloitat sen itse.",
+  "search": "Etsi",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Ominaisuudet",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Kiinnitä",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Unpin",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Elementti",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Maalari",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Sijainti",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Huomautus",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Paketit",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Paketti",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "Lisää",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Pyydä nimeä",
+  "areaIndex": "Alue {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Aloita koko näytöllä",
+  "inputs": "Inputs",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Hiiri",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Kosketa",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Keyboard",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Pikanäppäimet",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Keskellä",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "Ensimmäinen",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "Sekunti",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Aktiivinen Työkalu",
+  "activeToolDescription": "Käytä tällä hetkellä valittua työkalua työkalurivillä",
+  "handTool": "Käsin Työkalu",
+  "handToolDescription": "Vedä liikkuaksesi kankaan ympärillä",
+  "toolOnToolbar": "Työkalurivin erityinen työkalu",
+  "toolOnToolbarDescription": "Käytä työkalua määritellyssä kohdassa työkalurivin kohdalla, vasemmalta alkaen",
+  "toolOnToolbarShort": "Työkalupalkin Asema: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Työkalut",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Näytä ruudukko",
+  "grid": "Ruudukko",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Viiva",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Kulma",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Raportoi",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "Uusi kansio",
+  "createPack": "Luo paketti",
+  "editPack": "Muokkaa pakettia",
+  "packsDirectory": "Paketti hakemisto",
+  "stamp": "Leima",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Lisää pakettiin",
+  "sureImportPack": "Oletko varma, että haluat tuoda paketin?",
+  "byAuthor": "esittäjä {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Tekijä",
+  "addAsset": "Lisää assetti",
+  "editAsset": "Muokkaa assettia",
+  "scope": "Soveltamisala",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "Paketteja ei ole tällä hetkellä saatavilla",
+  "components": "Komponentit",
+  "waypoint": "Reittipiste",
+  "actions": "Toiminnot",
+  "painters": "Maalarit",
+  "breakingChangesTitle": "Muutosten murtaminen",
+  "breakingChangesMessage": "Tässä versiossa on murrettu muutoksia. Lue muutosloki ennen päivitystä. Nykyinen tiedosto on {version}, uusi versio on {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Styles",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Kappale",
+  "fontFamily": "Kirjasinperhe",
+  "smoothing": "Pehmennys",
+  "streamline": "Streamline",
+  "presentation": "Esitys",
+  "simple": "Yksinkertainen",
+  "createPresentation": "Create presentation",
+  "addSlide": "Lisää uusi dia",
+  "updateSlide": "Päivitä dia",
+  "deleteSlide": "Poista dia",
+  "transitionDuration": "Siirtymän kesto",
+  "transitionDurationDescription": "Kuinka kauan kamera kestää siirtyä seuraavalle dialle. Viimeisellä dialla tätä käytetään, kun lisäät uuden dian.",
+  "transitionDurationValue": "{seconds}s siirtymä",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Lisää avainkehys tähän",
+  "updateKeyframe": "Päivitä nykyisestä kamerasta",
+  "deleteKeyframe": "Poista avainkehys",
+  "markAsSlide": "Merkitse diaksi",
+  "removeSlideMarker": "Poista diamerkki",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Frame {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "Valitse assetti",
+  "clearStyle": "Tyhjennä tyyli",
+  "unknownImportType": "Tuntematon tuontityyppi",
+  "sureImportTemplate": "Oletko varma, että haluat tuoda sivupohjan?",
+  "frame": "Frame",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Toista",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Keskeytyspiste",
+  "presentationControls": "Esityksen valvonta",
+  "nextSlide": "Seuraava dia",
+  "nextSlideDescription": "Pyyhkäise oikealle tai paina oikeaa nuolinäppäintä mennäksesi seuraavaan diaan",
+  "previousSlide": "Edellinen dia",
+  "previousSlideDescription": "Pyyhkäise vasemmalle tai paina vasenta nuolinäppäintä mennäksesi edelliseen diaan",
+  "exitPresentation": "Poistu esitystavasta",
+  "exitPresentationDescription": "Paina poistumisnäppäintä tai pyyhkäise alas poistuaksesi esityksestä",
+  "pausePresentation": "Keskeytä esitystapa",
+  "pausePresentationDescription": "Napauta näyttöä tai paina välilyöntiä pysäyttääksesi tai jatkaaksesi esitystä",
+  "keyframe": "Keyframe",
+  "endOfPresentation": "Olet saavuttanut esityksen loppuun asti",
+  "startOfPresentation": "Olet jo saavuttanut esityksen alun",
+  "palettes": "Palettes",
+  "headline": "Otsikko {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Koodi",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Tarjous",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Linkki",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Valintaruutu",
+  "deleted": "Poistettu",
+  "emphasis": "Korostus",
+  "listBullet": "Listaa luettelomerkki",
+  "strong": "Vahva",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Koti",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Tiedostot",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Järjestä",
+  "location": "Sijainti",
+  "whatsNew": "Mitä uutta?",
+  "unstar": "Poista",
+  "star": "Tähti",
+  "goUp": "Mene ylös",
+  "created": "Luotu",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Muokattu",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Quickstart",
+  "noTemplates": "Tällä hetkellä pohjia ei ole saatavilla",
+  "importCorePack": "Tuo ydinpaketti",
+  "importCorePackDescription": "Tuo ydin, joka sisältää kaikki perusassetit päästäksesi alkuun. Tämä ohittaa nykyisen ydinpaketin.",
+  "never": "Ei Koskaan",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Vain päivityksissä",
+  "visibility": "Näkyvyys",
+  "captureThumbnail": "Tallenna pikkukuva",
+  "autoThumbnail": "Päivitä pikkukuva suljettaessa",
+  "autoThumbnailDescription": "Kaappaa nykyinen näkymä, kun suljet tämän asiakirjan. Pienoiskuvan manuaalinen tallentaminen poistaa tämän käytöstä.",
+  "capturedThumbnail": "Pienoiskuvan talteenotto onnistui",
+  "chooseLabelMode": "Valitse tunnistetila",
+  "foreground": "Etuala",
+  "version": "Versio",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Versiovarasto",
+  "pages": "Sivut",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Navigator",
+  "arrange": "Järjestä",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Tuo eteen",
+  "sendToBack": "Lähetä takaisin",
+  "bringForward": "Tuo eteenpäin",
+  "sendBackward": "Lähetä taaksepäin",
+  "rotation": "Kierto",
+  "rotationStep": "Kierron vaihe",
+  "zoomStep": "Zoomauksen vaihe",
+  "zoomStepDescription": "Lähennyksen ja zoomauksen käyttämä määrä näppäimistön pikakuvakkeissa. Jatkuva zoomaus eleet käyttävät omaa herkkyysasetustaan.",
+  "direction": "Suunta",
+  "onlyAvailableLargerScreen": "Saatavilla vain suuremmilla näytöillä",
+  "toolbarPosition": "Työkalupalkin sijainti",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Kierrä",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Kierrä vasemmalle",
+  "rotateRight": "Kierrä oikealle",
+  "spacer": "Välilyönti",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Navigointi rautatie",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Leikkaa",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Lisää ennen",
+  "insertAfter": "Lisää jälkeen",
+  "insertFirst": "Lisää ensin",
+  "insertLast": "Insert last",
+  "paste": "Liitä",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Nouseva",
+  "descending": "Laskeva",
+  "imageScale": "Kuvan mittakaava",
+  "svgScale": "SVG mittakaava",
+  "noImageSelected": "Kuvaa ei ole valittu",
+  "noSvgSelected": "SVG:tä ei ole valittu",
+  "select": "Valitse",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Työkalu",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Tekstuuri",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Alustan teema",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Työpöytä",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Mobiili",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Pinta",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Kuvio",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Oletko varma, että haluat sulkea asiakirjan?",
+  "thereAreUnsavedChanges": "Muutoksia ei ole tallennettu",
+  "page": "Sivu",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "Ice- Palvelimet",
+  "collaboration": "Yhteistyö",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web- Socket",
+  "iceServer": "Ice- Palvelin",
+  "port": "Portti",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Tyyppi",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Sivu",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "Asiakas",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Palvelin",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Vaihda Näkymää",
+  "lasso": "Lasso",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Piilota Käyttöliittymä",
+  "density": "Tiheys",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Kompakti",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Mukava",
+  "standard": "Normaali",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Lukitse",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Lisää elementti",
+  "notDefaultConnection": "Ei oletusyhteyttä",
+  "defaultConnection": "Oletus yhteys",
+  "hide": "Piilota",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Näytä",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "Tauko",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Pysäytä",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Päivitä",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "Tulosta",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Silmien pipetillä",
+  "users": "Käyttäjät",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Kokeet",
+  "experimentsWarning": "Nämä ominaisuudet ovat kokeellisia ja voivat muuttua, katkaista tai kadota milloin tahansa. Niiden käyttöönotto voi aiheuttaa epävakautta tai tietojen menetystä. Jatka varovaisesti. Ilmoita kaikista vioista.",
+  "address": "Osoite",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Levitä sivuille",
+  "rootDirectorySpecifiedDescription": "Juurihakemisto on määritetty. Kaikki kehittyneet hakemistopolut ovat suhteellisia tähän hakemistoon. Pidä se tyhjänä, jos haluat poistaa tämän hakemiston tyypin.",
+  "rootDirectoryNotSpecifiedDescription": "Juurihakemistoa ei ole määritelty. Nimi vaaditaan. Kaikki kehittyneet hakemistopolut ovat absoluuttisia. Pidä se tyhjänä, jos haluat poistaa tämän hakemistotyypin.",
+  "unsecureConnectionTitle": "Epäturvallinen yhteys",
+  "unsecureConnectionMessage": "Yhteys ei ole suojattu. Tämä voi olla turvallisuusriski. Jatka vain, jos luotat yhteyteen. Sha1 sormenjälki on {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Jatka joka tapauksessa",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Näytä navigaattorin esikatselut",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Näytä välimuistissa olevat esikatselukuvat alueilla ja sivuilla navigointilaitteissa",
+  "highContrast": "Korkea kontrasti",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "Tämän arvon on oltava kelvollinen numero",
+  "createAreas": "Luo alueita",
+  "autosave": "Autosave",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Invert",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "Toiminnot",
+  "medium": "Keskitaso",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "Suuri",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Työkalupalkin koko",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Lisää kaikki",
+  "onlyCurrentPage": "Vain nykyinen sivu",
+  "smoothNavigation": "Pehmeä navigointi",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Alueen reuna-alueen vaihtaminen",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Käytä Android SAF",
+  "exact": "Tarkka",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "Inline",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Työkalupalkin rivit",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "Osoittimen testi",
+  "pressure": "Paine",
+  "small": "Pieni",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Pieni",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Valitse kaikki",
+  "overrideTools": "Ohita työkalut",
+  "hideCursorWhileDrawing": "Piilota kohdistin piirroksen aikana",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Asennettu",
+  "install": "Asenna",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Poista Valinta",
+  "changeCollection": "Vaihda kokoelmaa",
+  "collections": "Kokoelmat",
+  "fullSelection": "Täysi valinta",
+  "collection": "Kokoelma",
+  "defaultCollection": "Oletus kokoelma",
+  "scroll": "Vieritä",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "Käynnistyksessä",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Kotinäyttö",
+  "lastNote": "Viimeisin merkintä",
+  "newNote": "Uusi muistiinpano",
+  "moveToLayer": "Siirrä tasoon",
+  "createLayer": "Luo taso",
+  "merge": "Yhdistä",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Ylös",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Alas",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "Muu",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{Ei elementtejä} =1{1 elementti} other{{count} elementtejä}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Värin työkalupalkki",
+  "yesButShowButtons": "Kyllä, mutta näytä painikkeet",
+  "optionsPanelPosition": "Valintapaneelin sijainti",
+  "hideDuration": "Piilota kesto",
+  "animation": "Animaatio",
+  "performance": "Suorituskyky",
+  "performanceDescription": "Optimoitu nopeuden ja muistin käyttöä varten. Kuvaan paistetaan vain muistin näkyvä osa.",
+  "normalDescription": "Tasapainojen laatu ja suorituskyky. Bakes kuvan, joka kattaa 1,5 kertaa näkyvän alueen, tarjoaa sujuvampia siirtymiä vierittäessä.",
+  "high": "Korkea",
+  "highDescription": "Maksimoi laatua suorituskyvyn kustannuksella. Bakes kuvan, joka kattaa 2 kertaa näkyvän alueen, varmistaen saumattoman renderöinnin myös nopean vierityksen tai zoomauksen.",
+  "renderResolution": "Renderöi resoluutio",
+  "translate": "Käännä",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Salaamaton",
+  "encrypted": "Salattu",
+  "encryptDocumentMessage": "Klikkaa salataksesi asiakirjan",
+  "unencryptDocumentMessage": "Klikkaa poistaaksesi asiakirjan salauksen",
+  "unencrypt": "Salaamaton",
+  "encrypt": "Salaa",
+  "encryptWarning": "Tämä salaa asiakirjan. Sinun tulee muistaa salasana, jotta voit purkaa sen salauksen.",
+  "unencryptWarning": "Tämä poistaa asiakirjan salauksen. Salasana poistetaan ja kaikki ne, joilla on pääsy siihen.",
+  "confirmPassword": "Vahvista salasana",
+  "passwordMismatch": "Salasanat eivät täsmää",
+  "action": "Toiminto",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "Svg- Teksti",
+  "offset": "Siirtymä",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "Loppu",
+  "radius": "Radius",
+  "focalPoint": "Keskipiste",
+  "useOffCenterStartPoint": "Käytä keskeneräistä aloituspistettä",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Värien pysäytykset",
+  "addStop": "Lisää pysähdys",
+  "positionDependent": "Asema riippuu",
+  "flipHorizontal": "Käännä vaakasuora",
+  "flipVertical": "Käännä pystysuuntainen",
+  "grayscale": "Grayscale",
+  "moveOnGesture": "Siirrä ele",
+  "exportAllFiles": "Vie kaikki tiedostot",
+  "restoreSettingsFromFile": "Palauta asetukset tiedostosta",
+  "resetAllSettings": "Nollaa kaikki asetukset",
+  "exportSettingsToFile": "Vie asetukset tiedostoon",
+  "barcode": "Barcode",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Viivakoodin tyyppi",
+  "qrCode": "QR Code",
+  "dataMatrix": "Data Matriisi",
+  "code128": "Koodi 128",
+  "defaultUserName": "Käyttäjä {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Siirrä vasemmalle",
+  "moveRight": "Siirrä oikealle",
+  "bundledPacks": "Yhdistetyt paketit",
+  "component": "Komponentti",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Valitse komponentti",
+  "bundlePackInDocument": "Paketti asiakirjassa",
+  "bundledPacksDescription": "Dokumentissa on mukana useita pakkauksia, ja niitä voidaan käyttää vain asiakirjan jakamiseen. Assetteja voidaan käyttää dokumentissa vain, jos paketti on asennettu. Paketteja voidaan asentaa klikkaamalla niitä.",
+  "fillAlpha": "Täytä alfa",
+  "packagedFile": "Pakattu tiedosto",
+  "rawFile": "Raaka tiedosto",
+  "webSocketDescription": "Laitteesi isännöi palvelinta, joten yhteistyökumppanit voivat liittyä samaan verkkoon tai mistä tahansa vain, jos jatkat porttia reitittimessäsi.",
+  "swampDescription": "Viestisi reititetään turvallisen relepalvelimen kautta, jossa on end-to-end salaus. Ison palvelimen osoite tarvitaan istunnon luomiseksi.",
+  "createRawNote": "Luo raaka merkintä",
+  "polygon": "Monikulmio",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Viimeistele muoto",
+  "submit": "Lähetä",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Matematiikka",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ohita paine",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Jätä huomiotta ensimmäinen paineenkäsittely, joka voi olla epätarkka joissakin tyyliin.",
+  "ignorePressureNeverDescription": "Käyttää jokaista tyyliin kohdistuvaa painetta.",
+  "ignorePressureAlwaysDescription": "Älä huomioi painetta ja kohtelee tyylejä täysin painettuna.",
+  "temporary": "Väliaikainen",
+  "simpleToolbarVisibility": "Yksinkertainen työkalupalkin näkyvyys",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Automaattisen tallennuksen viive",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Tallennettu",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Tallennetaan...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Vain luku",
+  "saveDelayed": "Tallennus viivästynyt",
+  "unsaved": "Tallentamaton",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "Tällä hetkellä ei ole vientialueita. Valitse ainakin yksi alue käyttämällä oikeassa yläkulmassa olevaa plus -painiketta tai lisää kaikki alueet nykyiseltä sivulta tai koko asiakirjasta.",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Muokkaa pikakuvakkeita",
+  "clickToSave": "Tallenna napsauttamalla",
+  "toolbars": "Työkalupalkit",
+  "logs": "Lokit",
+  "ruledSimple": "Merkitty yksinkertaiseksi",
+  "ruledSimpleDark": "Riisu yksinkertainen tumma",
+  "quadSimple": "Yksinkertainen Quad",
+  "quadSimpleDark": "Quad yksinkertainen tumma",
+  "redLinedRuled": "Punainen vuorattu",
+  "redLinedRuledDark": "Punainen vuorattu hallittu tumma",
+  "redLinedQuad": "Punainen vuorattu quad",
+  "redLinedQuadDark": "Punainen vuorattu quad tumma",
+  "noItemSelected": "Kohdetta ei ole valittu",
+  "areaAsInitial": "Avaa alue alustavana näkymänä",
+  "swap": "Vaihda",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Piilota tiedostopääte",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "Uusi mallista",
+  "exportAsTextShortcut": "Vie tekstinä",
+  "exportAsImageShortcut": "Vie kuvana",
+  "exportAsPdfShortcut": "Vie PDF:nä",
+  "exportAsSvgShortcut": "Vie SVG:nä",
+  "changePathShortcut": "Muuta polkua",
+  "fullScreenShortcut": "Koko näyttö",
+  "doublePressAction": "Kaksoispainalluksen tehtävä",
+  "triplePressAction": "Kolmen painalluksen tehtävä",
+  "twoFingerTap": "Kaksisormen napautus",
+  "threeFingerTap": "Kolmen sormen napautus",
+  "longPress": "Pitkä painallus",
+  "toolNumber": "Työkalu {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Pitele Pikakuvakkeita",
+  "holdShortcutsDescription": "Pidä näppäintä pohjassa vaihtaaksesi väliaikaisesti toiseen työkaluun. Avaimen vapauttaminen siirtyy takaisin edelliseen työkaluun.",
+  "key": "Avain",
+  "bringMovedElementsToFront": "Tuo siirretyt elementit eteen",
+  "addTool": "Lisää työkalu",
+  "nextPage": "Seuraava sivu",
+  "previousPage": "Edellinen sivu",
+  "persistenceDocumentStates": "Pysyvän asiakirjan tila",
+  "persistentStatesEnabled": "Ota pysyvä dokumentin tila käyttöön",
+  "persistentStateCurrentPage": "Nykyinen sivu",
+  "persistentStateViewport": "Viewport sijainti ja zoomaus",
+  "persistentStateSelectedTool": "Valittu työkalu",
+  "persistentStateMaxRecords": "Tallennettujen tietueiden enimmäismäärä",
+  "persistentStateDeleteOlderThanDays": "Poista tietueet yli päivien",
+  "persistentStateCleanup": "Tallennetut tilat puhdistetaan",
+  "persistentStateCleanupDescription": "Poista yllä olevia rajoja vanhemmat tietueet",
+  "persistentStateCleanupInProgress": "Siivotaan...",
+  "persistentStateDefaultLocks": "Oletusarvoiset lukot",
+  "persistentStateDefaultLocksDescription": "Käytä näitä lukituksia, kun dokumentissa ei ole tallennettua tilaa",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Siivottu 1 tallennuspaikka} other{Siivottu {locations} tallennuspaikat}}; {records, plural, =1{poistettiin 1 tietueen} other{poistettiin {records} tietueet}}.",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Tallentaa muutokset automaattisesti, kun työskentelet.",
+  "autosaveDelayedDescription": "Tallentaa muutokset automaattisesti valitun viiveen jälkeen.",
+  "autosaveShowButtonDescription": "Tallentaa automaattisesti ja pitää myös tallennuspainikkeen näkyvissä.",
+  "autosaveDisabledDescription": "Tallentaa vain kun käytät tallennuskomentoa.",
+  "hideCursorWhileDrawingDescription": "Piilottaa hiiren osoitin piirtäessäsi, joten se ei kata aivohalvaustasi.",
+  "onStartupHomeScreenDescription": "Avaa aloitusnäytön kun Butterfly alkaa.",
+  "onStartupLastNoteDescription": "Avaa viimeksi käytetyn merkinnän kun Butterfly alkaa.",
+  "onStartupNewNoteDescription": "Luo uuden muistion, kun Butterfly alkaa.",
+  "smoothNavigationDescription": "Tekee panorointi ja zoomaus tuntuu sujuvammalta yksinkertaistamalla kankaalle kun se liikkuu.",
+  "edgePanAreaSwitchingDescription": "Vaihtaa naapurialueelle, kun panet lähelle kankaan reunaa.",
+  "collaborationDescription": "Mahdollistaa useamman henkilön muokata samaa merkintää reaaliajassa.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Sisältää yksityiskohtaiset diagnostiset viestit lokinäkymään ja konsoliin. Nämä viestit voivat auttaa vianetsinnässä.",
+  "bringMovedElementsToFrontDescription": "Asettaa elementin päällekkäisten elementtien yläpuolelle sen siirtämisen jälkeen.",
+  "persistenceDocumentStatesDescription": "Määrittää mitkä työtilan osat Butterfly muistaa kunkin muistiinpanon, kuten nykyinen sivu, zoomaus ja valittu työkalu.",
+  "persistentStatesEnabledDescription": "Tallenna asiakirjan tilan tiedot sovellusistuntojen välillä",
+  "persistentStateCurrentPageDescription": "Muista nykyinen sivu avattaessa tiedostoa uudelleen",
+  "persistentStateViewportDescription": "Muista näkymän sijainti, zoomaus ja kierto jokaiselle sivulle",
+  "persistentStateSelectedToolDescription": "Muista valittu työkalu avattaessa tiedostoa uudelleen",
+  "persistentStateLocksDescription": "Muista lukitusasetukset avattaessa tiedostoa uudelleen",
+  "persistentStateNavigatorDescription": "Muista navigaattorin tila avattaessa tiedostoa uudelleen",
+  "persistentStateLayersDescription": "Muista tasopaneelin tila avattaessa tiedostoa uudelleen",
+  "persistentStateAreasDescription": "Muista aluepaneelin tila avattaessa tiedostoa uudelleen",
+  "persistentStateAutoThumbnail": "Automaattiset pikkukuvat",
+  "persistentStateAutoThumbnailDescription": "Näytä asiakirjakohtainen kytkin ja salli pikkukuvien päivitys, kun asiakirjat sulkevat",
+  "persistentStateMaxRecordsDescription": "Säilytä korkeintaan tämä monta tallennettua tilaa tiedostoa kohti",
+  "persistentStateDeleteOlderThanDaysDescription": "Poista tallennetut tilat, jotka ovat vanhempia kuin tämä monta päivää",
+  "contentViewportDescription": "Rajoitetaan sitä, kuinka pitkälle voit ottaa pois huomautuksesi sisällöstä.",
+  "limitViewportPositiveDescription": "Pitää kangas alueen sisällä oikealle ja alapuolelle sen lähtöpisteen.",
+  "startInFullScreenDescription": "Avaa Butterfly koko näytön tilassa, kun sitä tuetaan.",
+  "designDescription": "Muuttaa Butterfly yleistä visuaalista tyyliä muuttamatta sitä, käyttääkö sovellus vaaleita vai tummia värejä.",
+  "platformThemeDescription": "Voit käyttää työpöydän tai mobiili asettelu sijasta asettelu Butterfly yleensä valitsee laitteellesi.",
+  "densityDescription": "Muuttaa käyttöliittymäelementtien välistystä ja kokoa. Se ei muuta muistiinpanosi sisällön kokoa.",
+  "highContrastDescription": "Käyttää voimakkaampia värieroja, jotta kontrollit ja teksti on helpompi erottaa toisistaan.",
+  "nativeTitleBarDescription": "Käyttää käyttöjärjestelmäsi standardia ikkunan otsikkopalkkia Butterflyn mukautetun otsikkopalkin sijaan.",
+  "propertiesDescription": "Valitsee missä paneeli valitun työkalun tai elementin muokkaamista varten.",
+  "navigationRailDescription": "Näyttää vakituisen navigointipalkin leveillä näytöillä, jotta sovellusosioita voidaan käyttää nopeammin.",
+  "optionsPanelPositionDescription": "Valitsee, näkyvätkö työkaluvaihtoehdot kankaan ylä- tai alapuolella.",
+  "simpleToolbarVisibilityDescription": "Ohjaa, kun pienempi, yksinkertaistettu työkalupalkki näkyy muokattaessa muistiinpanoa.",
+  "penOnlyInputDescription": "Estää vahingossa merkkejä kädestä tai hiirestä valitsemalla kun vain stylus syöte voi piirtää.",
+  "showPenOnlyToggleDescription": "Näyttää nopean vain stylus-kytkimen editorissa, kun Butterfly tunnistaa stylus.",
+  "ignorePressureDescription": "Määrittää onko stylus paine muuttaa aivohalvauksen ja toimii joidenkin tyylien epätarkkojen painelujen.",
+  "moveOnGestureDescription": "Lets multi-touch eleet siirtää kankaalle sen sijaan, että vuorovaikutuksessa huomautuksen sisällön kanssa.",
+  "spreadPagesDescription": "Jakaa usean sivun tuonnin eri muistiinpanon sivuille sen sijaan, että kaikki asetettaisiin yhdelle sivulle.",
+  "shear": "Viistoa",
+  "resetRotation": "Nollaa kierto",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Valitse ohjaimet zoomausta ja kiertoa varten. Nollaa painikkeet ovat saatavilla jokaisessa ulkoasussa.",
+  "zoomPanelFull": "Täysi (liukusäädintä, tekstikenttä ja painikkeet)",
+  "zoomPanelSliderInput": "Liukusäädin ja tekstikenttä",
+  "zoomPanelSlider": "Liukusäädin",
+  "zoomPanelInputButtons": "Tekstikenttä ja painikkeet",
+  "zoomPanelInput": "Tekstin kenttä",
+  "rotationDisplay": "Näytön kierto",
+  "rotationDisplayDescription": "Valitse kun kiertorivi näkyy zoomin yläpuolella. Tämä ei muuta pyörimiseleitä tai pikanäppäimiä.",
+  "whenRotated": "Kun kierretään",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Kierrä kangas vetämällä"
+}

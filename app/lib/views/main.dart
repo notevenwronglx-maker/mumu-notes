@@ -1,0 +1,1237 @@
+import 'dart:async';
+import 'dart:ui';
+
+import 'package:butterfly/actions/shortcuts.dart';
+import 'package:butterfly/api/close.dart';
+import 'package:butterfly/api/file_system.dart';
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:butterfly/cubits/editor_controller.dart';
+import 'package:butterfly/cubits/editor_session.dart';
+import 'package:butterfly/cubits/settings.dart';
+import 'package:butterfly/cubits/transform.dart';
+import 'package:butterfly/embed/embedding.dart';
+import 'package:butterfly/embed/view_state.dart';
+import 'package:butterfly/models/defaults.dart';
+import 'package:butterfly/services/palm_guard_service.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:butterfly/renderers/renderer.dart';
+import 'package:butterfly/services/document_state.dart';
+import 'package:butterfly/services/export.dart';
+import 'package:butterfly/services/font.dart';
+import 'package:butterfly/services/import.dart';
+import 'package:butterfly/services/network.dart';
+import 'package:butterfly/views/app_bar.dart';
+import 'package:butterfly/views/navigator/view.dart';
+import 'package:butterfly/views/mumu_workspace_ui.dart';
+import 'package:butterfly/views/toolbar/view.dart';
+import 'package:butterfly/views/edit.dart';
+import 'package:butterfly/views/error.dart';
+import 'package:butterfly/views/property.dart';
+import 'package:butterfly/widgets/document_page_preview.dart';
+import 'package:butterfly/widgets/global_shortcuts.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:butterfly/src/generated/i18n/app_localizations.dart';
+import 'package:lw_file_system/lw_file_system.dart';
+import 'package:material_leap/material_leap.dart';
+
+import '../actions/color_palette.dart';
+import '../models/viewport.dart';
+import '../services/asset.dart';
+import '../api/changes.dart';
+import 'pen_only_toggle.dart';
+import 'view.dart';
+import 'zoom.dart';
+
+class ProjectPage extends StatefulWidget {
+  final bool absolute;
+  final bool isNewDocument;
+  final AssetLocation? location;
+  final String? initialDirectory;
+  final Embedding? embedding;
+  final String type;
+  final Object? data;
+  final String? uri;
+
+  const ProjectPage({
+    super.key,
+    this.location,
+    this.initialDirectory,
+    this.embedding,
+    this.type = '',
+    this.data,
+    this.uri,
+    this.absolute = false,
+    this.isNewDocument = false,
+  });
+
+  @override
+  _ProjectPageState createState() => _ProjectPageState();
+}
+
+class _ProjectDocumentRuntime {
+  final DocumentBloc bloc;
+  final TransformCubit transformCubit;
+  final EditorSessionCubit? editorSessionCubit;
+  final EditorController editorController;
+  final ImportService? importService;
+  final ExportService? exportService;
+  final Embedding? embedding;
+  var _closed = false;
+
+  _ProjectDocumentRuntime({
+    required this.bloc,
+    required this.transformCubit,
+    this.editorSessionCubit,
+    required this.editorController,
+    this.importService,
+    this.exportService,
+    this.embedding,
+  });
+
+  Future<void> close() async {
+    if (_closed) return;
+    _closed = true;
+    clearDocumentPagePreviewCache(bloc);
+    try {
+      await bloc.captureAutomaticThumbnail();
+    } catch (error, stackTrace) {
+      debugPrint('Could not update automatic thumbnail: $error');
+      debugPrintStack(stackTrace: stackTrace);
+    }
+    embedding?.handler?.unregister();
+    if (!bloc.isClosed) {
+      await bloc.close();
+    }
+    if (editorSessionCubit != null && !editorSessionCubit!.isClosed) {
+      await editorSessionCubit!.close();
+    }
+  }
+}
+
+class _ProjectPageState extends State<ProjectPage> {
+  _ProjectDocumentRuntime? _runtime;
+  final SearchController _searchController = .new();
+  late final CloseSubscription _closeSubscription;
+  final GlobalKey<MainViewViewportState> _viewportKey = GlobalKey();
+  int _loadGeneration = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    PalmGuardService.instance.setCanvasInteractive(true);
+    PalmGuardService.instance.onTwoFingerUndo = () {
+      final bloc = _runtime?.bloc;
+      if (bloc != null && !bloc.isClosed && bloc.canUndo) {
+        bloc.undo();
+      }
+    };
+    PalmGuardService.instance.onThreeFingerRedo = () {
+      final bloc = _runtime?.bloc;
+      if (bloc != null && !bloc.isClosed && bloc.canRedo) {
+        bloc.redo();
+      }
+    };
+    WidgetsBinding.instance.addPostFrameCallback((_) => _load());
+    _closeSubscription = onPreventClose(context, _preventClose);
+  }
+
+  @override
+  void didUpdateWidget(ProjectPage oldWidget) {
+    if (oldWidget.location != widget.location ||
+        oldWidget.initialDirectory != widget.initialDirectory ||
+        oldWidget.absolute != widget.absolute ||
+        oldWidget.isNewDocument != widget.isNewDocument ||
+        oldWidget.type != widget.type ||
+        !identical(oldWidget.data, widget.data) ||
+        oldWidget.uri != widget.uri) {
+      unawaited(_reloadDocumentState());
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  Future<void> _reloadDocumentState() async {
+    await _disposeDocumentState();
+    if (mounted) {
+      unawaited(_load());
+    }
+  }
+
+  Future<void> _disposeDocumentState() async {
+    _loadGeneration++;
+    final runtime = _runtime;
+    _runtime = null;
+    await runtime?.close();
+  }
+
+  Future<void> _load() async {
+    final loadGeneration = ++_loadGeneration;
+    bool isCurrentLoad() => mounted && loadGeneration == _loadGeneration;
+    final settingsCubit = context.read<SettingsCubit>();
+    final windowCubit = context.read<WindowCubit>();
+    final fileSystem = context.read<ButterflyFileSystem>();
+    final absolute = widget.absolute || (widget.location?.absolute ?? false);
+    var location = widget.location?.copyWith(absolute: absolute);
+    var initialDirectory = widget.initialDirectory;
+    final remote = settingsCubit.getRemote(location?.remote);
+    final documentSystem = fileSystem.buildDocumentSystem(remote);
+    final embedding = widget.embedding;
+
+    if (embedding != null) {
+      var language = embedding.language;
+      if (language == 'system') {
+        language = '';
+      }
+      if (language != 'user') {
+        settingsCubit.changeLocaleTemporarily(language);
+      }
+    }
+    final networkingService = NetworkingService();
+    final pendingRenderers = <Renderer>[];
+    final pendingBackgrounds = <Renderer>[];
+    AssetService? pendingAssetService;
+    TransformCubit? pendingTransformCubit;
+    var runtimeCommitted = false;
+
+    Future<void> disposePendingRuntime({
+      bool closeNetworkingService = true,
+    }) async {
+      if (runtimeCommitted) {
+        return;
+      }
+      final transformCubit = pendingTransformCubit;
+      if (transformCubit != null && !transformCubit.isClosed) {
+        await transformCubit.close();
+      }
+      pendingTransformCubit = null;
+      final assetService = pendingAssetService;
+      pendingAssetService = null;
+      if (assetService != null) {
+        await assetService.dispose();
+      }
+      for (final renderer in pendingRenderers) {
+        renderer.dispose();
+      }
+      pendingRenderers.clear();
+      for (final renderer in pendingBackgrounds) {
+        renderer.dispose();
+      }
+      pendingBackgrounds.clear();
+      if (closeNetworkingService && !networkingService.isClosed) {
+        await networkingService.close();
+      }
+    }
+
+    Future<void> cancelLoad() async {
+      await disposePendingRuntime();
+      if (mounted) context.go('/');
+    }
+
+    bool isEncryptedNote(Object? data) {
+      try {
+        return switch (data) {
+          NoteFile file => file.isEncrypted(),
+          Uint8List bytes => NoteFile(bytes).isEncrypted(),
+          FileSystemFile<NoteFile> file => file.data?.isEncrypted() ?? false,
+          _ => false,
+        };
+      } catch (_) {
+        return false;
+      }
+    }
+
+    final pixelRatio = MediaQuery.devicePixelRatioOf(context);
+    try {
+      if (!absolute && (location?.isRemote ?? false) && remote == null) {
+        throw StateError(
+          'Storage connection "${location!.remote}" is unavailable',
+        );
+      }
+      final globalImportService = ImportService(
+        context,
+        storage: remote,
+        useDefaultStorage: false,
+      );
+      final fileType = AssetFileTypeHelper.fromFileExtension(
+        location?.fileExtension,
+      )?.name;
+      NoteData? document;
+      final embedData =
+          widget.embedding == null || widget.data is! EmbedDocumentData
+          ? null
+          : widget.data as EmbedDocumentData;
+      var data = embedData?.data ?? widget.data;
+      Uint8List? loadedDocumentBytes;
+      final uri = Uri.tryParse(widget.uri ?? '');
+      var type = widget.type.isEmpty ? (fileType ?? widget.type) : widget.type;
+      if (widget.uri != null && uri != null) {
+        final connectionTechnology = ConnectionTechnology.values.byNameOrNull(
+          type,
+        );
+        data = await networkingService.createClient(uri, connectionTechnology);
+        type = '';
+      }
+      final name = absolute ? location!.fileNameWithoutExtension : '';
+      NoteData? defaultDocument;
+      final defaultTemplate = settingsCubit.state.defaultTemplate;
+      if (embedding == null) {
+        final template = await fileSystem.buildTemplateSystem().getDefaultFile(
+          defaultTemplate,
+        );
+        if (template != null && mounted) {
+          defaultDocument = template.createDocument(
+            name: name,
+            createdAt: DateTime.now(),
+          );
+        }
+      }
+      defaultDocument ??= DocumentDefaults.createDocument(name: name);
+      defaultDocument = addConnectionPasswordToNoteData(
+        remote,
+        defaultDocument,
+      );
+      bool failedToLoad = false;
+      if (data != null) {
+        final encrypted = isEncryptedNote(data);
+        if (data is Uint8List) {
+          loadedDocumentBytes = data;
+        } else if (data is NoteFile) {
+          loadedDocumentBytes = data.data;
+        }
+        document ??= await globalImportService
+            .load(type: type, data: data, document: defaultDocument)
+            .then((e) => e?.export());
+        if (document == null) {
+          if (encrypted) {
+            await cancelLoad();
+            return;
+          }
+          failedToLoad = true;
+        }
+      }
+      if (location != null &&
+          location.path.isNotEmpty &&
+          document == null &&
+          !failedToLoad) {
+        if (!absolute) {
+          final asset = await documentSystem.getAsset(location.path);
+          if (!isCurrentLoad()) {
+            await disposePendingRuntime();
+            return;
+          }
+          if (asset is FileSystemFile<NoteFile>) {
+            final encrypted = isEncryptedNote(asset);
+            loadedDocumentBytes = asset.data?.data;
+            final NoteData? noteData = await globalImportService
+                .load(
+                  document: defaultDocument,
+                  type: widget.type.isEmpty
+                      ? (fileType ?? widget.type)
+                      : widget.type,
+                  data: asset.data,
+                )
+                .then((e) => e?.export());
+            if (noteData != null) {
+              document = noteData;
+            } else {
+              if (encrypted) {
+                await cancelLoad();
+                return;
+              }
+              failedToLoad = true;
+            }
+          }
+        } else {
+          final data = await documentSystem.loadAbsolute(location.path);
+          if (data != null) {
+            final encrypted = isEncryptedNote(data);
+            loadedDocumentBytes = data;
+            document = await globalImportService
+                .load(
+                  document: defaultDocument,
+                  type: widget.type.isEmpty
+                      ? (fileType ?? widget.type)
+                      : widget.type,
+                  data: data,
+                )
+                .then((e) => e?.export());
+            if (document == null) {
+              if (encrypted) {
+                await cancelLoad();
+                return;
+              }
+              failedToLoad = true;
+            }
+          }
+        }
+      }
+      if (document != null) {
+        document = await checkFileChanges(context, document);
+        if (!isCurrentLoad()) {
+          await disposePendingRuntime();
+          return;
+        }
+        if (document == null) {
+          await cancelLoad();
+          return;
+        }
+      }
+      if (!isCurrentLoad()) {
+        await disposePendingRuntime();
+        return;
+      }
+      if (failedToLoad) {
+        final transformCubit = TransformCubit(pixelRatio);
+        final editorController = EditorController(
+          settingsCubit,
+          transformCubit,
+          CameraViewport.unbaked(),
+          networkingService: networkingService,
+        );
+        final bloc = DocumentBloc.error(
+          fileSystem,
+          editorController,
+          windowCubit,
+          AppLocalizations.of(context).errorWhileImportingContent,
+        );
+        setState(() {
+          _runtime = _ProjectDocumentRuntime(
+            bloc: bloc,
+            transformCubit: transformCubit,
+            editorController: editorController,
+            importService: ImportService(context, bloc: bloc),
+            exportService: ExportService(context, bloc),
+            embedding: embedding,
+          );
+        });
+        runtimeCommitted = true;
+        return;
+      }
+      var documentOpened = document != null;
+      if (!documentOpened && !absolute) {
+        location = null;
+      }
+      if (!isCurrentLoad()) {
+        await disposePendingRuntime();
+        return;
+      }
+      if (document == null) {
+        if (embedding != null) {
+          document = defaultDocument;
+        } else {
+          final template =
+              await fileSystem
+                  .buildTemplateSystem(remote)
+                  .getDefaultFile(defaultTemplate) ??
+              await DocumentDefaults.createTemplate();
+          document = template.createDocument(
+            name: name,
+            createdAt: DateTime.now(),
+          );
+          initialDirectory ??= template.getMetadata()?.directory;
+        }
+      }
+      await context.read<FontService>().loadFonts(document);
+      if (!isCurrentLoad()) {
+        await disposePendingRuntime();
+        return;
+      }
+      location ??= embedding?.location;
+      location ??= AssetLocation(
+        path: embedding?.fileName ?? widget.location?.path ?? '',
+        remote: remote?.identifier ?? '',
+      );
+      if (!absolute &&
+          embedding == null &&
+          !location.isEmpty &&
+          (!documentOpened || !(location.fileType?.isNote() ?? false))) {
+        initialDirectory = documentOpened ? location.parent : location.path;
+        location = location.copyWith(path: '');
+      }
+      final persistDocumentState = embedding == null;
+      final pathKey = persistDocumentState
+          ? documentStatePathKeyOrNull(
+              location,
+              remoteStorage: remote is RemoteStorage,
+            )
+          : null;
+      final contentHash = !persistDocumentState || loadedDocumentBytes == null
+          ? null
+          : documentStateContentHash(loadedDocumentBytes);
+      final documentStateService = DocumentStateService(
+        fileSystem.buildDocumentStateSystem(remote),
+        settingsProvider: () => settingsCubit.state.documentStatePersistence,
+      );
+      final restoredSession = await documentStateService.load(
+        contentHash: contentHash,
+        pathKey: pathKey,
+        allowContentHash: loadedDocumentBytes != null,
+      );
+      final fallbackPageName = document.getPages(true).firstOrNull;
+      final restoredPageName = restoredSession?.pageName;
+      final pageName =
+          restoredPageName != null &&
+              document.getPages(true).contains(restoredPageName)
+          ? restoredPageName
+          : fallbackPageName;
+      final page =
+          document.getPage(pageName ?? '') ?? DocumentDefaults.createPage();
+      final initialSession =
+          EditorSessionCubit.buildInitial(
+            restored: restoredSession,
+            document: document,
+            page: page,
+            fallbackPageName: pageName,
+            fallbackLocks:
+                settingsCubit.state.documentStatePersistence.defaultLocks,
+            pathKey: pathKey,
+            contentHash: contentHash,
+          ).copyWith(
+            autoThumbnail:
+                restoredSession?.autoThumbnail ??
+                ((widget.isNewDocument || !documentOpened) &&
+                    embedding == null &&
+                    !absolute),
+          );
+      final renderers = page.layers
+          .expand(
+            (layer) => layer.content.map(
+              (element) => Renderer.fromInstance(element, layer.id),
+            ),
+          )
+          .toList();
+      final assetService = AssetService();
+      final transformCubit = TransformCubit(pixelRatio);
+      transformCubit.teleport(
+        Offset(
+          initialSession.camera.positionX,
+          initialSession.camera.positionY,
+        ),
+        initialSession.camera.zoom,
+        initialSession.camera.rotation,
+      );
+      final editorSessionCubit = EditorSessionCubit(
+        service: documentStateService,
+        transformCubit: transformCubit,
+        initialState: initialSession,
+        pathKey: pathKey,
+        contentHash: contentHash,
+      );
+      pendingAssetService = assetService;
+      pendingTransformCubit = transformCubit;
+      pendingRenderers.addAll(renderers);
+      await Future.wait(
+        renderers.map(
+          (e) async =>
+              await e.setup(transformCubit, document!, assetService, page),
+        ),
+      );
+      if (!isCurrentLoad()) {
+        await disposePendingRuntime();
+        return;
+      }
+      final backgrounds = page.backgrounds.map(Renderer.fromInstance).toList();
+      pendingBackgrounds.addAll(backgrounds);
+      await Future.wait(
+        backgrounds.map(
+          (e) async => e.setup(transformCubit, document!, assetService, page),
+        ),
+      );
+      if (!isCurrentLoad()) {
+        await disposePendingRuntime();
+        return;
+      }
+      if (restoredSession == null) {
+        transformCubit.teleportToWaypoint(page.getOriginWaypoint());
+      }
+      embedData?.viewState?.apply(transformCubit);
+      final editorController = EditorController(
+        settingsCubit,
+        transformCubit,
+        CameraViewport.unbaked(
+          backgrounds: backgrounds,
+          unbakedElements: renderers,
+          visibleElements: renderers,
+          visibleUnbakedElements: renderers,
+        ),
+        embedding: embedding,
+        networkingService: networkingService,
+        editorSessionCubit: editorSessionCubit,
+        initialDirectory: initialDirectory,
+        absolute: absolute && !(location.fileType?.isNote() ?? false),
+      );
+      final bloc = DocumentBloc(
+        fileSystem,
+        editorController,
+        windowCubit,
+        document,
+        location,
+        assetService,
+        page,
+        pageName,
+        false,
+        initialSession.layers.currentLayer.isEmpty
+            ? null
+            : initialSession.layers.currentLayer,
+        initialSession.layers.currentCollection,
+        initialSession.layers.invisibleLayers,
+      );
+      final isImportedDocument =
+          documentOpened && !(location.fileType?.isNote() ?? false);
+      if (!absolute && isImportedDocument) {
+        editorController.saveCubit.setSaveState(saved: SaveState.unsaved);
+      }
+      networkingService.setup(bloc);
+      setState(() {
+        _runtime = _ProjectDocumentRuntime(
+          bloc: bloc,
+          transformCubit: transformCubit,
+          editorSessionCubit: editorSessionCubit,
+          editorController: editorController,
+          importService: ImportService(context, bloc: bloc),
+          exportService: ExportService(context, bloc),
+          embedding: embedding,
+        );
+      });
+      embedding?.handler?.register(context, bloc);
+      runtimeCommitted = true;
+      pendingAssetService = null;
+      pendingTransformCubit = null;
+      pendingRenderers.clear();
+      pendingBackgrounds.clear();
+    } catch (e, stackTrace) {
+      if (kDebugMode) {
+        print(e);
+      }
+      if (!isCurrentLoad()) {
+        await disposePendingRuntime();
+        return;
+      }
+      await disposePendingRuntime(closeNetworkingService: false);
+      final transformCubit = TransformCubit(pixelRatio);
+      final editorController = EditorController(
+        settingsCubit,
+        transformCubit,
+        CameraViewport.unbaked(),
+        networkingService: networkingService,
+      );
+      final bloc = DocumentBloc.error(
+        fileSystem,
+        editorController,
+        windowCubit,
+        e.toString(),
+        stackTrace,
+      );
+      setState(() {
+        _runtime = _ProjectDocumentRuntime(
+          bloc: bloc,
+          transformCubit: transformCubit,
+          editorSessionCubit: null,
+          editorController: editorController,
+          embedding: embedding,
+        );
+      });
+      runtimeCommitted = true;
+    }
+    WidgetsBinding.instance.scheduleFrameCallback((_) async {
+      if (!isCurrentLoad()) return;
+      _runtime?.bloc.load();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (isCurrentLoad()) {
+          _runtime?.editorController.focusNode.requestFocus();
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    PalmGuardService.instance.setCanvasInteractive(false);
+    PalmGuardService.instance.onTwoFingerUndo = null;
+    PalmGuardService.instance.onThreeFingerRedo = null;
+    _closeSubscription.dispose();
+    unawaited(_disposeDocumentState());
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final runtime = _runtime;
+    if (runtime == null) {
+      return const Material(child: Center(child: CircularProgressIndicator()));
+    }
+    final padding = MediaQuery.paddingOf(context);
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider.value(value: runtime.bloc),
+        BlocProvider.value(value: runtime.transformCubit),
+        if (runtime.editorSessionCubit != null)
+          BlocProvider.value(value: runtime.editorSessionCubit!),
+        BlocProvider.value(value: runtime.editorController.rendererCubit),
+        BlocProvider.value(value: runtime.editorController.toolCubit),
+        BlocProvider.value(value: runtime.editorController.inputCubit),
+        BlocProvider.value(value: runtime.editorController.saveCubit),
+        BlocProvider.value(value: runtime.editorController.viewCubit),
+      ],
+      child: BlocBuilder<DocumentBloc, DocumentState>(
+        buildWhen: (previous, current) =>
+            previous.runtimeType != current.runtimeType,
+        builder: (context, state) {
+          if (state is DocumentLoadFailure) {
+            return ErrorPage(
+              message: state.message,
+              stackTrace: state.stackTrace,
+            );
+          }
+          return MultiRepositoryProvider(
+            providers: [
+              RepositoryProvider.value(value: runtime.editorController),
+              RepositoryProvider.value(value: runtime.importService!),
+              RepositoryProvider.value(value: runtime.exportService!),
+            ],
+            child: GestureDetector(
+              onTap: () {
+                FocusScopeNode currentFocus = FocusScope.of(context);
+                if (!currentFocus.hasPrimaryFocus &&
+                    currentFocus.focusedChild != null) {
+                  FocusManager.instance.primaryFocus?.unfocus();
+                }
+              },
+              child: BlocSelector<WindowCubit, WindowState, bool>(
+                selector: (state) => state.fullScreen,
+                builder: (context, fullScreen) =>
+                    BlocSelector<EditorInputCubit, EditorInputState, HideState>(
+                      selector: (state) => state.hideUi,
+                      builder: (context, hideUi) =>
+                          BlocSelector<
+                            DocumentSaveCubit,
+                            DocumentSaveState,
+                            ({bool editable, bool fullScreen, bool inView})
+                          >(
+                            selector: (state) => (
+                              editable: state.embedding?.editable != false,
+                              fullScreen: state.fullScreen,
+                              inView: state.embedding?.isInternal ?? false,
+                            ),
+                            builder: (context, saveState) =>
+                                BlocSelector<
+                                  SettingsCubit,
+                                  ButterflySettings,
+                                  ({bool isInline, ToolbarSize toolbarSize})
+                                >(
+                                  selector: (state) => (
+                                    isInline: state.isInline,
+                                    toolbarSize: state.toolbarSize,
+                                  ),
+                                  builder: (context, settings) {
+                                    final actions = _buildActions(context);
+
+                                    return ListenableBuilder(
+                                      listenable: keybinder,
+                                      builder: (context, child) {
+                                        return Actions(
+                                          actions: actions,
+                                          child: GlobalShortcuts(
+                                            shortcuts: _buildShortcuts(
+                                              runtime.editorController,
+                                            ),
+                                            child: child!,
+                                          ),
+                                        );
+                                      },
+                                      child: ClipRect(
+                                        child: Focus(
+                                          focusNode: runtime
+                                              .editorController
+                                              .focusNode,
+                                          autofocus: true,
+                                          skipTraversal: true,
+                                          onFocusChange: (_) => false,
+                                          child: MumuEditorWorkspace(
+                                            viewportKey: _viewportKey,
+                                            searchController: _searchController,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                          ),
+                    ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  CloseRequest? _preventClose() {
+    final saveState = _runtime?.editorController.saveCubit.state;
+    final sessionDirty = _runtime?.editorSessionCubit?.isDirty ?? false;
+    return saveState?.saved == .saved && !sessionDirty
+        ? null
+        : CloseRequest(
+            message: AppLocalizations.of(context).thereAreUnsavedChanges,
+            onSave: _saveBeforeClose,
+          );
+  }
+
+  Future<bool> _saveBeforeClose() async {
+    final runtime = _runtime;
+    final bloc = runtime?.bloc;
+    if (bloc == null || bloc.isClosed) return false;
+    if (bloc.editorController.saveCubit.state.saved != .saved) {
+      await bloc.save(force: true);
+    } else {
+      await runtime?.editorSessionCubit?.saveNow();
+    }
+    return bloc.editorController.saveCubit.state.saved == .saved &&
+        !(runtime?.editorSessionCubit?.isDirty ?? false);
+  }
+
+  Map<Type, Action<Intent>> _buildActions(BuildContext context) {
+    return <Type, Action<Intent>>{
+      UndoIntent: UndoAction(context),
+      RedoIntent: RedoAction(context),
+      if (widget.embedding == null) NewIntent: NewAction(context),
+      SvgExportIntent: SvgExportAction(context),
+      ImageExportIntent: ImageExportAction(context),
+      PdfExportIntent: PdfExportAction(context),
+      ExportIntent: ExportAction(context),
+      SettingsIntent: SettingsAction(context),
+      ColorPaletteIntent: ColorPaletteAction(context),
+      BackgroundIntent: BackgroundAction(context),
+      ChangePathIntent: ChangePathAction(context),
+      SaveIntent: SaveAction(context),
+      ChangeToolIntent: ChangeToolAction(context),
+      PacksIntent: PacksAction(context),
+      ExitIntent: ExitAction(context),
+      FullScreenIntent: FullScreenAction(context),
+      HideUIIntent: HideUIAction(context),
+      NextIntent: NextAction(context),
+      PreviousIntent: PreviousAction(context),
+      NextPageIntent: NextPageAction(context),
+      PreviousPageIntent: PreviousPageAction(context),
+      TogglePresentationIntent: TogglePresentationAction(context),
+      PasteIntent: PasteAction(context),
+      SelectAllIntent: SelectAllAction(context),
+      ZoomIntent: ZoomAction(context),
+      RotateIntent: RotateAction(context),
+      RotateDragIntent: CallbackAction<RotateDragIntent>(onInvoke: (_) => null),
+      ContextMenuIntent: ContextMenuAction(
+        () => _viewportKey.currentState?.openContextMenu(),
+      ),
+      SearchIntent: CallbackAction<SearchIntent>(
+        onInvoke: (_) {
+          if (_searchController.isOpen) {
+            _searchController.closeView(null);
+            return null;
+          }
+          _searchController.openView();
+          return null;
+        },
+      ),
+    };
+  }
+
+  Map<ShortcutActivator, Intent> _buildShortcuts(EditorController controller) {
+    var shortcuts = keybinder.getShortcuts();
+    if (widget.embedding != null) {
+      shortcuts = Map.from(shortcuts)
+        ..removeWhere((key, intent) {
+          return intent is ExportIntent ||
+              intent is NewIntent ||
+              intent is ImageExportIntent ||
+              intent is PdfExportIntent ||
+              intent is SvgExportIntent ||
+              intent is SettingsIntent ||
+              intent is ChangePathIntent ||
+              intent is SaveIntent ||
+              intent is PacksIntent ||
+              intent is ZoomIntent ||
+              intent is RotateIntent ||
+              intent is ChangeToolIntent;
+        });
+    }
+    return {
+      for (final entry in shortcuts.entries)
+        _EditorShortcutActivator(entry.key, controller): entry.value,
+    };
+  }
+}
+
+class _EditorShortcutActivator extends ShortcutActivator {
+  const _EditorShortcutActivator(this.activator, this.controller);
+
+  final ShortcutActivator activator;
+  final EditorController controller;
+
+  @override
+  Iterable<LogicalKeyboardKey>? get triggers => activator.triggers;
+
+  @override
+  bool accepts(KeyEvent event, HardwareKeyboard state) =>
+      activator.accepts(event, state) && !controller.isEditingText;
+
+  @override
+  String debugDescribeKeys() => activator.debugDescribeKeys();
+}
+
+class _MainBody extends StatelessWidget {
+  const _MainBody({required this.viewportKey});
+
+  final GlobalKey<MainViewViewportState> viewportKey;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<DocumentBloc, DocumentState>(
+      buildWhen: (previous, current) =>
+          (previous is DocumentLoadSuccess &&
+              current is! DocumentLoadSuccess) ||
+          (previous is! DocumentLoadSuccess && current is DocumentLoadSuccess),
+      builder: (context, state) => BlocBuilder<ToolCubit, ToolRuntimeState>(
+        buildWhen: (previous, current) =>
+            previous.pinned != current.pinned ||
+            previous.selection != current.selection,
+        builder: (context, toolState) =>
+            BlocBuilder<EditorInputCubit, EditorInputState>(
+              buildWhen: (previous, current) =>
+                  previous.hideUi != current.hideUi,
+              builder: (context, inputState) =>
+                  BlocBuilder<DocumentSaveCubit, DocumentSaveState>(
+                    buildWhen: (previous, current) =>
+                        previous.embedding != current.embedding ||
+                        previous.fullScreen != current.fullScreen,
+                    builder: (context, saveState) =>
+                        BlocBuilder<WindowCubit, WindowState>(
+                          builder: (context, windowState) =>
+                              BlocBuilder<SettingsCubit, ButterflySettings>(
+                                buildWhen: (previous, current) =>
+                                    previous.toolbarPosition !=
+                                        current.toolbarPosition ||
+                                    previous.toolbarSize !=
+                                        current.toolbarSize ||
+                                    previous.toolbarRows !=
+                                        current.toolbarRows ||
+                                    previous.navigationRail !=
+                                        current.navigationRail ||
+                                    previous.navigatorPosition !=
+                                        current.navigatorPosition ||
+                                    previous.optionsPanelPosition !=
+                                        current.optionsPanelPosition ||
+                                    previous.zoomPosition !=
+                                        current.zoomPosition ||
+                                    previous.cameraControlsVisibility !=
+                                        current.cameraControlsVisibility ||
+                                    previous.zoomPanelControls !=
+                                        current.zoomPanelControls ||
+                                    previous.propertyPosition !=
+                                        current.propertyPosition,
+                                builder: (context, settings) {
+                                  return LayoutBuilder(
+                                    builder: (context, constraints) =>
+                                        _buildLayout(
+                                          context,
+                                          constraints,
+                                          state,
+                                          toolState,
+                                          inputState,
+                                          saveState,
+                                          windowState,
+                                          settings,
+                                        ),
+                                  );
+                                },
+                              ),
+                        ),
+                  ),
+            ),
+      ),
+    );
+  }
+
+  Widget _buildLayout(
+    BuildContext context,
+    BoxConstraints constraints,
+    DocumentState state,
+    ToolRuntimeState toolState,
+    EditorInputState inputState,
+    DocumentSaveState saveState,
+    WindowState windowState,
+    ButterflySettings settings,
+  ) {
+    final Iterable<FlutterView> windowViews = PlatformDispatcher.instance.views;
+    final double bottomInset = windowViews.isEmpty
+        ? 0
+        : windowViews.first.viewInsets.bottom /
+              windowViews.first.devicePixelRatio;
+    final bool isMobile = constraints.maxWidth < LeapBreakpoints.compact;
+    final bool isLarge =
+        constraints.maxWidth >= LeapBreakpoints.expanded &&
+        (constraints.maxHeight + bottomInset) >= 400;
+
+    final toolbar = EditToolbar(
+      isMobile: isMobile,
+      centered: true,
+      direction: settings.toolbarPosition.axis,
+    );
+    final navigatorRailEnabled =
+        settings.navigationRail || saveState.embedding != null;
+    final fullScreen = windowState.fullScreen || saveState.fullScreen;
+    final navigatorEnabled = context.select<EditorViewCubit, bool>(
+      (cubit) => cubit.state.navigatorEnabled,
+    );
+    final showNavigator =
+        isLarge &&
+        ((navigatorRailEnabled && !fullScreen) ||
+            (navigatorEnabled && (fullScreen || !navigatorRailEnabled))) &&
+        state is DocumentLoadSuccess &&
+        inputState.hideUi == .visible;
+
+    return Stack(
+      children: [
+        MainViewViewport(key: viewportKey),
+        const MumuPalmRejectRippleLayer(),
+        _buildSelectionListener(context, toolState),
+        SafeArea(
+          child: Row(
+            textDirection: .ltr,
+            children: [
+              if (showNavigator && settings.navigatorPosition == .left)
+                const NavigatorView(),
+              if (settings.toolbarPosition == .left &&
+                  !isMobile &&
+                  inputState.hideUi == .visible)
+                toolbar,
+              _buildCenterColumn(
+                context,
+                settings,
+                fullScreen,
+                inputState,
+                isMobile,
+                toolbar,
+              ),
+              if (settings.toolbarPosition == .right &&
+                  inputState.hideUi == .visible)
+                toolbar,
+              if (showNavigator && settings.navigatorPosition == .right)
+                const NavigatorView(),
+            ],
+          ),
+        ),
+        const MumuVirtualPalmShieldOverlay(),
+        if (inputState.hideUi != .visible)
+          Positioned(
+            top: 12,
+            right: 12,
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius: const BorderRadius.all(Radius.circular(999)),
+                onTap: () => context.read<EditorInputCubit>().exitHideUI(),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xD80F172A),
+                    borderRadius: const BorderRadius.all(Radius.circular(999)),
+                    border: Border.all(color: const Color(0xFF334155)),
+                  ),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.circle, size: 8, color: Color(0xFF60A5FA)),
+                      SizedBox(width: 6),
+                      Text(
+                        '退出极简专注 (呼出工具栏)',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildSelectionListener(
+    BuildContext context,
+    ToolRuntimeState toolState,
+  ) {
+    return Listener(
+      behavior: toolState.pinned || toolState.selection == null
+          ? HitTestBehavior.translucent
+          : .opaque,
+      onPointerUp: (details) {
+        if (toolState.pinned) return;
+        context.read<ToolCubit>().resetSelection();
+      },
+    );
+  }
+
+  Widget _buildCenterColumn(
+    BuildContext context,
+    ButterflySettings settings,
+    bool fullScreen,
+    EditorInputState inputState,
+    bool isMobile,
+    Widget toolbar,
+  ) {
+    final pos = settings.toolbarPosition;
+    final optPos = settings.optionsPanelPosition;
+    final showToolbar =
+        (((fullScreen || settings.toolbarRows > 1) && pos == .inline ||
+                pos == .top) &&
+            !isMobile) &&
+        inputState.hideUi == .visible;
+    final shareToolbarAndZoomEdge =
+        !isMobile &&
+        inputState.hideUi == .visible &&
+        _toolbarAndZoomShareVerticalEdge(settings);
+    final combineTopToolbarAndZoom = showToolbar && shareToolbarAndZoomEdge;
+    final combineBottomToolbarAndZoom =
+        pos == .bottom && shareToolbarAndZoomEdge;
+
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: .center,
+        children: [
+          if (showToolbar)
+            combineTopToolbarAndZoom
+                ? _buildCombinedToolbarAndZoom(settings, toolbar)
+                : toolbar,
+          if (inputState.hideUi == .visible)
+            const MumuSecondaryPenBoxCapsule(),
+          if (optPos == .top && inputState.hideUi == .visible)
+            const ToolbarView(),
+          Expanded(
+            child: Stack(
+              children: [
+                _buildZoomAndTools(
+                  context,
+                  settings,
+                  isMobile,
+                  inputState,
+                  hideZoomTools:
+                      combineTopToolbarAndZoom || combineBottomToolbarAndZoom,
+                ),
+                Align(
+                  alignment: switch (settings.propertyPosition) {
+                    .topRight => Alignment.topRight,
+                    .topLeft => Alignment.topLeft,
+                    .bottomRight => Alignment.bottomRight,
+                    .bottomLeft => Alignment.bottomLeft,
+                  },
+                  child: PropertyView(position: settings.propertyPosition),
+                ),
+              ],
+            ),
+          ),
+          if (optPos == .bottom && inputState.hideUi == .visible)
+            const ToolbarView(),
+          if ((isMobile || pos == .bottom) && inputState.hideUi == .visible)
+            combineBottomToolbarAndZoom
+                ? _buildCombinedToolbarAndZoom(settings, toolbar)
+                : toolbar,
+        ],
+      ),
+    );
+  }
+
+  bool _toolbarAndZoomShareVerticalEdge(ButterflySettings settings) =>
+      switch (settings.toolbarPosition) {
+        .top =>
+          settings.zoomPosition == .topLeft ||
+              settings.zoomPosition == .topRight,
+        .bottom =>
+          settings.zoomPosition == .bottomLeft ||
+              settings.zoomPosition == .bottomRight,
+        _ => false,
+      };
+
+  Widget _buildCombinedToolbarAndZoom(
+    ButterflySettings settings,
+    Widget toolbar,
+  ) {
+    final isLeft =
+        settings.zoomPosition == .topLeft ||
+        settings.zoomPosition == .bottomLeft;
+    final zoomTools = SizedBox(
+      width: settings.zoomPanelControls.panelWidth(),
+      child: _buildZoomToolsRow(settings, false),
+    );
+    final children = <Widget>[
+      zoomTools,
+      Expanded(child: Align(child: toolbar)),
+    ];
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Row(
+        spacing: 8,
+        children: isLeft ? children : children.reversed.toList(),
+      ),
+    );
+  }
+
+  Widget _buildZoomAndTools(
+    BuildContext context,
+    ButterflySettings settings,
+    bool isMobile,
+    EditorInputState inputState, {
+    bool hideZoomTools = false,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Align(
+        alignment: switch (settings.zoomPosition) {
+          .topRight => Alignment.topRight,
+          .topLeft => Alignment.topLeft,
+          .bottomRight => Alignment.bottomRight,
+          .bottomLeft => Alignment.bottomLeft,
+        },
+        child: SizedBox(
+          width: settings.zoomPanelControls.panelWidth(),
+          child: Column(
+            mainAxisSize: .min,
+            crossAxisAlignment: switch (settings.zoomPosition) {
+              .topRight || .bottomRight => CrossAxisAlignment.end,
+              .topLeft || .bottomLeft => CrossAxisAlignment.start,
+            },
+            children: [
+              if (!hideZoomTools) _buildZoomToolsRow(settings, isMobile),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildZoomToolsRow(ButterflySettings settings, bool isMobile) {
+    final isLeft =
+        settings.zoomPosition == .topLeft ||
+        settings.zoomPosition == .bottomLeft;
+    final children = [
+      const PenOnlyToggle(),
+      if (settings.cameraControlsVisibility != CameraControlsVisibility.hidden)
+        Flexible(child: ZoomView(isMobile: isMobile)),
+    ];
+    return Row(
+      mainAxisAlignment: isLeft ? MainAxisAlignment.start : .end,
+      spacing: 8,
+      children: isLeft ? children.reversed.toList() : children,
+    );
+  }
+}

@@ -1,0 +1,28 @@
+import 'package:butterfly/bloc/document_bloc.dart';
+import 'package:butterfly_api/butterfly_api.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:keybinder/keybinder.dart';
+
+class ExitIntent extends Intent {
+  const ExitIntent();
+}
+
+const exitShortcut = ShortcutDefinition(
+  id: 'exit',
+  intent: ExitIntent(),
+  defaultActivator: SingleActivator(LogicalKeyboardKey.escape),
+);
+
+class ExitAction extends Action<ExitIntent> {
+  final BuildContext context;
+
+  ExitAction(this.context);
+
+  @override
+  void invoke(ExitIntent intent) {
+    final bloc = context.read<DocumentBloc>();
+    bloc.add(const PresentationModeExited());
+  }
+}

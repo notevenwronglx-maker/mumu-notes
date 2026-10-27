@@ -1,0 +1,1693 @@
+{
+  "open": "Deschideți",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Dezvăluie în exploratorul de fișiere",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Setări",
+  "personalization": "Personalizare",
+  "theme": "Tema",
+  "darkTheme": "Temă întunecată",
+  "lightTheme": "Temă luminoasă",
+  "systemTheme": "Foloseste tema de sistem implicita",
+  "view": "Vizualizare",
+  "contentViewport": "Vizualizare conținut",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Vizualizare Limită la coordonate pozitive",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Dezactivat",
+  "canvas": "Pânză",
+  "interface": "Interfață",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Editare",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Exportă",
+  "save": "Salvează",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Mareste",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Zoom in",
+  "zoomOut": "Zoom out",
+  "resetZoom": "Reset zoom",
+  "strokeWidth": "Lățimea conturului",
+  "strokeStyle": "Stil stâlp",
+  "dashLength": "Lungime defrișare",
+  "gapLength": "Lungimea decalajului",
+  "includeEraser": "Includeți ștergerea?",
+  "thinning": "Thinning",
+  "pen": "Stiloul",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Stylus inversat",
+  "eraser": "Eraser",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Accident",
+  "label": "Etichetă",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Ștergere",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Ești sigur?",
+  "reallyDelete": "Sunteţi sigur că doriţi să ştergeţi acest element?",
+  "no": "Nr",
+  "yes": "Da",
+  "undo": "Anulează",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Reface",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "Generalități",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Copiat în clipboard",
+  "loading": "Încărcare...",
+  "enterText": "Introduceți textul",
+  "size": "Dimensiune",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Width",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Înălțime",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Număr",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Spațiu",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Context",
+  "applyBackground": "Aplică fundal",
+  "applyAreas": "Aplică zone",
+  "currentPage": "Pagina curentă",
+  "allPages": "Toate paginile",
+  "box": "Cutie",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "Localizare",
+  "systemLocale": "Localizare sistem",
+  "information": "Informare",
+  "license": "Licenta",
+  "imprint": "Amprentă",
+  "privacypolicy": "Politica de confidenţialitate",
+  "sourceCode": "Cod sursă",
+  "documentation": "Documentație",
+  "changelog": "Jurnal modificări",
+  "source": "Sursa",
+  "existOverride": "Acest element există deja. Suprascrieți?",
+  "description": "Descriere",
+  "fill": "Completează",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Paletă implicită",
+  "highlighter": "Evidențiere",
+  "combinePaths": "Combinați căile",
+  "add": "Adăugare",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Elimină",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Sigur doriți să eliminați acest lucru?",
+  "resetPalette": "Reset palette",
+  "custom": "Personalizat",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Decorațiune",
+  "underline": "Subliniere",
+  "overline": "Subliniere",
+  "strikethrough": "Tăiat",
+  "thickness": "Grosime",
+  "style": "Stil",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Solid",
+  "solidColor": "Culoare solidă",
+  "gradient": "Gradient",
+  "gradientType": "Tip Gradient",
+  "linear": "Liniară",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Dublu",
+  "dotted": "Punctat",
+  "dottedDark": "Punctat întunecat",
+  "dashed": "Oprită",
+  "wavy": "Vrăjitor",
+  "fontWeight": "Greutate font",
+  "normal": "Normală",
+  "bold": "Bold",
+  "italic": "Italic",
+  "clipboard": "Clipboard",
+  "file": "Fişier",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Date",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Distribuie",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Spațiere",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Imagine",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Introduceți adresa URL",
+  "scale": "Scala",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Ajutor",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Sunteți sigur că doriți să resetați?",
+  "whatToDo": "Ce vrei să faci?",
+  "ignore": "Ignoră",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Backup",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Copie de rezervă conexiune",
+  "automaticBackups": "Backup-uri automate",
+  "automaticBackupsDescription": "Creează copii de rezervă în timp ce Butterfly rulează.",
+  "backupInterval": "Interval backup",
+  "backupNow": "Backup acum",
+  "lastBackup": "Ultima copie de rezervă",
+  "backupCreated": "Copie de rezervă creată",
+  "hour": "oră",
+  "hours": "ore",
+  "day": "zi",
+  "days": "zile",
+  "week": "săptămână",
+  "weeks": "săptămâni",
+  "createdInNewerVersion": "Fișierul {fileName} a fost creat într-o versiune mai nouă ({fileVersion}). Ce ar trebui să facă cu acest fișier?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Puncte",
+  "origin": "Origine",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "Importă",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "Nou",
+  "selectElement": "Selectaţi elementul",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Schimb",
+  "altKey": "Alt",
+  "copyVersion": "Copiază versiunea",
+  "input": "Input",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Comportamente",
+  "dataDirectory": "Director de date",
+  "warning": "Avertizare",
+  "platformExperimentalWarning": "Atenție: Această setare este experimentală și poate avea probleme pe această platformă.",
+  "changeDataDirectoryWarningContent": "Sigur doriți să schimbați dosarul de date? Ar trebui să faceți o copie de rezervă a datelor dumneavoastră înainte de a continua.",
+  "defaultPath": "Calea implicită",
+  "dateFormat": "Formatul datei",
+  "updatedAt": "Actualizat la: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Creat la: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Redenumire",
+  "duplicate": "Duplicate",
+  "hand": "Mână",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Dosar",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Mutare",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Copiază",
+  "openContextMenu": "Deschide meniul contextual",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Înapoi",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Redirecționare",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Depinde de zoom",
+  "shapeDetection": "Detectare Formă",
+  "delay": "Întârziere",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Stratul implicit",
+  "layer": "Stratul",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Straturi",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "Nu este setat",
+  "enterLayer": "Introduceți numele stratului",
+  "eraseShapes": "Șterge forme",
+  "eraseShapeModeNone": "Nu șterge formele",
+  "eraseShapeModeTouchEdges": "Ștergeți când atingeți marginile",
+  "eraseShapeModeTouchAnywhere": "Ștergeți când atingeți oriunde",
+  "selectElementModeTouchEdges": "Selectați când atingeți marginile",
+  "selectElementModeTouchAnywhere": "Selectați când atingeți oriunde",
+  "selectElements": "Selectare elemente",
+  "deleteElements": "Ștergere elemente",
+  "eraseAllElements": "Şterge toate elementele",
+  "deleteElementsConfirm": "Eşti sigur că vrei să ştergi elementele selectate?",
+  "selectCustomCollection": "Selectează o colecție personalizată",
+  "svg": "VSG",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Sensibilitate",
+  "selectionTolerance": "Toleranță la selecție",
+  "selectionToleranceDescription": "Cât de aproape trebuie să fie un cursor de un element sau o zonă pentru a-l selecta. Valorile mai mari fac selecția mai ușoară.",
+  "selectionHandleSensitivity": "Zona de lovire la selecţie",
+  "selectionHandleSensitivityDescription": "Dimensiunea zonei de lovire din jurul selecţiei şi zona de manevrare pentru toate tipurile de indicatoare.",
+  "panGestureSensitivity": "Sensibilitate gest panou",
+  "panGestureSensitivityDescription": "Mișcarea canvas de la atingere sau trackpad. Valorile mai mari mișcă pânza mai departe.",
+  "zoomGestureSensitivity": "Sensibilitate continuă la zoom",
+  "zoomGestureSensitivityDescription": "Zoom de la prindere, gesturi de trackpad și Ctrl+scroll. Valorile mai mari măresc mai departe.",
+  "rotationGestureSensitivity": "Sensibilitate gest de rotație",
+  "rotationGestureSensitivityDescription": "Rotația canvas de la gesturi. Valorile mai mari se rotesc mai departe.",
+  "scrollPanSensitivity": "Sensibilitatea panoului de derulare",
+  "scrollPanSensitivityDescription": "Canvas se mișcă de la rotița mouse-ului și de la derularea tartinului. Valorile mai mari sunt mai îndepărtate.",
+  "horizontal": "Orizontal",
+  "vertical": "Verticală",
+  "plain": "Simplu",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Lumină",
+  "ruled": "Regulat",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Quad",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Muzică",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Întunecat",
+  "plainDark": "Inchis intunecat",
+  "ruledDark": "Normal întunecat",
+  "quadDark": "Quad întunecat",
+  "musicDark": "Muzică întunecată",
+  "templates": "Şabloane",
+  "untitled": "Fără titlu",
+  "createTemplate": "Creează șablon",
+  "createTemplateContent": "Sigur doriți să creați un șablon din acest document? Documentul original va fi șters.",
+  "fileName": "Nume fișier",
+  "defaultFileName": "Nume fișier implicit",
+  "templateFileNameDescription": "Documentele deschise din selectorul de șabloane sunt salvate automat cu acest nume. Șabloanele fără nume utilizează implicit configurat în setările de date. Combinați propriul text cu {dateExample} și {timeExample}. Caracterele care nu sunt permise în numele fișierelor vor fi respinse.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Previzualizare",
+  "replace": "Înlocuiește",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Sigur doriți să înlocuiți șablonul? Această operațiune nu poate fi anulată!",
+  "defaultTemplate": "Șablon implicit",
+  "insert": "Insert",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Document",
+  "documentStates": "Stări document",
+  "camera": "Cameră",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Printare",
+  "selectCamera": "Selectează o cameră foto",
+  "changeDocumentPath": "Schimbă calea documentului",
+  "deleteWholeStroke": "Ștergeți întregul strop",
+  "alpha": "Alfa",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Suprafață",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Selectează o zonă",
+  "aspectRatio": "Raport de aspect",
+  "presets": "Presetări",
+  "pagePortrait": "Portret pagină",
+  "pageLandscape": "Pagina peisaj",
+  "square": "Patrat",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Domenii",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Intră în zonă",
+  "exitArea": "Ieșiți din zonă",
+  "currentArea": "Zona curentă",
+  "design": "Proiectare",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Text",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Hei, acesta este Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "Un spaţiu de desenare gratuit şi open-source!",
+  "updated": "Aplicație actualizată la versiunea {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Note de lansare",
+  "constraints": "Constrângeri",
+  "scaled": "Scalat",
+  "fixed": "Fixat",
+  "dynamicContent": "Dinamic",
+  "none": "Niciunul",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Include zona",
+  "verticalAlignment": "Aliniere verticală",
+  "horizontalAlignment": "Aliniere orizontală",
+  "top": "Sus",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Centru",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Jos",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Stânga",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Dreapta",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Aliniere",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Constrângere",
+  "length": "Lungime",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "Exportă SVG",
+  "pdf": "PDF",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Selecteaza pagini",
+  "recentFiles": "Fișiere recente",
+  "start": "Pornire",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "Nu există fișiere recente",
+  "countPages": "{count,plural, =0{Nici o pagină} =1{1 pagină} other{{count} pagini}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Pagina {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Ieșire",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "Niciun element",
+  "invertSelection": "Inversează selecția",
+  "errorWhileImporting": "Eroare la importare",
+  "errorWhileImportingContent": "A apărut o eroare la importarea fișierului",
+  "showDetails": "Afișare detalii",
+  "hideDetails": "Ascundeți detaliile",
+  "error": "Eroare",
+  "stackTrace": "Urmărire stivă",
+  "laser": "Laser",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Durată",
+  "quality": "Calitate",
+  "exportPdf": "Exportă PDF",
+  "local": "Local",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Adăugați conexiune",
+  "connections": "Conexiuni",
+  "noConnections": "Nicio conexiune",
+  "url": "URL",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "URL-ul complet WebDAV furnizat de furnizorul de stocare",
+  "connect": "Conectează-te",
+  "username": "Nume",
+  "password": "Parolă",
+  "authenticationPassword": "Parola de autentificare",
+  "documentEncryptionPassword": "Parola de criptare document",
+  "documentEncryptionPasswordDescription": "Criptează documentele stocate în această conexiune. Lăsați gol pentru a le păstra necriptate",
+  "documentEncryptionEnabled": "Criptare document activată",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Adăugați parola de criptare a documentului",
+  "changeDocumentEncryptionPassword": "Schimbați parola de criptare a documentului",
+  "webNotSupported": "Web neacceptat",
+  "advanced": "Avansat",
+  "symmetric": "Simetric",
+  "perSide": "Pe parte",
+  "directory": "Director",
+  "connectionNameDescription": "Folosit doar pentru a identifica această conexiune în Butterfly",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Dosar documente",
+  "templatesDirectory": "Directorul de șabloane",
+  "errorWhileCreatingConnection": "Eroare la crearea conexiunii",
+  "cannotConnect": "Nu se poate conecta",
+  "urlNotValid": "URL incorect",
+  "icon": "Iconiță",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "URL opțional al unei imagini pentru a fi folosită ca pictogramă de conexiune",
+  "update": "Actualizare",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Actualizare disponibilă",
+  "stable": "Stabil",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Noptez",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Verifică pentru actualizări",
+  "checkForUpdatesWarning": "Verificarea actualizărilor se va conecta la site-ul Butterfly pentru a obţine informaţiile.",
+  "usingLatestStable": "Folosești cea mai recentă versiune stabilă",
+  "usingLatestNightly": "Folosești ultima versiune nocturnă",
+  "currentVersion": "Versiunea curentă",
+  "updateNow": "Actualizează acum",
+  "shape": "Formă",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Tabel",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rânduri",
+  "columns": "Coloane",
+  "row": "Rând",
+  "column": "Coloana",
+  "insertRowBefore": "Introduceți un rând înainte de",
+  "insertRowAfter": "Introduceți un rând după",
+  "insertColumnBefore": "Introduceți coloana înainte de",
+  "insertColumnAfter": "Introduceți o coloană după",
+  "deleteRow": "Ștergere rând",
+  "deleteColumn": "Ștergeți coloana",
+  "cellColor": "Culoare celulă",
+  "cellBorders": "Frontiere celulare",
+  "cellBorder": "Frontieră celulă",
+  "horizontalBorder": "Frontieră orizontală",
+  "verticalBorder": "Frontieră verticală",
+  "rowHeight": "Înălțimea rândului",
+  "columnWidth": "Lățimea coloanei",
+  "border": "Border",
+  "circle": "Cerc",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Dreptunghi",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Triunghi",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Linie",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Corner radius",
+  "topLeft": "Sus stânga",
+  "topRight": "Dreapta sus",
+  "bottomLeft": "Stânga jos",
+  "bottomRight": "Jos dreapta",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Geocutii",
+  "manage": "Gestionează",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Șterge geocutiile",
+  "createCache": "Crează geocutie",
+  "thirdPartyLicenses": "Licențe terțe",
+  "syncing": "Sincronizare...",
+  "synced": "Sincronizat",
+  "notSynced": "Nu este sincronizat",
+  "conflict": "Conflict",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Păstrați local",
+  "keepConnection": "Păstrează conexiunea",
+  "keepBoth": "Păstrați ambele",
+  "forAll": "Pentru toți",
+  "fileConflict": "{file} în {connection} are un conflict",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Offline",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "Ultimul local",
+  "connectionLatest": "Conexiune recentă",
+  "path": "Cale",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Dosar sincronizat",
+  "syncRootDirectory": "Sincronizare director rădăcină",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Activează automat modul doar stylus, atunci când un stylus este detectat. Această setare durează doar pentru sesiunea curentă.",
+  "penOnlyInputOnDescription": "Respingeți întotdeauna intrarea tactilei și a mouse-ului, acceptă doar input de stylus.",
+  "penOnlyInputOffDescription": "Acceptă toate tipurile de intrare, inclusiv atingerea, mouse-ul și stylusul.",
+  "automatic": "Automat",
+  "alwaysOn": "Mereu activ",
+  "alwaysOff": "Întotdeauna oprit",
+  "showPenOnlyToggle": "Arată doar comutator stylus",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Input gestures",
+  "inputGesturesDescription": "Vă permite să vă mutaţi şi să măriţi pânzele cu gesturi tactile, chiar dacă o unealtă de desenare este selectată.",
+  "nativeTitleBar": "Bară titlu nativ",
+  "mode": "Mode",
+  "syncMode": "Mod sincronizare",
+  "connection": "Conexiune",
+  "always": "Întotdeauna",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "Niciun mobil",
+  "syncModeAlwaysDescription": "Sincronizează automat fişierele la distanţă ori de câte ori se schimbă.",
+  "syncModeNoMobileDescription": "Sincronizează automat, cu excepția dispozitivelor mobile, ceea ce poate reduce utilizarea datelor mobile.",
+  "manual": "Manual",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Ne sincronizăm doar când pornim singur.",
+  "search": "Caută",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Proprietăți",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Fixează",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Unpin",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Element",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Pictor",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Poziție",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Notă",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Pachete",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Pachet",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "Mai",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Cere nume",
+  "areaIndex": "Suprafață {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Pornește în ecran complet",
+  "inputs": "Inputs",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Șoricel",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Atingere",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Keyboard",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Scurtături",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Mijloc",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "Primul",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "Al doilea",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Unealtă activă",
+  "activeToolDescription": "Folosește unealta selectată în prezent în bara de instrumente",
+  "handTool": "Unealta de maini",
+  "handToolDescription": "Trageţi pentru a vă mişca în jurul pânzei",
+  "toolOnToolbar": "Unelte specifice în bara de instrumente",
+  "toolOnToolbarDescription": "Utilizați unealta la poziția specificată pe bara de instrumente, începând cu stânga",
+  "toolOnToolbarShort": "Poziție Bară de instrumente: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Unelte",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Arată grila",
+  "grid": "Grilă",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Regulă",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Unghiul",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Raport",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "Dosar nou",
+  "createPack": "Creare pachet",
+  "editPack": "Editare pachet",
+  "packsDirectory": "Directorul de pachete",
+  "stamp": "Timbru",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Adaugă la pachet",
+  "sureImportPack": "Sunteţi sigur că doriţi să importați pachetul?",
+  "byAuthor": "până la {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Autor",
+  "addAsset": "Adăugare activ",
+  "editAsset": "Editare activ",
+  "scope": "Domeniu",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "În acest moment nu există pachete disponibile",
+  "components": "Componente",
+  "waypoint": "Punct",
+  "actions": "Acțiuni",
+  "painters": "Pași",
+  "breakingChangesTitle": "Ruperea modificărilor",
+  "breakingChangesMessage": "Există modificări de rupere în această versiune. Vă rugăm să citiţi jurnalul modificărilor înainte de actualizare. Versiunea curentă a fișierului este {version}, noua versiune este {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Styles",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Paragraful",
+  "fontFamily": "Familia de fonturi",
+  "smoothing": "Amortizor",
+  "streamline": "Raţionalizare",
+  "presentation": "Prezentare",
+  "simple": "Simplu",
+  "createPresentation": "Create presentation",
+  "addSlide": "Adaugă diapozitiv nou",
+  "updateSlide": "Actualizare diapozitiv",
+  "deleteSlide": "Ștergeți diapozitivul",
+  "transitionDuration": "Durata tranziției",
+  "transitionDurationDescription": "Cât timp durează camera să se mute la următorul slide. Pe ultimul slide, acesta este folosit atunci când adăugați unul nou.",
+  "transitionDurationValue": "{seconds}tranziție",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Adaugă cadrul cheie aici",
+  "updateKeyframe": "Actualizează din camera curentă",
+  "deleteKeyframe": "Șterge cadrul cheie",
+  "markAsSlide": "Marchează ca diapozitiv",
+  "removeSlideMarker": "Elimină marker slide",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "Selecteaza activ",
+  "clearStyle": "Sterge stil",
+  "unknownImportType": "Tip de import necunoscut",
+  "sureImportTemplate": "Sunteți sigur că doriți să importați șablonul?",
+  "frame": "Frame",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Redare",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "FPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Breakpoint",
+  "presentationControls": "Controale de prezentare",
+  "nextSlide": "Următorul diapozitiv",
+  "nextSlideDescription": "Glisați spre dreapta sau apăsați tasta săgeată dreapta pentru a merge la următorul slide",
+  "previousSlide": "Diapozitivul anterior",
+  "previousSlideDescription": "Glisați spre stânga sau apăsați tasta săgeată stânga pentru a merge la slide-ul anterior",
+  "exitPresentation": "Ieșire din prezentare",
+  "exitPresentationDescription": "Apăsați tasta de evacuare sau glisați în jos pentru a ieși din prezentare",
+  "pausePresentation": "Întrerupeți prezentarea",
+  "pausePresentationDescription": "Atingeți ecranul sau apăsați bara de spațiu pentru a întrerupe sau pentru a relua prezentarea",
+  "keyframe": "Keyframe",
+  "endOfPresentation": "Ați ajuns la sfârșitul prezentării",
+  "startOfPresentation": "Ați ajuns la începutul prezentării",
+  "palettes": "Palettes",
+  "headline": "Titlu {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Cod",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Ofertă",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Link-ul",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Casuta",
+  "deleted": "Șters",
+  "emphasis": "Accentuarea",
+  "listBullet": "Listă marcaje",
+  "strong": "Puternic",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Acasă",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Fișiere",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Sortează după",
+  "location": "Locaţie",
+  "whatsNew": "Ce este nou?",
+  "unstar": "Nerestea",
+  "star": "Stea",
+  "goUp": "Mergi mai sus",
+  "created": "Creat",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Modificat",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Quickstart",
+  "noTemplates": "În acest moment nu există șabloane disponibile",
+  "importCorePack": "Importă pachetul de nucleu",
+  "importCorePackDescription": "Importați pachetul de nucleu care conține toate activele de bază pentru a începe. Acest lucru va suprascrie actualul nucleu pachet.",
+  "never": "Niciodată",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Numai la actualizări",
+  "visibility": "Vizibilitate",
+  "captureThumbnail": "Capturează miniatura",
+  "autoThumbnail": "Actualizare miniatură la închidere",
+  "autoThumbnailDescription": "Capturează vizualizarea curentă atunci când închizi acest document. Se oprește manual capturarea unei miniaturi.",
+  "capturedThumbnail": "Miniatură captată cu succes",
+  "chooseLabelMode": "Alege modul etichetă",
+  "foreground": "prim-plan",
+  "version": "Versiune",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Depozit",
+  "pages": "Pagini",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Navigator",
+  "arrange": "Aranjare",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Aduce în față",
+  "sendToBack": "Trimite înapoi",
+  "bringForward": "Adu înainte",
+  "sendBackward": "Trimite înapoi",
+  "rotation": "Rotație",
+  "rotationStep": "Etapa de rotație",
+  "zoomStep": "Pasul de mărire",
+  "zoomStepDescription": "Suma folosită de zoom și micșorarea scurtăturilor pentru tastatură. Gesturile de zoom continue folosesc setările proprii de sensibilitate.",
+  "direction": "Direcție",
+  "onlyAvailableLargerScreen": "Disponibil doar pe ecrane mai mari",
+  "toolbarPosition": "Poziția barei de instrumente",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Rotire",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Rotire la stânga",
+  "rotateRight": "Rotire la dreapta",
+  "spacer": "Spatier",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Cale de navigare",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Taie",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Inserare înainte",
+  "insertAfter": "Inserare după",
+  "insertFirst": "Inserare prima",
+  "insertLast": "Insert last",
+  "paste": "Lipește",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Crescător",
+  "descending": "Descrescător",
+  "imageScale": "Scala imaginii",
+  "svgScale": "Scala SVG",
+  "noImageSelected": "Nicio imagine selectată",
+  "noSvgSelected": "Niciun SVG selectat",
+  "select": "Selectare",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Unelte",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Textură",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Tema platformei",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Birou",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Mobil",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Suprafață",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Model",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Ești sigur că vrei să închizi documentul?",
+  "thereAreUnsavedChanges": "Există modificări nesalvate",
+  "page": "Pagină",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "Servere ICE",
+  "collaboration": "Colaborare",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Socket web",
+  "iceServer": "Server ICE",
+  "port": "Portul",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Tip",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Lateral",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "Client",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Server",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Comutare vizualizare",
+  "lasso": "Lasso",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Ascunde UI",
+  "density": "Densitate",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Compact",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Comfortable",
+  "standard": "Standard",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Blocare",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Adaugă element",
+  "notDefaultConnection": "Conexiune neimplicită",
+  "defaultConnection": "Conexiune implicită",
+  "hide": "Ascunde",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Afișare",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "Întrerupeți",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Oprește",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Împrospătează",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "Tipărește",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Picături oftalmice",
+  "users": "Utilizatori",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Experimente",
+  "experimentsWarning": "Aceste funcții sunt experimentale și pot să se schimbe, să se blocheze sau să dispară în orice moment. Activarea lor poate provoca instabilitate sau pierderi de date. Continuați cu prudență. Vă rugăm să raportați orice erori.",
+  "address": "Adresa",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Răspândește la pagini",
+  "rootDirectorySpecifiedDescription": "Directorul rădăcină este specificat. Toate directoarele avansate vor fi relative la acest director. Păstrați-l gol pentru a dezactiva acest tip de directoriu.",
+  "rootDirectoryNotSpecifiedDescription": "Directorul rădăcină nu este specificat. Este necesar un nume. Toate directoarele avansate vor fi absolute. Păstrați gol pentru a dezactiva acest tip de director.",
+  "unsecureConnectionTitle": "Conexiune nesigură",
+  "unsecureConnectionMessage": "Conexiunea nu este securizată. Aceasta poate fi un risc de securitate. Vă rugăm să continuați numai dacă aveți încredere în conexiune. Amprenta sha1 este {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Continuă oricum",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Arată previzualizările navigatorului",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Arată miniaturile de previzualizare în zonele şi paginile navigatoare",
+  "highContrast": "Contrast mare",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "Această valoare trebuie să fie un număr valid",
+  "createAreas": "Creează zone",
+  "autosave": "Autosave",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Invert",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "Operațiuni",
+  "medium": "Medie",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "Mare",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Dimensiunea barei de instrumente",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Adaugă toate",
+  "onlyCurrentPage": "Doar pagina curentă",
+  "smoothNavigation": "Navigare lină",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Comutarea zonei panoului de margini",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Folosește Android SAF",
+  "exact": "Exact",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "Inline",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Rânduri din bara de instrumente",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "Testul indicatorului",
+  "pressure": "Presiune",
+  "small": "Mică",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Mică",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Selectează tot",
+  "overrideTools": "Suprascrie uneltele",
+  "hideCursorWhileDrawing": "Ascunde cursorul în timpul desenării",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Instalat",
+  "install": "Instalează",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Deselectează",
+  "changeCollection": "Schimbă colecția",
+  "collections": "Colecții",
+  "fullSelection": "Selecţie completă",
+  "collection": "Colectare",
+  "defaultCollection": "Colectare implicită",
+  "scroll": "Derulează",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "La pornire",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Ecranul principal",
+  "lastNote": "Ultima notă",
+  "newNote": "Notă nouă",
+  "moveToLayer": "Mutare în strat",
+  "createLayer": "Creare strat",
+  "merge": "Îmbinare",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Sus",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Jos",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "Altele",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{Niciun element} =1{1 element} other{{count} elemente}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Bară de culori",
+  "yesButShowButtons": "Da, dar arată butoanele",
+  "optionsPanelPosition": "Poziția panoului de opțiuni",
+  "hideDuration": "Ascunde durata",
+  "animation": "Animaţie",
+  "performance": "Performanță",
+  "performanceDescription": "Optimizat pentru viteză și utilizarea memoriei. Numai partea vizibilă a notei este copită în imagine.",
+  "normalDescription": "Echilibrează calitatea și performanța. Bake o imagine care acoperă de 1,5 ori zona vizibilă, oferind tranziții mai ușoare atunci când derulează.",
+  "high": "Ridicat",
+  "highDescription": "Maximizează calitatea cu preţul performanţei. Bakează o imagine care acoperă de 2 ori suprafaţa vizibilă, asigurând o redare fără întreruperi chiar şi în timpul derulării sau măririi rapide.",
+  "renderResolution": "Rezoluție de randare",
+  "translate": "Tradu",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Necriptat",
+  "encrypted": "Criptat",
+  "encryptDocumentMessage": "Click pentru a cripta documentul",
+  "unencryptDocumentMessage": "Click pentru a dezcripta documentul",
+  "unencrypt": "Necriptare",
+  "encrypt": "Criptează",
+  "encryptWarning": "Aceasta va cripta documentul. Va trebui să reamintiți parola pentru a o decripta.",
+  "unencryptWarning": "Acest lucru va decripta documentul. Parola va fi eliminată și toată lumea cu acces îl va putea deschide.",
+  "confirmPassword": "Confirmă parola",
+  "passwordMismatch": "Parolele nu se potrivesc",
+  "action": "Acțiune",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "Text SVG",
+  "offset": "Decalaj",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "Sfârșit",
+  "radius": "Radius",
+  "focalPoint": "Punct focal",
+  "useOffCenterStartPoint": "Folosește un punct de pornire în afara centrului",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Oprire culoare",
+  "addStop": "Adaugă oprire",
+  "positionDependent": "Depinde de poziție",
+  "flipHorizontal": "Rotire orizontală",
+  "flipVertical": "Întoarce vertical",
+  "grayscale": "Grayscale",
+  "moveOnGesture": "Mută la gest",
+  "exportAllFiles": "Exportă toate fișierele",
+  "restoreSettingsFromFile": "Restabilește setările din fișier",
+  "resetAllSettings": "Resetează toate setările",
+  "exportSettingsToFile": "Exportă setările în fișier",
+  "barcode": "Barcode",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Tip cod de bare",
+  "qrCode": "QR Code",
+  "dataMatrix": "Matricea datelor",
+  "code128": "Codul 128",
+  "defaultUserName": "Utilizator {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Mută în stânga",
+  "moveRight": "Mută în dreapta",
+  "bundledPacks": "Pachete pachet",
+  "component": "Componentă",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Selectaţi componenta",
+  "bundlePackInDocument": "Pachet pachet în document",
+  "bundledPacksDescription": "Pachetele combinate sunt incluse în document și sunt utilizate numai pentru a partaja documentul. Activele pot fi utilizate în document numai dacă pachetul este instalat. Pachetele pot fi instalate cu click pe ele.",
+  "fillAlpha": "Completează alfa",
+  "packagedFile": "Fișier împachetat",
+  "rawFile": "Fișier brut",
+  "webSocketDescription": "Dispozitivul tău găzduiește serverul, astfel încât colaboratorii se pot alătura doar prin aceeași rețea sau de oriunde ai înainta portul de pe router.",
+  "swampDescription": "Mesajele dvs. sunt transmise printr-un server de releu securizat cu criptare de la un capăt la altul. O adresă server swamp este necesară pentru a crea o sesiune.",
+  "createRawNote": "Creați o notă brută",
+  "polygon": "Poligon",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Formă finală",
+  "submit": "Trimiteți",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Matematică",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ignoră presiunea",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignoră prima citire a presiunii, care poate fi inexactă pe unele stilusuri.",
+  "ignorePressureNeverDescription": "Folosește orice presiune citită din stylus.",
+  "ignorePressureAlwaysDescription": "Ignoră presiunea şi tratează stylus-ul aşa cum este apăsat complet.",
+  "temporary": "Temporar",
+  "simpleToolbarVisibility": "Vizibilitate simplă a barei de instrumente",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Întârziere salvare automată",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Salvat",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Salvare...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Doar citire",
+  "saveDelayed": "Salvare întârziată",
+  "unsaved": "nesalvate",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "În acest moment nu există zone pentru export. Vă rugăm să selectaţi cel puţin o zonă folosind butonul plus în colţul din dreapta sus sau să adăugaţi toate zonele din pagina curentă sau din tot documentul de mai jos.",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Personalizare comenzi rapide",
+  "clickToSave": "Click pentru a salva",
+  "toolbars": "Bare de instrumente",
+  "logs": "Jurnale",
+  "ruledSimple": "Reglementat simplu",
+  "ruledSimpleDark": "Întunecată simplă",
+  "quadSimple": "Quad simplu",
+  "quadSimpleDark": "Quad simplu întunecat",
+  "redLinedRuled": "Căptușit roșu",
+  "redLinedRuledDark": "Roșu căptușit întunecat",
+  "redLinedQuad": "Quad roșu",
+  "redLinedQuadDark": "Quad roșu închis",
+  "noItemSelected": "Niciun element selectat",
+  "areaAsInitial": "Deschideți zona ca vizualizare inițială",
+  "swap": "Schimbă",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Ascunde extensia fișierului",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "Nou din șablon",
+  "exportAsTextShortcut": "Exportă ca text",
+  "exportAsImageShortcut": "Exportă ca imagine",
+  "exportAsPdfShortcut": "Exportă ca PDF",
+  "exportAsSvgShortcut": "Exportă ca SVG",
+  "changePathShortcut": "Schimbă calea",
+  "fullScreenShortcut": "Ecran complet",
+  "doublePressAction": "Acțiune la apăsare dublă",
+  "triplePressAction": "Acțiune apăsare triplă",
+  "twoFingerTap": "Atingere în două degete",
+  "threeFingerTap": "Atingere cu trei degete",
+  "longPress": "Apăsare lungă",
+  "toolNumber": "Unelte {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Țineți apăsat Comenzile rapide",
+  "holdShortcutsDescription": "Țineți apăsată o cheie pentru a trece temporar la un alt instrument. Lansând tasta se schimbă înapoi la unealta anterioară.",
+  "key": "Cheie",
+  "bringMovedElementsToFront": "Aduce elementele mutate în față",
+  "addTool": "Adăugare unealtă",
+  "nextPage": "Pagina următoare",
+  "previousPage": "Pagina precedentă",
+  "persistenceDocumentStates": "Stări persistente ale documentului",
+  "persistentStatesEnabled": "Activează stările persistente de document",
+  "persistentStateCurrentPage": "Pagina curentă",
+  "persistentStateViewport": "Pozitie vizualizare si zoom",
+  "persistentStateSelectedTool": "Unealtă selectată",
+  "persistentStateMaxRecords": "Maxim de înregistrări stocate",
+  "persistentStateDeleteOlderThanDays": "Ștergeți înregistrările mai vechi de zile",
+  "persistentStateCleanup": "Curăță stările stocate",
+  "persistentStateCleanupDescription": "Ştergeţi înregistrările mai vechi decât limitele de mai sus",
+  "persistentStateCleanupInProgress": "Curățare în sus...",
+  "persistentStateDefaultLocks": "Blocaje implicite",
+  "persistentStateDefaultLocksDescription": "Aplică aceste blocaje atunci când un document nu are stare salvată",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{A curățat o locație de stocare} other{A șters {locations} Locații de stocare}} {records, plural, =1{a eliminat 1 record} other{a șters {records} înregistrările}}",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Salvează modificările automat pe măsură ce lucrezi.",
+  "autosaveDelayedDescription": "Salvează modificările automat după întârzierea selectată.",
+  "autosaveShowButtonDescription": "Salvează automat și păstrează și butonul de salvare vizibil.",
+  "autosaveDisabledDescription": "Salvează doar când folosești comanda de salvare.",
+  "hideCursorWhileDrawingDescription": "Ascunde cursorul mouse-ului în timp ce desenezi, astfel încât să nu acopere șmecheria.",
+  "onStartupHomeScreenDescription": "Deschide ecranul de start la pornirea butonului.",
+  "onStartupLastNoteDescription": "Redeschide cea mai recentă notă folosită atunci când Butterfly pornește.",
+  "onStartupNewNoteDescription": "Creează o nouă notă atunci când Butterfly începe.",
+  "smoothNavigationDescription": "Face să se simtă mai liniştite prin simplificarea pânzei în timp ce se mişcă.",
+  "edgePanAreaSwitchingDescription": "Comută la o zonă vecină când urci lângă marginea pânzilor.",
+  "collaborationDescription": "Permite mai multor persoane să editeze aceeași notă împreună în timp real.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Include mesaje detaliate de diagnosticare in vizualizarea jurnalului si consola. Aceste mesaje pot ajuta cand depanati o problema.",
+  "bringMovedElementsToFrontDescription": "Plasează un element deasupra elementelor suprapuse după ce îl muți.",
+  "persistenceDocumentStatesDescription": "Controlează ce părţi din spaţiul tău de lucru îşi aminteşte fluturaşul pentru fiecare notă, cum ar fi pagina curentă, zoom-ul şi unealta selectată.",
+  "persistentStatesEnabledDescription": "Salvați informații despre starea documentului între sesiunile aplicațiilor",
+  "persistentStateCurrentPageDescription": "Amintiţi-vă pagina curentă la redeschiderea unui fişier",
+  "persistentStateViewportDescription": "Amintiți-vă poziția viewportului, zoom și rotație pentru fiecare pagină",
+  "persistentStateSelectedToolDescription": "Reține instrumentul selectat la redeschiderea unui fișier",
+  "persistentStateLocksDescription": "Reține setările de blocare la redeschiderea unui fișier",
+  "persistentStateNavigatorDescription": "Amintiţi-vă starea navigatorului la redeschiderea unui fişier",
+  "persistentStateLayersDescription": "Reţineţi starea panoului pe strat la redeschiderea unui fişier",
+  "persistentStateAreasDescription": "Memorează starea zonei panoului la redeschiderea unui fișier",
+  "persistentStateAutoThumbnail": "Miniaturi automate",
+  "persistentStateAutoThumbnailDescription": "Afișează comutatorul pe document și permite miniaturilor să se actualizeze atunci când documentele se închid",
+  "persistentStateMaxRecordsDescription": "Păstrați cel mult atâtea stări stocate pe fișier",
+  "persistentStateDeleteOlderThanDaysDescription": "Ştergeţi statele stocate mai vechi de atâtea zile",
+  "contentViewportDescription": "Limitează cât de departe poți scăpa de conținutul notei tale.",
+  "limitViewportPositiveDescription": "Păstraţi pânzele în interiorul zonei la dreapta şi dedesubtul punctului de plecare.",
+  "startInFullScreenDescription": "Deschide Butterfly în modul ecran complet când este suportat.",
+  "designDescription": "Schimbă stilul vizual general al Butterfly fără a schimba dacă aplicația folosește culori luminoase sau întunecate.",
+  "platformThemeDescription": "Vă permite să utilizaţi aspectul desktop sau mobil în loc de aspectul Butterfly în mod normal alege pentru dispozitivul dvs.",
+  "densityDescription": "Modifică spațierea și dimensiunea elementelor de interfață. Nu schimbă dimensiunea conținutului notelor tale.",
+  "highContrastDescription": "Folosește diferențe de culoare mai mari pentru a face comenzile și textul mai ușor de diferențiat.",
+  "nativeTitleBarDescription": "Foloseşte bara standard de titlu a ferestrei în loc de bara de titlu personalizată a butterfle.",
+  "propertiesDescription": "Alege unde apare panoul pentru editarea uneltei sau elementului selectat.",
+  "navigationRailDescription": "Afișează o bară permanentă de navigare pe ecranele largi pentru acces mai rapid la secțiunile aplicației.",
+  "optionsPanelPositionDescription": "Alegeți dacă opțiunile de instrumente apar deasupra sau sub pânză.",
+  "simpleToolbarVisibilityDescription": "Controlează când apare bara de instrumente mai mică, simplificată în timp ce editează o notă.",
+  "penOnlyInputDescription": "Previne semnele accidentale din mâna ta sau mouse-ul alegând când doar intrarea de stylus poate fi desenată.",
+  "showPenOnlyToggleDescription": "Arată un întrerupător rapid doar de stylus în editor după ce Butterfly detectează un stylus.",
+  "ignorePressureDescription": "Controlează dacă presiunea stylusului modifică accidentul vascular cerebral şi acţionează în jurul valorilor inexacte ale presiunii din unele stylus.",
+  "moveOnGestureDescription": "Lasă gesturi multi-touch să mute pânza în loc să interacționeze cu conținutul notei.",
+  "spreadPagesDescription": "Împarte importurile în mai multe pagini pe pagini separate de note, în loc să plasezi totul pe o singură pagină.",
+  "shear": "Șuruburi",
+  "resetRotation": "Resetare rotație",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Alegeţi comenzile pentru zoom şi rotaţie. Butoanele de resetare rămân disponibile în fiecare layout.",
+  "zoomPanelFull": "Complet (slider, text field and buttons)",
+  "zoomPanelSliderInput": "Camp glisare si text",
+  "zoomPanelSlider": "Slider",
+  "zoomPanelInputButtons": "Câmp text și butoane",
+  "zoomPanelInput": "Camp text",
+  "rotationDisplay": "Afișare rotație",
+  "rotationDisplayDescription": "Alegeți când rândul de rotație apare deasupra micșorării. Acest lucru nu schimbă gesturile de rotație sau scurtăturile.",
+  "whenRotated": "Când este rotit",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Rotiți pânza prin tragere"
+}

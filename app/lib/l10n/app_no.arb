@@ -1,0 +1,1693 @@
+{
+  "open": "Åpne",
+  "@open": {
+    "description": "Open a file or dialog"
+  },
+  "revealInFileExplorer": "Vis i filutforsker",
+  "@revealInFileExplorer": {
+    "description": "Reveal a file or folder in the operating system's file explorer"
+  },
+  "settings": "Innstillinger",
+  "personalization": "Personalisering",
+  "theme": "Tema",
+  "darkTheme": "Mørkt tema",
+  "lightTheme": "Lyst tema",
+  "systemTheme": "Bruk standard systemtema",
+  "view": "Vis",
+  "contentViewport": "Innholdsvisnings port",
+  "@contentViewport": {
+    "description": "Limit how far the viewport can move beyond the content"
+  },
+  "limitViewportToPositiveCoordinates": "Begrens visningsporten til positive koordinater",
+  "@limitViewportToPositiveCoordinates": {
+    "description": "Prevent the viewport from moving into negative coordinates"
+  },
+  "off": "Av",
+  "canvas": "Canvas",
+  "interface": "Grensesnitt",
+  "@view": {
+    "description": "View mode or menu"
+  },
+  "edit": "Rediger",
+  "@edit": {
+    "description": "Edit mode or menu"
+  },
+  "export": "Eksporter",
+  "save": "Lagre",
+  "@save": {
+    "description": "Save action"
+  },
+  "zoom": "Forstørre",
+  "@zoom": {
+    "description": "Zoom action or level"
+  },
+  "zoomIn": "Zoom inn",
+  "zoomOut": "Zoom ut",
+  "resetZoom": "Reset zoom",
+  "strokeWidth": "Bredde på slagbredde",
+  "strokeStyle": "Stil for stripe",
+  "dashLength": "Punkt lengde",
+  "gapLength": "Gap lengde",
+  "includeEraser": "Inkluder eraser?",
+  "thinning": "Tynn",
+  "pen": "Penn",
+  "@pen": {
+    "description": "Pen tool"
+  },
+  "invertedPen": "Invertert stilke",
+  "eraser": "Eraser",
+  "@eraser": {
+    "description": "Eraser tool"
+  },
+  "stroke": "Slag",
+  "label": "Etikett",
+  "@label": {
+    "description": "Label tool"
+  },
+  "delete": "Slett",
+  "@delete": {
+    "description": "Delete action"
+  },
+  "areYouSure": "Er du sikker?",
+  "reallyDelete": "Vil du virkelig slette dette elementet?",
+  "no": "Nei",
+  "yes": "Ja",
+  "undo": "Angre",
+  "@undo": {
+    "description": "Undo action"
+  },
+  "redo": "Gjenta",
+  "@redo": {
+    "description": "Redo action"
+  },
+  "general": "Generelt",
+  "@general": {
+    "description": "General settings"
+  },
+  "copyTitle": "Kopiert til utklippstavle",
+  "loading": "Laster...",
+  "enterText": "Skriv inn teksten",
+  "size": "Størrelse",
+  "@size": {
+    "description": "Size property"
+  },
+  "width": "Width",
+  "@width": {
+    "description": "Width property"
+  },
+  "height": "Høyde",
+  "@height": {
+    "description": "Height property"
+  },
+  "count": "Antall",
+  "@count": {
+    "description": "Count property"
+  },
+  "space": "Mellomrom",
+  "@space": {
+    "description": "Spacing property"
+  },
+  "background": "Bakgrunn",
+  "applyBackground": "Bruk bakgrunn",
+  "applyAreas": "Påfør områder",
+  "currentPage": "Nåværende side",
+  "allPages": "Alle sider",
+  "box": "Boks",
+  "@box": {
+    "description": "Box shape"
+  },
+  "locale": "Språk",
+  "systemLocale": "System nasjonale innstillinger",
+  "information": "Informasjon",
+  "license": "Lisens",
+  "imprint": "Avtrykk",
+  "privacypolicy": "Retningslinjer for personvern",
+  "sourceCode": "Kildekode",
+  "documentation": "Dokumentasjon",
+  "changelog": "Endringslogg",
+  "source": "Kilde",
+  "existOverride": "Dette elementet finnes allerede. Overskriv?",
+  "description": "Beskrivelse",
+  "fill": "Fyll",
+  "@fill": {
+    "description": "Fill property"
+  },
+  "defaultPalette": "Standard palett",
+  "highlighter": "Uthever",
+  "combinePaths": "Kombiner baner",
+  "add": "Legg til",
+  "@add": {
+    "description": "Add action"
+  },
+  "remove": "Fjern",
+  "@remove": {
+    "description": "Remove action"
+  },
+  "removeConfirm": "Vil du virkelig fjerne dette?",
+  "resetPalette": "Reset palette",
+  "custom": "Egendefinert",
+  "@custom": {
+    "description": "Custom value"
+  },
+  "decoration": "Dekorasjon",
+  "underline": "Understreking",
+  "overline": "Overlinje",
+  "strikethrough": "Gjennomstreking",
+  "thickness": "Tykkelse",
+  "style": "Stil",
+  "@style": {
+    "description": "Style property"
+  },
+  "solid": "Solid",
+  "solidColor": "Enslig farge",
+  "gradient": "Gradert",
+  "gradientType": "Type gradient",
+  "linear": "Lineær",
+  "radial": "Radial",
+  "tint": "Tint",
+  "blur": "Blur",
+  "double": "Dobbel",
+  "dotted": "Prikket",
+  "dottedDark": "Prikket mørkt",
+  "dashed": "Stiplet",
+  "wavy": "Bølgefull",
+  "fontWeight": "Skriftens vekt",
+  "normal": "Vanlig",
+  "bold": "Bold",
+  "italic": "Italic",
+  "clipboard": "Utklippstavle",
+  "file": "Fil",
+  "@file": {
+    "description": "File menu or object"
+  },
+  "data": "Data",
+  "@data": {
+    "description": "Data settings"
+  },
+  "share": "Del",
+  "@share": {
+    "description": "Share action"
+  },
+  "spacing": "Avstand",
+  "padding": "Padding",
+  "@padding": {
+    "description": "Padding around an exported image"
+  },
+  "image": "Bilde",
+  "@image": {
+    "description": "Image object or tool"
+  },
+  "enterUrl": "Skriv inn nettadressen",
+  "scale": "Skala",
+  "@scale": {
+    "description": "Scale property"
+  },
+  "help": "Hjelp",
+  "@help": {
+    "description": "Help action"
+  },
+  "reallyReset": "Vil du virkelig tilbakestille det?",
+  "whatToDo": "Hva vil du gjøre?",
+  "ignore": "Ignorer",
+  "@ignore": {
+    "description": "Ignore action"
+  },
+  "backup": "Sikkerhetskopi",
+  "@backup": {
+    "description": "Backup action"
+  },
+  "backupConnection": "Sikkerhetskopier tilkobling",
+  "automaticBackups": "Automatisk sikkerhetskopiering",
+  "automaticBackupsDescription": "Oppretter sikkerhetskopier mens Butterfly kjører.",
+  "backupInterval": "Sikkerhetskopier intervall",
+  "backupNow": "Sikkerhetskopier nå",
+  "lastBackup": "Siste sikkerhetskopi",
+  "backupCreated": "Sikkerhetskopi opprettet",
+  "hour": "time",
+  "hours": "timer",
+  "day": "dag",
+  "days": "dager",
+  "week": "uke",
+  "weeks": "uker",
+  "createdInNewerVersion": "Filen {fileName} ble laget i en nyere versjon ({fileVersion}). Hva bør gjøres med denne filen?",
+  "@createdInNewerVersion": {
+    "placeholders": {
+      "fileName": {
+        "type": "String",
+        "example": "Document"
+      },
+      "fileVersion": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "waypoints": "Veipunkter",
+  "origin": "Opprinnelse",
+  "@origin": {
+    "description": "Origin point"
+  },
+  "import": "Importer",
+  "@import": {
+    "description": "Import action"
+  },
+  "newContent": "Ny",
+  "selectElement": "Velg element",
+  "ctrlKey": "Ctrl",
+  "shiftKey": "Skift",
+  "altKey": "Alt",
+  "copyVersion": "Kopier versjon",
+  "input": "Input",
+  "@input": {
+    "description": "Input settings"
+  },
+  "behaviors": "Oppførsler",
+  "dataDirectory": "Datamaskin katalog",
+  "warning": "Advarsel",
+  "platformExperimentalWarning": "Advarsel: Denne innstillingen er eksperimentell og kan ha problemer på denne plattformen.",
+  "changeDataDirectoryWarningContent": "Er du sikker på at du vil endre datamappen? Du bør ta en sikkerhetskopi av dataene før du fortsetter.",
+  "defaultPath": "Standard sti",
+  "dateFormat": "Dato format",
+  "updatedAt": "Oppdatert kl: {dateTime}",
+  "@updatedAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "createdAt": "Opprettet den: {dateTime}",
+  "@createdAt": {
+    "placeholders": {
+      "dateTime": {
+        "type": "DateTime",
+        "isCustomDateFormat": "true",
+        "format": "yy-MM-dd H:mm"
+      }
+    }
+  },
+  "rename": "Omdøp",
+  "duplicate": "Duplicate",
+  "hand": "Hånd",
+  "@hand": {
+    "description": "Hand tool"
+  },
+  "folder": "Mappe",
+  "@folder": {
+    "description": "Folder object"
+  },
+  "move": "Flytt",
+  "@move": {
+    "description": "Move action"
+  },
+  "copy": "Kopier",
+  "openContextMenu": "Åpne kontekstmeny",
+  "@copy": {
+    "description": "Copy action"
+  },
+  "back": "Tilbake",
+  "@back": {
+    "description": "Back action"
+  },
+  "forward": "Videresend",
+  "@forward": {
+    "description": "Forward action"
+  },
+  "zoomDependent": "Zoom avhengig",
+  "shapeDetection": "Finn form",
+  "delay": "Forsinkelse",
+  "@delay": {
+    "description": "Delay property"
+  },
+  "defaultLayer": "Standard lag",
+  "layer": "Lag",
+  "@layer": {
+    "description": "Layer object"
+  },
+  "layers": "Lag",
+  "@layers": {
+    "description": "Layers list"
+  },
+  "notSet": "Ikke angitt",
+  "enterLayer": "Angi navn på lag",
+  "eraseShapes": "Slett figurer",
+  "eraseShapeModeNone": "Ikke slett figurer",
+  "eraseShapeModeTouchEdges": "Slett når kantene berører",
+  "eraseShapeModeTouchAnywhere": "Slett under berøring hvor som helst",
+  "selectElementModeTouchEdges": "Velg når kanter berører",
+  "selectElementModeTouchAnywhere": "Velg ved berøring hvor som helst",
+  "selectElements": "Velg elementer",
+  "deleteElements": "Slett elementer",
+  "eraseAllElements": "Slett alle elementer",
+  "deleteElementsConfirm": "Vil du virkelig slette de valgte elementene?",
+  "selectCustomCollection": "Velg en egendefinert samling",
+  "svg": "Svg",
+  "@svg": {
+    "description": "SVG format"
+  },
+  "sensitivity": "Sensitivitet",
+  "selectionTolerance": "Utvelgelsestoleranse",
+  "selectionToleranceDescription": "Hvordan lukke en peker må være til et element eller område for å velge det. Høyere verdier gjør det enklere.",
+  "selectionHandleSensitivity": "Velg håndtak treffområde",
+  "selectionHandleSensitivityDescription": "Størrelse på treffområdet rundt utvelgelsen og områdehåndtaket for alle peketyper.",
+  "panGestureSensitivity": "Følsomhet i fan",
+  "panGestureSensitivityDescription": "Canvas bevegelse fra berøring eller trackpad bevegelser. Høyere verdier flytter lerretet lengre.",
+  "zoomGestureSensitivity": "Kontinuerlig zoom-følsomhet",
+  "zoomGestureSensitivityDescription": "Zoom fra å knip ut, trackpaddebevegelser og Ctrl+scroll. Høyere verdier zoom langt.",
+  "rotationGestureSensitivity": "Rotasjonsbevegelser følsomhet",
+  "rotationGestureSensitivityDescription": "Lerret rotasjon fra gestere. Høyere verdier roterer videre.",
+  "scrollPanSensitivity": "Rull pan følsomhet",
+  "scrollPanSensitivityDescription": "Canvas bevegelse fra musehjul og trackpad scrolling. Høyere verdier panorerer lenger",
+  "horizontal": "Horisontal",
+  "vertical": "Vertikal",
+  "plain": "Enkel",
+  "@plain": {
+    "description": "Background pattern"
+  },
+  "light": "Lys",
+  "ruled": "Linjert",
+  "@ruled": {
+    "description": "Background pattern"
+  },
+  "quad": "Avrunding",
+  "@quad": {
+    "description": "Background pattern"
+  },
+  "music": "Musikk",
+  "@music": {
+    "description": "Background pattern"
+  },
+  "dark": "Mørk",
+  "plainDark": "Enkel mørk",
+  "ruledDark": "Rulert mørk",
+  "quadDark": "Quad dark",
+  "musicDark": "Musikk mørkt",
+  "templates": "Maler",
+  "untitled": "Navnløs",
+  "createTemplate": "Opprett mal",
+  "createTemplateContent": "Vil du virkelig opprette en mal fra dette dokumentet? Det opprinnelige dokumentet vil bli slettet.",
+  "fileName": "Fil navn",
+  "defaultFileName": "Standard filnavn",
+  "templateFileNameDescription": "Dokumenter åpnet fra malvelgeren lagres automatisk med dette navnet. Maler uten navn kan benyttes som standard konfigurert i datainnstillinger. Kombiner din egen tekst med {dateExample} og {timeExample}. Tegn som ikke er tillatt i filnavn vil bli avvist.",
+  "@templateFileNameDescription": {
+    "placeholders": {
+      "dateExample": {
+        "type": "String",
+        "example": "{date}"
+      },
+      "timeExample": {
+        "type": "String",
+        "example": "{time}"
+      }
+    }
+  },
+  "preview": "Forhåndsvisning",
+  "replace": "Erstatt",
+  "@replace": {
+    "description": "Replace action"
+  },
+  "reallyReplace": "Er du sikker på at du vil erstatte malen? Den kan ikke bli reversert!",
+  "defaultTemplate": "Standard mal",
+  "insert": "Insert",
+  "@insert": {
+    "description": "Insert action"
+  },
+  "document": "Dokument",
+  "documentStates": "Dokument statuser",
+  "camera": "Kamera",
+  "@camera": {
+    "description": "Camera tool"
+  },
+  "printout": "Utskrift",
+  "selectCamera": "Velg et kamera",
+  "changeDocumentPath": "Endre sti for dokument",
+  "deleteWholeStroke": "Slett hele slag",
+  "alpha": "Alfa",
+  "@alpha": {
+    "description": "Alpha channel"
+  },
+  "area": "Område",
+  "@area": {
+    "description": "Area object"
+  },
+  "selectArea": "Velg et område",
+  "aspectRatio": "Høyde- og breddeforhold",
+  "presets": "Forhåndsinnstillinger",
+  "pagePortrait": "Side portrett",
+  "pageLandscape": "Side landskap",
+  "square": "Firkant",
+  "@square": {
+    "description": "Square shape"
+  },
+  "areas": "Områder",
+  "@areas": {
+    "description": "Areas list"
+  },
+  "enterArea": "Angi området",
+  "exitArea": "Avslutt området",
+  "currentArea": "Gjeldende område",
+  "design": "Utforming",
+  "@design": {
+    "description": "Design mode"
+  },
+  "text": "Tekst",
+  "@text": {
+    "description": "Text tool"
+  },
+  "welcome": "Hei, dette er Linwood Butterfly {codeName}",
+  "@welcome": {
+    "placeholders": {
+      "codeName": {
+        "type": "String",
+        "example": "Dev"
+      }
+    }
+  },
+  "welcomeContent": "En gratis og åpen kildekode tegning plass!",
+  "updated": "App oppdatert til versjon {version}",
+  "@updated": {
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "1.0.0"
+      }
+    },
+    "description": "This message is shown when the app is updated"
+  },
+  "releaseNotes": "Slipp notater",
+  "constraints": "Betingelser",
+  "scaled": "Skalert",
+  "fixed": "Fast",
+  "dynamicContent": "Dynamisk",
+  "none": "Ingen",
+  "@none": {
+    "description": "None value"
+  },
+  "includeArea": "Inkluder området",
+  "verticalAlignment": "Vertikal justering",
+  "horizontalAlignment": "Horisontal justering",
+  "top": "Topp",
+  "@top": {
+    "description": "Alignment"
+  },
+  "center": "Midtstilt",
+  "@center": {
+    "description": "Alignment"
+  },
+  "bottom": "Bunn",
+  "@bottom": {
+    "description": "Alignment"
+  },
+  "left": "Venstre",
+  "@left": {
+    "description": "Alignment"
+  },
+  "right": "Høyre",
+  "@right": {
+    "description": "Alignment"
+  },
+  "justify": "Juster",
+  "@justify": {
+    "description": "Alignment"
+  },
+  "constraint": "Begrunnelse",
+  "length": "Lengde",
+  "@length": {
+    "description": "Length property"
+  },
+  "exportSvg": "Eksporter SVG",
+  "pdf": "Pdf",
+  "@pdf": {
+    "description": "PDF format"
+  },
+  "selectPages": "Velg sider",
+  "recentFiles": "Siste filer",
+  "start": "Begynn",
+  "@start": {
+    "description": "Start action"
+  },
+  "noRecentFiles": "Ingen nylige filer",
+  "countPages": "{count,plural, =0{Ingen sider} =1{1 side} other{{count} sider}}",
+  "@countPages": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "pageIndex": "Side {index}",
+  "@pageIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "exit": "Avslutt",
+  "@exit": {
+    "description": "Exit action"
+  },
+  "noElements": "Ingen elementer",
+  "invertSelection": "Inverter merking",
+  "errorWhileImporting": "Feil ved import",
+  "errorWhileImportingContent": "En feil oppstod under import av filen",
+  "showDetails": "Vis detaljer",
+  "hideDetails": "Skjul detaljer",
+  "error": "Feil",
+  "stackTrace": "Stabel spor",
+  "laser": "Laser",
+  "@laser": {
+    "description": "Laser tool"
+  },
+  "duration": "Varighet",
+  "quality": "Kvalitet",
+  "exportPdf": "Eksporter PDF",
+  "local": "Lokal",
+  "@local": {
+    "description": "Local storage"
+  },
+  "addConnection": "Legg til forbindelse",
+  "connections": "Tilkoblinger",
+  "noConnections": "Ingen tilkoblinger",
+  "url": "Nettadresse",
+  "@url": {
+    "description": "URL field"
+  },
+  "webDavUrlDescription": "Full URL til WebDAV-en som leveres av din lagringsleverandør",
+  "connect": "Nettverk",
+  "username": "Brukernavn",
+  "password": "Passord",
+  "authenticationPassword": "Godkjenning passord",
+  "documentEncryptionPassword": "Krypteringspassord for dokument",
+  "documentEncryptionPasswordDescription": "Krypterer dokumenter lagret i denne tilkoblingen. La dem være ukryptert",
+  "documentEncryptionEnabled": "Dokumentkryptering aktivert",
+  "reauthenticate": "Reauthenticate",
+  "addDocumentEncryptionPassword": "Legg til passord for kryptering av dokument",
+  "changeDocumentEncryptionPassword": "Endre passord for kryptering av dokument",
+  "webNotSupported": "Web støttes ikke",
+  "advanced": "Avansert",
+  "symmetric": "Symmetrisk",
+  "perSide": "Pr. side",
+  "directory": "Katalog",
+  "connectionNameDescription": "Brukes kun til å identifisere denne tilkoblingen i Sommerfly.",
+  "connectionDirectoryDescription": "Base folder for this connection. Notes use Documents by default; change it under Advanced",
+  "connectionPathDescription": "Leave empty to disable this directory type. Use . for the base folder, a relative subfolder, or an absolute path",
+  "connectionPathRequired": "Choose an absolute base folder, or use absolute paths for the enabled directory types",
+  "connectionAlreadyExists": "A connection with this name already exists. Choose another name",
+  "documentsDirectory": "Dokumenter katalog",
+  "templatesDirectory": "Mappe for maler",
+  "errorWhileCreatingConnection": "Feil under oppretting av tilkobling",
+  "cannotConnect": "Kan ikke koble til",
+  "urlNotValid": "URL ikke gyldig",
+  "icon": "Ikon",
+  "@icon": {
+    "description": "Icon property"
+  },
+  "connectionIconDescription": "Valgfri URL til et bilde som skal brukes som tilkoblingsikonet",
+  "update": "Oppdater",
+  "@update": {
+    "description": "Update action"
+  },
+  "updateAvailable": "Oppdatering tilgjengelig",
+  "stable": "Stabil",
+  "@stable": {
+    "description": "Release channel"
+  },
+  "nightly": "Nattlig",
+  "@nightly": {
+    "description": "Release channel"
+  },
+  "checkForUpdates": "Se etter oppdateringer",
+  "checkForUpdatesWarning": "Utføre en sjekk for oppdateringer vil koble til nettstedet Butterfly for å få informasjonen.",
+  "usingLatestStable": "Du bruker den nyeste stabile versjonen",
+  "usingLatestNightly": "Du bruker den siste nattlige versjonen",
+  "currentVersion": "Gjeldende versjon",
+  "updateNow": "Oppdater nå",
+  "shape": "Form",
+  "@shape": {
+    "description": "Shape tool"
+  },
+  "table": "Tabell",
+  "@table": {
+    "description": "Table tool and element"
+  },
+  "rows": "Rader",
+  "columns": "Kolonner",
+  "row": "Rad",
+  "column": "Kolonne",
+  "insertRowBefore": "Sette inn rad før",
+  "insertRowAfter": "Sett inn rad etter",
+  "insertColumnBefore": "Sette inn kolonne før",
+  "insertColumnAfter": "Sette inn kolonne etter",
+  "deleteRow": "Slett rad",
+  "deleteColumn": "Slett kolonne",
+  "cellColor": "Cellefarge",
+  "cellBorders": "Celle borders",
+  "cellBorder": "Kantlinje for celle",
+  "horizontalBorder": "Horisontal kant",
+  "verticalBorder": "Vertikal kant",
+  "rowHeight": "Rad høyde",
+  "columnWidth": "Kolonne bredde",
+  "border": "Border",
+  "circle": "Sirkel",
+  "@circle": {
+    "description": "Shape type"
+  },
+  "rectangle": "Rektangel",
+  "@rectangle": {
+    "description": "Shape type"
+  },
+  "triangle": "Trekant",
+  "@triangle": {
+    "description": "Shape type"
+  },
+  "line": "Linje",
+  "@line": {
+    "description": "Shape type"
+  },
+  "cornerRadius": "Corner radius",
+  "topLeft": "Øverst til venstre",
+  "topRight": "Øverst til høyre",
+  "bottomLeft": "Nederst til venstre",
+  "bottomRight": "Nederst til høyre",
+  "zoomPosition": "Camera controls position",
+  "@zoomPosition": {
+    "description": "Choose where the zoom controls appear"
+  },
+  "caches": "Cacher",
+  "manage": "Administrer",
+  "@manage": {
+    "description": "Manage action"
+  },
+  "clearCaches": "Tøm hurtiglager",
+  "createCache": "Opprett cache",
+  "thirdPartyLicenses": "Tredjeparts lisenser",
+  "syncing": "Synkroniserer...",
+  "synced": "Synkronisert",
+  "notSynced": "Ikke synkronisert",
+  "conflict": "Konflikt",
+  "@conflict": {
+    "description": "Conflict status"
+  },
+  "keepLocal": "Behold lokalt",
+  "keepConnection": "Behold tilkoblingen",
+  "keepBoth": "Behold begge",
+  "forAll": "For alle",
+  "fileConflict": "{file} i {connection} har en konflikt",
+  "@fileConflict": {
+    "placeholders": {
+      "file": {
+        "type": "String",
+        "example": "file.txt"
+      },
+      "connection": {
+        "type": "String",
+        "example": "localhost"
+      }
+    }
+  },
+  "offline": "Frakoblet",
+  "@offline": {
+    "description": "Offline status"
+  },
+  "localLatest": "Lokal siste",
+  "connectionLatest": "Tilkobling nyeste",
+  "path": "Sti",
+  "@path": {
+    "description": "Path property"
+  },
+  "folderSynced": "Mappe synkronisert",
+  "syncRootDirectory": "Synkroniser rotkatalogen",
+  "stylus": "Stylus",
+  "penOnlyInput": "Stylus only input",
+  "@penOnlyInput": {
+    "description": "Setting to enable stylus only input mode"
+  },
+  "penOnlyInputAutoDescription": "Aktiverer stilen automatisk bare når en penn oppdages. Denne innstillingen varer bare for gjeldende økt.",
+  "penOnlyInputOnDescription": "Alltid avvis berøring og museinngang, bare godta penneinndata.",
+  "penOnlyInputOffDescription": "Godta alle inndatatyper, inkludert berøring, mus og stil.",
+  "automatic": "Automatisk",
+  "alwaysOn": "Alltid på",
+  "alwaysOff": "Alltid av",
+  "showPenOnlyToggle": "Vis kun pennen veksling",
+  "@showPenOnlyToggle": {
+    "description": "Setting to show stylus only toggle button when stylus is detected"
+  },
+  "inputGestures": "Input gestures",
+  "inputGesturesDescription": "Lar deg flytte og zoome lerretet med berøringsbevegelser, selv mens et tegningsverktøy er valgt.",
+  "nativeTitleBar": "Native tittellinjen",
+  "mode": "Mode",
+  "syncMode": "Synk modus",
+  "connection": "Tilkobling",
+  "always": "Alltid",
+  "@always": {
+    "description": "Frequency"
+  },
+  "noMobile": "Ingen mobil",
+  "syncModeAlwaysDescription": "Synkroniserer eksterne filer automatisk når de endres.",
+  "syncModeNoMobileDescription": "Synkroniserer automatisk unntatt på mobile enheter, som kan redusere bruk av mobildata.",
+  "manual": "Manuell",
+  "@manual": {
+    "description": "Manual mode"
+  },
+  "syncModeManualDescription": "Bare synkroniserer når du starter det selv.",
+  "search": "Søk",
+  "@search": {
+    "description": "Search action"
+  },
+  "properties": "Egenskaper",
+  "@properties": {
+    "description": "Choose where the properties panel appears"
+  },
+  "pin": "Fest",
+  "@pin": {
+    "description": "Pin action"
+  },
+  "unpin": "Unpin",
+  "@unpin": {
+    "description": "Pin action"
+  },
+  "element": "Element",
+  "@element": {
+    "description": "Element object"
+  },
+  "painter": "Kunstner",
+  "@painter": {
+    "description": "Painter object"
+  },
+  "position": "Posisjon",
+  "@position": {
+    "description": "Position property"
+  },
+  "note": "Notat",
+  "@note": {
+    "description": "Note object"
+  },
+  "packs": "Pakker",
+  "@packs": {
+    "description": "Asset pack"
+  },
+  "pack": "Pakke",
+  "@pack": {
+    "description": "Asset pack"
+  },
+  "more": "Mer",
+  "@more": {
+    "description": "More options"
+  },
+  "askForName": "Spør om navn",
+  "areaIndex": "Område {index}",
+  "@areaIndex": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "startInFullScreen": "Start på fullskjerm",
+  "inputs": "Inputs",
+  "@inputs": {
+    "description": "Input settings"
+  },
+  "mouse": "Mus",
+  "@mouse": {
+    "description": "Input device"
+  },
+  "touch": "Berør",
+  "@touch": {
+    "description": "Input device"
+  },
+  "keyboard": "Keyboard",
+  "@keyboard": {
+    "description": "Input device"
+  },
+  "shortcuts": "Snarveier",
+  "repeatedTapShortcuts": "Double and triple taps",
+  "repeatedTapShortcutsDescription": "Assigning any shortcut in this section can delay normal taps and the start of drawing for its matching input while Butterfly checks for more taps. Moving far enough resumes normal input without waiting for the tap timeout. Set both double- and triple-tap shortcuts for that input to None to remove this delay.",
+  "middle": "Midten",
+  "@middle": {
+    "description": "Mouse button"
+  },
+  "first": "Første",
+  "@first": {
+    "description": "Mouse button"
+  },
+  "second": "Sekund",
+  "@second": {
+    "description": "Mouse button"
+  },
+  "activeTool": "Aktive verktøy",
+  "activeToolDescription": "Bruk det valgte verktøyet på verktøylinjen",
+  "handTool": "Håndverktøy",
+  "handToolDescription": "Dra for å flytte rundt lerretet",
+  "toolOnToolbar": "Spesifikke verktøy på verktøylinjen",
+  "toolOnToolbarDescription": "Bruk verktøyet ved den angitte posisjonen på verktøylinjen, fra venstre side",
+  "toolOnToolbarShort": "Verktøylinjens posisjon: {display_position}",
+  "@toolOnToolbarShort": {
+    "placeholders": {
+      "display_position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "tools": "Verktøy",
+  "@tools": {
+    "description": "Tools list"
+  },
+  "showGrid": "Vis rutenett",
+  "grid": "Rutenett",
+  "@grid": {
+    "description": "Helper tool"
+  },
+  "ruler": "Linjal",
+  "@ruler": {
+    "description": "Helper tool"
+  },
+  "angle": "Vinkel",
+  "@angle": {
+    "description": "Helper tool"
+  },
+  "report": "Rapporter",
+  "@report": {
+    "description": "Report action"
+  },
+  "newFolder": "Ny mappe",
+  "createPack": "Opprett pakke",
+  "editPack": "Rediger pakke",
+  "packsDirectory": "Mappe for pakker",
+  "stamp": "Stempel",
+  "@stamp": {
+    "description": "Stamp tool"
+  },
+  "addToPack": "Legg til i pakke",
+  "sureImportPack": "Er du sikker på at du vil importere pakken?",
+  "byAuthor": "av {author}",
+  "@byAuthor": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "author"
+      }
+    }
+  },
+  "author": "Forfatter",
+  "addAsset": "Legg til ressurs",
+  "editAsset": "Rediger eiendel",
+  "scope": "Omfang",
+  "@scope": {
+    "description": "Scope property"
+  },
+  "noPacks": "Det er for tiden ingen tilgjengelige pakker",
+  "components": "Komponenter",
+  "waypoint": "Veipunkt",
+  "actions": "Handlinger",
+  "painters": "Malere",
+  "breakingChangesTitle": "Endringer brytes",
+  "breakingChangesMessage": "Det er brytende endringer i denne versjonen. Vennligst les endringsloggen før du oppdaterer. Gjeldende filversjon er {version}, den nye versjonen er {newVersion}.",
+  "@breakingChangesMessage": {
+    "placeholders": {
+      "version": {
+        "type": "int",
+        "example": "1"
+      },
+      "newVersion": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "styles": "Styles",
+  "@styles": {
+    "description": "Styles list"
+  },
+  "paragraph": "Avsnitt",
+  "fontFamily": "Skrift familie",
+  "smoothing": "Utjevning",
+  "streamline": "Streamline",
+  "presentation": "Presentasjon",
+  "simple": "Enkel",
+  "createPresentation": "Create presentation",
+  "addSlide": "Legg til ny lysbilde",
+  "updateSlide": "Oppdater lysbilde",
+  "deleteSlide": "Slett lysbildet",
+  "transitionDuration": "Overgang varighet",
+  "transitionDurationDescription": "Hvor lenge kameraet tar å gå på neste lysbilde. På siste side brukes den når du legger til en ny.",
+  "transitionDurationValue": "{seconds}s overgang",
+  "@transitionDurationValue": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "configureKeyframe": "Configure keyframe",
+  "addKeyframe": "Legg til nøkkelbilde her",
+  "updateKeyframe": "Oppdater fra gjeldende kamera",
+  "deleteKeyframe": "Slett nøkkelbilde",
+  "markAsSlide": "Marker som lysbilde",
+  "removeSlideMarker": "Fjern lysbildemarkør",
+  "frameValue": "Frame {frame}",
+  "@frameValue": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "keyframeAtFrame": "Keyframe · Frame {frame}",
+  "@keyframeAtFrame": {
+    "placeholders": {
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideAtFrame": "Slide {slide} · Ramme {frame}",
+  "@slideAtFrame": {
+    "placeholders": {
+      "slide": {
+        "type": "int"
+      },
+      "frame": {
+        "type": "int"
+      }
+    }
+  },
+  "slideOf": "Slide {current} of {total}",
+  "@slideOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAsset": "Velg ressurs",
+  "clearStyle": "Fjern stil",
+  "unknownImportType": "Ukjent importtype",
+  "sureImportTemplate": "Er du sikker på at du vil importere malen?",
+  "frame": "Frame",
+  "@frame": {
+    "description": "Frame object"
+  },
+  "play": "Spill",
+  "@play": {
+    "description": "Play action"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video object"
+  },
+  "fps": "BPS",
+  "@fps": {
+    "description": "Frames per second"
+  },
+  "breakpoint": "Brytningspunkt",
+  "presentationControls": "Slike presentasjonskontroller",
+  "nextSlide": "Neste side",
+  "nextSlideDescription": "Sveip til høyre eller trykk på høyre piltast for å gå til neste side",
+  "previousSlide": "Forrige side",
+  "previousSlideDescription": "Sveip til venstre eller trykk på venstre piltasten for å gå til forrige lysbilde",
+  "exitPresentation": "Avslutt presentasjon",
+  "exitPresentationDescription": "Trykk på rømningstasten eller dra ned for å avslutte presentasjonen",
+  "pausePresentation": "Pause presentasjonen",
+  "pausePresentationDescription": "Trykk på skjermen eller trykk på mellomromstangen for å stanse eller gjenoppta presentasjonen",
+  "keyframe": "Keyframe",
+  "endOfPresentation": "Du har nådd slutten av presentasjonen",
+  "startOfPresentation": "Du har nådd starten av presentasjonen",
+  "palettes": "Palettes",
+  "headline": "Overskrift {index}",
+  "@headline": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "code": "Kode",
+  "@code": {
+    "description": "Code block"
+  },
+  "quote": "Sitat",
+  "@quote": {
+    "description": "Quote block"
+  },
+  "link": "Lenke",
+  "@link": {
+    "description": "Link object"
+  },
+  "checkbox": "Avmerkingsboks",
+  "deleted": "Slettet",
+  "emphasis": "Emphasis",
+  "listBullet": "Liste punkt",
+  "strong": "Sterk",
+  "@strong": {
+    "description": "Strong emphasis"
+  },
+  "markdown": "Markdown",
+  "home": "Hjem",
+  "@home": {
+    "description": "Home screen"
+  },
+  "files": "Filer",
+  "@files": {
+    "description": "Files list"
+  },
+  "sortBy": "Sorter etter",
+  "location": "Sted",
+  "whatsNew": "Hva er nytt?",
+  "unstar": "Stjerne",
+  "star": "Stjerne",
+  "goUp": "Gå opp",
+  "created": "Opprettet",
+  "@created": {
+    "description": "Date property"
+  },
+  "modified": "Endret",
+  "@modified": {
+    "description": "Date property"
+  },
+  "quickstart": "Hurtigstart",
+  "noTemplates": "Det er ingen maler tilgjengelig",
+  "importCorePack": "Importer kjerne pakke",
+  "importCorePackDescription": "Importer kjerne pakken som inneholder alle grunnleggende ressurser for å komme i gang. Dette vil overstyre den gjeldende kjernepakken.",
+  "never": "Aldri",
+  "@never": {
+    "description": "Frequency"
+  },
+  "onlyOnUpdates": "Bare når det gjelder oppdateringer",
+  "visibility": "Synlighet",
+  "captureThumbnail": "Ta opp miniatyrbilde",
+  "autoThumbnail": "Oppdater miniatyrbilde ved lukking",
+  "autoThumbnailDescription": "Ta opp nåværende visning når du lukker dette dokumentet. Manuelt fange opp et miniatyrbilde avslører dette av.",
+  "capturedThumbnail": "Miniatyrbildet ble tatt opp",
+  "chooseLabelMode": "Velg etikett-modus",
+  "foreground": "Forgrunn",
+  "version": "Versjon",
+  "@version": {
+    "description": "Version property"
+  },
+  "repository": "Kodelager",
+  "pages": "Sider",
+  "@pages": {
+    "description": "Pages list"
+  },
+  "navigator": "Navigator",
+  "arrange": "Ordne",
+  "@arrange": {
+    "description": "Arrange menu"
+  },
+  "bringToFront": "Plasser lengst frem",
+  "sendToBack": "Send til tilbake",
+  "bringForward": "Send fremover",
+  "sendBackward": "Send bakover",
+  "rotation": "Rotasjon",
+  "rotationStep": "Rotasjon trinn",
+  "zoomStep": "Zoom trinn",
+  "zoomStepDescription": "Mengde som brukes av zoom inn og zoome ut tastatursnarveier. Kontinuerlige zoom-bevegelser bruker sine egne sensitivitetsinnstillinger.",
+  "direction": "Retning",
+  "onlyAvailableLargerScreen": "Bare tilgjengelig på større skjermer",
+  "toolbarPosition": "Plassering av verktøylinje",
+  "@toolbarPosition": {
+    "description": "Choose where the main toolbar appears"
+  },
+  "rotate": "Roter",
+  "@rotate": {
+    "description": "Rotate action"
+  },
+  "rotateLeft": "Roter mot venstre",
+  "rotateRight": "Roter mot høyre",
+  "spacer": "Mellomrom",
+  "@spacer": {
+    "description": "Spacer element"
+  },
+  "navigationRail": "Navigasjon bane",
+  "@navigationRail": {
+    "description": "Show a navigation rail on wider screens"
+  },
+  "cut": "Klipp",
+  "@cut": {
+    "description": "Clipboard action"
+  },
+  "insertBefore": "Innsett før",
+  "insertAfter": "Innsett etter",
+  "insertFirst": "Sett inn først",
+  "insertLast": "Insert last",
+  "paste": "Lim",
+  "@paste": {
+    "description": "Clipboard action"
+  },
+  "ascending": "Stigende",
+  "descending": "Synkende",
+  "imageScale": "Bilde skalering",
+  "svgScale": "SVG skala",
+  "noImageSelected": "Ingen bilde valgt",
+  "noSvgSelected": "Ingen SVG valgt",
+  "select": "Velg",
+  "@select": {
+    "description": "Select action"
+  },
+  "tool": "Verktøy",
+  "@tool": {
+    "description": "Tool object"
+  },
+  "texture": "Tekstur",
+  "@texture": {
+    "description": "Texture property"
+  },
+  "platformTheme": "Plattform-tema",
+  "@platformTheme": {
+    "description": "Choose whether the app follows the system, desktop, or mobile layout"
+  },
+  "desktop": "Skrivebord",
+  "@desktop": {
+    "description": "Platform"
+  },
+  "mobile": "Mobil",
+  "@mobile": {
+    "description": "Platform"
+  },
+  "surface": "Overflate",
+  "@surface": {
+    "description": "Surface tool"
+  },
+  "pattern": "Mønster",
+  "@pattern": {
+    "description": "Pattern property"
+  },
+  "sureClose": "Er du sikker på at du vil lukke dokumentet?",
+  "thereAreUnsavedChanges": "Det er ulagrede endringer",
+  "page": "Side",
+  "@page": {
+    "description": "Page object"
+  },
+  "iceServers": "ICE servere",
+  "collaboration": "Samarbeid",
+  "@collaboration": {
+    "description": "Allow multiple people to edit the same note together"
+  },
+  "webRtc": "Web RTC",
+  "webSocket": "Web Socket",
+  "iceServer": "ICE server",
+  "port": "Port",
+  "@port": {
+    "description": "Port number"
+  },
+  "type": "Type:",
+  "@type": {
+    "description": "Type property"
+  },
+  "side": "Farge",
+  "@side": {
+    "description": "Side property"
+  },
+  "client": "Klient",
+  "@client": {
+    "description": "Role"
+  },
+  "server": "Tjener",
+  "@server": {
+    "description": "Role"
+  },
+  "switchView": "Bytt visning",
+  "lasso": "Lasso",
+  "@lasso": {
+    "description": "Lasso tool"
+  },
+  "hideUI": "Skjul brukergrensesnitt",
+  "density": "Tetthet",
+  "@density": {
+    "description": "Choose how compact the interface should be"
+  },
+  "compact": "Kompakt",
+  "@compact": {
+    "description": "Density value"
+  },
+  "comfortable": "Komfortabel",
+  "standard": "Vanlig",
+  "@standard": {
+    "description": "Density value"
+  },
+  "lock": "Lås",
+  "@lock": {
+    "description": "Lock action"
+  },
+  "addElement": "Legg til element",
+  "notDefaultConnection": "Ikke standard tilkobling",
+  "defaultConnection": "Standard tilkobling",
+  "hide": "Skjul",
+  "@hide": {
+    "description": "Visibility action"
+  },
+  "show": "Vis",
+  "@show": {
+    "description": "Visibility action"
+  },
+  "pause": "pause",
+  "@pause": {
+    "description": "Media action"
+  },
+  "stop": "Stopp",
+  "@stop": {
+    "description": "Media action"
+  },
+  "refresh": "Oppdater",
+  "@refresh": {
+    "description": "Refresh action"
+  },
+  "print": "Utskrift",
+  "@print": {
+    "description": "Print action"
+  },
+  "dav": "DAV",
+  "@dav": {
+    "description": "WebDAV"
+  },
+  "eyeDropper": "Øyedråper",
+  "users": "Brukere",
+  "@users": {
+    "description": "Users list"
+  },
+  "experiments": "Eksperimenter",
+  "experimentsWarning": "Disse funksjonene er eksperimentelle og kan endre, bryte eller forsvinne når som helst. Aktivering av dem kan føre til ustabilitet eller tap av data. Fortsett med forsiktighet. Vennligst rapporter eventuelle feil.",
+  "address": "Adresse",
+  "@address": {
+    "description": "Address property"
+  },
+  "spreadToPages": "Spre til sider",
+  "rootDirectorySpecifiedDescription": "Rotmappen er angitt. Alle avanserte katalogbaner vil være relative til denne mappen. Behold den tom for å deaktivere denne mappen.",
+  "rootDirectoryNotSpecifiedDescription": "Rotmappen er ikke angitt. Et navn kreves. Alle avanserte katalogbaner er absolutt. Behold den tom for å deaktivere denne mappetypen.",
+  "unsecureConnectionTitle": "Usikker tilkobling",
+  "unsecureConnectionMessage": "Tilkoblingen er ikke sikker. Dette kan være en sikkerhetsrisiko. Bare fortsett hvis du stoler på tilkoblingen. Da er sha1 fingeravtrykk er {fingerprint}.",
+  "@unsecureConnectionMessage": {
+    "placeholders": {
+      "fingerprint": {
+        "type": "String",
+        "example": "fingerprint"
+      }
+    }
+  },
+  "continueAnyway": "Fortsett likevel",
+  "zoomControl": "Camera controls",
+  "@zoomControl": {
+    "description": "Show zoom controls in the canvas view"
+  },
+  "showThumbnails": "Show thumbnails",
+  "@showThumbnails": {
+    "description": "Show thumbnails for notes in the file list"
+  },
+  "showNavigatorPreviews": "Vis navigeringsoversikt",
+  "@showNavigatorPreviews": {
+    "description": "Show cached preview thumbnails in the areas and pages navigators"
+  },
+  "showNavigatorPreviewsDescription": "Vis bufrede forhåndsvisningsbilder i områder og sider navigatorer",
+  "highContrast": "Høy kontrast",
+  "@highContrast": {
+    "description": "Use stronger contrast in the app theme"
+  },
+  "shouldANumber": "Denne verdien må være et gyldig tall",
+  "createAreas": "Opprett områder",
+  "autosave": "Autosave",
+  "@autosave": {
+    "description": "Choose how changes are saved"
+  },
+  "invert": "Invert",
+  "@invert": {
+    "description": "Invert action"
+  },
+  "operations": "Aktiviteter",
+  "medium": "Middels",
+  "@medium": {
+    "description": "Size value"
+  },
+  "large": "Stor",
+  "@large": {
+    "description": "Size value"
+  },
+  "toolbarSize": "Størrelse på verktøylinje",
+  "@toolbarSize": {
+    "description": "Choose how large the toolbar buttons are"
+  },
+  "addAll": "Legg til alle",
+  "onlyCurrentPage": "Bare gjeldende side",
+  "smoothNavigation": "Jevn navigasjon",
+  "@smoothNavigation": {
+    "description": "Reduce the amount of rendering work while navigating"
+  },
+  "edgePanAreaSwitching": "Pan område område av kant",
+  "@edgePanAreaSwitching": {
+    "description": "Switch areas when you pan near the edge of the canvas"
+  },
+  "useAndroidSaf": "Bruk Android SAF",
+  "exact": "Nøyaktig",
+  "@exact": {
+    "description": "Exact match"
+  },
+  "inline": "Innebygd",
+  "@inline": {
+    "description": "Inline position"
+  },
+  "toolbarRows": "Linjer på verktøylinje",
+  "@toolbarRows": {
+    "description": "Set how many rows the toolbar can use"
+  },
+  "pointerTest": "Pekers test",
+  "pressure": "Trykk",
+  "small": "Liten",
+  "@small": {
+    "description": "Size value"
+  },
+  "tiny": "Bitteliten",
+  "@tiny": {
+    "description": "Size value"
+  },
+  "selectAll": "Velg alle",
+  "overrideTools": "Overstyr verktøy",
+  "hideCursorWhileDrawing": "Skjul markøren under tegning",
+  "@hideCursorWhileDrawing": {
+    "description": "Hide the mouse cursor while drawing"
+  },
+  "installed": "Installert",
+  "install": "Installer",
+  "@install": {
+    "description": "Install action"
+  },
+  "deselect": "Avvelg",
+  "changeCollection": "Endre samling",
+  "collections": "Samlinger",
+  "fullSelection": "Fullt valg",
+  "collection": "Samling",
+  "defaultCollection": "Standard samling",
+  "scroll": "Rull",
+  "@scroll": {
+    "description": "Scroll action"
+  },
+  "onStartup": "Ved oppstart",
+  "@onStartup": {
+    "description": "Choose what opens when the app starts"
+  },
+  "homeScreen": "Hjem-skjerm",
+  "lastNote": "Siste notat",
+  "newNote": "Nytt notat",
+  "moveToLayer": "Flytt til lag",
+  "createLayer": "Opprett lag",
+  "merge": "Flett",
+  "@merge": {
+    "description": "Merge action"
+  },
+  "up": "Opp",
+  "@up": {
+    "description": "Direction"
+  },
+  "down": "Ned",
+  "@down": {
+    "description": "Direction"
+  },
+  "other": "Annet",
+  "@other": {
+    "description": "Other category"
+  },
+  "countElements": "{count,plural, =0{Ingen elementer} =1{1 element} other{{count} elementer}}",
+  "@countElements": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "colorToolbar": "Farge Verktøylinje",
+  "yesButShowButtons": "Ja, men vis knapper",
+  "optionsPanelPosition": "Options panel plassering",
+  "hideDuration": "Skjul varighet",
+  "animation": "Animasjon",
+  "performance": "Ytelse",
+  "performanceDescription": "Optimalisert for hastighet og minnebruk. Bare synlig del av notatet blir bakt i bildet.",
+  "normalDescription": "Balanser kvalitet og ytelse. Baker et bilde over 1,5 ganger synlig område, gir jevnere overgang når man scroller.",
+  "high": "Høy",
+  "highDescription": "Maksimerer kvaliteten på ytelsen. Baker et bilde som dekker to ganger det synlige området, og sørger for sømløs gjengivelse selv under rask rulling eller zooming.",
+  "renderResolution": "Gjengi oppløsning",
+  "translate": "Oversett",
+  "@translate": {
+    "description": "Translate action"
+  },
+  "unencrypted": "Ukryptert",
+  "encrypted": "Kryptert",
+  "encryptDocumentMessage": "Klikk for å kryptere dokumentet",
+  "unencryptDocumentMessage": "Klikk for å fjerne kryptering av dokumentet",
+  "unencrypt": "Ukryptert",
+  "encrypt": "Krypter",
+  "encryptWarning": "Vil kryptere dokumentet. Du må huske passordet for å dekryptere dokumentet.",
+  "unencryptWarning": "Dette vil ukryptere dokumentet. Passordet vil bli fjernet, og alle med tilgang vil kunne åpne det.",
+  "confirmPassword": "Bekreft passord",
+  "passwordMismatch": "Passordene samsvarer ikke",
+  "action": "Handling",
+  "@action": {
+    "description": "Action property"
+  },
+  "svgText": "SVG tekst",
+  "offset": "Forskyvning",
+  "@offset": {
+    "description": "Offset property"
+  },
+  "end": "Slutt",
+  "radius": "Radius",
+  "focalPoint": "Fokuspunkt",
+  "useOffCenterStartPoint": "Bruke et startpunkt i midten",
+  "focal": "Focal",
+  "focalRadius": "Focal radius",
+  "colorStops": "Farge stopper",
+  "addStop": "Legg til stopp",
+  "positionDependent": "Posisjon avhengig",
+  "flipHorizontal": "Vend horisontalt",
+  "flipVertical": "Vend vertikalt",
+  "grayscale": "Grayscale",
+  "moveOnGesture": "Flytt på bevegelse",
+  "exportAllFiles": "Eksporter alle filer",
+  "restoreSettingsFromFile": "Gjenopprett innstillinger fra fil",
+  "resetAllSettings": "Tilbakestill alle innstillinger",
+  "exportSettingsToFile": "Eksporter innstillinger til fil",
+  "barcode": "Barcode",
+  "@barcode": {
+    "description": "Barcode object"
+  },
+  "barcodeType": "Strekkode type",
+  "qrCode": "QR Code",
+  "dataMatrix": "Data matrise",
+  "code128": "Kode 128",
+  "defaultUserName": "Bruker {index}",
+  "@defaultUserName": {
+    "placeholders": {
+      "index": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "moveLeft": "Gå til venstre",
+  "moveRight": "Gå til høyre",
+  "bundledPacks": "Inkluderte pakker",
+  "component": "Komponent",
+  "@component": {
+    "description": "Component object"
+  },
+  "selectComponent": "Velg komponent",
+  "bundlePackInDocument": "Pakke i dokument",
+  "bundledPacksDescription": "Inkluderte pakker er inkludert i dokumentet og brukes bare til å dele med dokumentet. Eiendeler kan bare brukes i dokumentet hvis pakken er installert. Pakker kan installeres ved å klikke på dem.",
+  "fillAlpha": "Fyll alfa",
+  "packagedFile": "Pakket fil",
+  "rawFile": "Rå fil",
+  "webSocketDescription": "Dine enheter støtter serveren, så samarbeidspartnere kan bare bli med på det samme nettverket eller fra hvor som helst hvis du videresender porten på din router.",
+  "swampDescription": "Meldingene dine er rutet gjennom en sikker relee-server med ende-til-ende kryptering. En swamp server adresse er nødvendig for å lage en økt.",
+  "createRawNote": "Opprett rå notat",
+  "polygon": "Polygon",
+  "@polygon": {
+    "description": "Polygon shape"
+  },
+  "finishShape": "Fullfør figur",
+  "submit": "Send",
+  "@submit": {
+    "description": "Submit action"
+  },
+  "math": "Matematikk",
+  "@math": {
+    "description": "Math tool"
+  },
+  "ignorePressure": "Ignorer trykk",
+  "@ignorePressure": {
+    "description": "Choose how stylus pressure is handled"
+  },
+  "ignoreFirstPressureDescription": "Ignorerer den første trykkavlesningen, som kan være unøyaktig på noen stiler.",
+  "ignorePressureNeverDescription": "Bruker alle trykkavlesninger fra stilen.",
+  "ignorePressureAlwaysDescription": "Ignorerer trykket og behandler pennen som fullt ut.",
+  "temporary": "Midlertidig",
+  "simpleToolbarVisibility": "Enkel verktøylinjens synlighet",
+  "@simpleToolbarVisibility": {
+    "description": "Choose when the simplified toolbar is shown"
+  },
+  "autosaveDelay": "Autolagring forsinkelse",
+  "@autosaveDelay": {
+    "description": "Wait time before delayed autosave runs"
+  },
+  "saved": "Lagret",
+  "@saved": {
+    "description": "Save status"
+  },
+  "saving": "Lagrer...",
+  "@saving": {
+    "description": "Save status"
+  },
+  "readOnly": "Kun lesetilgang",
+  "saveDelayed": "Lagre forsinket",
+  "unsaved": "Ulagret",
+  "@unsaved": {
+    "description": "Save status"
+  },
+  "pdfEmptyDescription": "Det er for tiden ingen områder å eksportere. Velg minst ett område med pluss-knappen oppe i høyre hjørne eller legg til alle områder fra gjeldende side eller fra hele dokumentet nedenfor.",
+  "densityMaximize": "Maximize",
+  "@densityMaximize": {
+    "description": "Density value"
+  },
+  "customizeShortcuts": "Tilpass snarveier",
+  "clickToSave": "Klikk for å lagre",
+  "toolbars": "Verktøyfelt",
+  "logs": "Logger",
+  "ruledSimple": "Linjert enkel",
+  "ruledSimpleDark": "Regnet enkelt, mørkt",
+  "quadSimple": "Rull enkelt",
+  "quadSimpleDark": "Quad simple dark",
+  "redLinedRuled": "Rød påslått",
+  "redLinedRuledDark": "Rødt avrundet mørkt",
+  "redLinedQuad": "Rød tauset avslutning",
+  "redLinedQuadDark": "Rødfarget murt mørkt",
+  "noItemSelected": "Ingen elementer er valgt",
+  "areaAsInitial": "Åpne område som første visning",
+  "swap": "Bytte",
+  "@swap": {
+    "description": "Two elements swap their positions"
+  },
+  "hideFileExtension": "Skjul filtypen",
+  "aspectRatioHint": "eg. 16:9 or 1.5",
+  "@aspectRatioHint": {
+    "description": "Hint text for aspect ratio input"
+  },
+  "newFromTemplateShortcut": "Ny fra mal",
+  "exportAsTextShortcut": "Eksporter som tekst",
+  "exportAsImageShortcut": "Eksporter som bilde",
+  "exportAsPdfShortcut": "Eksporter som PDF",
+  "exportAsSvgShortcut": "Eksporter som SVG",
+  "changePathShortcut": "Endre bane",
+  "fullScreenShortcut": "Full skjerm",
+  "doublePressAction": "Dobbelttrykk handling",
+  "triplePressAction": "Trippel trykk handling",
+  "twoFingerTap": "To-finger trykk",
+  "threeFingerTap": "Trefinger trykk",
+  "longPress": "Langt trykk",
+  "toolNumber": "Verktøy {number}",
+  "@toolNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "holdShortcuts": "Hold snarveier",
+  "holdShortcutsDescription": "Hold en nøkkel for å midlertidig bytte til et annet verktøy. Løs inn tasten skifter tilbake til det forrige verktøyet.",
+  "key": "Nøkkel",
+  "bringMovedElementsToFront": "Plasser flyttede elementer forsiden",
+  "addTool": "Legg til verktøy",
+  "nextPage": "Neste side",
+  "previousPage": "Forrige side",
+  "persistenceDocumentStates": "Vedvarende dokumenttilstander",
+  "persistentStatesEnabled": "Aktiver vedvarende dokumenttilstander",
+  "persistentStateCurrentPage": "Nåværende side",
+  "persistentStateViewport": "Visnings portposisjon og zoom",
+  "persistentStateSelectedTool": "Valgt verktøy",
+  "persistentStateMaxRecords": "Maksimalt antall lagrede poster",
+  "persistentStateDeleteOlderThanDays": "Slett poster som er eldre enn dager",
+  "persistentStateCleanup": "Opprydding i lagrede stater",
+  "persistentStateCleanupDescription": "Slett oppføringer eldre enn grensene over",
+  "persistentStateCleanupInProgress": "Rydder opp...",
+  "persistentStateDefaultLocks": "Standard låser",
+  "persistentStateDefaultLocksDescription": "Bruk disse låsene når et dokument ikke har lagret status",
+  "persistentStateCleanupFeedback": "{locations, plural, =1{Rens opp 1 lagringsplassering} other{Fjernet opp {locations} Lagringsplasseringene}}! ! {records, plural, =1{fjernet 1 rekord} other{fjernet {records} poster}}",
+  "@persistentStateCleanupFeedback": {
+    "placeholders": {
+      "locations": {
+        "type": "int"
+      },
+      "records": {
+        "type": "int"
+      }
+    }
+  },
+  "autosaveEnabledDescription": "Lagrer endringer automatisk som du arbeider.",
+  "autosaveDelayedDescription": "Lagrer endringer automatisk etter den valgte forsinkelsen.",
+  "autosaveShowButtonDescription": "Lagrer automatisk og holder også lagreknappen synlig.",
+  "autosaveDisabledDescription": "Bare lagrer når du bruker lagringskommando.",
+  "hideCursorWhileDrawingDescription": "Skjuler musepekeren mens du trekker, slik at den ikke dekker slaget ditt.",
+  "onStartupHomeScreenDescription": "Åpner hjemmeskjermen når Sommerfugl starter.",
+  "onStartupLastNoteDescription": "Vil du gjenåpne det sist brukte notatet når Sommerfugl starter.",
+  "onStartupNewNoteDescription": "Lager et nytt notat når utterfly starter.",
+  "smoothNavigationDescription": "Gjør at du panorerer og zoomer røyke ved å forenkle lerretet mens det beveger seg.",
+  "edgePanAreaSwitchingDescription": "Bytter til et naboområde når du panorerer nær kanten av lerretet.",
+  "collaborationDescription": "Lar flere personer redigere det samme notatet sammen i sanntid.",
+  "verbose": "Verbose",
+  "showVerboseLogsDescription": "Inneholder detaljerte diagnose-meldinger i loggvisningen og konsollen. Disse meldingene kan hjelpe når du feilsøker et problem.",
+  "bringMovedElementsToFrontDescription": "Plasserer et element over overlappende elementer etter at du har flyttet det.",
+  "persistenceDocumentStatesDescription": "Kontrollerer hvilke deler av arbeidsområdet som husker det for hvert notat, for eksempel gjeldende side, zoom og valgt verktøy.",
+  "persistentStatesEnabledDescription": "Lagre dokumentstatus informasjon mellom appsesjoner",
+  "persistentStateCurrentPageDescription": "Husk gjeldende side ved gjenåpning av en fil",
+  "persistentStateViewportDescription": "Husk visningsposisjonen, zoom og rotasjon for hver side",
+  "persistentStateSelectedToolDescription": "Husk det valgte verktøyet ved gjenåpning av en fil",
+  "persistentStateLocksDescription": "Husk låsinnstillinger når du gjenåpner en fil",
+  "persistentStateNavigatorDescription": "Husk navigatortilstanden når du gjenåpner en fil",
+  "persistentStateLayersDescription": "Husk lag-panelet når en fil åpnes på nytt",
+  "persistentStateAreasDescription": "Husk områdepanel når du gjenåpner en fil",
+  "persistentStateAutoThumbnail": "Automatiske miniatyrbilder",
+  "persistentStateAutoThumbnailDescription": "Vis bryteren for per-dokument og tillat miniatyrbilder å oppdatere når dokumenter lukkes",
+  "persistentStateMaxRecordsDescription": "Ha stort sett så mange lagrede stater per fil",
+  "persistentStateDeleteOlderThanDaysDescription": "Slett lagrede stater eldre enn dette mange dager",
+  "contentViewportDescription": "Begrenser hvor langt du kan låne bort fra innholdet på ditt notat.",
+  "limitViewportPositiveDescription": "Holder lerretet innenfor området til høyre og under sitt utgangspunkt.",
+  "startInFullScreenDescription": "Åpner sommerfugl i fullskjermsmodus når den støttes.",
+  "designDescription": "Endrer den generelle visuelle stilen på Butterfly uten å endre om appen bruker lys eller mørke farger.",
+  "platformThemeDescription": "Lar deg bruke skrivebord eller mobiloppsett i stedet for layouten sommerfugen velger normalt for enheten.",
+  "densityDescription": "Endrer avstand og størrelse på grensesnittelementer. Det endrer ikke størrelsen på notatinnholdet.",
+  "highContrastDescription": "Bruker sterkere fargeforskjeller for å gjøre kontroller og tekst enklere å skille mellom farger.",
+  "nativeTitleBarDescription": "Bruker ditt operativsystem sin standard vindutittelfelt i stedet for Butterflys egendefinerte tittellinje.",
+  "propertiesDescription": "Velger der panelet for redigering av det valgte verktøyet eller elementet vises.",
+  "navigationRailDescription": "Viser en permanent navigasjonslinje på brede skjermer for raskere tilgang til app-deler.",
+  "optionsPanelPositionDescription": "Velger om verktøyalternativene vises over eller under lerretet.",
+  "simpleToolbarVisibilityDescription": "Kontrollerer når den mindre, forenklede verktøylinjen vises mens du redigerer en merknad.",
+  "penOnlyInputDescription": "Hindrer utilsiktede merker fra hånd eller mus ved å velge når bare tips kan hente.",
+  "showPenOnlyToggleDescription": "Viser en rask stil-bytter bare i editoren etter Butterfly oppdager en stil.",
+  "ignorePressureDescription": "Kontrollerer om pennen endrer slaget, og fungerer rundt unøyaktige trykkavlesninger fra noen stilarter.",
+  "moveOnGestureDescription": "Lar multi-touch bevegelser flytte lerretet i stedet for å samhandle med notatinnhold.",
+  "spreadPagesDescription": "Deler av flerside import på tvers av forskjellige notatsider i stedet for å plassere alt på en side.",
+  "shear": "Klipp",
+  "resetRotation": "Nullstill rotasjon",
+  "temporaryOnMobile": "Temporary on mobile",
+  "cameraControlsVisibilityDescription": "Show zoom and rotation controls temporarily on mobile, hide them, show them temporarily on all devices, or always show them. Temporary controls fade out after 5 seconds without zooming, rotating or interacting with the controls.",
+  "zoomPanelControls": "Camera controls layout",
+  "zoomPanelControlsDescription": "Velg kontroller for zoom og rotasjon. Tilbakestill knappene er tilgjengelige for hvert oppsett.",
+  "zoomPanelFull": "Full (glider, tekstfelt og knapper)",
+  "zoomPanelSliderInput": "Glidebryter og tekstfelt",
+  "zoomPanelSlider": "Glidebryter",
+  "zoomPanelInputButtons": "Tekstfelt og knapper",
+  "zoomPanelInput": "Tekst felt",
+  "rotationDisplay": "Rotasjon skjerm",
+  "rotationDisplayDescription": "Velg når rotasjonsraden vises over zoom. Dette endrer ikke rotasjonsbevegelser eller snarveier.",
+  "whenRotated": "Når rotert",
+  "hidden": "Hidden",
+  "rotateCanvasByDragging": "Roter lerret ved å dra"
+}

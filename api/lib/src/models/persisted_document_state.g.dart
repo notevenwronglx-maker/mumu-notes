@@ -1,0 +1,155 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'persisted_document_state.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+PersistedToolSelection _$PersistedToolSelectionFromJson(Map json) =>
+    PersistedToolSelection(
+      toolId: json['toolId'] as String?,
+      toolIndex: (json['toolIndex'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic> _$PersistedToolSelectionToJson(
+  PersistedToolSelection instance,
+) => <String, dynamic>{
+  'toolId': instance.toolId,
+  'toolIndex': instance.toolIndex,
+};
+
+PersistedCameraState _$PersistedCameraStateFromJson(Map json) =>
+    PersistedCameraState(
+      positionX: (json['positionX'] as num?)?.toDouble() ?? 0,
+      positionY: (json['positionY'] as num?)?.toDouble() ?? 0,
+      zoom: (json['zoom'] as num?)?.toDouble() ?? 1,
+      rotation: (json['rotation'] as num?)?.toDouble() ?? 0,
+    );
+
+Map<String, dynamic> _$PersistedCameraStateToJson(
+  PersistedCameraState instance,
+) => <String, dynamic>{
+  'positionX': instance.positionX,
+  'positionY': instance.positionY,
+  'zoom': instance.zoom,
+  'rotation': instance.rotation,
+};
+
+PersistentLockState _$PersistentLockStateFromJson(Map json) =>
+    PersistentLockState(
+      lockCollection: json['lockCollection'] as bool? ?? false,
+      lockLayer: json['lockLayer'] as bool? ?? false,
+      lockZoom: json['lockZoom'] as bool? ?? false,
+      lockHorizontal: json['lockHorizontal'] as bool? ?? false,
+      lockVertical: json['lockVertical'] as bool? ?? false,
+      lockRotation: json['lockRotation'] as bool? ?? false,
+    );
+
+Map<String, dynamic> _$PersistentLockStateToJson(
+  PersistentLockState instance,
+) => <String, dynamic>{
+  'lockCollection': instance.lockCollection,
+  'lockLayer': instance.lockLayer,
+  'lockZoom': instance.lockZoom,
+  'lockHorizontal': instance.lockHorizontal,
+  'lockVertical': instance.lockVertical,
+  'lockRotation': instance.lockRotation,
+};
+
+PersistedNavigatorState _$PersistedNavigatorStateFromJson(Map json) =>
+    PersistedNavigatorState(
+      enabled: json['enabled'] as bool? ?? false,
+      page: json['page'] as String? ?? 'waypoints',
+    );
+
+Map<String, dynamic> _$PersistedNavigatorStateToJson(
+  PersistedNavigatorState instance,
+) => <String, dynamic>{'enabled': instance.enabled, 'page': instance.page};
+
+PersistedAreaNavigatorState _$PersistedAreaNavigatorStateFromJson(Map json) =>
+    PersistedAreaNavigatorState(
+      create: json['create'] as bool? ?? true,
+      exact: json['exact'] as bool? ?? true,
+      ask: json['ask'] as bool? ?? false,
+    );
+
+Map<String, dynamic> _$PersistedAreaNavigatorStateToJson(
+  PersistedAreaNavigatorState instance,
+) => <String, dynamic>{
+  'create': instance.create,
+  'exact': instance.exact,
+  'ask': instance.ask,
+};
+
+_PersistedLayerState _$PersistedLayerStateFromJson(Map json) =>
+    _PersistedLayerState(
+      currentLayer: json['currentLayer'] as String? ?? '',
+      currentCollection: json['currentCollection'] as String? ?? '',
+      invisibleLayers:
+          (json['invisibleLayers'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toSet() ??
+          const {},
+    );
+
+Map<String, dynamic> _$PersistedLayerStateToJson(
+  _PersistedLayerState instance,
+) => <String, dynamic>{
+  'currentLayer': instance.currentLayer,
+  'currentCollection': instance.currentCollection,
+  'invisibleLayers': instance.invisibleLayers.toList(),
+};
+
+_PersistedDocumentState _$PersistedDocumentStateFromJson(Map json) =>
+    _PersistedDocumentState(
+      version:
+          (json['version'] as num?)?.toInt() ?? kPersistedDocumentStateVersion,
+      pageName: json['pageName'] as String?,
+      camera: json['camera'] == null
+          ? const PersistedCameraState()
+          : PersistedCameraState.fromJson(json['camera'] as Map),
+      pageCameras:
+          (json['pageCameras'] as Map?)?.map(
+            (k, e) =>
+                MapEntry(k as String, PersistedCameraState.fromJson(e as Map)),
+          ) ??
+          const {},
+      locks: json['locks'] == null
+          ? const PersistentLockState()
+          : PersistentLockState.fromJson(json['locks'] as Map),
+      selectedTool: json['selectedTool'] == null
+          ? const PersistedToolSelection()
+          : PersistedToolSelection.fromJson(json['selectedTool'] as Map),
+      navigator: json['navigator'] == null
+          ? const PersistedNavigatorState()
+          : PersistedNavigatorState.fromJson(json['navigator'] as Map),
+      layers: json['layers'] == null
+          ? const PersistedLayerState()
+          : PersistedLayerState.fromJson(
+              Map<String, dynamic>.from(json['layers'] as Map),
+            ),
+      areaNavigator: json['areaNavigator'] == null
+          ? const PersistedAreaNavigatorState()
+          : PersistedAreaNavigatorState.fromJson(json['areaNavigator'] as Map),
+      autoThumbnail: json['autoThumbnail'] as bool? ?? false,
+      updatedAt: json['updatedAt'] == null
+          ? null
+          : DateTime.parse(json['updatedAt'] as String),
+    );
+
+Map<String, dynamic> _$PersistedDocumentStateToJson(
+  _PersistedDocumentState instance,
+) => <String, dynamic>{
+  'version': instance.version,
+  'pageName': instance.pageName,
+  'camera': instance.camera.toJson(),
+  'pageCameras': instance.pageCameras.map((k, e) => MapEntry(k, e.toJson())),
+  'locks': instance.locks.toJson(),
+  'selectedTool': instance.selectedTool.toJson(),
+  'navigator': instance.navigator.toJson(),
+  'layers': instance.layers.toJson(),
+  'areaNavigator': instance.areaNavigator.toJson(),
+  'autoThumbnail': instance.autoThumbnail,
+  'updatedAt': instance.updatedAt?.toIso8601String(),
+};

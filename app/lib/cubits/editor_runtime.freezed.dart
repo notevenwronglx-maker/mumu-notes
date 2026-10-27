@@ -1,0 +1,670 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'editor_runtime.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format off
+T _$identity<T>(T value) => value;
+/// @nodoc
+mixin _$RendererRuntimeState {
+
+ CameraViewport get cameraViewport; Map<String, RendererState> get rendererStates; Map<String, RendererState>? get temporaryRendererStates;
+/// Create a copy of RendererRuntimeState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RendererRuntimeStateCopyWith<RendererRuntimeState> get copyWith => _$RendererRuntimeStateCopyWithImpl<RendererRuntimeState>(this as RendererRuntimeState, _$identity);
+
+
+
+
+
+@override
+String toString() {
+  final _this = this as RendererRuntimeState;
+  return 'RendererRuntimeState(cameraViewport: ${_this.cameraViewport}, rendererStates: ${_this.rendererStates}, temporaryRendererStates: ${_this.temporaryRendererStates})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $RendererRuntimeStateCopyWith<$Res>  {
+  factory $RendererRuntimeStateCopyWith(RendererRuntimeState value, $Res Function(RendererRuntimeState) _then) = _$RendererRuntimeStateCopyWithImpl;
+@useResult
+$Res call({
+ CameraViewport cameraViewport, Map<String, RendererState> rendererStates, Map<String, RendererState>? temporaryRendererStates
+});
+
+
+$CameraViewportCopyWith<$Res> get cameraViewport;
+
+}
+/// @nodoc
+class _$RendererRuntimeStateCopyWithImpl<$Res>
+    implements $RendererRuntimeStateCopyWith<$Res> {
+  _$RendererRuntimeStateCopyWithImpl(this._self, this._then);
+
+  final RendererRuntimeState _self;
+  final $Res Function(RendererRuntimeState) _then;
+
+/// Create a copy of RendererRuntimeState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? cameraViewport = null,Object? rendererStates = null,Object? temporaryRendererStates = freezed,}) {
+  return _then(RendererRuntimeState(
+cameraViewport: null == cameraViewport ? _self.cameraViewport : cameraViewport // ignore: cast_nullable_to_non_nullable
+as CameraViewport,rendererStates: null == rendererStates ? _self.rendererStates : rendererStates // ignore: cast_nullable_to_non_nullable
+as Map<String, RendererState>,temporaryRendererStates: freezed == temporaryRendererStates ? _self.temporaryRendererStates : temporaryRendererStates // ignore: cast_nullable_to_non_nullable
+as Map<String, RendererState>?,
+  ));
+}
+/// Create a copy of RendererRuntimeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CameraViewportCopyWith<$Res> get cameraViewport {
+  
+  return $CameraViewportCopyWith<$Res>(_self.cameraViewport, (value) {
+    return _then(_self.copyWith(cameraViewport: value));
+  });
+}
+}
+
+
+
+/// @nodoc
+
+
+class _RendererRuntimeState extends RendererRuntimeState {
+  const _RendererRuntimeState({this.cameraViewport = const CameraViewport.unbaked(),  Map<String, RendererState> rendererStates = const {},  Map<String, RendererState>? temporaryRendererStates = const {}}): _rendererStates = rendererStates,_temporaryRendererStates = temporaryRendererStates,super._();
+  
+
+@override@JsonKey() final  CameraViewport cameraViewport;
+ final  Map<String, RendererState> _rendererStates;
+@override@JsonKey() Map<String, RendererState> get rendererStates {
+  if (_rendererStates is EqualUnmodifiableMapView) return _rendererStates;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_rendererStates);
+}
+
+ final  Map<String, RendererState>? _temporaryRendererStates;
+@override@JsonKey() Map<String, RendererState>? get temporaryRendererStates {
+  final value = _temporaryRendererStates;
+  if (value == null) return null;
+  if (_temporaryRendererStates is EqualUnmodifiableMapView) return _temporaryRendererStates;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(value);
+}
+
+
+/// Create a copy of RendererRuntimeState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RendererRuntimeStateCopyWith<_RendererRuntimeState> get copyWith => __$RendererRuntimeStateCopyWithImpl<_RendererRuntimeState>(this, _$identity);
+
+
+
+
+
+@override
+String toString() {
+    return 'RendererRuntimeState(cameraViewport: $cameraViewport, rendererStates: $rendererStates, temporaryRendererStates: $temporaryRendererStates)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RendererRuntimeStateCopyWith<$Res> implements $RendererRuntimeStateCopyWith<$Res> {
+  factory _$RendererRuntimeStateCopyWith(_RendererRuntimeState value, $Res Function(_RendererRuntimeState) _then) = __$RendererRuntimeStateCopyWithImpl;
+@override @useResult
+$Res call({
+ CameraViewport cameraViewport, Map<String, RendererState> rendererStates, Map<String, RendererState>? temporaryRendererStates
+});
+
+
+@override $CameraViewportCopyWith<$Res> get cameraViewport;
+
+}
+/// @nodoc
+class __$RendererRuntimeStateCopyWithImpl<$Res>
+    implements _$RendererRuntimeStateCopyWith<$Res> {
+  __$RendererRuntimeStateCopyWithImpl(this._self, this._then);
+
+  final _RendererRuntimeState _self;
+  final $Res Function(_RendererRuntimeState) _then;
+
+/// Create a copy of RendererRuntimeState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? cameraViewport = null,Object? rendererStates = null,Object? temporaryRendererStates = freezed,}) {
+  return _then(_RendererRuntimeState(
+cameraViewport: null == cameraViewport ? _self.cameraViewport : cameraViewport // ignore: cast_nullable_to_non_nullable
+as CameraViewport,rendererStates: null == rendererStates ? _self._rendererStates : rendererStates // ignore: cast_nullable_to_non_nullable
+as Map<String, RendererState>,temporaryRendererStates: freezed == temporaryRendererStates ? _self._temporaryRendererStates : temporaryRendererStates // ignore: cast_nullable_to_non_nullable
+as Map<String, RendererState>?,
+  ));
+}
+
+/// Create a copy of RendererRuntimeState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CameraViewportCopyWith<$Res> get cameraViewport {
+  
+  return $CameraViewportCopyWith<$Res>(_self.cameraViewport, (value) {
+    return _then(_self.copyWith(cameraViewport: value));
+  });
+}
+}
+
+/// @nodoc
+mixin _$ToolRuntimeState {
+
+ int? get index; Handler<dynamic> get handler; Handler<Tool>? get temporaryHandler; int? get temporaryIndex; List<Renderer<dynamic>> get foregrounds; Selection<dynamic>? get selection; bool get pinned; List<Renderer<dynamic>>? get temporaryForegrounds; Map<int, Handler<Tool>> get toggleableHandlers; List<Renderer<dynamic>> get networkingForegrounds; Map<int, List<Renderer<dynamic>>> get toggleableForegrounds; MouseCursor get cursor; MouseCursor? get temporaryCursor; TemporaryState get temporaryState; PreferredSizeWidget? get toolbar; PreferredSizeWidget? get temporaryToolbar;
+/// Create a copy of ToolRuntimeState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ToolRuntimeStateCopyWith<ToolRuntimeState> get copyWith => _$ToolRuntimeStateCopyWithImpl<ToolRuntimeState>(this as ToolRuntimeState, _$identity);
+
+
+
+
+
+@override
+String toString() {
+  final _this = this as ToolRuntimeState;
+  return 'ToolRuntimeState(index: ${_this.index}, handler: ${_this.handler}, temporaryHandler: ${_this.temporaryHandler}, temporaryIndex: ${_this.temporaryIndex}, foregrounds: ${_this.foregrounds}, selection: ${_this.selection}, pinned: ${_this.pinned}, temporaryForegrounds: ${_this.temporaryForegrounds}, toggleableHandlers: ${_this.toggleableHandlers}, networkingForegrounds: ${_this.networkingForegrounds}, toggleableForegrounds: ${_this.toggleableForegrounds}, cursor: ${_this.cursor}, temporaryCursor: ${_this.temporaryCursor}, temporaryState: ${_this.temporaryState}, toolbar: ${_this.toolbar}, temporaryToolbar: ${_this.temporaryToolbar})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ToolRuntimeStateCopyWith<$Res>  {
+  factory $ToolRuntimeStateCopyWith(ToolRuntimeState value, $Res Function(ToolRuntimeState) _then) = _$ToolRuntimeStateCopyWithImpl;
+@useResult
+$Res call({
+ int? index, Handler<dynamic> handler, Handler<Tool>? temporaryHandler, int? temporaryIndex, List<Renderer<dynamic>> foregrounds, Selection<dynamic>? selection, bool pinned, List<Renderer<dynamic>>? temporaryForegrounds, Map<int, Handler<Tool>> toggleableHandlers, List<Renderer<dynamic>> networkingForegrounds, Map<int, List<Renderer<dynamic>>> toggleableForegrounds, MouseCursor cursor, MouseCursor? temporaryCursor, TemporaryState temporaryState, PreferredSizeWidget? toolbar, PreferredSizeWidget? temporaryToolbar
+});
+
+
+
+
+}
+/// @nodoc
+class _$ToolRuntimeStateCopyWithImpl<$Res>
+    implements $ToolRuntimeStateCopyWith<$Res> {
+  _$ToolRuntimeStateCopyWithImpl(this._self, this._then);
+
+  final ToolRuntimeState _self;
+  final $Res Function(ToolRuntimeState) _then;
+
+/// Create a copy of ToolRuntimeState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? index = freezed,Object? handler = null,Object? temporaryHandler = freezed,Object? temporaryIndex = freezed,Object? foregrounds = null,Object? selection = freezed,Object? pinned = null,Object? temporaryForegrounds = freezed,Object? toggleableHandlers = null,Object? networkingForegrounds = null,Object? toggleableForegrounds = null,Object? cursor = null,Object? temporaryCursor = freezed,Object? temporaryState = null,Object? toolbar = freezed,Object? temporaryToolbar = freezed,}) {
+  return _then(ToolRuntimeState(
+index: freezed == index ? _self.index : index // ignore: cast_nullable_to_non_nullable
+as int?,handler: null == handler ? _self.handler : handler // ignore: cast_nullable_to_non_nullable
+as Handler<dynamic>,temporaryHandler: freezed == temporaryHandler ? _self.temporaryHandler : temporaryHandler // ignore: cast_nullable_to_non_nullable
+as Handler<Tool>?,temporaryIndex: freezed == temporaryIndex ? _self.temporaryIndex : temporaryIndex // ignore: cast_nullable_to_non_nullable
+as int?,foregrounds: null == foregrounds ? _self.foregrounds : foregrounds // ignore: cast_nullable_to_non_nullable
+as List<Renderer<dynamic>>,selection: freezed == selection ? _self.selection : selection // ignore: cast_nullable_to_non_nullable
+as Selection<dynamic>?,pinned: null == pinned ? _self.pinned : pinned // ignore: cast_nullable_to_non_nullable
+as bool,temporaryForegrounds: freezed == temporaryForegrounds ? _self.temporaryForegrounds : temporaryForegrounds // ignore: cast_nullable_to_non_nullable
+as List<Renderer<dynamic>>?,toggleableHandlers: null == toggleableHandlers ? _self.toggleableHandlers : toggleableHandlers // ignore: cast_nullable_to_non_nullable
+as Map<int, Handler<Tool>>,networkingForegrounds: null == networkingForegrounds ? _self.networkingForegrounds : networkingForegrounds // ignore: cast_nullable_to_non_nullable
+as List<Renderer<dynamic>>,toggleableForegrounds: null == toggleableForegrounds ? _self.toggleableForegrounds : toggleableForegrounds // ignore: cast_nullable_to_non_nullable
+as Map<int, List<Renderer<dynamic>>>,cursor: null == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as MouseCursor,temporaryCursor: freezed == temporaryCursor ? _self.temporaryCursor : temporaryCursor // ignore: cast_nullable_to_non_nullable
+as MouseCursor?,temporaryState: null == temporaryState ? _self.temporaryState : temporaryState // ignore: cast_nullable_to_non_nullable
+as TemporaryState,toolbar: freezed == toolbar ? _self.toolbar : toolbar // ignore: cast_nullable_to_non_nullable
+as PreferredSizeWidget?,temporaryToolbar: freezed == temporaryToolbar ? _self.temporaryToolbar : temporaryToolbar // ignore: cast_nullable_to_non_nullable
+as PreferredSizeWidget?,
+  ));
+}
+
+}
+
+
+
+/// @nodoc
+
+
+class _ToolRuntimeState extends ToolRuntimeState {
+  const _ToolRuntimeState({this.index, required this.handler, this.temporaryHandler, this.temporaryIndex,  List<Renderer<dynamic>> foregrounds = const [], this.selection, this.pinned = false,  List<Renderer<dynamic>>? temporaryForegrounds,  Map<int, Handler<Tool>> toggleableHandlers = const {},  List<Renderer<dynamic>> networkingForegrounds = const [],  Map<int, List<Renderer<dynamic>>> toggleableForegrounds = const {}, this.cursor = MouseCursor.defer, this.temporaryCursor, this.temporaryState = TemporaryState.allowClick, this.toolbar, this.temporaryToolbar}): _foregrounds = foregrounds,_temporaryForegrounds = temporaryForegrounds,_toggleableHandlers = toggleableHandlers,_networkingForegrounds = networkingForegrounds,_toggleableForegrounds = toggleableForegrounds,super._();
+  
+
+@override final  int? index;
+@override final  Handler<dynamic> handler;
+@override final  Handler<Tool>? temporaryHandler;
+@override final  int? temporaryIndex;
+ final  List<Renderer<dynamic>> _foregrounds;
+@override@JsonKey() List<Renderer<dynamic>> get foregrounds {
+  if (_foregrounds is EqualUnmodifiableListView) return _foregrounds;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_foregrounds);
+}
+
+@override final  Selection<dynamic>? selection;
+@override@JsonKey() final  bool pinned;
+ final  List<Renderer<dynamic>>? _temporaryForegrounds;
+@override List<Renderer<dynamic>>? get temporaryForegrounds {
+  final value = _temporaryForegrounds;
+  if (value == null) return null;
+  if (_temporaryForegrounds is EqualUnmodifiableListView) return _temporaryForegrounds;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
+ final  Map<int, Handler<Tool>> _toggleableHandlers;
+@override@JsonKey() Map<int, Handler<Tool>> get toggleableHandlers {
+  if (_toggleableHandlers is EqualUnmodifiableMapView) return _toggleableHandlers;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_toggleableHandlers);
+}
+
+ final  List<Renderer<dynamic>> _networkingForegrounds;
+@override@JsonKey() List<Renderer<dynamic>> get networkingForegrounds {
+  if (_networkingForegrounds is EqualUnmodifiableListView) return _networkingForegrounds;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_networkingForegrounds);
+}
+
+ final  Map<int, List<Renderer<dynamic>>> _toggleableForegrounds;
+@override@JsonKey() Map<int, List<Renderer<dynamic>>> get toggleableForegrounds {
+  if (_toggleableForegrounds is EqualUnmodifiableMapView) return _toggleableForegrounds;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_toggleableForegrounds);
+}
+
+@override@JsonKey() final  MouseCursor cursor;
+@override final  MouseCursor? temporaryCursor;
+@override@JsonKey() final  TemporaryState temporaryState;
+@override final  PreferredSizeWidget? toolbar;
+@override final  PreferredSizeWidget? temporaryToolbar;
+
+/// Create a copy of ToolRuntimeState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ToolRuntimeStateCopyWith<_ToolRuntimeState> get copyWith => __$ToolRuntimeStateCopyWithImpl<_ToolRuntimeState>(this, _$identity);
+
+
+
+
+
+@override
+String toString() {
+    return 'ToolRuntimeState(index: $index, handler: $handler, temporaryHandler: $temporaryHandler, temporaryIndex: $temporaryIndex, foregrounds: $foregrounds, selection: $selection, pinned: $pinned, temporaryForegrounds: $temporaryForegrounds, toggleableHandlers: $toggleableHandlers, networkingForegrounds: $networkingForegrounds, toggleableForegrounds: $toggleableForegrounds, cursor: $cursor, temporaryCursor: $temporaryCursor, temporaryState: $temporaryState, toolbar: $toolbar, temporaryToolbar: $temporaryToolbar)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ToolRuntimeStateCopyWith<$Res> implements $ToolRuntimeStateCopyWith<$Res> {
+  factory _$ToolRuntimeStateCopyWith(_ToolRuntimeState value, $Res Function(_ToolRuntimeState) _then) = __$ToolRuntimeStateCopyWithImpl;
+@override @useResult
+$Res call({
+ int? index, Handler<dynamic> handler, Handler<Tool>? temporaryHandler, int? temporaryIndex, List<Renderer<dynamic>> foregrounds, Selection<dynamic>? selection, bool pinned, List<Renderer<dynamic>>? temporaryForegrounds, Map<int, Handler<Tool>> toggleableHandlers, List<Renderer<dynamic>> networkingForegrounds, Map<int, List<Renderer<dynamic>>> toggleableForegrounds, MouseCursor cursor, MouseCursor? temporaryCursor, TemporaryState temporaryState, PreferredSizeWidget? toolbar, PreferredSizeWidget? temporaryToolbar
+});
+
+
+
+
+}
+/// @nodoc
+class __$ToolRuntimeStateCopyWithImpl<$Res>
+    implements _$ToolRuntimeStateCopyWith<$Res> {
+  __$ToolRuntimeStateCopyWithImpl(this._self, this._then);
+
+  final _ToolRuntimeState _self;
+  final $Res Function(_ToolRuntimeState) _then;
+
+/// Create a copy of ToolRuntimeState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? index = freezed,Object? handler = null,Object? temporaryHandler = freezed,Object? temporaryIndex = freezed,Object? foregrounds = null,Object? selection = freezed,Object? pinned = null,Object? temporaryForegrounds = freezed,Object? toggleableHandlers = null,Object? networkingForegrounds = null,Object? toggleableForegrounds = null,Object? cursor = null,Object? temporaryCursor = freezed,Object? temporaryState = null,Object? toolbar = freezed,Object? temporaryToolbar = freezed,}) {
+  return _then(_ToolRuntimeState(
+index: freezed == index ? _self.index : index // ignore: cast_nullable_to_non_nullable
+as int?,handler: null == handler ? _self.handler : handler // ignore: cast_nullable_to_non_nullable
+as Handler<dynamic>,temporaryHandler: freezed == temporaryHandler ? _self.temporaryHandler : temporaryHandler // ignore: cast_nullable_to_non_nullable
+as Handler<Tool>?,temporaryIndex: freezed == temporaryIndex ? _self.temporaryIndex : temporaryIndex // ignore: cast_nullable_to_non_nullable
+as int?,foregrounds: null == foregrounds ? _self._foregrounds : foregrounds // ignore: cast_nullable_to_non_nullable
+as List<Renderer<dynamic>>,selection: freezed == selection ? _self.selection : selection // ignore: cast_nullable_to_non_nullable
+as Selection<dynamic>?,pinned: null == pinned ? _self.pinned : pinned // ignore: cast_nullable_to_non_nullable
+as bool,temporaryForegrounds: freezed == temporaryForegrounds ? _self._temporaryForegrounds : temporaryForegrounds // ignore: cast_nullable_to_non_nullable
+as List<Renderer<dynamic>>?,toggleableHandlers: null == toggleableHandlers ? _self._toggleableHandlers : toggleableHandlers // ignore: cast_nullable_to_non_nullable
+as Map<int, Handler<Tool>>,networkingForegrounds: null == networkingForegrounds ? _self._networkingForegrounds : networkingForegrounds // ignore: cast_nullable_to_non_nullable
+as List<Renderer<dynamic>>,toggleableForegrounds: null == toggleableForegrounds ? _self._toggleableForegrounds : toggleableForegrounds // ignore: cast_nullable_to_non_nullable
+as Map<int, List<Renderer<dynamic>>>,cursor: null == cursor ? _self.cursor : cursor // ignore: cast_nullable_to_non_nullable
+as MouseCursor,temporaryCursor: freezed == temporaryCursor ? _self.temporaryCursor : temporaryCursor // ignore: cast_nullable_to_non_nullable
+as MouseCursor?,temporaryState: null == temporaryState ? _self.temporaryState : temporaryState // ignore: cast_nullable_to_non_nullable
+as TemporaryState,toolbar: freezed == toolbar ? _self.toolbar : toolbar // ignore: cast_nullable_to_non_nullable
+as PreferredSizeWidget?,temporaryToolbar: freezed == temporaryToolbar ? _self.temporaryToolbar : temporaryToolbar // ignore: cast_nullable_to_non_nullable
+as PreferredSizeWidget?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+mixin _$EditorInputState {
+
+ ui.Offset? get lastPosition; List<int> get pointers; int? get buttons; bool get penDetected; bool get sessionPenOnlyInput; HideState get hideUi;
+/// Create a copy of EditorInputState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EditorInputStateCopyWith<EditorInputState> get copyWith => _$EditorInputStateCopyWithImpl<EditorInputState>(this as EditorInputState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as EditorInputState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EditorInputState&&(identical(other.lastPosition, _this.lastPosition) || other.lastPosition == _this.lastPosition)&&const DeepCollectionEquality().equals(other.pointers, _this.pointers)&&(identical(other.buttons, _this.buttons) || other.buttons == _this.buttons)&&(identical(other.penDetected, _this.penDetected) || other.penDetected == _this.penDetected)&&(identical(other.sessionPenOnlyInput, _this.sessionPenOnlyInput) || other.sessionPenOnlyInput == _this.sessionPenOnlyInput)&&(identical(other.hideUi, _this.hideUi) || other.hideUi == _this.hideUi));
+}
+
+
+@override
+int get hashCode {
+  final _this = this as EditorInputState;
+  return Object.hash(runtimeType,_this.lastPosition,const DeepCollectionEquality().hash(_this.pointers),_this.buttons,_this.penDetected,_this.sessionPenOnlyInput,_this.hideUi);
+}
+
+@override
+String toString() {
+  final _this = this as EditorInputState;
+  return 'EditorInputState(lastPosition: ${_this.lastPosition}, pointers: ${_this.pointers}, buttons: ${_this.buttons}, penDetected: ${_this.penDetected}, sessionPenOnlyInput: ${_this.sessionPenOnlyInput}, hideUi: ${_this.hideUi})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $EditorInputStateCopyWith<$Res>  {
+  factory $EditorInputStateCopyWith(EditorInputState value, $Res Function(EditorInputState) _then) = _$EditorInputStateCopyWithImpl;
+@useResult
+$Res call({
+ ui.Offset? lastPosition, List<int> pointers, int? buttons, bool penDetected, bool sessionPenOnlyInput, HideState hideUi
+});
+
+
+
+
+}
+/// @nodoc
+class _$EditorInputStateCopyWithImpl<$Res>
+    implements $EditorInputStateCopyWith<$Res> {
+  _$EditorInputStateCopyWithImpl(this._self, this._then);
+
+  final EditorInputState _self;
+  final $Res Function(EditorInputState) _then;
+
+/// Create a copy of EditorInputState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? lastPosition = freezed,Object? pointers = null,Object? buttons = freezed,Object? penDetected = null,Object? sessionPenOnlyInput = null,Object? hideUi = null,}) {
+  return _then(EditorInputState(
+lastPosition: freezed == lastPosition ? _self.lastPosition : lastPosition // ignore: cast_nullable_to_non_nullable
+as ui.Offset?,pointers: null == pointers ? _self.pointers : pointers // ignore: cast_nullable_to_non_nullable
+as List<int>,buttons: freezed == buttons ? _self.buttons : buttons // ignore: cast_nullable_to_non_nullable
+as int?,penDetected: null == penDetected ? _self.penDetected : penDetected // ignore: cast_nullable_to_non_nullable
+as bool,sessionPenOnlyInput: null == sessionPenOnlyInput ? _self.sessionPenOnlyInput : sessionPenOnlyInput // ignore: cast_nullable_to_non_nullable
+as bool,hideUi: null == hideUi ? _self.hideUi : hideUi // ignore: cast_nullable_to_non_nullable
+as HideState,
+  ));
+}
+
+}
+
+
+
+/// @nodoc
+
+
+class _EditorInputState implements EditorInputState {
+  const _EditorInputState({this.lastPosition,  List<int> pointers = const [], this.buttons, this.penDetected = false, this.sessionPenOnlyInput = false, this.hideUi = HideState.visible}): _pointers = pointers;
+  
+
+@override final  ui.Offset? lastPosition;
+ final  List<int> _pointers;
+@override@JsonKey() List<int> get pointers {
+  if (_pointers is EqualUnmodifiableListView) return _pointers;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_pointers);
+}
+
+@override final  int? buttons;
+@override@JsonKey() final  bool penDetected;
+@override@JsonKey() final  bool sessionPenOnlyInput;
+@override@JsonKey() final  HideState hideUi;
+
+/// Create a copy of EditorInputState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$EditorInputStateCopyWith<_EditorInputState> get copyWith => __$EditorInputStateCopyWithImpl<_EditorInputState>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _EditorInputState&&(identical(other.lastPosition, lastPosition) || other.lastPosition == lastPosition)&&const DeepCollectionEquality().equals(other.pointers, _pointers)&&(identical(other.buttons, buttons) || other.buttons == buttons)&&(identical(other.penDetected, penDetected) || other.penDetected == penDetected)&&(identical(other.sessionPenOnlyInput, sessionPenOnlyInput) || other.sessionPenOnlyInput == sessionPenOnlyInput)&&(identical(other.hideUi, hideUi) || other.hideUi == hideUi));
+}
+
+
+@override
+int get hashCode {
+    return Object.hash(runtimeType,lastPosition,const DeepCollectionEquality().hash(_pointers),buttons,penDetected,sessionPenOnlyInput,hideUi);
+}
+
+@override
+String toString() {
+    return 'EditorInputState(lastPosition: $lastPosition, pointers: $pointers, buttons: $buttons, penDetected: $penDetected, sessionPenOnlyInput: $sessionPenOnlyInput, hideUi: $hideUi)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$EditorInputStateCopyWith<$Res> implements $EditorInputStateCopyWith<$Res> {
+  factory _$EditorInputStateCopyWith(_EditorInputState value, $Res Function(_EditorInputState) _then) = __$EditorInputStateCopyWithImpl;
+@override @useResult
+$Res call({
+ ui.Offset? lastPosition, List<int> pointers, int? buttons, bool penDetected, bool sessionPenOnlyInput, HideState hideUi
+});
+
+
+
+
+}
+/// @nodoc
+class __$EditorInputStateCopyWithImpl<$Res>
+    implements _$EditorInputStateCopyWith<$Res> {
+  __$EditorInputStateCopyWithImpl(this._self, this._then);
+
+  final _EditorInputState _self;
+  final $Res Function(_EditorInputState) _then;
+
+/// Create a copy of EditorInputState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? lastPosition = freezed,Object? pointers = null,Object? buttons = freezed,Object? penDetected = null,Object? sessionPenOnlyInput = null,Object? hideUi = null,}) {
+  return _then(_EditorInputState(
+lastPosition: freezed == lastPosition ? _self.lastPosition : lastPosition // ignore: cast_nullable_to_non_nullable
+as ui.Offset?,pointers: null == pointers ? _self._pointers : pointers // ignore: cast_nullable_to_non_nullable
+as List<int>,buttons: freezed == buttons ? _self.buttons : buttons // ignore: cast_nullable_to_non_nullable
+as int?,penDetected: null == penDetected ? _self.penDetected : penDetected // ignore: cast_nullable_to_non_nullable
+as bool,sessionPenOnlyInput: null == sessionPenOnlyInput ? _self.sessionPenOnlyInput : sessionPenOnlyInput // ignore: cast_nullable_to_non_nullable
+as bool,hideUi: null == hideUi ? _self.hideUi : hideUi // ignore: cast_nullable_to_non_nullable
+as HideState,
+  ));
+}
+
+
+}
+
+/// @nodoc
+mixin _$DocumentSaveState {
+
+
+/// Create a copy of DocumentSaveState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DocumentSaveStateCopyWith<DocumentSaveState> get copyWith => _$DocumentSaveStateCopyWithImpl<DocumentSaveState>(this as DocumentSaveState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as DocumentSaveState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DocumentSaveState&&(identical(other.isSaveDelayed, _this.isSaveDelayed) || other.isSaveDelayed == _this.isSaveDelayed)&&(identical(other.location, _this.location) || other.location == _this.location)&&(identical(other.embedding, _this.embedding) || other.embedding == _this.embedding)&&(identical(other.fullScreen, _this.fullScreen) || other.fullScreen == _this.fullScreen)&&(identical(other.saved, _this.saved) || other.saved == _this.saved)&&(identical(other.isCreating, _this.isCreating) || other.isCreating == _this.isCreating));
+}
+
+
+@override
+int get hashCode {
+  final _this = this as DocumentSaveState;
+  return Object.hash(runtimeType,_this.isSaveDelayed,_this.location,_this.embedding,_this.fullScreen,_this.saved,_this.isCreating);
+}
+
+@override
+String toString() {
+  final _this = this as DocumentSaveState;
+  return 'DocumentSaveState(isSaveDelayed: ${_this.isSaveDelayed}, location: ${_this.location}, embedding: ${_this.embedding}, fullScreen: ${_this.fullScreen}, saved: ${_this.saved}, isCreating: ${_this.isCreating})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DocumentSaveStateCopyWith<$Res>  {
+  factory $DocumentSaveStateCopyWith(DocumentSaveState value, $Res Function(DocumentSaveState) _then) = _$DocumentSaveStateCopyWithImpl;
+@useResult
+$Res call({
+ bool isSaveDelayed, AssetLocation location, Embedding? embedding, bool fullScreen, SaveState saved, bool isCreating
+});
+
+
+
+
+}
+/// @nodoc
+class _$DocumentSaveStateCopyWithImpl<$Res>
+    implements $DocumentSaveStateCopyWith<$Res> {
+  _$DocumentSaveStateCopyWithImpl(this._self, this._then);
+
+  final DocumentSaveState _self;
+  final $Res Function(DocumentSaveState) _then;
+
+/// Create a copy of DocumentSaveState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? isSaveDelayed = null,Object? location = null,Object? embedding = freezed,Object? fullScreen = null,Object? saved = null,Object? isCreating = null,}) {
+  return _then(DocumentSaveState(
+isSaveDelayed: null == isSaveDelayed ? _self.isSaveDelayed : isSaveDelayed // ignore: cast_nullable_to_non_nullable
+as bool,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as AssetLocation,embedding: freezed == embedding ? _self.embedding : embedding // ignore: cast_nullable_to_non_nullable
+as Embedding?,fullScreen: null == fullScreen ? _self.fullScreen : fullScreen // ignore: cast_nullable_to_non_nullable
+as bool,saved: null == saved ? _self.saved : saved // ignore: cast_nullable_to_non_nullable
+as SaveState,isCreating: null == isCreating ? _self.isCreating : isCreating // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+}
+
+
+
+/// @nodoc
+mixin _$EditorViewState {
+
+
+/// Create a copy of EditorViewState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EditorViewStateCopyWith<EditorViewState> get copyWith => _$EditorViewStateCopyWithImpl<EditorViewState>(this as EditorViewState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as EditorViewState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EditorViewState&&(identical(other.locks, _this.locks) || other.locks == _this.locks)&&(identical(other.areaNavigatorCreate, _this.areaNavigatorCreate) || other.areaNavigatorCreate == _this.areaNavigatorCreate)&&(identical(other.areaNavigatorExact, _this.areaNavigatorExact) || other.areaNavigatorExact == _this.areaNavigatorExact)&&(identical(other.areaNavigatorAsk, _this.areaNavigatorAsk) || other.areaNavigatorAsk == _this.areaNavigatorAsk)&&(identical(other.navigatorEnabled, _this.navigatorEnabled) || other.navigatorEnabled == _this.navigatorEnabled)&&(identical(other.navigatorPage, _this.navigatorPage) || other.navigatorPage == _this.navigatorPage)&&(identical(other.userName, _this.userName) || other.userName == _this.userName));
+}
+
+
+@override
+int get hashCode {
+  final _this = this as EditorViewState;
+  return Object.hash(runtimeType,_this.locks,_this.areaNavigatorCreate,_this.areaNavigatorExact,_this.areaNavigatorAsk,_this.navigatorEnabled,_this.navigatorPage,_this.userName);
+}
+
+@override
+String toString() {
+  final _this = this as EditorViewState;
+  return 'EditorViewState(locks: ${_this.locks}, areaNavigatorCreate: ${_this.areaNavigatorCreate}, areaNavigatorExact: ${_this.areaNavigatorExact}, areaNavigatorAsk: ${_this.areaNavigatorAsk}, navigatorEnabled: ${_this.navigatorEnabled}, navigatorPage: ${_this.navigatorPage}, userName: ${_this.userName})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $EditorViewStateCopyWith<$Res>  {
+  factory $EditorViewStateCopyWith(EditorViewState value, $Res Function(EditorViewState) _then) = _$EditorViewStateCopyWithImpl;
+@useResult
+$Res call({
+ PersistentLockState locks, bool areaNavigatorCreate, bool areaNavigatorExact, bool areaNavigatorAsk, bool navigatorEnabled, NavigatorPage navigatorPage, String userName
+});
+
+
+$PersistentLockStateCopyWith<$Res> get locks;
+
+}
+/// @nodoc
+class _$EditorViewStateCopyWithImpl<$Res>
+    implements $EditorViewStateCopyWith<$Res> {
+  _$EditorViewStateCopyWithImpl(this._self, this._then);
+
+  final EditorViewState _self;
+  final $Res Function(EditorViewState) _then;
+
+/// Create a copy of EditorViewState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? locks = null,Object? areaNavigatorCreate = null,Object? areaNavigatorExact = null,Object? areaNavigatorAsk = null,Object? navigatorEnabled = null,Object? navigatorPage = null,Object? userName = null,}) {
+  return _then(EditorViewState(
+locks: null == locks ? _self.locks : locks // ignore: cast_nullable_to_non_nullable
+as PersistentLockState,areaNavigatorCreate: null == areaNavigatorCreate ? _self.areaNavigatorCreate : areaNavigatorCreate // ignore: cast_nullable_to_non_nullable
+as bool,areaNavigatorExact: null == areaNavigatorExact ? _self.areaNavigatorExact : areaNavigatorExact // ignore: cast_nullable_to_non_nullable
+as bool,areaNavigatorAsk: null == areaNavigatorAsk ? _self.areaNavigatorAsk : areaNavigatorAsk // ignore: cast_nullable_to_non_nullable
+as bool,navigatorEnabled: null == navigatorEnabled ? _self.navigatorEnabled : navigatorEnabled // ignore: cast_nullable_to_non_nullable
+as bool,navigatorPage: null == navigatorPage ? _self.navigatorPage : navigatorPage // ignore: cast_nullable_to_non_nullable
+as NavigatorPage,userName: null == userName ? _self.userName : userName // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+/// Create a copy of EditorViewState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PersistentLockStateCopyWith<$Res> get locks {
+  
+  return $PersistentLockStateCopyWith<$Res>(_self.locks, (value) {
+    return _then(_self.copyWith(locks: value));
+  });
+}
+}
+
+
+
+// dart format on
